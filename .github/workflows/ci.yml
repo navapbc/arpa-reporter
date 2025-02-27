@@ -61,7 +61,7 @@ jobs:
       id-token: write
     uses: ./.github/workflows/aws-auth.yml
     with:
-      aws-region: us-west-2
+      aws-region: us-east-2
     secrets:
       role-to-assume: ${{ secrets.CI_ROLE_ARN }}
       gpg-passphrase: ${{ secrets.TFPLAN_SECRET }}
@@ -82,7 +82,7 @@ jobs:
       server-image-digest: ${{ needs.build.outputs.server-image-digest }}
       website-artifacts-key: ${{ needs.build.outputs.website-artifacts-key }}
       website-artifacts-path: ${{ needs.build.outputs.website-artifacts-path }}
-      aws-region: us-west-2
+      aws-region: us-east-2
       environment-key: staging
       tf-backend-config-file: staging.s3.tfbackend
       tf-var-file: staging.tfvars
