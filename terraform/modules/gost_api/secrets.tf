@@ -43,7 +43,7 @@ data "aws_ssm_parameter" "datadog_api_key" {
 
 data "aws_ssm_parameter" "github_docker_credentials" {
   count = var.enabled ? 1 : 0
-  name = "${var.ssm_path_prefix}/github/docker_credentials"
+  name  = "${var.ssm_path_prefix}/github/docker_credentials"
 }
 
 module "decrypt_secrets_policy" {
