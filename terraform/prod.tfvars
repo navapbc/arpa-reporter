@@ -9,8 +9,8 @@ ssm_deployment_parameters_path_prefix = "/gost/prod/deploy-config"
 datadog_draft            = false
 datadog_monitors_enabled = false
 datadog_monitor_notification_handles = [
- # "thendrickson@usdigitalresponse.org",
- # "asridhar@usdigitalresponse.org",
+  # "thendrickson@usdigitalresponse.org",
+  # "asridhar@usdigitalresponse.org",
 ]
 ses_datadog_events_enabled = false
 default_datadog_environment_variables = {
