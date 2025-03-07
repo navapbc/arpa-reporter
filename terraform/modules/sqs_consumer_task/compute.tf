@@ -26,10 +26,6 @@ resource "aws_ecs_service" "default" {
   ]
 }
 
-data "aws_ssm_parameter" "github_docker_credentials" {
-  name = "${var.ssm_path_prefix}/github/docker_credentials"
-}
-
 module "consumer_container_definition" {
   source  = "cloudposse/ecs-container-definition/aws"
   version = "0.60.0"
@@ -46,7 +42,7 @@ module "consumer_container_definition" {
   container_memory_reservation = var.consumer_container_resources.memory_reservation
 
   repository_credentials = {
-    credentialsParameter = data.aws_ssm_parameter.github_docker_credentials.arn
+    credentialsParameter = "${var.ssm_path_prefix}/github/docker_credentials"
   }
 
   container_depends_on = [{

@@ -25,7 +25,7 @@ module "api_container_definition" {
   readonly_root_filesystem = "false"
 
   repository_credentials = {
-    credentialsParameter = data.aws_ssm_parameter.github_docker_credentials[0].arn
+    credentialsParameter = "${var.ssm_path_prefix}/github/docker_credentials"
   }
 
   container_depends_on = [{
