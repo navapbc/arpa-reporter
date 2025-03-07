@@ -1,4 +1,6 @@
-namespace = "gost-sandbox"
+// unfortunately, nava-gost-sandbox creates some name prefixes that are too long
+// down the pipe, so had to shorten it
+namespace = "nava-gost-sand"
 env       = "sandbox"
 
 // Common
@@ -11,7 +13,7 @@ datadog_monitors_enabled = false
 
 // Website
 website_enabled           = true
-website_domain_name       = "sandbox.grants.usdr.dev"
+website_domain_name       = "sandbox.nava-grants-sandbox.com"
 website_managed_waf_rules = {}
 website_feature_flags = {
   newTerminologyEnabled      = false,

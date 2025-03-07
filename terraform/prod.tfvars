@@ -1,4 +1,4 @@
-namespace = "gost-prod"
+namespace = "nava-gost-prod"
 env       = "production"
 
 // Common
@@ -7,12 +7,12 @@ ssm_deployment_parameters_path_prefix = "/gost/prod/deploy-config"
 
 // Datadog provider
 datadog_draft            = false
-datadog_monitors_enabled = true
+datadog_monitors_enabled = false
 datadog_monitor_notification_handles = [
-  "thendrickson@usdigitalresponse.org",
-  "asridhar@usdigitalresponse.org",
+ # "thendrickson@usdigitalresponse.org",
+ # "asridhar@usdigitalresponse.org",
 ]
-ses_datadog_events_enabled = true
+ses_datadog_events_enabled = false
 default_datadog_environment_variables = {
   DD_LOGS_INJECTION          = true
   DD_PROFILING_ENABLED       = true
@@ -21,7 +21,7 @@ default_datadog_environment_variables = {
 
 // Website
 website_enabled     = true
-website_domain_name = "grants.usdigitalresponse.org"
+website_domain_name = "grants.navapbc.com"
 website_managed_waf_rules = {
   "AnonymousIpList" = {
     managed_rule      = "AWSManagedRulesAnonymousIpList",

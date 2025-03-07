@@ -1,4 +1,4 @@
-namespace = "gost-staging"
+namespace = "nava-gost-stag"
 env       = "staging"
 
 // Common
@@ -7,20 +7,20 @@ ssm_deployment_parameters_path_prefix = "/gost/staging/deploy-config"
 
 // Datadog provider
 datadog_draft                          = true
-datadog_monitors_enabled               = true
+datadog_monitors_enabled               = false
 datadog_monitor_notification_handles   = []
-ses_datadog_events_enabled             = true
-datadog_email_pipeline_enabled         = true
-datadog_email_pipeline_metrics_enabled = true
+ses_datadog_events_enabled             = false
+datadog_email_pipeline_enabled         = false
+datadog_email_pipeline_metrics_enabled = false
 default_datadog_environment_variables = {
-  DD_LOGS_INJECTION          = true
-  DD_PROFILING_ENABLED       = true
-  DD_RUNTIME_METRICS_ENABLED = true
+  DD_LOGS_INJECTION          = false
+  DD_PROFILING_ENABLED       = false
+  DD_RUNTIME_METRICS_ENABLED = false
 }
 
 // Website
 website_enabled     = true
-website_domain_name = "staging.grants.usdr.dev"
+website_domain_name = "staging.grants.navapbc.com"
 website_managed_waf_rules = {
   "AnonymousIpList" = {
     managed_rule      = "AWSManagedRulesAnonymousIpList",
@@ -59,7 +59,7 @@ website_feature_flags = {
 }
 
 // Google Analytics Account ID: 233192355, Property ID: 429910307, Stream ID: 7590745080
-website_google_tag_id = "G-D5DFR7BN0N"
+//website_google_tag_id = "G-D5DFR7BN0N"
 
 // ECS Cluster
 cluster_container_insights_enabled = true
@@ -90,4 +90,4 @@ postgres_ca_cert_identifier        = "rds-ca-rsa2048-g1"
 consume_grants_source_event_bus_name = "default"
 
 // Email
-email_enable_tracking = true
+email_enable_tracking = false
