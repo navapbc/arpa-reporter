@@ -46,7 +46,7 @@ module "decrypt_datadog_api_key_policy" {
         "secretsmanager:GetSecretValue",
       ]
       resources = [
-        data.aws_ssm_parameter.datadog_api_key.arn
+        data.aws_ssm_parameter.datadog_api_key.arn,
         data.aws_ssm_parameter.github_docker_credentials.arn,
       ]
     }
