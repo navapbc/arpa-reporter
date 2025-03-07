@@ -24,6 +24,10 @@ module "api_container_definition" {
   essential                = true
   readonly_root_filesystem = "false"
 
+  repository_credentials = {
+    credentialsParameter = data.aws_ssm_parameter.github_docker_credentials[0].arn
+  }
+
   container_depends_on = [{
     containerName = "datadog"
     condition     = "START"
