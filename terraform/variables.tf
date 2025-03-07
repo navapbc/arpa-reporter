@@ -277,7 +277,7 @@ variable "email_enable_tracking" {
 variable "arpa_exporter_docker_repository" {
   description = "Docker repository that provides arpa-exporter container images."
   type        = string
-  default     = "ghcr.io/usdigitalresponse/usdr-gost-arpa-exporter"
+  default     = "ghcr.io/navapbc/arpa-reporter-arpa-exporter"
 }
 
 variable "arpa_exporter_image_tag" {

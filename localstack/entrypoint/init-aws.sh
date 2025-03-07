@@ -14,7 +14,7 @@ for email in "${VALID_EMAILS[@]}"; do
   echo "Verified ${email} to send with localstack SES"
 done
 
-awslocal s3api create-bucket --bucket arpa-audit-reports --region us-west-2 --create-bucket-configuration '{"LocationConstraint": "us-west-2"}'
+awslocal s3api create-bucket --bucket arpa-audit-reports --region us-east-2 --create-bucket-configuration '{"LocationConstraint": "us-east-2"}'
 
 awslocal sqs create-queue --queue-name grants-ingest-events
 awslocal sqs create-queue --queue-name arpa-queue

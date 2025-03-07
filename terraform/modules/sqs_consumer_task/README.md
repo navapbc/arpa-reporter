@@ -250,7 +250,7 @@ module "my_worker" {
 
 Note that paths are relative to the application working directory specified by the `WORKDIR`
 option in the Dockerfile used to build the Docker image for the consumer container. Assuming
-you are using the `ghcr.io/usdigitalresponse/usdr-gost-api` Docker image for your consumer,
+you are using the `ghcr.io/navapbc/arpa-reporter-api` Docker image for your consumer,
 you can refer to its Dockerfile, located at `docker/production-api.Dockerfile` in this repository,
 for more details.
 

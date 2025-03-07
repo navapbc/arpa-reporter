@@ -112,7 +112,7 @@ variable "ecs_cluster_name" {
 variable "docker_repository" {
   description = "Docker repository that provides API container images."
   type        = string
-  default     = "ghcr.io/usdigitalresponse/usdr-gost-api"
+  default     = "ghcr.io/navapbc/arpa-reporter-api"
 }
 
 variable "docker_tag" {
