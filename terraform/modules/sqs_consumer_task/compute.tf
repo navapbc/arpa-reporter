@@ -215,7 +215,6 @@ module "decrypt_github_credentials_policy" {
   }
 }
 
-
 resource "aws_iam_role_policy" "execution" {
   for_each = {
     decrypt-datadog-api-key = module.decrypt_datadog_api_key_policy.json

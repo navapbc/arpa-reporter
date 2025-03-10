@@ -16,9 +16,6 @@ locals {
 data "aws_ssm_parameter" "datadog_api_key" {
   name = "${var.ssm_path_prefix}/datadog/api_key"
 }
-data "aws_ssm_parameter" "github_docker_credentials" {
-  name = "${var.ssm_path_prefix}/github/docker_credentials"
-}
 
 module "decrypt_datadog_api_key_policy" {
   source  = "cloudposse/iam-policy/aws"
@@ -34,7 +31,6 @@ module "decrypt_datadog_api_key_policy" {
       resources = [
         data.aws_ssm_parameter.datadog_api_key.arn,
         data.aws_kms_key.ssm.arn,
-        data.aws_ssm_parameter.github_docker_credentials.arn,
       ]
     }
     GetSecretParameters = {
@@ -45,7 +41,6 @@ module "decrypt_datadog_api_key_policy" {
       ]
       resources = [
         data.aws_ssm_parameter.datadog_api_key.arn,
-        data.aws_ssm_parameter.github_docker_credentials.arn
       ]
     }
   }

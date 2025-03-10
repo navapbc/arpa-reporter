@@ -158,10 +158,35 @@ resource "aws_iam_role" "execution" {
   })
 }
 
+data "aws_secretsmanager_secret" "github_docker_credentials" {
+  name = "${var.ssm_path_prefix}/github/docker_credentials"
+}
+
+module "decrypt_github_credentials_policy" {
+  source  = "cloudposse/iam-policy/aws"
+  version = "1.0.1"
+  context = module.this.context
+
+  name = "decrypt-github-credentials"
+
+  iam_policy_statements = {
+    GetSecretValue = {
+      effect = "Allow"
+      actions = [
+        "secretsmanager:GetSecretValue",
+      ]
+      resources = [
+        data.aws_secretsmanager_secret.github_docker_credentials.arn,
+      ]
+    }
+  }
+}
+
 resource "aws_iam_role_policy" "execution" {
   for_each = !var.enabled ? {} : {
-    decrypt-secrets = module.decrypt_secrets_policy.json
-    write-api-logs  = module.write_api_logs_policy.json
+    decrypt-secrets      = module.decrypt_secrets_policy.json
+    write-api-logs       = module.write_api_logs_policy.json
+    decrypt-github-creds = module.decrypt_github_credentials_policy.json
   }
 
   name   = each.key

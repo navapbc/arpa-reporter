@@ -41,11 +41,6 @@ data "aws_ssm_parameter" "datadog_api_key" {
   name = "${var.ssm_path_prefix}/datadog/api_key"
 }
 
-data "aws_ssm_parameter" "github_docker_credentials" {
-  count = var.enabled ? 1 : 0
-  name  = "${var.ssm_path_prefix}/github/docker_credentials"
-}
-
 module "decrypt_secrets_policy" {
   source  = "cloudposse/iam-policy/aws"
   version = "2.0.1"
@@ -77,7 +72,6 @@ module "decrypt_secrets_policy" {
             join("", data.aws_ssm_parameter.datadog_api_key[*].arn),
             join("", aws_ssm_parameter.postgres_connection_string[*].arn),
             join("", aws_ssm_parameter.cookie_secret[*].arn),
-            join("", data.aws_ssm_parameter.github_docker_credentials[*].arn),
           ])
         }
       ]
