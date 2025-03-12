@@ -59,8 +59,8 @@ locals {
   arpa_exporter_enabled    = can(coalesce(var.arpa_exporter_image_tag))
   migration_email_env_vars = {
     LIMIT_EMAILS_FOR_MIGRATION = var.limit_emails_for_migration ? "true" : "false"
-    ALLOWED_EMAIL_USER_IDS     = join(var.allowed_email_user_ids, ",")
-    ALLOWED_EMAIL_TENANT_IDS   = join(var.allowed_email_tenant_ids, ",")
+    ALLOWED_EMAIL_USER_IDS     = join(",", var.allowed_email_user_ids)
+    ALLOWED_EMAIL_TENANT_IDS   = join(",", var.allowed_email_tenant_ids)
   }
 }
 
