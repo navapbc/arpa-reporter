@@ -31,6 +31,28 @@ const GENERIC_FROM_NAME = 'USDR Grants';
 const GRANT_FINDER_EMAIL_FROM_NAME = 'USDR Federal Grant Finder';
 const ARPA_EMAIL_FROM_NAME = 'USDR ARPA Reporter';
 
+/**
+ * For the USDR -> Nava migration, we do not want to inadvertently send
+ * duplicate emails (one from the USDR instance, one from the Nava instance)
+ * to partners.
+ * @param {object} user
+ * @returns bool
+ */
+function shouldSendEmailToUser(user) {
+    const shouldLimitEmailSending = process.env.LIMIT_EMAILS_FOR_MIGRATION === 'true';
+    if (!shouldLimitEmailSending) {
+        return true;
+    }
+
+    const rawAllowedUserIds = process.env.ALLOWED_EMAIL_USER_IDS || '';
+    const rawAllowedTenantIds = process.env.ALLOWED_EMAIL_TENANT_IDS || '';
+    const allowedUserIds = rawAllowedUserIds.split(',');
+    const allowedTenantIds = rawAllowedTenantIds.split(',');
+
+    return allowedUserIds.includes(user.id.toString())
+        || allowedTenantIds.includes(user.tenant_id.toString());
+}
+
 function getUserRoleTag(user) {
     if (isUSDRSuperAdmin(user)) {
         return 'usdr_super_admin';
@@ -66,6 +88,11 @@ async function deliverEmail({
             `organization_id=${recipient.tenant_id}`,
             `team_id=${recipient.agency_id}`,
         ];
+
+        if (!shouldSendEmailToUser(recipient)) {
+            log.info({ toAddress }, 'would have sent email, but toAddress not on an allowlist');
+            return Promise.resolve('would have sent email, but toAddress not on an allowlist');
+        }
     }
 
     return emailService.getTransport().sendEmail({
@@ -597,4 +624,5 @@ module.exports = {
     buildDigestBody,
     sendAsyncReportEmail,
     ASYNC_REPORT_TYPES,
+    shouldSendEmailToUser,
 };
