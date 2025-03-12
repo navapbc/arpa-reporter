@@ -237,6 +237,42 @@ describe('Email sender', () => {
         sandbox.restore();
     });
 
+    context('email migration allow-list', () => {
+        beforeEach(() => {
+            process.env.LIMIT_EMAILS_FOR_MIGRATION = 'true';
+        });
+        afterEach(() => {
+            delete process.env.ALLOWED_EMAIL_USER_IDS;
+            delete process.env.ALLOWED_EMAIL_TENANT_IDS;
+            delete process.env.LIMIT_EMAILS_FOR_MIGRATION;
+        });
+
+        it('rejects sending to an email not on any list', () => {
+            const user = {
+                id: 1234,
+                tenant_id: 9876,
+            };
+            expect(email.shouldSendEmailToUser(user)).to.be.false;
+        });
+
+        it('allows sending to an email whose user id is on the allow list', () => {
+            process.env.ALLOWED_EMAIL_USER_IDS = '1,2,2345,3,4,5';
+            const user = {
+                id: 2345,
+                tenant_id: 8765,
+            };
+            expect(email.shouldSendEmailToUser(user)).to.be.true;
+        });
+        it('allows sending to an email whose tentant_id is on the allow list', () => {
+            process.env.ALLOWED_EMAIL_TENANT_IDS = '1,2,7654,3,4,5';
+            const user = {
+                id: 3456,
+                tenant_id: 7654,
+            };
+            expect(email.shouldSendEmailToUser(user)).to.be.true;
+        });
+    });
+
     context('send passcode email', () => {
         it('calls the transport function with appropriate parameters', async () => {
             const sendFake = sinon.fake.returns('foo');

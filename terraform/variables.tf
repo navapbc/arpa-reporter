@@ -286,3 +286,17 @@ variable "arpa_exporter_image_tag" {
   nullable    = true
   default     = null
 }
+
+variable "limit_emails_for_migration" {
+  type    = bool
+  default = false
+}
+
+variable "allowed_email_user_ids" {
+  type    = list(string)
+  default = []
+}
+variable "allowed_email_tenant_ids" {
+  type    = list(string)
+  default = []
+}

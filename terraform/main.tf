@@ -57,6 +57,11 @@ locals {
   api_domain_name          = coalesce(var.api_domain_name, "api.${var.website_domain_name}")
   unified_service_tags     = { service = "gost", env = var.env, version = var.version_identifier }
   arpa_exporter_enabled    = can(coalesce(var.arpa_exporter_image_tag))
+  migration_email_env_vars = {
+    LIMIT_EMAILS_FOR_MIGRATION = var.limit_emails_for_migration ? "true" : "false"
+    ALLOWED_EMAIL_USER_IDS     = join(var.allowed_email_user_ids, ",")
+    ALLOWED_EMAIL_TENANT_IDS   = join(var.allowed_email_tenant_ids, ",")
+  }
 }
 
 data "aws_ssm_parameter" "public_dns_zone_id" {
@@ -208,7 +213,7 @@ module "api" {
     var.default_datadog_environment_variables,
     var.api_datadog_environment_variables,
   )
-  api_container_environment = merge(var.api_container_environment, {
+  api_container_environment = merge(var.api_container_environment, migration_email_env_vars, {
     ARPA_AUDIT_REPORT_SQS_QUEUE_URL    = module.arpa_audit_report.sqs_queue_url
     ARPA_TREASURY_REPORT_SQS_QUEUE_URL = module.arpa_treasury_report.sqs_queue_url
   })
@@ -255,6 +260,7 @@ module "consume_grants" {
     var.default_datadog_environment_variables,
     var.consume_grants_datadog_environment_variables,
   )
+  consumer_container_environment = local.migration_email_env_vars
 
   # Messaging
   grants_ingest_event_bus_name = var.consume_grants_source_event_bus_name
@@ -298,7 +304,7 @@ module "arpa_audit_report" {
   unified_service_tags  = local.unified_service_tags
   stop_timeout_seconds  = 120
   consumer_task_command = ["node", "./src/scripts/arpaAuditReport.js"]
-  consumer_container_environment = {
+  consumer_container_environment = merge({
     API_DOMAIN                    = "https://${local.api_domain_name}"
     AUDIT_REPORT_BUCKET           = module.api.arpa_audit_reports_bucket_id
     DATA_DIR                      = "/var/data"
@@ -308,7 +314,7 @@ module "arpa_audit_report" {
     NOTIFICATIONS_EMAIL           = "grants-notifications@${var.website_domain_name}"
     SES_CONFIGURATION_SET_DEFAULT = aws_sesv2_configuration_set.default.configuration_set_name
     WEBSITE_DOMAIN                = "https://${var.website_domain_name}"
-  }
+  }, local.migration_email_env_vars)
   datadog_environment_variables = var.default_datadog_environment_variables
   consumer_task_efs_volume_mounts = [{
     name            = "data"
@@ -385,7 +391,7 @@ module "arpa_treasury_report" {
   unified_service_tags  = local.unified_service_tags
   stop_timeout_seconds  = 120
   consumer_task_command = ["node", "./src/scripts/arpaTreasuryReport.js"]
-  consumer_container_environment = {
+  consumer_container_environment = merge({
     API_DOMAIN                    = "https://${local.api_domain_name}"
     AUDIT_REPORT_BUCKET           = module.api.arpa_audit_reports_bucket_id
     DATA_DIR                      = "/var/data"
@@ -395,7 +401,7 @@ module "arpa_treasury_report" {
     NOTIFICATIONS_EMAIL           = "grants-notifications@${var.website_domain_name}"
     SES_CONFIGURATION_SET_DEFAULT = aws_sesv2_configuration_set.default.configuration_set_name
     WEBSITE_DOMAIN                = "https://${var.website_domain_name}"
-  }
+  }, local.migration_email_env_vars)
   datadog_environment_variables = var.default_datadog_environment_variables
   consumer_task_efs_volume_mounts = [{
     name            = "data"
@@ -473,7 +479,7 @@ module "arpa_exporter" {
   docker_tag           = var.arpa_exporter_image_tag
   unified_service_tags = local.unified_service_tags
   stop_timeout_seconds = 120 # 2 minutes, in seconds
-  consumer_container_environment = {
+  consumer_container_environment = merge({
     API_DOMAIN                    = "https://${local.api_domain_name}"
     ARPA_DATA_EXPORT_BUCKET       = module.api.arpa_audit_reports_bucket_id
     DATA_DIR                      = "/var/data"
@@ -481,7 +487,7 @@ module "arpa_exporter" {
     NOTIFICATIONS_EMAIL           = "grants-notifications@${var.website_domain_name}"
     SES_CONFIGURATION_SET_DEFAULT = aws_sesv2_configuration_set.default.configuration_set_name
     WEBSITE_DOMAIN                = "https://${var.website_domain_name}"
-  }
+  }, local.migration_email_env_vars)
   datadog_environment_variables = var.default_datadog_environment_variables
   consumer_task_efs_volume_mounts = [{
     name            = "data"
