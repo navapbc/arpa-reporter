@@ -213,7 +213,7 @@ module "api" {
     var.default_datadog_environment_variables,
     var.api_datadog_environment_variables,
   )
-  api_container_environment = merge(var.api_container_environment, migration_email_env_vars, {
+  api_container_environment = merge(var.api_container_environment, local.migration_email_env_vars, {
     ARPA_AUDIT_REPORT_SQS_QUEUE_URL    = module.arpa_audit_report.sqs_queue_url
     ARPA_TREASURY_REPORT_SQS_QUEUE_URL = module.arpa_treasury_report.sqs_queue_url
   })
