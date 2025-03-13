@@ -116,5 +116,7 @@ allowed_email_user_ids = [
   "7601", #gf-admin+sarasota@navapbc.com
 ]
 allowed_email_tenant_ids = [
-  "1" # Nava Tenant
+  "1", # Nava Tenant
+  "5", # Rhode Island
+  "8", # Ohio
 ]
