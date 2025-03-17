@@ -7,6 +7,7 @@ ssm_deployment_parameters_path_prefix = "/gost/staging/deploy-config"
 
 // Datadog provider
 datadog_draft                          = true
+datadog_api_url                        = "https://api.us5.datadoghq.com/"
 datadog_monitors_enabled               = false
 datadog_monitor_notification_handles   = []
 ses_datadog_events_enabled             = false

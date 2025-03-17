@@ -48,6 +48,12 @@ variable "datadog_draft" {
   default     = true
 }
 
+variable "datadog_api_url" {
+  description = "Which Datadog API endpoint to use"
+  type        = string
+  default     = "https://api.datadoghq.com"
+}
+
 variable "ses_datadog_events_enabled" {
   description = "Whether to send email events to Datadog in order to collect email metrics."
   type        = bool
