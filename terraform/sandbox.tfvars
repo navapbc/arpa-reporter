@@ -9,6 +9,7 @@ ssm_deployment_parameters_path_prefix = "/gost/sandbox/deploy-config"
 
 // Datadog provider
 datadog_draft            = true
+datadog_api_url          = "https://api.us5.datadoghq.com/"
 datadog_monitors_enabled = false
 
 // Website

@@ -75,6 +75,7 @@ jobs:
             *.amazonaws.com:443
             actions-results-receiver-production.githubapp.com:443
             api.datadoghq.com:443
+            api.us5.datadoghq.com:443
             checkpoint-api.hashicorp.com:443
             github.com:443
             objects.githubusercontent.com:443
