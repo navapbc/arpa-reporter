@@ -56,6 +56,9 @@ locals {
   permissions_boundary_arn = "arn:aws:iam::${data.aws_caller_identity.current.account_id}:policy/${var.permissions_boundary_policy_name}"
   api_domain_name          = coalesce(var.api_domain_name, "api.${var.website_domain_name}")
   unified_service_tags     = { service = "gost", env = var.env, version = var.version_identifier }
+  migration_email_env_vars = {
+    LIMIT_EMAILS_FOR_MIGRATION = var.limit_emails_for_migration ? "true" : "false"
+  }
 }
 
 data "aws_ssm_parameter" "public_dns_zone_id" {
