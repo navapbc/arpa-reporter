@@ -56,12 +56,6 @@ locals {
   permissions_boundary_arn = "arn:aws:iam::${data.aws_caller_identity.current.account_id}:policy/${var.permissions_boundary_policy_name}"
   api_domain_name          = coalesce(var.api_domain_name, "api.${var.website_domain_name}")
   unified_service_tags     = { service = "gost", env = var.env, version = var.version_identifier }
-  arpa_exporter_enabled    = can(coalesce(var.arpa_exporter_image_tag))
-  migration_email_env_vars = {
-    LIMIT_EMAILS_FOR_MIGRATION = var.limit_emails_for_migration ? "true" : "false"
-    ALLOWED_EMAIL_USER_IDS     = join(",", var.allowed_email_user_ids)
-    ALLOWED_EMAIL_TENANT_IDS   = join(",", var.allowed_email_tenant_ids)
-  }
 }
 
 data "aws_ssm_parameter" "public_dns_zone_id" {
@@ -146,7 +140,6 @@ module "arpa_treasury_report_security_group" {
 }
 
 module "arpa_exporter_security_group" {
-  count   = local.arpa_exporter_enabled ? 1 : 0
   source  = "cloudposse/security-group/aws"
   version = "2.2.0"
 
@@ -194,6 +187,7 @@ module "api" {
     module.consume_grants_to_postgres_security_group.id,
     module.arpa_audit_report_security_group.id,
     module.arpa_treasury_report_security_group.id,
+    module.arpa_exporter_security_group.id
   ]
 
   # Cluster
@@ -213,9 +207,10 @@ module "api" {
     var.default_datadog_environment_variables,
     var.api_datadog_environment_variables,
   )
-  api_container_environment = merge(var.api_container_environment, local.migration_email_env_vars, {
-    ARPA_AUDIT_REPORT_SQS_QUEUE_URL    = module.arpa_audit_report.sqs_queue_url
-    ARPA_TREASURY_REPORT_SQS_QUEUE_URL = module.arpa_treasury_report.sqs_queue_url
+  api_container_environment = merge(var.api_container_environment, {
+    ARPA_AUDIT_REPORT_SQS_QUEUE_URL     = module.arpa_audit_report.sqs_queue_url
+    ARPA_TREASURY_REPORT_SQS_QUEUE_URL  = module.arpa_treasury_report.sqs_queue_url
+    ARPA_FULL_FILE_EXPORT_SQS_QUEUE_URL = module.arpa_exporter.sqs_queue_url
   })
 
   # DNS
@@ -240,6 +235,9 @@ module "api" {
   # Email
   notifications_email_address   = "grants-notifications@${var.website_domain_name}"
   ses_configuration_set_default = aws_sesv2_configuration_set.default.configuration_set_name
+
+  # Migration
+  data_migration_bucket_names = var.data_migration_destination_bucket_names
 }
 
 module "consume_grants" {
@@ -282,9 +280,20 @@ data "aws_iam_policy_document" "arpa_audit_report_rw_reports_bucket" {
     sid = "ReadWriteBucketObjects"
     actions = [
       "s3:GetObject",
+      "s3:HeadObject",
       "s3:PutObject",
     ]
     resources = ["${module.api.arpa_audit_reports_bucket_arn}/*"]
+  }
+}
+
+data "aws_iam_policy_document" "arpa_audit_report_list_bucket" {
+  statement {
+    sid = "ListBucketObjects"
+    actions = [
+      "s3:ListBucket",
+    ]
+    resources = [module.api.arpa_audit_reports_bucket_arn]
   }
 }
 
@@ -463,7 +472,6 @@ resource "aws_iam_role_policy" "api_task-publish_to_arpa_treasury_report_queue" 
 }
 
 module "arpa_exporter" {
-  count                    = local.arpa_exporter_enabled ? 1 : 0
   source                   = "./modules/sqs_consumer_task"
   namespace                = "${var.namespace}-arpa_exporter"
   permissions_boundary_arn = local.permissions_boundary_arn
@@ -471,7 +479,7 @@ module "arpa_exporter" {
 
   # Networking
   subnet_ids         = local.private_subnet_ids
-  security_group_ids = module.arpa_exporter_security_group[*].id
+  security_group_ids = [module.arpa_exporter_security_group.id]
 
   # Task configuration
   ecs_cluster_name     = join("", aws_ecs_cluster.default[*].name)
@@ -482,7 +490,7 @@ module "arpa_exporter" {
   consumer_container_environment = merge({
     API_DOMAIN                    = "https://${local.api_domain_name}"
     ARPA_DATA_EXPORT_BUCKET       = module.api.arpa_audit_reports_bucket_id
-    DATA_DIR                      = "/var/data"
+    DATA_DIR                      = "/var/data/uploads"
     LOG_LEVEL                     = "INFO"
     NOTIFICATIONS_EMAIL           = "grants-notifications@${var.website_domain_name}"
     SES_CONFIGURATION_SET_DEFAULT = aws_sesv2_configuration_set.default.configuration_set_name
@@ -497,8 +505,9 @@ module "arpa_exporter" {
     access_point_id = module.api.efs_data_volume_access_point_id
   }]
   additional_task_role_json_policies = {
-    rw-audit-reports-bucket = data.aws_iam_policy_document.arpa_audit_report_rw_reports_bucket.json
-    send-emails             = module.api.send_emails_policy_json
+    list-audit-reports-bucket = data.aws_iam_policy_document.arpa_audit_report_list_bucket.json
+    rw-audit-reports-bucket   = data.aws_iam_policy_document.arpa_audit_report_rw_reports_bucket.json
+    send-emails               = module.api.send_emails_policy_json
   }
 
   # Task resource configuration
@@ -526,6 +535,20 @@ module "arpa_exporter" {
 
   # Postgres
   postgres_enabled = false
+}
+
+data "aws_iam_policy_document" "publish_to_arpa_exporter_queue" {
+  statement {
+    sid       = "AllowPublishToQueue"
+    actions   = ["sqs:SendMessage"]
+    resources = [module.arpa_exporter.sqs_queue_arn]
+  }
+}
+
+resource "aws_iam_role_policy" "api_task-publish_to_arpa_exporter_queue" {
+  name_prefix = "send-arpa-audit-report-requests"
+  role        = module.api.ecs_task_role_name
+  policy      = data.aws_iam_policy_document.publish_to_arpa_exporter_queue.json
 }
 
 module "postgres" {

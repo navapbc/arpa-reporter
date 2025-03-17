@@ -7,6 +7,7 @@ import moto.ses
 import moto.ses.models
 import pytest
 
+os.environ.setdefault("DD_TRACE_ENABLED", "false")
 os.environ.setdefault("TASK_QUEUE_URL", "https://example.com/queue")
 os.environ.setdefault("TASK_QUEUE_RECEIVE_TIMEOUT", "1")
 os.environ.setdefault(
@@ -16,6 +17,8 @@ os.environ.setdefault(
 os.environ.setdefault(
     "NOTIFICATIONS_EMAIL", "grants-notifications@usdigitalresponse.org"
 )
+os.environ.setdefault("API_DOMAIN", "https://api.example.org")
+os.environ.setdefault("SES_CONFIGURATION_SET_DEFAULT", "test-ses-configuration-set")
 
 # Configure mock AWS SDK and fixtures
 AWS_REGION = "us-west-2"
