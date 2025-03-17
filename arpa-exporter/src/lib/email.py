@@ -23,27 +23,38 @@ from __future__ import annotations
 
 import os
 import typing
-import urllib
 
 import chevron
+from ddtrace import tracer
 
 if typing.TYPE_CHECKING:  # pragma: nocover
     from mypy_boto3_ses import SESClient
+    from mypy_boto3_ses.type_defs import SendEmailRequestTypeDef
 
 CHARSET = "UTF-8"
 TEMPLATES_DIR = os.path.abspath("src/static/email_templates")
+DEFAULT_CONFIGURATION_SET_NAME = os.getenv("SES_CONFIGURATION_SET_DEFAULT")
 NOTIFICATIONS_EMAIL = os.environ["NOTIFICATIONS_EMAIL"]
+NOTIFICATIONS_EMAIL_DISPLAY_NAME = os.getenv(
+    "NOTIFICATIONS_EMAIL_DISPLAY_NAME", "USDR ARPA Reporter"
+)
+NOTIFICATIONS_EMAIL_SENDER = (
+    f"{NOTIFICATIONS_EMAIL_DISPLAY_NAME} <{NOTIFICATIONS_EMAIL}>"
+)
 
 
 def generate_email(
-    download_url: str,
+    archive_download_url: str,
+    metadata_download_url: str,
 ) -> typing.Tuple[str, str, str]:
     """Generates content to send for a notification email, informing the recipient
     that a zip file is ready to download.
 
     Args:
-        download_url: The URL where the downloadable zip file is hosted.
+        archive_download_url: The URL where the downloadable zip file is hosted.
             This should generally be a presigned S3 object URL.
+        metadata_download_url: The URL where a downloadable file providing a manifest
+            of the contents of the file available at ``archive_download_url``
 
     Returns:
         A 3-tuple containing (email_html, email_plaintext, subject), where:
@@ -54,7 +65,13 @@ def generate_email(
     """
     # Level 3:
     with open(os.path.join(TEMPLATES_DIR, "messages", "full_file_export.html")) as tpl:
-        message_html = chevron.render(tpl, {"url": urllib.parse.quote(download_url)})
+        message_html = chevron.render(
+            tpl,
+            {
+                "zip_url": archive_download_url,
+                "csv_url": metadata_download_url,
+            },
+        )
 
     # Level 2:
     with open(os.path.join(TEMPLATES_DIR, "formatted_body.html")) as tpl:
@@ -76,10 +93,71 @@ def generate_email(
 
     # Alternate plaintext content
     with open(os.path.join(TEMPLATES_DIR, "messages", "full_file_export.txt")) as tpl:
-        email_plaintext = chevron.render(tpl, {"url": download_url})
+        email_plaintext = chevron.render(
+            tpl,
+            {
+                "zip_url": archive_download_url,
+                "csv_url": metadata_download_url,
+            },
+        )
 
     subject = "USDR Full File Export"
     return email_html, email_plaintext, subject
+
+
+def tag_ses_message(
+    message: SendEmailRequestTypeDef,
+    notification_type: str,
+    **extra: typing.Any,
+) -> SendEmailRequestTypeDef:
+    """Adds/updates the "Tags" param on configuration for an outgoing SES message
+    with the (gost-standard) ``notification_type`` tag and any given ``extra``
+    key/value pairs.
+
+    The following tags are conditionally added for observability:
+    - ``dd_trace_id`` and ``dd_span_id`` are added if a trace is active at call-time
+    - Universal service monitoring tags ``service``, ``env``, and ``version``
+        from ``DD_SERVICE``, ``DD_ENV``, and ``DD_VERSION`` environment variables,
+        respectively, as long as the corresponding env var is defined.
+
+    Notes:
+        - When a tag that is automatically added by this function has the same name
+            as a tag provided as a keyword argument in ``**extra``,
+            the value provided for the keyword argument takes precedence.
+        - The given ``message`` dict is both updated in-place and returned
+            by this function.
+
+    Args:
+        message: Configuration parameters for calling ``SESClient.send_email()``.
+        notification_type: The name of this email notification, i.e. which disambiguates
+            email events for Full-File Export emails from others sent on behalf
+            of the gost service.
+        **extra: Additional key/value pairs that represent the name and value of a tag.
+            Values can be any type but will be cast to ``str`` when used as a tag value.
+
+    Returns:
+        The config dict of parameters provided in the ``message`` argument,
+            updated with new tag definitions.
+    """
+    tags: dict[str, typing.Any] = {"notification_type": notification_type}
+    if span := tracer.current_span():
+        tags.update(dd_trace_id=span.trace_id, dd_span_id=span.span_id)
+    tags.update(
+        **{
+            k: v
+            for k, v in {
+                "service": os.getenv("DD_SERVICE"),
+                "env": os.getenv("DD_ENV"),
+                "version": os.getenv("DD_VERSION"),
+            }.items()
+            if v is not None
+        }
+    )
+    tags.update(**extra)
+    ses_tags = list(message.get("Tags", []))
+    ses_tags += [{"Name": k, "Value": str(v)} for k, v in tags.items()]
+    message["Tags"] = ses_tags
+    return message
 
 
 def send_email(
@@ -88,6 +166,7 @@ def send_email(
     email_html: str,
     email_text: str,
     subject: str,
+    additional_tags: typing.Optional[dict[str, typing.Any]] = None,
 ) -> str:
     """Sends an email to a single recipient via SES.
 
@@ -98,14 +177,15 @@ def send_email(
         email_text: Alternative plaintext content generated for the email body
             (for compatibility with recipient email clients that do not support HTML).
         subject: Subject line for the outgoing email.
+        additional_tags: Key/value pairs to add as tags on the outgoing SES email.
 
     Returns:
         The SES message ID generated for the outgoing email.
     """
-    response = email_client.send_email(
-        Source=NOTIFICATIONS_EMAIL,
-        Destination={"ToAddresses": [dest_email]},
-        Message={
+    message: SendEmailRequestTypeDef = {
+        "Source": NOTIFICATIONS_EMAIL_SENDER,
+        "Destination": {"ToAddresses": [dest_email]},
+        "Message": {
             "Subject": {
                 "Charset": CHARSET,
                 "Data": subject,
@@ -121,6 +201,13 @@ def send_email(
                 },
             },
         },
+    }
+
+    if DEFAULT_CONFIGURATION_SET_NAME:
+        message["ConfigurationSetName"] = DEFAULT_CONFIGURATION_SET_NAME
+
+    response = email_client.send_email(
+        **tag_ses_message(message, "full_file_export", **additional_tags or {})
     )
     return response["MessageId"]
 
@@ -139,7 +226,7 @@ def _main():  # pragma: nocover
     from src.lib.logging import get_logger
 
     parser = argparse.ArgumentParser(
-        prog=f"python -m {__loader__.name}",
+        prog=f"python -m {__loader__.name}",  # type: ignore[name-defined]
         description="CLI tool for debugging email content generation.",
     )
     parser.add_argument(
@@ -150,10 +237,14 @@ def _main():  # pragma: nocover
         default=False,
     )
     parser.add_argument(
-        "-u",
-        "--url",
-        help="URL for the downloadable S3 object to include in generated email content (default: %(default)s)",
-        default="https://s3.example.com/fake-bucket/not-a-real-key.zip",
+        "--zip-url",
+        help="URL for the zip file download link to include in generated email content (default: %(default)s)",
+        default="https://example.com/path/to/archive.zip",
+    )
+    parser.add_argument(
+        "--csv-url",
+        help="URL for the csv file download link to include in generated email content (default: %(default)s)",
+        default="https://example.com/path/to/metadata.csv",
     )
     parser.add_argument(
         "--host",
@@ -190,7 +281,7 @@ def _main():  # pragma: nocover
         log_fn = get_logger().exception
 
     try:
-        html, plaintext, subject = generate_email(args.url)
+        html, plaintext, subject = generate_email(args.zip_url, args.csv_url)
     except:  # noqa: E722
         log_fn("Error generating email")
         return 1

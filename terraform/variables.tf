@@ -300,3 +300,10 @@ variable "allowed_email_tenant_ids" {
   type    = list(string)
   default = []
 }
+
+# Data migration
+variable "data_migration_destination_bucket_names" {
+  description = "List of S3 bucket names used for data storage during a data migration."
+  type        = list(string)
+  default     = []
+}

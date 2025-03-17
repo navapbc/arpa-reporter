@@ -3,13 +3,10 @@ import io
 import json
 import os
 import tempfile
-import urllib
 import zipfile
 import zlib
 from unittest import mock
 
-import botocore.client
-import botocore.exceptions
 import pydantic
 import pytest
 
@@ -37,12 +34,12 @@ class TestBuildZip:
             # Open the zip-file and make sure it has the correct files
             with zipfile.ZipFile(tmp, "r") as archive:
                 assert set(archive.namelist()) == set(
-                    _.directory_location for _ in sample_metadata_1_UploadInfo
+                    _.path_in_zip for _ in sample_metadata_1_UploadInfo
                 )
 
                 # Compare checksums to ensure sources and destinations were mapped correctly
                 for ui in sample_metadata_1_UploadInfo:
-                    zipped_file_checksum = archive.getinfo(ui.directory_location).CRC
+                    zipped_file_checksum = archive.getinfo(ui.path_in_zip).CRC
                     source_path = os.path.join(
                         os.environ["DATA_DIR"], f"{ui.upload_id}.xlsm"
                     )
@@ -52,7 +49,7 @@ class TestBuildZip:
 
     def test_skips_source_file_when_present_in_zip(self, sample_metadata_1_UploadInfo):
         extant_file_data = b"this is some test data"
-        extant_file_entry_path = sample_metadata_1_UploadInfo[0].directory_location
+        extant_file_entry_path = sample_metadata_1_UploadInfo[0].path_in_zip
         extant_file_checksum = zlib.crc32(extant_file_data)
 
         with tempfile.NamedTemporaryFile() as tmp:
@@ -70,6 +67,30 @@ class TestBuildZip:
                 zipped_file_checksum = archive.getinfo(extant_file_entry_path).CRC
                 assert extant_file_checksum == zipped_file_checksum
 
+    def test_no_duplicates_when_metadata_provides_incompatible_path_in_zip(
+        self, sample_metadata_1_UploadInfo
+    ):
+        # Make path_in_zip an absolute path, which is incompatible but should be normalized
+        sample_metadata_1_UploadInfo[0].path_in_zip = os.path.join(
+            os.path.sep, sample_metadata_1_UploadInfo[0].path_in_zip
+        )
+
+        with tempfile.NamedTemporaryFile() as tmp:
+            updated = worker.build_zip(tmp, (_ for _ in sample_metadata_1_UploadInfo))
+            assert updated is True
+            with zipfile.ZipFile(tmp, "r") as archive:
+                # Ensure the zip now contains all files named in the CSV entries
+                assert len(archive.namelist()) == len(sample_metadata_1_UploadInfo)
+
+            updated_again = worker.build_zip(
+                tmp, (_ for _ in sample_metadata_1_UploadInfo)
+            )
+            assert updated_again is False
+
+            with zipfile.ZipFile(tmp, "r") as archive:
+                # Ensure the zip contains no additional (duplicate) entries
+                assert len(archive.namelist()) == len(sample_metadata_1_UploadInfo)
+
     def test_returns_False_without_modifying_zip_when_source_files_is_empty(self):
         with tempfile.NamedTemporaryFile() as tmp:
             updated = worker.build_zip(tmp, (_ for _ in []))
@@ -83,7 +104,7 @@ class TestBuildZip:
         with tempfile.NamedTemporaryFile() as tmp:
             with zipfile.ZipFile(tmp, "w") as archive:
                 for u in sample_metadata_1_UploadInfo:
-                    archive.writestr(u.directory_location, "does not matter")
+                    archive.writestr(u.path_in_zip, "does not matter")
             updated = worker.build_zip(tmp, (_ for _ in sample_metadata_1_UploadInfo))
             assert updated is False
             with zipfile.ZipFile(tmp, "r") as archive:
@@ -100,10 +121,10 @@ class TestBuildZip:
 
             # Open the zip-file and make sure it has the correct files
             with zipfile.ZipFile(tmp, "r") as archive:
-                assert second_to_last_entry.directory_location not in archive.namelist()
-                assert last_entry.directory_location not in archive.namelist()
+                assert second_to_last_entry.path_in_zip not in archive.namelist()
+                assert last_entry.path_in_zip not in archive.namelist()
                 assert set(archive.namelist()) == set(
-                    ui.directory_location for ui in sample_metadata_1_UploadInfo[:-2]
+                    ui.path_in_zip for ui in sample_metadata_1_UploadInfo[:-2]
                 )
 
 
@@ -172,45 +193,45 @@ class TestLoadSourceUploadsFromCSV:
 
 
 class TestNotifyUser:
-    def test_sends_email_with_presigned_url(self, s3, ses, ses_sent_messages):
-        expect_bucket = "bucket"
-        expect_key = "key.zip"
+    @mock.patch("src.worker.API_DOMAIN", new="https://api.example.org")
+    def test_sends_email_with_download_urls(self, ses, ses_sent_messages):
+        organization_id = "123"
+        download_url_base = "https://api.example.org/api/exports/getFullFileExport"
+        expect_zip_url = f"{download_url_base}/archive"
+        expect_csv_url = f"{download_url_base}/metadata"
         expect_email = "person@example.gov"
-        expect_presigned_url = s3.generate_presigned_url(
-            "get_object",
-            Params={"Bucket": "bucket", "Key": "key.zip"},
-            ExpiresIn=86400,
-        )
 
-        worker.notify_user(s3, ses, expect_bucket, expect_key, expect_email)
+        worker.notify_user(ses, expect_email, organization_id)
 
         assert len(ses_sent_messages) == 1
         sent_message = ses_sent_messages[0]
         assert sent_message.destinations["ToAddresses"] == [expect_email]
-        assert urllib.parse.quote(expect_presigned_url) in sent_message.body
+        assert expect_zip_url in sent_message.body
+        assert expect_csv_url in sent_message.body
 
-    def test_fails_when_error_generating_presigned_url(self, s3, ses):
-        with pytest.raises(botocore.exceptions.ParamValidationError):
-            worker.notify_user(
-                s3,
-                ses,
-                "invalid bucket name",
-                "does-not-matter.zip",
-                "person@example.gov",
-            )
+    def test_fails_when_error_generating_zip_url(self, ses):
+        expect_error = ValueError("oh no!")
+        with mock.patch("src.worker.build_url", side_effect=expect_error):
+            with pytest.raises(ValueError) as raised:
+                worker.notify_user(
+                    ses,
+                    "person@example.gov",
+                    "123",
+                )
+        assert raised.value == expect_error
 
     @mock.patch("src.worker.generate_email")
-    def test_fails_when_error_generating_email(self, mock_generate_email, s3, ses):
+    def test_fails_when_error_generating_email(self, mock_generate_email, ses):
         expect_error = FileNotFoundError("could not find the template")
         mock_generate_email.side_effect = expect_error
         with pytest.raises(FileNotFoundError) as raised:
-            worker.notify_user(s3, ses, "bucket", "key.zip", "person@example.gov")
+            worker.notify_user(ses, "person@example.gov", "123")
             assert mock_generate_email.called
         assert raised.value == expect_error
 
-    def test_fails_when_error_sending_email(self, s3, ses):
+    def test_fails_when_error_sending_email(self, ses):
         with pytest.raises(ses.exceptions.ClientError):
-            worker.notify_user(s3, ses, "bucket", "key.zip", "invalid email")
+            worker.notify_user(ses, "invalid email", "123")
 
 
 class TestProcessSQSMessageRequest:
@@ -226,6 +247,7 @@ class TestProcessSQSMessageRequest:
             ),
             organization_id=1234,
             user_email="fake@example.gov",
+            recreate_archive=False,
         )
 
     @pytest.fixture(scope="function", autouse=True)
@@ -245,8 +267,13 @@ class TestProcessSQSMessageRequest:
             worker.process_sqs_message_request(s3, ses, sqs_message, io.BytesIO())
 
     @pytest.mark.parametrize(
-        "extant_zip_entries",
-        ([], ["extra1.xlsm", "extra2.xlsm"]),
+        ("extant_zip_entries", "recreate_archive", "expected_namelist"),
+        [
+            ([], True, set()),
+            ([], False, set()),
+            (["extra1.xlsm", "extra2.xlsm"], True, set()),
+            (["extra1.xlsm", "extra2.xlsm"], False, set(["extra1.xlsm", "extra2.xlsm"])),
+        ],
     )
     def test_uploads_populated_zip(
         self,
@@ -254,8 +281,13 @@ class TestProcessSQSMessageRequest:
         ses,
         sample_metadata_1_UploadInfo,
         extant_zip_entries,
+        recreate_archive,
+        expected_namelist,
         sqs_message,
     ):
+        if recreate_archive:
+            sqs_message.recreate_archive = True
+
         if len(extant_zip_entries) > 0:
             with tempfile.NamedTemporaryFile() as tmp:
                 with zipfile.ZipFile(tmp, "w") as archive:
@@ -271,11 +303,10 @@ class TestProcessSQSMessageRequest:
             s3.download_fileobj(self.BUCKET_NAME, sqs_message.s3.zip_key, tmp)
             with zipfile.ZipFile(tmp, "r") as resulting_archive:
                 actual_namelist = resulting_archive.namelist()
-                expected_namelist = set(
-                    _.directory_location for _ in sample_metadata_1_UploadInfo
-                )
-                for additional_entry in extant_zip_entries:
-                    expected_namelist.add(additional_entry)
+
+                for entry in sample_metadata_1_UploadInfo:
+                    expected_namelist.add(entry.path_in_zip)
+
                 assert expected_namelist == set(actual_namelist)
 
     def test_skips_upload_when_no_files_added_to_zip(
@@ -288,7 +319,7 @@ class TestProcessSQSMessageRequest:
         with tempfile.NamedTemporaryFile() as tmp:
             with zipfile.ZipFile(tmp, "w") as archive:
                 for ui in sample_metadata_1_UploadInfo:
-                    archive.writestr(ui.directory_location, b"some placeholder content")
+                    archive.writestr(ui.path_in_zip, b"some placeholder content")
             tmp.seek(0)
             s3.upload_fileobj(tmp, self.BUCKET_NAME, sqs_message.s3.zip_key)
 
@@ -380,6 +411,7 @@ class TestHandleWork:
                 ),
                 organization_id=1234,
                 user_email="fake@example.gov",
+                recreate_archive=False,
             ).model_dump_json(),
         )
         with mock.patch(
@@ -404,6 +436,7 @@ class TestHandleWork:
                 ),
                 organization_id=1234,
                 user_email="fake@example.gov",
+                recreate_archive=False,
             ).model_dump_json(),
         )
         with mock.patch("src.worker.process_sqs_message_request"):
@@ -428,6 +461,7 @@ class TestHandleWork:
                 ),
                 organization_id=1234,
                 user_email="fake@example.gov",
+                recreate_archive=False,
             ).model_dump_json(),
         )
         with mock.patch(
@@ -452,3 +486,60 @@ class TestMain:
         with mock.patch("src.worker.ShutdownHandler", mock_ShutdownHandler):
             worker.main()
         assert mock_handle_work.call_count == 3
+
+
+class TestBuildDownloadURL:
+    @pytest.mark.parametrize(
+        ("base_url", "expected"),
+        (
+            (
+                "example.com",
+                "https://example.com/api/uploads/123/getFullFileExport",
+            ),
+            (
+                "https://example.com",
+                "https://example.com/api/uploads/123/getFullFileExport",
+            ),
+            (
+                "https://example.com/some/prefix",
+                "https://example.com/some/prefix/api/uploads/123/getFullFileExport",
+            ),
+            (
+                "https://example.com/some/prefix/",
+                "https://example.com/some/prefix/api/uploads/123/getFullFileExport",
+            ),
+            (
+                "example.com/some/prefix",
+                "https://example.com/some/prefix/api/uploads/123/getFullFileExport",
+            ),
+            (
+                "example.com/some/prefix/",
+                "https://example.com/some/prefix/api/uploads/123/getFullFileExport",
+            ),
+            (
+                "example.com:443/some/prefix",
+                "https://example.com:443/some/prefix/api/uploads/123/getFullFileExport",
+            ),
+            (
+                "example.com:443/some/prefix/",
+                "https://example.com:443/some/prefix/api/uploads/123/getFullFileExport",
+            ),
+            (
+                "https://example.com:443/some/prefix",
+                "https://example.com:443/some/prefix/api/uploads/123/getFullFileExport",
+            ),
+            (
+                "https://example.com:443/some/prefix/",
+                "https://example.com:443/some/prefix/api/uploads/123/getFullFileExport",
+            ),
+        ),
+    )
+    def test_base_url_normalization(self, base_url, expected):
+        bare_endpoint = "api/uploads/123/getFullFileExport"
+
+        assert expected == worker.build_url(base_url, endpoint=bare_endpoint), (
+            "Unexpected result using endpoint without leading slash"
+        )
+        assert expected == worker.build_url(base_url, endpoint=f"/{bare_endpoint}"), (
+            "Unexpected result using endpoint with leading slash"
+        )
