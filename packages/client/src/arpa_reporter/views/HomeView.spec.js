@@ -268,7 +268,7 @@ describe('HomeView.vue - react testing tests', () => {
         const sendTreasuryButton = screen.getByRole('button', { name: /Send Treasury Report by Email/i });
         await fireEvent.click(sendTreasuryButton);
         screen.getByRole('alert');
-        screen.getByText('Something went wrong. Unable to send an email containing the treasury report. Reach out to grants-helpdesk@usdigitalresponse.org if this happens again.');
+        screen.getByText('Something went wrong. Unable to send an email containing the treasury report. Reach out to grantsreporting.helpdesk@navapbc.com if this happens again.');
         screen.getByRole('button', { name: /Close/i });
       });
       it('displays expected success message', async () => {
@@ -324,7 +324,7 @@ describe('HomeView.vue - react testing tests', () => {
         const treasuryButton = screen.getByRole('button', { name: /Send Treasury Report by Email/i });
         await fireEvent.click(treasuryButton);
 
-        screen.getByText(/Something went wrong. Unable to send an email containing the treasury report. Reach out to grants-helpdesk@usdigitalresponse.org if this happens again./i);
+        screen.getByText(/Something went wrong. Unable to send an email containing the treasury report. Reach out to grantsreporting.helpdesk@navapbc.com if this happens again./i);
       });
     });
     describe('click Send Audit Report By Email', async () => {
@@ -347,7 +347,7 @@ describe('HomeView.vue - react testing tests', () => {
         const sendAuditButton = screen.getByRole('button', { name: /Send Audit Report by Email/i });
         await fireEvent.click(sendAuditButton);
         screen.getByRole('alert');
-        screen.getByText('Something went wrong. Unable to send an email containing the audit report. Reach out to grants-helpdesk@usdigitalresponse.org if this happens again.');
+        screen.getByText('Something went wrong. Unable to send an email containing the audit report. Reach out to grantsreporting.helpdesk@navapbc.com if this happens again.');
         await fireEvent.click(screen.getByRole('button', { name: /Close/i }));
         expect(screen.queryByRole('alert')).not.toBeInTheDocument();
       });
@@ -409,7 +409,7 @@ describe('HomeView.vue - react testing tests', () => {
         const auditButton = screen.getByRole('button', { name: /Send Audit Report by Email/i });
         await fireEvent.click(auditButton);
 
-        screen.getByText(/Something went wrong. Unable to send an email containing the audit report. Reach out to grants-helpdesk@usdigitalresponse.org if this happens again./i);
+        screen.getByText(/Something went wrong. Unable to send an email containing the audit report. Reach out to grantsreporting.helpdesk@navapbc.com if this happens again./i);
       });
     });
   });

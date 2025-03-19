@@ -162,7 +162,7 @@ export default {
 
         if (result.error) {
           this.alert = {
-            text: 'Something went wrong. Unable to send an email containing the full file export. Reach out to grants-helpdesk@usdigitalresponse.org if this happens again.',
+            text: 'Something went wrong. Unable to send an email containing the full file export. Reach out to grantsreporting.helpdesk@navapbc.com if this happens again.',
             level: 'err',
           };
           console.log(result.error);
@@ -175,7 +175,7 @@ export default {
       } catch (error) {
         // we got an error from the backend, but the backend didn't send reasons
         this.alert = {
-          text: 'Something went wrong. Unable to send an email containing the full file export. Reach out to grants-helpdesk@usdigitalresponse.org if this happens again.',
+          text: 'Something went wrong. Unable to send an email containing the full file export. Reach out to grantsreporting.helpdesk@navapbc.com if this happens again.',
           level: 'err',
         };
       }
@@ -195,7 +195,7 @@ export default {
 
         if (result.error) {
           this.alert = {
-            text: 'Something went wrong. Unable to send an email containing the audit report. Reach out to grants-helpdesk@usdigitalresponse.org if this happens again.',
+            text: 'Something went wrong. Unable to send an email containing the audit report. Reach out to grantsreporting.helpdesk@navapbc.com if this happens again.',
             level: 'err',
           };
           console.log(result.error);
@@ -208,7 +208,7 @@ export default {
       } catch (error) {
         // we got an error from the backend, but the backend didn't send reasons
         this.alert = {
-          text: 'Something went wrong. Unable to send an email containing the audit report. Reach out to grants-helpdesk@usdigitalresponse.org if this happens again.',
+          text: 'Something went wrong. Unable to send an email containing the audit report. Reach out to grantsreporting.helpdesk@navapbc.com if this happens again.',
           level: 'err',
         };
       }
@@ -228,7 +228,7 @@ export default {
 
         if (result.error) {
           this.alert = {
-            text: 'Something went wrong. Unable to send an email containing the treasury report. Reach out to grants-helpdesk@usdigitalresponse.org if this happens again.',
+            text: 'Something went wrong. Unable to send an email containing the treasury report. Reach out to grantsreporting.helpdesk@navapbc.com if this happens again.',
             level: 'err',
           };
           console.log(result.error);
@@ -241,7 +241,7 @@ export default {
       } catch (error) {
         // we got an error from the backend, but the backend didn't send reasons
         this.alert = {
-          text: 'Something went wrong. Unable to send an email containing the treasury report. Reach out to grants-helpdesk@usdigitalresponse.org if this happens again.',
+          text: 'Something went wrong. Unable to send an email containing the treasury report. Reach out to grantsreporting.helpdesk@navapbc.com if this happens again.',
           level: 'err',
         };
       }

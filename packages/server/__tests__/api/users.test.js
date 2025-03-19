@@ -21,7 +21,7 @@ describe('`/api/users` endpoint', () => {
                 cookie: undefined,
             },
         },
-        nonUSDRAdmin: {
+        nonNavaAdmin: {
             headers: {
                 'Content-Type': 'application/json',
                 cookie: undefined,
@@ -45,9 +45,9 @@ describe('`/api/users` endpoint', () => {
     let fetchApi;
     before(async function beforeHook() {
         this.timeout(9000); // Getting session cookies can exceed default timeout.
-        fetchOptions.admin.headers.cookie = await getSessionCookie('mindy@usdigitalresponse.org');
-        fetchOptions.nonUSDRAdmin.headers.cookie = await getSessionCookie('joecomeau01@gmail.com');
-        fetchOptions.staff.headers.cookie = await getSessionCookie('mindy+testsub@usdigitalresponse.org');
+        fetchOptions.admin.headers.cookie = await getSessionCookie('mindy@navapbc.com');
+        fetchOptions.nonNavaAdmin.headers.cookie = await getSessionCookie('joecomeau01@gmail.com');
+        fetchOptions.staff.headers.cookie = await getSessionCookie('mindy+testsub@navapbc.com');
         fetchOptions.subagencyAdmin.headers.cookie = await getSessionCookie('nat.hillard.usdr@gmail.com');
 
         testServer = await makeTestServer();
@@ -191,7 +191,7 @@ describe('`/api/users` endpoint', () => {
         context('with allowed fields', () => {
             it('updates a user\'s name', async () => {
                 const response = await fetchApi('/users/4', agencies.own, {
-                    ...fetchOptions.nonUSDRAdmin,
+                    ...fetchOptions.nonNavaAdmin,
                     method: 'patch',
                     body: JSON.stringify({ name: 'Test Name' }),
                 });
@@ -200,7 +200,7 @@ describe('`/api/users` endpoint', () => {
 
             it('updates a user\'s avatar color', async () => {
                 const response = await fetchApi('/users/4', agencies.own, {
-                    ...fetchOptions.nonUSDRAdmin,
+                    ...fetchOptions.nonNavaAdmin,
                     method: 'patch',
                     body: JSON.stringify({ avatar_color: '#44337A' }),
                 });
@@ -209,7 +209,7 @@ describe('`/api/users` endpoint', () => {
 
             it('does not update a user\'s email', async () => {
                 const response = await fetchApi('/users/4', agencies.own, {
-                    ...fetchOptions.nonUSDRAdmin,
+                    ...fetchOptions.nonNavaAdmin,
                     method: 'patch',
                     body: JSON.stringify({ email: 'test@abc.com' }),
                 });
@@ -301,7 +301,7 @@ describe('`/api/users` endpoint', () => {
                 );
                 expect(response.statusText).to.equal('OK');
             });
-            context('when it is a USDR super admin', () => {
+            context('when it is a Nava super admin', () => {
                 it('updates for subagency of this user\'s own agency', async () => {
                     const response = await fetchApi(
                         `/users/2/email_subscription`,
@@ -319,12 +319,12 @@ describe('`/api/users` endpoint', () => {
                     expect(response.statusText).to.equal('OK');
                 });
             });
-            context('when it is a non-USDR admin', () => {
+            context('when it is a non-Nava admin', () => {
                 it('is forbidden for a subagency of this user\'s own agency', async () => {
                     const response = await fetchApi(
                         `/users/3/email_subscription`,
                         agencies.ownSub,
-                        { ...fetchOptions.nonUSDRAdmin, method: 'put', body },
+                        { ...fetchOptions.nonNavaAdmin, method: 'put', body },
                     );
                     expect(response.statusText).to.equal('Forbidden');
                 });
@@ -332,7 +332,7 @@ describe('`/api/users` endpoint', () => {
                     const response = await fetchApi(
                         `/users/3/email_subscription`,
                         agencies.offLimits,
-                        { ...fetchOptions.nonUSDRAdmin, method: 'put', body },
+                        { ...fetchOptions.nonNavaAdmin, method: 'put', body },
                     );
                     expect(response.statusText).to.equal('Forbidden');
                 });
@@ -417,7 +417,7 @@ describe('`/api/users` endpoint', () => {
                 const response = await fetchApi(
                     `/users/2/sendDigestEmail`,
                     agencies.own,
-                    { ...fetchOptions.nonUSDRAdmin },
+                    { ...fetchOptions.nonNavaAdmin },
                 );
                 expect(response.statusText).to.equal('Forbidden');
                 expect(sendEmailSpy.calledOnce).to.equal(false);

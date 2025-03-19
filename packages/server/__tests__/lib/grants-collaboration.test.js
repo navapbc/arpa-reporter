@@ -53,7 +53,7 @@ describe('Grants Collaboration', () => {
     });
 
     context('getOrganizationNotesByUser', () => {
-        const { adminUser, staffUser, usdrUser } = fixtures.users;
+        const { adminUser, staffUser, navaUser } = fixtures.users;
         const grant = fixtures.grants.earFellowship;
         const tenant = fixtures.tenants.SBA;
 
@@ -90,7 +90,7 @@ describe('Grants Collaboration', () => {
             const results = await getOrganizationNotesForGrantByUser(
                 knex,
                 tenant.id, // organization ID
-                usdrUser.id, // user ID
+                navaUser.id, // user ID
                 grant.grant_id, // grant ID
             );
 
@@ -176,7 +176,7 @@ describe('Grants Collaboration', () => {
         });
 
         it('get NO organization notes for unrelated tenant', async () => {
-            const result = await getOrganizationNotesForGrant(knex, grant.grant_id, fixtures.agencies.usdr.tenant_id);
+            const result = await getOrganizationNotesForGrant(knex, grant.grant_id, fixtures.agencies.nava.tenant_id);
 
             expect(result.notes).to.have.length(0);
             expect(result.pagination.next).to.be.null;

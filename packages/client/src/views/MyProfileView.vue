@@ -84,7 +84,7 @@ export default {
   data() {
     const shareTerminologyEnabledFlag = shareTerminologyEnabled() === true;
     const followNotesEnabledFlag = followNotesEnabled() === true;
-    const grantAssignmentDescription = 'Send me notifications if a grant has been assigned to my USDR Grants team.';
+    const grantAssignmentDescription = 'Send me notifications if a grant has been assigned to my Nava Grants team.';
     const grantShareDescription = 'Send me an email notification when someone shares a grant with my team.';
 
     return {

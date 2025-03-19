@@ -101,7 +101,7 @@ export default {
           console.log('error:', error.message);
           this.serverResponse = {
             message: error.message
-              || 'There was a problem at USDR. Try again in a minute or two, and if you still receive the same error, contact the USDR team.',
+              || 'There was a problem at Nava. Try again in a minute or two, and if you still receive the same error, contact the Nava team.',
             success: false,
           };
         });

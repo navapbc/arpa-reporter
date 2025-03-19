@@ -26,10 +26,10 @@ const ASYNC_REPORT_TYPES = {
         errorEmailType: tags.emailTypes.treasuryReportError,
     },
 };
-const HELPDESK_EMAIL = 'grants-helpdesk@usdigitalresponse.org';
-const GENERIC_FROM_NAME = 'USDR Grants';
-const GRANT_FINDER_EMAIL_FROM_NAME = 'USDR Federal Grant Finder';
-const ARPA_EMAIL_FROM_NAME = 'USDR ARPA Reporter';
+const HELPDESK_EMAIL = 'grantfinder.helpdesk@navapbc.com';
+const GENERIC_FROM_NAME = 'Nava Grants';
+const GRANT_FINDER_EMAIL_FROM_NAME = 'Nava Federal Grant Finder';
+const ARPA_EMAIL_FROM_NAME = 'Nava ARPA Reporter';
 
 /**
  * For the USDR -> Nava migration, we do not want to inadvertently send
@@ -115,7 +115,7 @@ async function deliverEmail({
 
 function buildBaseUrlSafe() {
     const baseUrl = new URL(process.env.WEBSITE_DOMAIN);
-    baseUrl.searchParams.set('utm_source', 'usdr-grants');
+    baseUrl.searchParams.set('utm_source', 'nava-grants');
     baseUrl.searchParams.set('utm_medium', 'email');
     return baseUrl.toString();
 }
@@ -123,20 +123,20 @@ function buildBaseUrlSafe() {
 function buildNotificationsUrlSafe() {
     const notificationsUrl = new URL(process.env.WEBSITE_DOMAIN);
     notificationsUrl.pathname = 'my-profile';
-    notificationsUrl.searchParams.set('utm_source', 'usdr-grants');
+    notificationsUrl.searchParams.set('utm_source', 'nava-grants');
     notificationsUrl.searchParams.set('utm_medium', 'email');
     notificationsUrl.searchParams.set('utm_content', 'change notification preferences');
     return notificationsUrl.toString();
 }
 
 /**
- * Adds the base email HTML around the email body HTML. Specifically, adds the USDR logo header,
+ * Adds the base email HTML around the email body HTML. Specifically, adds the Nava logo header,
  * footer, title, preheader, etc.
  *
  * @param {string} emailHTML - Rendered email body HTML
  * @param {object} brandDetails - Options to control how the base branding is rendered
  * @param {string} brandDetails.tool_name - Name of the product triggering the email, rendered
- *   underneath the USDR logo
+ *   underneath the Nava logo
  * @param {string} brandDetails.title - Rendered as the HTML <title> (most email programs ignore)
  * @param {string} brandDetails.preheader - Preview text for the email (most email programs
  *   render this, often truncated, after the subject line in your inbox)
@@ -160,7 +160,7 @@ function addBaseBranding(emailHTML, brandDetails) {
         preheader,
         // webview_url: 'http://localhost:8080',
         base_url_safe: buildBaseUrlSafe(),
-        usdr_logo_url: 'https://grants.usdigitalresponse.org/usdr_logo_transparent.png',
+        usdr_logo_url: 'https://grants.navapbc.com/usdr_logo_transparent.png',
         notifications_url_safe: includeNotificationsLink ? buildNotificationsUrlSafe() : null,
     }, {
         email_body: emailHTML,
@@ -185,7 +185,7 @@ async function sendPassCodeEmail(email, passcode, httpOrigin, redirectTo) {
 
     const formattedBody = mustache.render(formattedBodyTemplate.toString(), {
         body_title: 'Login Passcode',
-        body_detail: `<p>Your link to access USDR's Grants Tool is <a ses:no-track href=${href}>${href}</a>.
+        body_detail: `<p>Your link to access Nava's Grants Tool is <a ses:no-track href=${href}>${href}</a>.
         It expires in ${expiryMinutes} minutes</p>`,
     });
 
@@ -209,15 +209,15 @@ async function sendPassCodeEmail(email, passcode, httpOrigin, redirectTo) {
         fromName: GENERIC_FROM_NAME,
         toAddress: email,
         emailHTML,
-        emailPlain: `Your link to access USDR's Grants tool is ${href}. It expires in ${expiryMinutes} minutes`,
-        subject: 'USDR Grants Tool Access Link',
+        emailPlain: `Your link to access Nava's Grants tool is ${href}. It expires in ${expiryMinutes} minutes`,
+        subject: 'Nava Grants Tool Access Link',
         emailType: tags.emailTypes.passcode,
     });
 }
 
 async function sendReportErrorEmail(user, reportType) {
     const body = `There was an error generating your requested ${reportType.name} report. `
-    + 'Someone from USDR will reach out within 24 hours to debug the problem. '
+    + 'Someone from Nava will reach out within 24 hours to debug the problem. '
     + 'We apologize for any inconvenience.';
     const subject = `${capitalize(reportType.name)} report generation has failed for ${user.tenant.display_name}`;
 
@@ -256,7 +256,7 @@ function sendWelcomeEmail(email, httpOrigin) {
 
     const formattedBody = mustache.render(formattedBodyTemplate.toString(), {
         body_title: 'Welcome!',
-        body_detail: `<p>Visit USDR's Grants Tool at:
+        body_detail: `<p>Visit Nava's Grants Tool at:
         <a href="${httpOrigin}">${httpOrigin}</a>.`,
     });
 
@@ -264,7 +264,7 @@ function sendWelcomeEmail(email, httpOrigin) {
         formattedBody,
         {
             tool_name: httpOrigin.includes('reporter') ? 'Grants Reporter Tool' : 'Grants Identification Tool',
-            title: 'Welcome to the USDR Grants tool',
+            title: 'Welcome to the Nava Grants tool',
             includeNotificationsLink: false,
         },
     );
@@ -273,8 +273,8 @@ function sendWelcomeEmail(email, httpOrigin) {
         fromName: GENERIC_FROM_NAME,
         toAddress: email,
         emailHTML,
-        emailPlain: `Visit USDR's Grants Tool at: ${httpOrigin}.`,
-        subject: 'Welcome to USDR Grants Tool',
+        emailPlain: `Visit Nava's Grants Tool at: ${httpOrigin}.`,
+        subject: 'Welcome to Nava Grants Tool',
         emailType: tags.emailTypes.welcome,
     });
 }
@@ -282,7 +282,7 @@ function sendWelcomeEmail(email, httpOrigin) {
 function buildGrantDetailUrlSafe(grantId, emailNotificationType) {
     const grantDetailUrl = new URL(process.env.WEBSITE_DOMAIN);
     grantDetailUrl.pathname = `grants/${mustache.escape(grantId)}`;
-    grantDetailUrl.searchParams.set('utm_source', 'usdr-grants');
+    grantDetailUrl.searchParams.set('utm_source', 'nava-grants');
     grantDetailUrl.searchParams.set('utm_medium', 'email');
     grantDetailUrl.searchParams.set('utm_campaign', mustache.escape(emailNotificationType));
     grantDetailUrl.searchParams.set('utm_content', 'grant-details');

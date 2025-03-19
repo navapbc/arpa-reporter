@@ -7,7 +7,7 @@ describe('UserHeaderText component', () => {
     const wrapper = mount(UserHeaderText, {
       props: {
         name: 'user',
-        team: 'USDR',
+        team: 'Nava',
       },
     });
     expect(wrapper.exists()).toBe(true);

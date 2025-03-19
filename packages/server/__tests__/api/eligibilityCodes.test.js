@@ -37,8 +37,8 @@ describe('`/api/eligibility-codes` endpoint', () => {
     let fetchApi;
     before(async function beforeHook() {
         this.timeout(9000); // Getting session cookies can exceed default timeout.
-        fetchOptions.admin.headers.cookie = await getSessionCookie('mindy@usdigitalresponse.org');
-        fetchOptions.staff.headers.cookie = await getSessionCookie('mindy+testsub@usdigitalresponse.org');
+        fetchOptions.admin.headers.cookie = await getSessionCookie('mindy@navapbc.com');
+        fetchOptions.staff.headers.cookie = await getSessionCookie('mindy+testsub@navapbc.com');
 
         testServer = await makeTestServer();
         fetchApi = testServer.fetchApi;

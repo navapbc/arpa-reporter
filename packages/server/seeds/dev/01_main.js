@@ -10,15 +10,15 @@ const { grants, assignedGrantsAgency, grantsInterested } = require('./ref/grants
 const tenants = require('./ref/tenants');
 const { grantsSavedSearches } = require('./ref/grantsSavedSearches');
 
-const usdrAgency = agencies.find((a) => a.abbreviation === 'USDR');
+const navaAgency = agencies.find((a) => a.abbreviation === 'Nava');
 // const nevadaAgency = agencies.find((a) => a.abbreviation === 'NV');
 
 const adminList = [
     // Update me with the appropiate initial admin users
     {
-        email: 'grant-admin@usdigitalresponse.org',
+        email: 'gf-admin@navapbc.com',
         name: 'GRANT ADMIN',
-        agency_id: usdrAgency.id,
+        agency_id: navaAgency.id,
         role_id: roles[0].id,
         tenant_id: tenants[0].id,
     },
@@ -29,7 +29,7 @@ const agencyUserList = [
     // {
     //     email: 'xmattingly@fastmail.net',
     //     name: 'Staff Mattingly',
-    //     agency_id: usdrAgency.id,
+    //     agency_id: navaAgency.id,
     //     role_id: roles[1].id,
     // },
 ];
@@ -60,11 +60,11 @@ exports.seed = async (knex) => {
         .merge();
 
     // We need to now set the main_agency_id on tenants that have specified
-    // the USDR agency as a parent.
+    // the Nava agency as a parent.
     await knex.raw(`WITH main_agency_lookup AS (
                     SELECT id, tenant_id
                     FROM agencies
-                    WHERE parent = ${usdrAgency.id}
+                    WHERE parent = ${navaAgency.id}
                 ) UPDATE tenants
                     SET main_agency_id = mal.id
                     FROM main_agency_lookup mal

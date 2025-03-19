@@ -34,7 +34,7 @@ describe('LoginView component', () => {
         resolve({
           ok: true,
           success: true,
-          json: () => Promise.resolve({ message: 'Email sent to grant-admin@usdigitalresponse.org. Check your inbox', success: true }),
+          json: () => Promise.resolve({ message: 'Email sent to gr-admin@navapbc.com. Check your inbox', success: true }),
         });
       }),
     );
@@ -53,10 +53,10 @@ describe('LoginView component', () => {
     const emailInput = screen.getByPlaceholderText(/email address/i);
     const submitButton = screen.getByRole('button');
 
-    await fireEvent.update(emailInput, 'grant-admin@usdigitalresponse.org');
+    await fireEvent.update(emailInput, 'gr-admin@navapbc.com');
     await fireEvent.click(submitButton);
 
-    await waitFor(() => screen.getByText(/Email sent to grant-admin@usdigitalresponse.org. Check your inbox/i));
+    await waitFor(() => screen.getByText(/Email sent to gr-admin@navapbc.com. Check your inbox/i));
   });
 
   it('handles login error response', async () => {

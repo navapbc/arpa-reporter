@@ -38,10 +38,10 @@ describe.skip('UploadsView.vue', () => {
       state: {
         agencies: [],
         allUploads: [{
-          agency_code: 'USDR',
+          agency_code: 'Nava',
           agency_id: 0,
           created_at: new Date().toISOString(),
-          created_by: 'test@usdigitalresponse.org',
+          created_by: 'test@navapbc.com',
           ec_code: '0',
           filename: 'TEST_UPLOAD.xlsm',
           id: '00000000-0000-0000-0000-000000000000',
@@ -52,10 +52,10 @@ describe.skip('UploadsView.vue', () => {
           validated_at: date.toISOString(),
           validated_by: 1,
         }, {
-          agency_code: 'USDR',
+          agency_code: 'Nava',
           agency_id: 0,
           created_at: new Date().toISOString(),
-          created_by: 'test@usdigitalresponse.org',
+          created_by: 'test@navapbc.com',
           ec_code: '0',
           filename: 'TEST_UPLOAD_1.xlsm',
           id: '11111111-1111-1111-1111-111111111111',
