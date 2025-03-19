@@ -79,7 +79,7 @@ module.exports = [
     },
     {
         id: 18,
-        name: 'USDR',
-        abbreviation: 'USDR',
+        name: 'Nava',
+        abbreviation: 'Nava',
     },
 ];

@@ -185,7 +185,7 @@ describe('FullFileExport', () => {
                 ec_code: 'EC1.1',
                 reporting_period_name: 'Quarterly 1',
                 updated_at: moment('2022-01-01').toISOString(),
-                validity: 'Validated at 2022-01-01T00:00:00 by mbroussard+unit-test-admin@usdigitalresponse.org',
+                validity: 'Validated at 2022-01-01T00:00:00 by mbroussard+unit-test-admin@navapbc.com',
             },
             {
                 upload_id: '00000000-0000-0000-0000-000000000098',
@@ -196,7 +196,7 @@ describe('FullFileExport', () => {
                 ec_code: 'EC1.134',
                 reporting_period_name: 'Quarterly 1',
                 updated_at: moment('2022-01-01').toISOString(),
-                validity: 'Validated at 2022-01-01T00:00:00 by mbroussard+unit-test-admin@usdigitalresponse.org',
+                validity: 'Validated at 2022-01-01T00:00:00 by mbroussard+unit-test-admin@navapbc.com',
             },
             {
                 upload_id: '00000000-0000-0000-0000-000000000099',
@@ -207,7 +207,7 @@ describe('FullFileExport', () => {
                 ec_code: 'EC1.1456',
                 reporting_period_name: 'Quarterly 1',
                 updated_at: moment('2022-01-01').toISOString(),
-                validity: 'Validated at 2022-01-01T00:00:00 by mbroussard+unit-test-admin@usdigitalresponse.org',
+                validity: 'Validated at 2022-01-01T00:00:00 by mbroussard+unit-test-admin@navapbc.com',
             },
             // fixtures.uploads.upload2
             {
@@ -219,7 +219,7 @@ describe('FullFileExport', () => {
                 ec_code: 'EC1.1',
                 reporting_period_name: 'Quarterly 1',
                 updated_at: moment('2023-03-01').toISOString(),
-                validity: `Did not pass validation at 2023-03-01T00:00:00 by mbroussard+unit-test-admin@usdigitalresponse.org`,
+                validity: `Did not pass validation at 2023-03-01T00:00:00 by mbroussard+unit-test-admin@navapbc.com`,
             },
             // fixtures.uploads.upload4_invalidated
             {
@@ -231,7 +231,7 @@ describe('FullFileExport', () => {
                 ec_code: 'EC1.1',
                 reporting_period_name: 'Quarterly 1',
                 updated_at: moment('2023-03-02').toISOString(),
-                validity: 'Invalidated at 2023-03-02T00:00:00 by mbroussard+unit-test-user2@usdigitalresponse.org',
+                validity: 'Invalidated at 2023-03-02T00:00:00 by mbroussard+unit-test-user2@navapbc.com',
             },
             // fixtures.uploads.upload5_new_quarter
             {
@@ -243,7 +243,7 @@ describe('FullFileExport', () => {
                 ec_code: 'EC1.1',
                 reporting_period_name: 'Quarterly 2',
                 updated_at: moment('2023-03-01').toISOString(),
-                validity: `Did not pass validation at 2023-03-01T00:00:00 by mbroussard+unit-test-admin@usdigitalresponse.org`,
+                validity: `Did not pass validation at 2023-03-01T00:00:00 by mbroussard+unit-test-admin@navapbc.com`,
             },
         ];
 

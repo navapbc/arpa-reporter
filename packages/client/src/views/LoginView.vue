@@ -91,10 +91,10 @@
           <a
             href="https://form.jotform.com/240083950102041"
             target="_blank"
-          >connect with USDR here.</a>
+          >connect with Nava here.</a>
         </div>
         <div class="mt-3">
-          <span class="font-weight-bold">Need help? </span><a href="mailto:grants-helpdesk@usdigitalresponse.org?subject=Federal Grant Finder Login Issue">Contact USDR for support.</a>
+          <span class="font-weight-bold">Need help? </span><a href="mailto:grantfinder.helpdesk@navapbc.com?subject=Federal Grant Finder Login Issue">Contact Nava for support.</a>
         </div>
       </div>
     </b-card>
@@ -161,7 +161,7 @@ export default {
         .catch((error) => {
           this.serverResponse = {
             message: error.message
-              || 'There was a problem at USDR. Try again in a minute or two, and if you still receive the same error, contact the USDR team.',
+              || 'There was a problem at Nava. Try again in a minute or two, and if you still receive the same error, contact the Nava team.',
             success: false,
           };
         });

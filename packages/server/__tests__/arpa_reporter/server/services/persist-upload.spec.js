@@ -179,7 +179,7 @@ describe('ensureValidAgencyId', () => {
             throw new Error('Expected an error to be thrown');
         } catch (err) {
             expect(err).to.be.an.instanceof(ValidationError);
-            expect(err.message).to.equal('Supplied agency ID 3 does not correspond to an agency in the user\'s tenant 0. Please report this issue to USDR.');
+            expect(err.message).to.equal('Supplied agency ID 3 does not correspond to an agency in the user\'s tenant 0. Please report this issue to Nava.');
         }
     });
 
@@ -237,7 +237,7 @@ describe('ensureValidReportingPeriodId', () => {
             expect.fail('Expected function to throw an error');
         } catch (error) {
             expect(error).to.be.an.instanceOf(ValidationError);
-            expect(error.message).to.equal(`Supplied reporting period ID ${reportingPeriodId} does not correspond to any existing reporting period. Please report this issue to USDR.`);
+            expect(error.message).to.equal(`Supplied reporting period ID ${reportingPeriodId} does not correspond to any existing reporting period. Please report this issue to Nava.`);
             expect(getReportingPeriod.calledOnceWith(reportingPeriodId)).to.be.true;
         }
     });
@@ -253,7 +253,7 @@ describe('ensureValidReportingPeriodId', () => {
             expect.fail('Expected function to throw an error');
         } catch (error) {
             expect(error).to.be.an.instanceOf(ValidationError);
-            expect(error.message).to.equal(`Supplied reporting period ID ${reportingPeriodId} does not correspond to any existing reporting period. Please report this issue to USDR.`);
+            expect(error.message).to.equal(`Supplied reporting period ID ${reportingPeriodId} does not correspond to any existing reporting period. Please report this issue to Nava.`);
             expect(getReportingPeriod.calledOnceWith(reportingPeriodId)).to.be.true;
         }
     });

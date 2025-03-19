@@ -278,15 +278,15 @@ describe('Email sender', () => {
             const sendFake = sinon.fake.returns('foo');
             sinon.replace(emailService, 'getTransport', sinon.fake.returns({ sendEmail: sendFake }));
 
-            await email.sendPassCodeEmail('staff.user@test.com', '83c7c74a-6b38-4392-84fa-d1f3993f448d', 'https://api.grants.usdigitalresponse.org');
+            await email.sendPassCodeEmail('staff.user@test.com', '83c7c74a-6b38-4392-84fa-d1f3993f448d', 'https://api.grants.navapbc.com');
 
             expect(sendFake.calledOnce).to.equal(true);
             expect(_.omit(sendFake.firstCall.args[0], ['body'])).to.deep.equal({
-                fromName: 'USDR Grants',
+                fromName: 'Nava Grants',
                 ccAddress: undefined,
                 toAddress: 'staff.user@test.com',
-                subject: 'USDR Grants Tool Access Link',
-                text: 'Your link to access USDR\'s Grants tool is https://api.grants.usdigitalresponse.org/api/sessions?passcode=83c7c74a-6b38-4392-84fa-d1f3993f448d. It expires in 30 minutes',
+                subject: 'Nava Grants Tool Access Link',
+                text: 'Your link to access Nava\'s Grants tool is https://api.grants.navapbc.com/api/sessions?passcode=83c7c74a-6b38-4392-84fa-d1f3993f448d. It expires in 30 minutes',
                 tags: ['notification_type=passcode', 'user_role=staff', 'organization_id=0', 'team_id=0', 'service=test-dd-service', 'env=test-dd-env', 'version=test-dd-version'],
             });
             expect(sendFake.firstCall.args[0].body).contains('<title>Login Passcode</title>');
@@ -301,11 +301,11 @@ describe('Email sender', () => {
 
             expect(sendFake.calledOnce).to.equal(true);
             expect(_.omit(sendFake.firstCall.args[0], ['body'])).to.deep.equal({
-                fromName: 'USDR Grants',
+                fromName: 'Nava Grants',
                 ccAddress: undefined,
                 toAddress: 'sub.staff.user@test.com',
-                subject: 'Welcome to USDR Grants Tool',
-                text: 'Visit USDR\'s Grants Tool at: https://staging.grants.usdr.dev.',
+                subject: 'Welcome to Nava Grants Tool',
+                text: 'Visit Nava\'s Grants Tool at: https://staging.grants.usdr.dev.',
                 tags: ['notification_type=welcome', 'user_role=staff', 'organization_id=0', 'team_id=1', 'service=test-dd-service', 'env=test-dd-env', 'version=test-dd-version'],
             });
         });
@@ -324,7 +324,7 @@ describe('Email sender', () => {
             expect(sendFake.callCount).to.equal(3);
             expect(sendFake.calledWithMatch(
                 {
-                    fromName: 'USDR Federal Grant Finder',
+                    fromName: 'Nava Federal Grant Finder',
                     toAddress: 'staff.user@test.com',
                     subject: 'Grant Assigned to State Board of Accountancy',
                     tags: ['notification_type=grant_assignment', 'user_role=staff', 'organization_id=0', 'team_id=0', 'service=test-dd-service', 'env=test-dd-env', 'version=test-dd-version'],
@@ -332,7 +332,7 @@ describe('Email sender', () => {
             )).to.be.true;
             expect(sendFake.calledWithMatch(
                 {
-                    fromName: 'USDR Federal Grant Finder',
+                    fromName: 'Nava Federal Grant Finder',
                     toAddress: 'sub.staff.user@test.com',
                     subject: 'Grant Assigned to State Board of Sub Accountancy',
                     tags: ['notification_type=grant_assignment', 'user_role=staff', 'organization_id=0', 'team_id=1', 'service=test-dd-service', 'env=test-dd-env', 'version=test-dd-version'],
@@ -340,7 +340,7 @@ describe('Email sender', () => {
             )).to.be.true;
             expect(sendFake.calledWithMatch(
                 {
-                    fromName: 'USDR Federal Grant Finder',
+                    fromName: 'Nava Federal Grant Finder',
                     toAddress: 'admin.user@test.com',
                     subject: 'Grant Assigned to State Board of Accountancy',
                     tags: ['notification_type=grant_assignment', 'user_role=admin', 'organization_id=0', 'team_id=0', 'service=test-dd-service', 'env=test-dd-env', 'version=test-dd-version'],
@@ -374,7 +374,7 @@ describe('Email sender', () => {
             expect(sendFake.callCount).to.equal(3);
             expect(sendFake.calledWithMatch(
                 {
-                    fromName: 'USDR Federal Grant Finder',
+                    fromName: 'Nava Federal Grant Finder',
                     toAddress: 'staff.user@test.com',
                     subject: 'Admin User Shared a Grant with Your Team',
                     tags: ['notification_type=grant_assignment', 'user_role=staff', 'organization_id=0', 'team_id=0', 'service=test-dd-service', 'env=test-dd-env', 'version=test-dd-version'],
@@ -382,7 +382,7 @@ describe('Email sender', () => {
             )).to.be.true;
             expect(sendFake.calledWithMatch(
                 {
-                    fromName: 'USDR Federal Grant Finder',
+                    fromName: 'Nava Federal Grant Finder',
                     toAddress: 'sub.staff.user@test.com',
                     subject: 'Admin User Shared a Grant with Your Team',
                     tags: ['notification_type=grant_assignment', 'user_role=staff', 'organization_id=0', 'team_id=1', 'service=test-dd-service', 'env=test-dd-env', 'version=test-dd-version'],
@@ -390,7 +390,7 @@ describe('Email sender', () => {
             )).to.be.true;
             expect(sendFake.calledWithMatch(
                 {
-                    fromName: 'USDR Federal Grant Finder',
+                    fromName: 'Nava Federal Grant Finder',
                     toAddress: 'admin.user@test.com',
                     subject: 'Admin User Shared a Grant with Your Team',
                     tags: ['notification_type=grant_assignment', 'user_role=admin', 'organization_id=0', 'team_id=0', 'service=test-dd-service', 'env=test-dd-env', 'version=test-dd-version'],
@@ -415,13 +415,13 @@ describe('Email sender', () => {
             const sendFake = sinon.fake.returns('foo');
             sinon.replace(emailService, 'getTransport', sinon.fake.returns({ sendEmail: sendFake }));
 
-            await email.sendAsyncReportEmail('usdr.volunteer@test.com', 'https://example.usdigitalresponse.org', email.ASYNC_REPORT_TYPES.audit);
+            await email.sendAsyncReportEmail('usdr.volunteer@test.com', 'https://example.navapbc.com', email.ASYNC_REPORT_TYPES.audit);
             expect(sendFake.calledOnce).to.equal(true);
             expect(sendFake.firstCall.firstArg.subject).to.equal('Your audit report is ready for download');
-            expect(sendFake.firstCall.firstArg.text).to.equal('Your audit report is ready for download. Paste this link into your browser to download it: https://example.usdigitalresponse.org This link will remain active for 7 days.');
+            expect(sendFake.firstCall.firstArg.text).to.equal('Your audit report is ready for download. Paste this link into your browser to download it: https://example.navapbc.com This link will remain active for 7 days.');
             expect(sendFake.firstCall.firstArg.toAddress).to.equal('usdr.volunteer@test.com');
-            expect(sendFake.firstCall.firstArg.fromName).to.equal('USDR ARPA Reporter');
-            expect(sendFake.firstCall.firstArg.body).contains('https://example.usdigitalresponse.org');
+            expect(sendFake.firstCall.firstArg.fromName).to.equal('Nava ARPA Reporter');
+            expect(sendFake.firstCall.firstArg.body).contains('https://example.navapbc.com');
             expect(sendFake.firstCall.firstArg.tags).to.deep.equal([
                 'notification_type=audit_report',
                 'user_role=usdr_staff',
@@ -436,13 +436,13 @@ describe('Email sender', () => {
             const sendFake = sinon.fake.returns('foo');
             sinon.replace(emailService, 'getTransport', sinon.fake.returns({ sendEmail: sendFake }));
 
-            await email.sendAsyncReportEmail('admin.user@test.com', 'https://example.usdigitalresponse.org', email.ASYNC_REPORT_TYPES.treasury);
+            await email.sendAsyncReportEmail('admin.user@test.com', 'https://example.navapbc.com', email.ASYNC_REPORT_TYPES.treasury);
             expect(sendFake.calledOnce).to.equal(true);
             expect(sendFake.firstCall.firstArg.subject).to.equal('Your treasury report is ready for download');
-            expect(sendFake.firstCall.firstArg.text).to.equal('Your treasury report is ready for download. Paste this link into your browser to download it: https://example.usdigitalresponse.org This link will remain active for 7 days.');
+            expect(sendFake.firstCall.firstArg.text).to.equal('Your treasury report is ready for download. Paste this link into your browser to download it: https://example.navapbc.com This link will remain active for 7 days.');
             expect(sendFake.firstCall.firstArg.toAddress).to.equal('admin.user@test.com');
-            expect(sendFake.firstCall.firstArg.fromName).to.equal('USDR ARPA Reporter');
-            expect(sendFake.firstCall.firstArg.body).contains('https://example.usdigitalresponse.org');
+            expect(sendFake.firstCall.firstArg.fromName).to.equal('Nava ARPA Reporter');
+            expect(sendFake.firstCall.firstArg.body).contains('https://example.navapbc.com');
             expect(sendFake.firstCall.firstArg.tags).to.deep.equal([
                 'notification_type=treasury_report',
                 'user_role=admin',
@@ -465,15 +465,15 @@ describe('Email sender', () => {
                     display_name: 'Test Tenant',
                 },
             };
-            const body = 'There was an error generating your requested audit report. Someone from USDR will reach out within 24 hours to debug the problem. We apologize for any inconvenience.';
+            const body = 'There was an error generating your requested audit report. Someone from Nava will reach out within 24 hours to debug the problem. We apologize for any inconvenience.';
 
             await email.sendReportErrorEmail(user, email.ASYNC_REPORT_TYPES.audit);
             expect(sendFake.calledOnce).to.equal(true);
             expect(sendFake.firstCall.firstArg.subject).to.equal(`Audit report generation has failed for Test Tenant`);
             expect(sendFake.firstCall.firstArg.text).to.equal(body);
             expect(sendFake.firstCall.firstArg.toAddress).to.equal(user.email);
-            expect(sendFake.firstCall.firstArg.fromName).to.equal('USDR ARPA Reporter');
-            expect(sendFake.firstCall.firstArg.ccAddress).to.equal('grants-helpdesk@usdigitalresponse.org');
+            expect(sendFake.firstCall.firstArg.fromName).to.equal('Nava ARPA Reporter');
+            expect(sendFake.firstCall.firstArg.ccAddress).to.equal('grantfinder.helpdesk@navapbc.com');
             expect(sendFake.firstCall.firstArg.body).contains(body);
             // Not an actual user so no user tags
             expect(sendFake.firstCall.firstArg.tags).to.deep.equal([
@@ -592,7 +592,7 @@ describe('Email sender', () => {
             await email.buildAndSendGrantDigestEmails(1, '2021-08-05');
             expect(sendFake.calledOnce).to.equal(true);
             expect(_.omit(sendFake.firstCall.args[0], ['body', 'text'])).to.deep.equal({
-                fromName: 'USDR Federal Grant Finder',
+                fromName: 'Nava Federal Grant Finder',
                 ccAddress: undefined,
                 toAddress: 'admin.user@test.com',
                 subject: 'New Grants Published for Simple 2 result search based on included keywords',

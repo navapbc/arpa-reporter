@@ -124,7 +124,7 @@ async function ensureValidAgencyId(agencyId, userId) {
         const tenantAgencies = await getTenantAgencies(userRecord.tenant_id);
         const agency = tenantAgencies.find((a) => a.id === Number(agencyId));
         if (!agency) {
-            throw new ValidationError(`Supplied agency ID ${agencyId} does not correspond to an agency in the user's tenant ${userRecord.tenant_id}. Please report this issue to USDR.`);
+            throw new ValidationError(`Supplied agency ID ${agencyId} does not correspond to an agency in the user's tenant ${userRecord.tenant_id}. Please report this issue to Nava.`);
         }
         return agencyId;
     });
@@ -143,7 +143,7 @@ async function ensureValidReportingPeriodId(reportingPeriodId) {
         const reportingPeriod = await getReportingPeriod(reportingPeriodId);
 
         if (!reportingPeriod) {
-            throw new ValidationError(`Supplied reporting period ID ${reportingPeriodId} does not correspond to any existing reporting period. Please report this issue to USDR.`);
+            throw new ValidationError(`Supplied reporting period ID ${reportingPeriodId} does not correspond to any existing reporting period. Please report this issue to Nava.`);
         }
         return reportingPeriod.id;
     });

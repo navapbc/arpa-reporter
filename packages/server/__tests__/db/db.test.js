@@ -1106,17 +1106,17 @@ describe('db', () => {
             });
             await db.markGrantAsViewed({
                 grantId: fixtures.grants.healthAide.grant_id,
-                agencyId: fixtures.users.usdrUser.agency_id,
-                userId: fixtures.users.usdrUser.id,
+                agencyId: fixtures.users.navaUser.agency_id,
+                userId: fixtures.users.navaUser.id,
             });
 
             const viewedRecords = await knex(TABLES.grants_viewed)
                 .where({ grant_id: fixtures.grants.healthAide.grant_id });
             expect(viewedRecords.length).to.equal(2);
             const subStaffUserViewedRecord = viewedRecords.find((record) => record.user_id === fixtures.users.subStaffUser.id);
-            const usdrUserViewedRecord = viewedRecords.find((record) => record.user_id === fixtures.users.usdrUser.id);
+            const navaUserViewedRecord = viewedRecords.find((record) => record.user_id === fixtures.users.navaUser.id);
             expect(subStaffUserViewedRecord.updated_at.getTime()).to.equal(new Date('2024-01-01').getTime());
-            expect(usdrUserViewedRecord.updated_at.getTime()).to.equal(new Date('2024-01-01').getTime());
+            expect(navaUserViewedRecord.updated_at.getTime()).to.equal(new Date('2024-01-01').getTime());
         });
     });
 });

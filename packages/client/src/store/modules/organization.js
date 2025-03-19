@@ -5,7 +5,7 @@
   organization has sub-organizations (for example a user's organization might
   be a state, which has agencies as sub-organizations), then the user can
   navigate to one of those sub-organizations and view its data.
-  All the organizations are subsidary to USDR, so a USDR user can view
+  All the organizations are subsidary to Nava, so a Nava user can view
   any of them.
 */
 function initialState() {

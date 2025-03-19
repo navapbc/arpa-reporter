@@ -7,13 +7,13 @@ const tenants = require('./tenants');
 const adminRole = roles.find(({ name }) => name === 'admin');
 const staffRole = roles.find(({ name }) => name === 'staff');
 
-const usdrAgency = agencies.find((a) => a.abbreviation === 'USDR');
-const usdrSubAgency = agencies.find((a) => a.abbreviation === 'TSDR');
+const navaAgency = agencies.find((a) => a.abbreviation === 'Nava');
+const navaSubAgency = agencies.find((a) => a.abbreviation === 'TSDR');
 const nevadaAgency = agencies.find((a) => a.abbreviation === 'NV');
 const procurementAgency = agencies.find((a) => a.abbreviation === 'NPO');
 const dallasAgency = agencies.find((a) => a.abbreviation === 'DLA');
 
-const usdrTenant = tenants.find((t) => t.display_name === 'USDR Tenant');
+const navaTenant = tenants.find((t) => t.display_name === 'Nava Tenant');
 const nevadaenant = tenants.find((t) => t.display_name === 'Nevada Tenant');
 const procurementTenant = tenants.find((t) => t.display_name === 'NPO Tenant');
 const dallasTenant = tenants.find((t) => t.display_name === 'Dallas Agency');
@@ -21,21 +21,21 @@ const dallasTenant = tenants.find((t) => t.display_name === 'Dallas Agency');
 module.exports = [
     {
         id: 1,
-        email: 'alex@usdigitalresponse.org',
+        email: 'alex@navapbc.com',
         name: 'Alex Allain',
-        agency_id: usdrAgency.id,
+        agency_id: navaAgency.id,
         role_id: adminRole.id,
-        tenant_id: usdrTenant.id,
+        tenant_id: navaTenant.id,
         avatar_color: '#198754',
 
     },
     {
         id: 2,
-        email: 'mindy@usdigitalresponse.org', // fake email for testing
+        email: 'mindy@navapbc.com', // fake email for testing
         name: 'Mindy Huang',
-        agency_id: usdrAgency.id,
+        agency_id: navaAgency.id,
         role_id: adminRole.id,
-        tenant_id: usdrTenant.id,
+        tenant_id: navaTenant.id,
         avatar_color: '#ED7E14',
 
     },
@@ -43,27 +43,27 @@ module.exports = [
         id: 3,
         email: 'joecomeau01@gmail.com',
         name: 'Joe Comeau',
-        agency_id: usdrAgency.id,
+        agency_id: navaAgency.id,
         role_id: adminRole.id,
-        tenant_id: usdrTenant.id,
+        tenant_id: navaTenant.id,
         avatar_color: '#ED7E17',
     },
     {
         id: 4,
-        email: 'asridhar@usdigitalresponse.org',
+        email: 'asridhar@navapbc.com',
         name: 'Aditya Sridhar',
-        agency_id: usdrAgency.id,
+        agency_id: navaAgency.id,
         role_id: adminRole.id,
-        tenant_id: usdrTenant.id,
+        tenant_id: navaTenant.id,
         avatar_color: '#ED7E15',
     },
     {
         id: 5,
-        email: 'thendrickson@usdigitalresponse.org',
+        email: 'thendrickson@navapbc.com',
         name: 'Tyler Hendrickson',
-        agency_id: usdrAgency.id,
+        agency_id: navaAgency.id,
         role_id: adminRole.id,
-        tenant_id: usdrTenant.id,
+        tenant_id: navaTenant.id,
         avatar_color: '#ED7E16',
     },
     {
@@ -140,47 +140,47 @@ module.exports = [
     },
     {
         id: 14,
-        email: 'mindy+testsub@usdigitalresponse.org',
-        name: 'USDR tenant sub agency user',
-        agency_id: usdrSubAgency.id,
+        email: 'mindy+testsub@navapbc.com',
+        name: 'Nava tenant sub agency user',
+        agency_id: navaSubAgency.id,
         role_id: staffRole.id,
-        tenant_id: usdrTenant.id,
+        tenant_id: navaTenant.id,
         avatar_color: '#ED7E1F',
     },
     {
         id: 15,
         email: 'nat.hillard.usdr@gmail.com',
         name: 'Nat Hillard',
-        agency_id: usdrSubAgency.id,
+        agency_id: navaSubAgency.id,
         role_id: adminRole.id,
-        tenant_id: usdrTenant.id,
+        tenant_id: navaTenant.id,
         avatar_color: '#ED7E20',
     },
     {
         id: 16,
-        email: 'admin1@usdigitalresponse.org',
-        name: 'USDR tenant sub agency admin',
-        agency_id: usdrSubAgency.id,
+        email: 'admin1@navapbc.com',
+        name: 'Nava tenant sub agency admin',
+        agency_id: navaSubAgency.id,
         role_id: staffRole.id,
-        tenant_id: usdrTenant.id,
+        tenant_id: navaTenant.id,
         avatar_color: '#ED7E21',
     },
     {
         id: 17,
         email: 'admin@example.com',
-        name: 'USDR Admin',
-        agency_id: usdrAgency.id,
+        name: 'Nava Admin',
+        agency_id: navaAgency.id,
         role_id: adminRole.id,
-        tenant_id: usdrTenant.id,
+        tenant_id: navaTenant.id,
         avatar_color: '#ED7E22',
     },
     {
         id: 18,
         email: 'staff@example.com',
-        name: 'USDR Staff',
-        agency_id: usdrAgency.id,
+        name: 'Nava Staff',
+        agency_id: navaAgency.id,
         role_id: staffRole.id,
-        tenant_id: usdrTenant.id,
+        tenant_id: navaTenant.id,
         avatar_color: '#ED7E23',
     },
 ];

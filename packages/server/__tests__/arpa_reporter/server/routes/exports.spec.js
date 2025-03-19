@@ -30,8 +30,8 @@ describe('/api/exports', () => {
     let tenantBCookie;
     before(async () => {
         server = await makeTestServer();
-        tenantACookie = await getSessionCookie('mbroussard+unit-test-admin@usdigitalresponse.org');
-        tenantBCookie = await getSessionCookie('mbroussard+unit-test-user2@usdigitalresponse.org');
+        tenantACookie = await getSessionCookie('mbroussard+unit-test-admin@navapbc.com');
+        tenantBCookie = await getSessionCookie('mbroussard+unit-test-user2@navapbc.com');
     });
     after(() => {
         server.stop();
@@ -151,7 +151,7 @@ describe('/api/exports', () => {
             .set('Cookie', tenantACookie);
 
         expect(response.status).to.equal(302);
-        expect(response.headers.location).to.equal(`${ARPA_REPORTER_BASE_URL}?alert_text=Something%20went%20wrong.%20Please%20reach%20out%20to%20grants-helpdesk@usdigitalresponse.org.&alert_level=err`);
+        expect(response.headers.location).to.equal(`${ARPA_REPORTER_BASE_URL}?alert_text=Something%20went%20wrong.%20Please%20reach%20out%20to%20grantsreporting.helpdesk@navapbc.com.&alert_level=err`);
     });
     it('Signed URL - Success response', async () => {
         const s3InstanceFake = sandbox.fake.returns('just s3');

@@ -43,7 +43,7 @@ router.get('/:tenantId/:periodId/:filename', async (req, res) => {
         signedUrl = await aws.getSignedUrl(s3, new GetObjectCommand(baseParams), { expiresIn: 60 });
     } catch (error) {
         console.log(error);
-        res.redirect(`${process.env.WEBSITE_DOMAIN}/arpa_reporter?alert_text=Something went wrong. Please reach out to grants-helpdesk@usdigitalresponse.org.&alert_level=err`);
+        res.redirect(`${process.env.WEBSITE_DOMAIN}/arpa_reporter?alert_text=Something went wrong. Please reach out to grantsreporting.helpdesk@navapbc.com.&alert_level=err`);
         return;
     }
     res.redirect(signedUrl);

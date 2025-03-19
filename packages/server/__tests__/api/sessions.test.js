@@ -23,8 +23,8 @@ describe('/api/sessions', () => {
             const tests = {
                 '': false,
                 _: false,
-                'https://usdigitalresponse.org/': false,
-                'usdigitalresponse.org': false,
+                'https://navapbc.com/': false,
+                'navapbc.com': false,
                 '/api/sessions': false,
                 '#': false,
                 '#/grants': false, // hash based URLs should still be prefixed with /
@@ -43,7 +43,7 @@ describe('/api/sessions', () => {
         });
 
         async function testLogin(initBody = {}) {
-            const email = 'mindy@usdigitalresponse.org';
+            const email = 'mindy@navapbc.com';
             const resp1 = await fetch(`/api/sessions`, {
                 method: 'POST',
                 body: JSON.stringify({ email }),

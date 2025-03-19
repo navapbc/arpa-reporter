@@ -11,9 +11,9 @@ const tenants = {
         id: 0,
         display_name: 'SBA',
     },
-    USDR: {
+    Nava: {
         id: 1,
-        display_name: 'USDR',
+        display_name: 'Nava',
     },
     FS: {
         id: 2,
@@ -38,13 +38,13 @@ const agencies = {
         parent: 0,
         tenant_id: tenants.SBA.id,
     },
-    usdr: {
+    nava: {
         id: 2,
-        abbreviation: 'USDR',
-        code: 'USDR',
+        abbreviation: 'Nava',
+        code: 'Nava',
         name: 'United States Digital Response',
         parent: null,
-        tenant_id: tenants.USDR.id,
+        tenant_id: tenants.Nava.id,
     },
     fleetServices: {
         id: 4,
@@ -81,13 +81,13 @@ const users = {
         id: 3,
         tenant_id: agencies.subAccountancy.tenant_id,
     },
-    usdrUser: {
+    navaUser: {
         email: 'usdr.volunteer@test.com',
-        name: 'USDR user',
-        agency_id: agencies.usdr.id,
+        name: 'Nava user',
+        agency_id: agencies.nava.id,
         role_id: roles.staffRole.id,
         id: 4,
-        tenant_id: agencies.usdr.tenant_id,
+        tenant_id: agencies.nava.tenant_id,
     },
 };
 
