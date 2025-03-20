@@ -116,6 +116,15 @@ allowed_email_user_ids = [
   "6607", #gf-admin+ldchealth@navapbc.com
   "7303", #gf-admin+cbha@navapbc.com
   "7601", #gf-admin+sarasota@navapbc.com
+
+  "789",  # s.rhinehart@ofa.nv.gov
+  "1168", # isabel.k.wong@hawaii.gov
+  "5978", # Cameron.Nadel@treas.nj.gov
+  "5713", # Jacahri.Smith@treas.nj.gov
+  "7538", # Jody.Veler@dep.nj.gov
+  "7636", # Joseph.Pallis@dep.nj.gov
+  "6441", # Michael.Winfield@treas.nj.gov
+  "803",  # cvaldivia@usdigitalresponse.org
 ]
 allowed_email_tenant_ids = [
   "1", # Nava Tenant
