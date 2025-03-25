@@ -125,6 +125,7 @@ allowed_email_user_ids = [
   "7636", # Joseph.Pallis@dep.nj.gov
   "6441", # Michael.Winfield@treas.nj.gov
   "803",  # cvaldivia@usdigitalresponse.org
+  "1093", # jennifer.figueroa@treas.nj.gov
 ]
 allowed_email_tenant_ids = [
   "1", # Nava Tenant
