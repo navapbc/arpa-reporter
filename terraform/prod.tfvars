@@ -95,7 +95,7 @@ consume_grants_source_event_bus_name = "default"
 email_enable_tracking = true
 
 // Migration Email Flags
-limit_emails_for_migration = true
+limit_emails_for_migration = false
 
 allowed_email_user_ids = [
   "56",   # gf-admin+nv@navapbc.com
