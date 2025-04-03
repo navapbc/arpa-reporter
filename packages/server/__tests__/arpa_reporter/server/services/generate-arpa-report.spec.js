@@ -135,19 +135,13 @@ describe('arpa report generation', () => {
                 undefined,
                 undefined,
                 undefined,
-                'Yes',
-                1232593.0499999998,
-                31,
-                undefined,
-                0,
-                'Each project budget includes non-arpa capital funding to ensure that all schedule requirements for obligations and expenditures are met.',
             ],
         ];
         const subawardBulkUploadTemplate = await getTemplate('subawardBulkUpload');
 
         assert.equal(JSON.stringify(result), JSON.stringify(expectedResult));
 
-        // verifies that the latest treasury output template has the same amount of columns as the funciton output
+        // verifies that the latest treasury output template has the same amount of columns as the function output
         assert.equal(result[0].length, subawardBulkUploadTemplate[3].length);
     });
     it('generates all the columns of projectBaselineBulkUpload correctly', async () => {
