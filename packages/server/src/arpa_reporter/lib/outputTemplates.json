@@ -248,13 +248,13 @@
         "helpText": "The total dollar value of expenditures for this project.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
       },
       {
-        "fieldId": "Q4_2024_Obligations__c",
+        "fieldId": "Q1_2025_Obligations__c",
         "fieldName": "Current Period Obligations",
         "required": "Required",
         "helpText": "The dollar value of obligations for this project for the current period.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
       },
       {
-        "fieldId": "Q4_2024_Expenditures__c",
+        "fieldId": "Q1_2025_Expenditures__c",
         "fieldName": "Current Period Expenditures",
         "required": "Required",
         "helpText": "The dollar value of expenditures for this project for the current period.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
@@ -454,13 +454,13 @@
         "helpText": "The total dollar value of expenditures for this project.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
       },
       {
-        "fieldId": "Q4_2024_Obligations__c",
+        "fieldId": "Q1_2025_Obligations__c",
         "fieldName": "Current Period Obligations",
         "required": "Required",
         "helpText": "The dollar value of obligations for this project for the current period.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
       },
       {
-        "fieldId": "Q4_2024_Expenditures__c",
+        "fieldId": "Q1_2025_Expenditures__c",
         "fieldName": "Current Period Expenditures",
         "required": "Required",
         "helpText": "The dollar value of expenditures for this project for the current period.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
@@ -644,13 +644,13 @@
         "helpText": "The total dollar value of expenditures for this project.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
       },
       {
-        "fieldId": "Q4_2024_Obligations__c",
+        "fieldId": "Q1_2025_Obligations__c",
         "fieldName": "Current Period Obligations",
         "required": "Required",
         "helpText": "The dollar value of obligations for this project for the current period.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
       },
       {
-        "fieldId": "Q4_2024_Expenditures__c",
+        "fieldId": "Q1_2025_Expenditures__c",
         "fieldName": "Current Period Expenditures",
         "required": "Required",
         "helpText": "The dollar value of expenditures for this project for the current period.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
@@ -836,13 +836,13 @@
         "helpText": "The total dollar value of expenditures for this project.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
       },
       {
-        "fieldId": "Q4_2024_Obligations__c",
+        "fieldId": "Q1_2025_Obligations__c",
         "fieldName": "Current Period Obligations",
         "required": "Required",
         "helpText": "The dollar value of obligations for this project for the current period.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
       },
       {
-        "fieldId": "Q4_2024_Expenditures__c",
+        "fieldId": "Q1_2025_Expenditures__c",
         "fieldName": "Current Period Expenditures",
         "required": "Required",
         "helpText": "The dollar value of expenditures for this project for the current period.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
@@ -1044,13 +1044,13 @@
         "helpText": "The total dollar value of expenditures for this project.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
       },
       {
-        "fieldId": "Q4_2024_Obligations__c",
+        "fieldId": "Q1_2025_Obligations__c",
         "fieldName": "Current Period Obligations",
         "required": "Required",
         "helpText": "The dollar value of obligations for this project for the current period.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
       },
       {
-        "fieldId": "Q4_2024_Expenditures__c",
+        "fieldId": "Q1_2025_Expenditures__c",
         "fieldName": "Current Period Expenditures",
         "required": "Required",
         "helpText": "The dollar value of expenditures for this project for the current period.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
@@ -1248,13 +1248,13 @@
         "helpText": "The total dollar value of expenditures for this project.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
       },
       {
-        "fieldId": "Q4_2024_Obligations__c",
+        "fieldId": "Q1_2025_Obligations__c",
         "fieldName": "Current Period Obligations",
         "required": "Required",
         "helpText": "The dollar value of obligations for this project for the current period.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
       },
       {
-        "fieldId": "Q4_2024_Expenditures__c",
+        "fieldId": "Q1_2025_Expenditures__c",
         "fieldName": "Current Period Expenditures",
         "required": "Required",
         "helpText": "The dollar value of expenditures for this project for the current period.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
@@ -1446,13 +1446,13 @@
         "helpText": "The total dollar value of expenditures for this project.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
       },
       {
-        "fieldId": "Q4_2024_Obligations__c",
+        "fieldId": "Q1_2025_Obligations__c",
         "fieldName": "Current Period Obligations",
         "required": "Required",
         "helpText": "The dollar value of obligations for this project for the current period.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
       },
       {
-        "fieldId": "Q4_2024_Expenditures__c",
+        "fieldId": "Q1_2025_Expenditures__c",
         "fieldName": "Current Period Expenditures",
         "required": "Required",
         "helpText": "The dollar value of expenditures for this project for the current period.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
@@ -1641,13 +1641,13 @@
         "helpText": "The total dollar value of expenditures for this project.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
       },
       {
-        "fieldId": "Q4_2024_Obligations__c",
+        "fieldId": "Q1_2025_Obligations__c",
         "fieldName": "Current Period Obligations",
         "required": "Required",
         "helpText": "The dollar value of obligations for this project for the current period.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
       },
       {
-        "fieldId": "Q4_2024_Expenditures__c",
+        "fieldId": "Q1_2025_Expenditures__c",
         "fieldName": "Current Period Expenditures",
         "required": "Required",
         "helpText": "The dollar value of expenditures for this project for the current period.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
@@ -1830,13 +1830,13 @@
         "helpText": "The total dollar value of expenditures for this project.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
       },
       {
-        "fieldId": "Q4_2024_Obligations__c",
+        "fieldId": "Q1_2025_Obligations__c",
         "fieldName": "Current Period Obligations",
         "required": "Required",
         "helpText": "The dollar value of obligations for this project for the current period.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
       },
       {
-        "fieldId": "Q4_2024_Expenditures__c",
+        "fieldId": "Q1_2025_Expenditures__c",
         "fieldName": "Current Period Expenditures",
         "required": "Required",
         "helpText": "The dollar value of expenditures for this project for the current period.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
@@ -1983,13 +1983,13 @@
         "helpText": "The total dollar value of expenditures for this project.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
       },
       {
-        "fieldId": "Q4_2024_Obligations__c",
+        "fieldId": "Q1_2025_Obligations__c",
         "fieldName": "Current Period Obligations",
         "required": "Required",
         "helpText": "The dollar value of obligations for this project for the current period.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
       },
       {
-        "fieldId": "Q4_2024_Expenditures__c",
+        "fieldId": "Q1_2025_Expenditures__c",
         "fieldName": "Current Period Expenditures",
         "required": "Required",
         "helpText": "The dollar value of expenditures for this project for the current period.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
@@ -2137,13 +2137,13 @@
         "helpText": "The total dollar value of expenditures for this project.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
       },
       {
-        "fieldId": "Q4_2024_Obligations__c",
+        "fieldId": "Q1_2025_Obligations__c",
         "fieldName": "Current Period Obligations",
         "required": "Required",
         "helpText": "The dollar value of obligations for this project for the current period.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
       },
       {
-        "fieldId": "Q4_2024_Expenditures__c",
+        "fieldId": "Q1_2025_Expenditures__c",
         "fieldName": "Current Period Expenditures",
         "required": "Required",
         "helpText": "The dollar value of expenditures for this project for the current period.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
@@ -2283,13 +2283,13 @@
         "helpText": "The total dollar value of expenditures for this project.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
       },
       {
-        "fieldId": "Q4_2024_Obligations__c",
+        "fieldId": "Q1_2025_Obligations__c",
         "fieldName": "Current Period Obligations",
         "required": "Required",
         "helpText": "The dollar value of obligations for this project for the current period.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
       },
       {
-        "fieldId": "Q4_2024_Expenditures__c",
+        "fieldId": "Q1_2025_Expenditures__c",
         "fieldName": "Current Period Expenditures",
         "required": "Required",
         "helpText": "The dollar value of expenditures for this project for the current period.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
@@ -2438,13 +2438,13 @@
         "helpText": "The total dollar value of expenditures for this project.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
       },
       {
-        "fieldId": "Q4_2024_Obligations__c",
+        "fieldId": "Q1_2025_Obligations__c",
         "fieldName": "Current Period Obligations",
         "required": "Required",
         "helpText": "The dollar value of obligations for this project for the current period.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
       },
       {
-        "fieldId": "Q4_2024_Expenditures__c",
+        "fieldId": "Q1_2025_Expenditures__c",
         "fieldName": "Current Period Expenditures",
         "required": "Required",
         "helpText": "The dollar value of expenditures for this project for the current period.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
@@ -2777,13 +2777,13 @@
         "helpText": "The total dollar value of expenditures for this project.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
       },
       {
-        "fieldId": "Q4_2024_Obligations__c",
+        "fieldId": "Q1_2025_Obligations__c",
         "fieldName": "Current Period Obligations",
         "required": "Required",
         "helpText": "The dollar value of obligations for this project for the current period.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
       },
       {
-        "fieldId": "Q4_2024_Expenditures__c",
+        "fieldId": "Q1_2025_Expenditures__c",
         "fieldName": "Current Period Expenditures",
         "required": "Required",
         "helpText": "The dollar value of expenditures for this project for the current period.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
@@ -3327,42 +3327,6 @@
         "fieldName": "IAA Requirements Attestation",
         "required": "Conditional",
         "helpText": "Self attestation that the IAA satisfies the other three requirements in FAQ 17.6 listed below:\r\n\r\n1. It sets forth specific requirements, such as a scope of work and project deliverables;\r\n2. It is signed by the parties to the agreement, or otherwise evidences that each party has assented to the agreement; and\r\n3. It does not disclaim any binding effect or state that it does not create rights or obligations.\r\n\r\nRequired if Subaward Type is IAA.\r\n\r\n \"Yes\"\r\n \"No\"\r\n\r\n"
-      },
-      {
-        "fieldId": "Personnel_Cost_Estimates__c",
-        "fieldName": "Personnel Cost Estimates?",
-        "required": "Optional",
-        "helpText": "Will this project include 2025 and 2026 personnel cost estimates?\r\n\r\nOnly applicable If Subaward Type is \"Direct Payment\"."
-      },
-      {
-        "fieldId": "Personnel_Estimated_Expended",
-        "fieldName": "Estimated Personnel Expenditures",
-        "required": "Conditional",
-        "helpText": "Estimated personnel expenditures in 2025 and 2026.\r\n\r\nRequired If Subaward Type is Direct Payment and Yes is selected for 2025 and 2026 Personnel Cost Estimates\r\n\r\n"
-      },
-      {
-        "fieldId": "Personnel_Expended_FTE_Count",
-        "fieldName": "Personnel Expended FTE Count",
-        "required": "Conditional",
-        "helpText": "Number of full-time equivalent (FTE) positions for which funds are obligated. \r\n\r\nRequired If Subaward Type is Direct Payment and and an amount is entered into the 2025/2026 estimated personnel cost.\r\n\r\n"
-      },
-      {
-        "fieldId": "Personnel_Expended_Justification",
-        "fieldName": "Personnel Expended Justification",
-        "required": "Conditional",
-        "helpText": "Explanation of how the estimated personnel expenditures in 2025 and 2026 was determined and provide brief description of job categories covered. \r\n\r\nRequired If Subaward Type is Direct Payment and and an amount is entered into the 2025/2026 estimated personnel cost.\r\n\r\n"
-      },
-      {
-        "fieldId": "Contract_Estimated_Expended",
-        "fieldName": "Contract Estimated Expended",
-        "required": "Conditional",
-        "helpText": "Estimated funds required to cover change orders and contingencies provided for by the contract field.\r\n\r\nRequired If Subaward Type is one of the following: \r\n“Contract: Purchase Order”\r\n“Contract: Delivery Order”\r\n“Contract: Blanket Purchase Agreement”\r\n“Contract: Definitive Contract”\r\n\r\n"
-      },
-      {
-        "fieldId": "Contract_Expended_Justification",
-        "fieldName": "Contract Expended Justfiication",
-        "required": "Conditional",
-        "helpText": "Explanation of how the estimated funds required to cover change orders and contingencies provided for by the contract was determined.\r\n\r\nIf Subaward Type is one of the following: \r\n“Contract: Purchase Order”\r\n“Contract: Delivery Order”\r\n“Contract: Blanket Purchase Agreement”\r\n“Contract: Definitive Contract”\r\nAND\r\n an amount greater than 0 was added to the estimated Admin & Legal expenses."
       }
     ]
   }
