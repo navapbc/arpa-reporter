@@ -372,6 +372,24 @@
         "fieldName": "People participating in summer youth employment programs",
         "required": "Conditional",
         "helpText": "Number of people participating in summer youth employment programs\r\n\r\n\r\nRequired for Tier 1 recipients only\r\n\r\nNumeric field."
+      },
+      {
+        "fieldId": "Prog_Income_Earned_After_12_31_24__c",
+        "fieldName": "Program Income earned on project after December 31, 2024",
+        "required": "Conditional",
+        "helpText": "Program Income earned on project after December 31, 2024"
+      },
+      {
+        "fieldId": "Total_Prog_Income_Obl_Post_Q4_2024__c",
+        "fieldName": "Program Income obligated by deadline and reported after December 31, 2024",
+        "required": "Conditional",
+        "helpText": "Program Income obligated by deadline and reported after December 31, 2024"
+      },
+      {
+        "fieldId": "Total_Prog_Income_Exp_Post_Q4_2024__c",
+        "fieldName": "Program Income reported after Q4 2024 expended",
+        "required": "Conditional",
+        "helpText": "Program Income reported after Q4 2024 expended"
       }
     ]
   },
@@ -566,6 +584,24 @@
         "fieldName": "Number of Small Businesses Served ",
         "required": "Required",
         "helpText": "Number of small businesses served (by program if recipient establishes multiple separate small businesses assistance programs)\r\n\r\nNumeric value"
+      },
+      {
+        "fieldId": "Prog_Income_Earned_After_12_31_24__c",
+        "fieldName": "Program Income earned on project after December 31, 2024",
+        "required": "Conditional",
+        "helpText": "Program Income earned on project after December 31, 2024"
+      },
+      {
+        "fieldId": "Total_Prog_Income_Obl_Post_Q4_2024__c",
+        "fieldName": "Program Income obligated by deadline and reported after December 31, 2024",
+        "required": "Conditional",
+        "helpText": "Program Income obligated by deadline and reported after December 31, 2024"
+      },
+      {
+        "fieldId": "Total_Prog_Income_Exp_Post_Q4_2024__c",
+        "fieldName": "Program Income reported after Q4 2024 expended",
+        "required": "Conditional",
+        "helpText": "Program Income reported after Q4 2024 expended"
       }
     ]
   },
@@ -756,6 +792,24 @@
         "fieldName": "Non-Profits Served",
         "required": "Required",
         "helpText": "Number of Non-Profits served (by program if recipient establishes multiple separate non-profit assistance programs)\r\n\r\nNumeric value."
+      },
+      {
+        "fieldId": "Prog_Income_Earned_After_12_31_24__c",
+        "fieldName": "Program Income earned on project after December 31, 2024",
+        "required": "Conditional",
+        "helpText": "Program Income earned on project after December 31, 2024"
+      },
+      {
+        "fieldId": "Total_Prog_Income_Obl_Post_Q4_2024__c",
+        "fieldName": "Program Income obligated by deadline and reported after December 31, 2024",
+        "required": "Conditional",
+        "helpText": "Program Income obligated by deadline and reported after December 31, 2024"
+      },
+      {
+        "fieldId": "Total_Prog_Income_Exp_Post_Q4_2024__c",
+        "fieldName": "Program Income reported after Q4 2024 expended",
+        "required": "Conditional",
+        "helpText": "Program Income reported after Q4 2024 expended"
       }
     ]
   },
@@ -960,6 +1014,24 @@
         "fieldName": "Families served by home visiting",
         "required": "Conditional",
         "helpText": "Number of families served by home visiting\r\n\r\n\r\nRequired for Tier 1 recipients only\r\n\r\nNumeric field. "
+      },
+      {
+        "fieldId": "Prog_Income_Earned_After_12_31_24__c",
+        "fieldName": "Program Income earned on project after December 31, 2024",
+        "required": "Conditional",
+        "helpText": "Program Income earned on project after December 31, 2024"
+      },
+      {
+        "fieldId": "Total_Prog_Income_Obl_Post_Q4_2024__c",
+        "fieldName": "Program Income obligated by deadline and reported after December 31, 2024",
+        "required": "Conditional",
+        "helpText": "Program Income obligated by deadline and reported after December 31, 2024"
+      },
+      {
+        "fieldId": "Total_Prog_Income_Exp_Post_Q4_2024__c",
+        "fieldName": "Program Income reported after Q4 2024 expended",
+        "required": "Conditional",
+        "helpText": "Program Income reported after Q4 2024 expended"
       }
     ]
   },
@@ -1168,6 +1240,24 @@
         "fieldName": "Affordable housing units preserved or developed",
         "required": "Required",
         "helpText": "Number of households served (by program if recipient establishes multiple separate household assistance programs)\r\n\r\nNumeric value."
+      },
+      {
+        "fieldId": "Prog_Income_Earned_After_12_31_24__c",
+        "fieldName": "Program Income earned on project after December 31, 2024",
+        "required": "Conditional",
+        "helpText": "Program Income earned on project after December 31, 2024"
+      },
+      {
+        "fieldId": "Total_Prog_Income_Obl_Post_Q4_2024__c",
+        "fieldName": "Program Income obligated by deadline and reported after December 31, 2024",
+        "required": "Conditional",
+        "helpText": "Program Income obligated by deadline and reported after December 31, 2024"
+      },
+      {
+        "fieldId": "Total_Prog_Income_Exp_Post_Q4_2024__c",
+        "fieldName": "Program Income reported after Q4 2024 expended",
+        "required": "Conditional",
+        "helpText": "Program Income reported after Q4 2024 expended"
       }
     ]
   },
@@ -1366,6 +1456,24 @@
         "fieldName": "Affordable housing units preserved or developed",
         "required": "Conditional",
         "helpText": "Number of affordable housing units preserved or developed\r\n\r\n\r\nRequired for Tier 1 recipients only\r\n\r\nNumeric field. "
+      },
+      {
+        "fieldId": "Prog_Income_Earned_After_12_31_24__c",
+        "fieldName": "Program Income earned on project after December 31, 2024",
+        "required": "Conditional",
+        "helpText": "Program Income earned on project after December 31, 2024"
+      },
+      {
+        "fieldId": "Total_Prog_Income_Obl_Post_Q4_2024__c",
+        "fieldName": "Program Income obligated by deadline and reported after December 31, 2024",
+        "required": "Conditional",
+        "helpText": "Program Income obligated by deadline and reported after December 31, 2024"
+      },
+      {
+        "fieldId": "Total_Prog_Income_Exp_Post_Q4_2024__c",
+        "fieldName": "Program Income reported after Q4 2024 expended",
+        "required": "Conditional",
+        "helpText": "Program Income reported after Q4 2024 expended"
       }
     ]
   },
@@ -1564,6 +1672,24 @@
         "fieldName": "Students participating in evidence-based tutoring programs",
         "required": "Conditional",
         "helpText": "Number of students participating in evidence-based tutoring programs\r\n\r\n\r\nRequired for Tier 1 recipients only\r\n\r\nNumeric field."
+      },
+      {
+        "fieldId": "Prog_Income_Earned_After_12_31_24__c",
+        "fieldName": "Program Income earned on project after December 31, 2024",
+        "required": "Conditional",
+        "helpText": "Program Income earned on project after December 31, 2024"
+      },
+      {
+        "fieldId": "Total_Prog_Income_Obl_Post_Q4_2024__c",
+        "fieldName": "Program Income obligated by deadline and reported after December 31, 2024",
+        "required": "Conditional",
+        "helpText": "Program Income obligated by deadline and reported after December 31, 2024"
+      },
+      {
+        "fieldId": "Total_Prog_Income_Exp_Post_Q4_2024__c",
+        "fieldName": "Program Income reported after Q4 2024 expended",
+        "required": "Conditional",
+        "helpText": "Program Income reported after Q4 2024 expended"
       }
     ]
   },
@@ -1753,6 +1879,24 @@
         "fieldName": "Industry other than tourism Narrative",
         "required": "Required",
         "helpText": "If aid is provided to industries other than travel, tourism, and hospitality (EC 2.36), please describe if the industry experienced at least 8 percent employment loss from pre-pandemic levels, or the industry is experiencing comparable or worse economic impacts as the national tourism, travel, and hospitality industries as of the date of the Final Rule, and rationale for providing aide to the industry\r\n\r\n(Text - max 250 characters)"
+      },
+      {
+        "fieldId": "Prog_Income_Earned_After_12_31_24__c",
+        "fieldName": "Program Income earned on project after December 31, 2024",
+        "required": "Conditional",
+        "helpText": "Program Income earned on project after December 31, 2024"
+      },
+      {
+        "fieldId": "Total_Prog_Income_Obl_Post_Q4_2024__c",
+        "fieldName": "Program Income obligated by deadline and reported after December 31, 2024",
+        "required": "Conditional",
+        "helpText": "Program Income obligated by deadline and reported after December 31, 2024"
+      },
+      {
+        "fieldId": "Total_Prog_Income_Exp_Post_Q4_2024__c",
+        "fieldName": "Program Income reported after Q4 2024 expended",
+        "required": "Conditional",
+        "helpText": "Program Income reported after Q4 2024 expended"
       }
     ]
   },
@@ -1906,6 +2050,24 @@
         "fieldName": "Number of government FTEs responding",
         "required": "Required",
         "helpText": "Number of government FTEs responding to COVID-19 supported under this authority\r\n\r\n(Numeric value - No character limitation)"
+      },
+      {
+        "fieldId": "Prog_Income_Earned_After_12_31_24__c",
+        "fieldName": "Program Income earned on project after December 31, 2024",
+        "required": "Conditional",
+        "helpText": "Program Income earned on project after December 31, 2024"
+      },
+      {
+        "fieldId": "Total_Prog_Income_Obl_Post_Q4_2024__c",
+        "fieldName": "Program Income obligated by deadline and reported after December 31, 2024",
+        "required": "Conditional",
+        "helpText": "Program Income obligated by deadline and reported after December 31, 2024"
+      },
+      {
+        "fieldId": "Total_Prog_Income_Exp_Post_Q4_2024__c",
+        "fieldName": "Program Income reported after Q4 2024 expended",
+        "required": "Conditional",
+        "helpText": "Program Income reported after Q4 2024 expended"
       }
     ]
   },
@@ -2059,6 +2221,24 @@
         "fieldName": "Number of FTEs rehired by governments under this authority",
         "required": "Required",
         "helpText": "Number of FTEs rehired by governments under this authority.\r\n\r\nNumeric Max Characters (6).  DO NOT include commas \",\" when entering Amounts.\r\n\r\nNumeric value."
+      },
+      {
+        "fieldId": "Prog_Income_Earned_After_12_31_24__c",
+        "fieldName": "Program Income earned on project after December 31, 2024",
+        "required": "Conditional",
+        "helpText": "Program Income earned on project after December 31, 2024"
+      },
+      {
+        "fieldId": "Total_Prog_Income_Obl_Post_Q4_2024__c",
+        "fieldName": "Program Income obligated by deadline and reported after December 31, 2024",
+        "required": "Conditional",
+        "helpText": "Program Income obligated by deadline and reported after December 31, 2024"
+      },
+      {
+        "fieldId": "Total_Prog_Income_Exp_Post_Q4_2024__c",
+        "fieldName": "Program Income reported after Q4 2024 expended",
+        "required": "Conditional",
+        "helpText": "Program Income reported after Q4 2024 expended"
       }
     ]
   },
@@ -2189,6 +2369,24 @@
         "fieldName": "K-12 Workers Served",
         "required": "Required",
         "helpText": "Number of workers to be served with premium pay in K-12 schools\r\n\r\n(Numeric value), DO NOT include commas \",\" when entering Amounts"
+      },
+      {
+        "fieldId": "Prog_Income_Earned_After_12_31_24__c",
+        "fieldName": "Program Income earned on project after December 31, 2024",
+        "required": "Conditional",
+        "helpText": "Program Income earned on project after December 31, 2024"
+      },
+      {
+        "fieldId": "Total_Prog_Income_Obl_Post_Q4_2024__c",
+        "fieldName": "Program Income obligated by deadline and reported after December 31, 2024",
+        "required": "Conditional",
+        "helpText": "Program Income obligated by deadline and reported after December 31, 2024"
+      },
+      {
+        "fieldId": "Total_Prog_Income_Exp_Post_Q4_2024__c",
+        "fieldName": "Program Income reported after Q4 2024 expended",
+        "required": "Conditional",
+        "helpText": "Program Income reported after Q4 2024 expended"
       }
     ]
   },
@@ -2359,6 +2557,24 @@
         "fieldName": "Lowest Quintile Income of the service area ",
         "required": "Conditional",
         "helpText": "REQUIRED if the project has started. \r\n\r\nNOT REQUIRED if you selected \"Not Started\" for the \"Status to Completion\" question.\r\n\r\nThe final rule defines a household as low income if it has (i) income at or below 185 percent of the Federal Poverty Guidelines (FPG) for the size of its household based on the most recently published poverty guidelines by the Department of Health and Human Services (HHS) or (ii) income at or below 40 percent of the Area Median Income (AMI) for its county and size of household based on the most recently published data by the Department of Housing and Urban Development (HUD).\r\n\r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
+      },
+      {
+        "fieldId": "Prog_Income_Earned_After_12_31_24__c",
+        "fieldName": "Program Income earned on project after December 31, 2024",
+        "required": "Conditional",
+        "helpText": "Program Income earned on project after December 31, 2024"
+      },
+      {
+        "fieldId": "Total_Prog_Income_Obl_Post_Q4_2024__c",
+        "fieldName": "Program Income obligated by deadline and reported after December 31, 2024",
+        "required": "Conditional",
+        "helpText": "Program Income obligated by deadline and reported after December 31, 2024"
+      },
+      {
+        "fieldId": "Total_Prog_Income_Exp_Post_Q4_2024__c",
+        "fieldName": "Program Income reported after Q4 2024 expended",
+        "required": "Conditional",
+        "helpText": "Program Income reported after Q4 2024 expended"
       }
     ]
   },
@@ -2676,6 +2892,24 @@
         "fieldName": "No Broadband File Explanation",
         "required": "Conditional",
         "helpText": "REQUIRED if answer to previous question was 'No'.\r\n\r\n(Text - max characters 255)"
+      },
+      {
+        "fieldId": "Prog_Income_Earned_After_12_31_24__c",
+        "fieldName": "Program Income earned on project after December 31, 2024",
+        "required": "Conditional",
+        "helpText": "Program Income earned on project after December 31, 2024"
+      },
+      {
+        "fieldId": "Total_Prog_Income_Obl_Post_Q4_2024__c",
+        "fieldName": "Program Income obligated by deadline and reported after December 31, 2024",
+        "required": "Conditional",
+        "helpText": "Program Income obligated by deadline and reported after December 31, 2024"
+      },
+      {
+        "fieldId": "Total_Prog_Income_Exp_Post_Q4_2024__c",
+        "fieldName": "Program Income reported after Q4 2024 expended",
+        "required": "Conditional",
+        "helpText": "Program Income reported after Q4 2024 expended"
       }
     ]
   },
@@ -2907,6 +3141,24 @@
         "fieldName": "Administrative and legal expenses explanation",
         "required": "Conditional",
         "helpText": "Only Applicable if EC 7.3 is selected\r\n\r\nExplanation of how the figure for the estimated fund required to cover eligible administrative and legal expenses was determined\r\n\r\n(Text )"
+      },
+      {
+        "fieldId": "Prog_Income_Earned_After_12_31_24__c",
+        "fieldName": "Program Income earned on project after December 31, 2024",
+        "required": "Conditional",
+        "helpText": "Program Income earned on project after December 31, 2024"
+      },
+      {
+        "fieldId": "Total_Prog_Income_Obl_Post_Q4_2024__c",
+        "fieldName": "Program Income obligated by deadline and reported after December 31, 2024",
+        "required": "Conditional",
+        "helpText": "Program Income obligated by deadline and reported after December 31, 2024"
+      },
+      {
+        "fieldId": "Total_Prog_Income_Exp_Post_Q4_2024__c",
+        "fieldName": "Program Income reported after Q4 2024 expended",
+        "required": "Conditional",
+        "helpText": "Program Income reported after Q4 2024 expended"
       }
     ]
   },
@@ -3327,6 +3579,30 @@
         "fieldName": "IAA Requirements Attestation",
         "required": "Conditional",
         "helpText": "Self attestation that the IAA satisfies the other three requirements in FAQ 17.6 listed below:\r\n\r\n1. It sets forth specific requirements, such as a scope of work and project deliverables;\r\n2. It is signed by the parties to the agreement, or otherwise evidences that each party has assented to the agreement; and\r\n3. It does not disclaim any binding effect or state that it does not create rights or obligations.\r\n\r\nRequired if Subaward Type is IAA.\r\n\r\n \"Yes\"\r\n \"No\"\r\n\r\n"
+      },
+      {
+        "fieldId": "Personnel_Exp_Exceeding_Estimate__c",
+        "fieldName": "Personnel Expenditures Exceeding Estimate",
+        "required": "Conditional",
+        "helpText": "Total Expenditures Exceeding Estimate\r\n\r\nRequired If Subaward Type is Direct Payment "
+      },
+      {
+        "fieldId": "Personnel_Obligations_Pursuant_Estimate__c",
+        "fieldName": "Personnel Obligations Pursuant to Estimate",
+        "required": "Conditional",
+        "helpText": "Total Reported Obligations Pursuant to Estimate\r\n\r\nRequired If Subaward Type is Direct Payment "
+      },
+      {
+        "fieldId": "Contract_Expenditures_Exceeding_Estimate__c",
+        "fieldName": "Contract Expenditures Exceeding Estimate",
+        "required": "Conditional",
+        "helpText": "Total Expenditures Exceeding Estimate\r\n\r\nRequired If Subaward Type is one of the following: \r\n“Contract: Purchase Order”\r\n“Contract: Delivery Order”\r\n“Contract: Blanket Purchase Agreement”\r\n“Contract: Definitive Contract”"
+      },
+      {
+        "fieldId": "Contract_Obligations_Pursuant_Estimate__c",
+        "fieldName": "Contract Obligations Pursuant to Estimate",
+        "required": "Conditional",
+        "helpText": "Total Reported Obligations Pursuant to Estimate\r\n\r\nRequired If Subaward Type is one of the following: \r\n“Contract: Purchase Order”\r\n“Contract: Delivery Order”\r\n“Contract: Blanket Purchase Agreement”\r\n“Contract: Definitive Contract”"
       }
     ]
   }

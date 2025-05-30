@@ -97,11 +97,10 @@ describe('arpa report generation', () => {
                     Place_of_Performance_Zip__c: '10001',
                     Description__c: 'Project Support Services',
                     Subaward_Changed__c: 'No',
-                    Contract_Estimated_Expended: 0,
-                    Personnel_Cost_Estimates__c: 'Yes',
-                    Personnel_Estimated_Expended: 1232593.0499999998,
-                    Personnel_Expended_FTE_Count: 31,
-                    Contract_Expended_Justification: 'Each project budget includes non-arpa capital funding to ensure that all schedule requirements for obligations and expenditures are met.',
+                    Personnel_Exp_Exceeding_Estimate__c: 1001,
+                    Personnel_Obligations_Pursuant_Estimate__c: 1002,
+                    Contract_Expenditures_Exceeding_Estimate__c: 1003,
+                    Contract_Obligations_Pursuant_Estimate__c: 1004,
                 },
             },
         ];
@@ -135,6 +134,10 @@ describe('arpa report generation', () => {
                 undefined,
                 undefined,
                 undefined,
+                '1001',
+                '1002',
+                '1003',
+                '1004',
             ],
         ];
         const subawardBulkUploadTemplate = await getTemplate('subawardBulkUpload');
@@ -255,6 +258,9 @@ describe('arpa report generation', () => {
                 null,
                 null,
                 null,
+                null,
+                null,
+                null,
             ],
             [
                 null,
@@ -291,6 +297,9 @@ describe('arpa report generation', () => {
                 77,
                 'Test admin expended description',
                 'Test admin expended justification',
+                null,
+                null,
+                null,
             ],
         ];
         const result = await generateProjectBaseline(records);
