@@ -132,6 +132,9 @@ async function generateProject111210(records) {
                         record.content.Number_Workers_Enrolled_Sectoral__c,
                         record.content.Number_Workers_Competing_Sectoral__c,
                         record.content.Number_People_Summer_Youth__c,
+                        currency(record.content.Prog_Income_Earned_After_12_31_24__c),
+                        currency(record.content.Total_Prog_Income_Obl_Post_Q4_2024__c),
+                        currency(record.content.Total_Prog_Income_Exp_Post_Q4_2024__c),
                     ];
                 }
                 default:
@@ -185,6 +188,9 @@ async function generateProject18(records) {
                         record.content.Structure_Objectives_of_Asst_Programs__c,
                         record.content.Recipient_Approach_Description__c,
                         record.content.Small_Businesses_Served__c,
+                        currency(record.content.Prog_Income_Earned_After_12_31_24__c),
+                        currency(record.content.Total_Prog_Income_Obl_Post_Q4_2024__c),
+                        currency(record.content.Total_Prog_Income_Exp_Post_Q4_2024__c),
                     ];
                 }
                 default:
@@ -234,6 +240,9 @@ async function generateProject19(records) {
                         record.content.Structure_Objectives_of_Asst_Programs__c,
                         record.content.Recipient_Approach_Description__c,
                         record.content.Number_Non_Profits_Served__c,
+                        currency(record.content.Prog_Income_Earned_After_12_31_24__c),
+                        currency(record.content.Total_Prog_Income_Obl_Post_Q4_2024__c),
+                        currency(record.content.Total_Prog_Income_Exp_Post_Q4_2024__c),
                     ];
                 }
                 default:
@@ -287,6 +296,9 @@ async function generateProject211214(records) {
                         record.content.School_ID_or_District_ID__c,
                         record.content.Number_Children_Served_Childcare__c,
                         record.content.Number_Families_Served_Home_Visiting__c,
+                        currency(record.content.Prog_Income_Earned_After_12_31_24__c),
+                        currency(record.content.Total_Prog_Income_Obl_Post_Q4_2024__c),
+                        currency(record.content.Total_Prog_Income_Exp_Post_Q4_2024__c),
                     ];
                 }
                 default:
@@ -344,6 +356,9 @@ async function generateProject2128(records) {
                         record.content.Individuals_Served__c,
                         record.content.Number_Households_Eviction_Prevention__c,
                         record.content.Number_Affordable_Housing_Units__c,
+                        currency(record.content.Prog_Income_Earned_After_12_31_24__c),
+                        currency(record.content.Total_Prog_Income_Obl_Post_Q4_2024__c),
+                        currency(record.content.Total_Prog_Income_Exp_Post_Q4_2024__c),
                     ];
                 }
                 default:
@@ -396,6 +411,9 @@ async function generateProject215218(records) {
                         record.content.Recipient_Approach_Description__c,
                         record.content.Number_Households_Eviction_Prevention__c,
                         record.content.Number_Affordable_Housing_Units__c,
+                        currency(record.content.Prog_Income_Earned_After_12_31_24__c),
+                        currency(record.content.Total_Prog_Income_Obl_Post_Q4_2024__c),
+                        currency(record.content.Total_Prog_Income_Exp_Post_Q4_2024__c),
                     ];
                 }
                 default:
@@ -448,6 +466,9 @@ async function generateProject224227(records) {
                         record.content.Recipient_Approach_Description__c,
                         record.content.School_ID_or_District_ID__c,
                         record.content.Number_Students_Tutoring_Programs__c,
+                        currency(record.content.Prog_Income_Earned_After_12_31_24__c),
+                        currency(record.content.Total_Prog_Income_Obl_Post_Q4_2024__c),
+                        currency(record.content.Total_Prog_Income_Exp_Post_Q4_2024__c),
                     ];
                 }
                 default:
@@ -496,6 +517,9 @@ async function generateProject236(records) {
                         record.content.Structure_Objectives_of_Asst_Programs__c,
                         record.content.Recipient_Approach_Description__c,
                         record.content.Industry_Experienced_8_Percent_Loss__c,
+                        currency(record.content.Prog_Income_Earned_After_12_31_24__c),
+                        currency(record.content.Total_Prog_Income_Obl_Post_Q4_2024__c),
+                        currency(record.content.Total_Prog_Income_Exp_Post_Q4_2024__c),
                     ];
                 }
                 default:
@@ -538,6 +562,9 @@ async function generateProject31(records) {
                         record.content.Structure_Objectives_of_Asst_Programs__c,
                         record.content.Recipient_Approach_Description__c,
                         record.content.Payroll_Public_Health_Safety__c,
+                        currency(record.content.Prog_Income_Earned_After_12_31_24__c),
+                        currency(record.content.Total_Prog_Income_Obl_Post_Q4_2024__c),
+                        currency(record.content.Total_Prog_Income_Exp_Post_Q4_2024__c),
                     ];
                 }
                 default:
@@ -580,6 +607,9 @@ async function generateProject32(records) {
                         record.content.Structure_Objectives_of_Asst_Programs__c,
                         record.content.Recipient_Approach_Description__c,
                         record.content.Number_of_FTEs_Rehired__c,
+                        currency(record.content.Prog_Income_Earned_After_12_31_24__c),
+                        currency(record.content.Total_Prog_Income_Obl_Post_Q4_2024__c),
+                        currency(record.content.Total_Prog_Income_Exp_Post_Q4_2024__c),
                     ];
                 }
                 default:
@@ -619,6 +649,9 @@ async function generateProject4142(records) {
                         record.content.Workers_Served__c,
                         record.content.Premium_Pay_Narrative__c,
                         record.content.Number_of_Workers_K_12__c,
+                        currency(record.content.Prog_Income_Earned_After_12_31_24__c),
+                        currency(record.content.Total_Prog_Income_Obl_Post_Q4_2024__c),
+                        currency(record.content.Total_Prog_Income_Exp_Post_Q4_2024__c),
                     ];
                 }
                 default:
@@ -678,6 +711,9 @@ async function generateProject51518(records) {
                         record.content.Public_Water_System_PWS_ID_number__c,
                         record.content.Median_Household_Income_Service_Area__c,
                         currency(record.content.Lowest_Quintile_Income__c),
+                        currency(record.content.Prog_Income_Earned_After_12_31_24__c),
+                        currency(record.content.Total_Prog_Income_Obl_Post_Q4_2024__c),
+                        currency(record.content.Total_Prog_Income_Exp_Post_Q4_2024__c),
                     ];
                 }
                 default:
@@ -747,6 +783,9 @@ async function generateProject519521(records) {
                         record.content.Actual_Funded_Locations_Community__c,
                         record.content.Planned_Funded_Locations_Explanation__c,
                         record.content.Actual_Funded_Locations_Explanation__c,
+                        currency(record.content.Prog_Income_Earned_After_12_31_24__c),
+                        currency(record.content.Total_Prog_Income_Obl_Post_Q4_2024__c),
+                        currency(record.content.Total_Prog_Income_Exp_Post_Q4_2024__c),
                     ];
                 }
                 default:
@@ -823,6 +862,9 @@ async function generateProjectBaseline(records) {
                         record.content.Admin_Actual_Expended__c,
                         record.content.Admin_Expended_Description__c,
                         record.content.Admin_Expended_Justification__c,
+                        currency(record.content.Prog_Income_Earned_After_12_31_24__c),
+                        currency(record.content.Total_Prog_Income_Obl_Post_Q4_2024__c),
+                        currency(record.content.Total_Prog_Income_Exp_Post_Q4_2024__c),
                     ];
                 }
                 default:
@@ -922,6 +964,10 @@ async function generateSubaward(records) {
                     record.content.Loan_Expiration_Date__c,
                     record.content.IAA_Basic_Conditions__c,
                     record.content.IAA_Requirements_Attestation__c,
+                    currency(record.content.Personnel_Exp_Exceeding_Estimate__c),
+                    currency(record.content.Personnel_Obligations_Pursuant_Estimate__c),
+                    currency(record.content.Contract_Expenditures_Exceeding_Estimate__c),
+                    currency(record.content.Contract_Obligations_Pursuant_Estimate__c),
                 ];
             }
             default:
