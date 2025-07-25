@@ -95,8 +95,8 @@ module "db" {
   copy_tags_to_snapshot = true
 
   serverlessv2_scaling_configuration = {
-    min_capacity = 0.5
-    max_capacity = 1.5
+    min_capacity = 2
+    max_capacity = 4
   }
 
   instance_class = "db.serverless"
