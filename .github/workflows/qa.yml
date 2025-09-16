@@ -380,7 +380,7 @@ jobs:
         run: poetry install --no-interaction --no-ansi
       - name: Get Python changed files
         id: changed-py-files
-        uses: tj-actions/changed-files@dcc7a0cba800f454d79fff4b993e8c3555bcc0a8 # v45.0.7
+        uses: tj-actions/changed-files@2371aa7cd265d2e8a0213dc9e2a70dfcfb8fa114 # v45.0.7
         with:
           files: |
             *.py
