@@ -176,8 +176,8 @@
         "1.14"
       ]
     },
-    "Current_Period_Obligations__c": {
-      "key": "Current_Period_Obligations__c",
+    "Q2_2025_Obligations__c": {
+      "key": "Q2_2025_Obligations__c",
       "index": 8,
       "required": true,
       "dataType": "Currency",
@@ -202,8 +202,8 @@
         "1.14"
       ]
     },
-    "Current_Period_Expenditures__c": {
-      "key": "Current_Period_Expenditures__c",
+    "Q2_2025_Expenditures__c": {
+      "key": "Q2_2025_Expenditures__c",
       "index": 9,
       "required": true,
       "dataType": "Currency",
@@ -611,10 +611,20 @@
       "columnName": "V",
       "humanColName": "Identify the dollar amount of the total project spending that is allocated towards evidence-based interventions",
       "ecCodes": [
+        "1.1",
+        "1.2",
+        "1.3",
         "1.4",
+        "1.5",
+        "1.6",
+        "1.7",
+        "1.8",
+        "1.9",
+        "1.10",
         "1.11",
         "1.12",
-        "1.13"
+        "1.13",
+        "1.14"
       ]
     },
     "Whether_program_evaluation_is_being_conducted": {
@@ -647,7 +657,10 @@
       "columnName": "X",
       "humanColName": "Number of Small Businesses Served ",
       "ecCodes": [
-        "1.8"
+        "1.4",
+        "1.11",
+        "1.12",
+        "1.13"
       ]
     },
     "Number_Non_Profits_Served__c": {
@@ -660,7 +673,7 @@
       "columnName": "Y",
       "humanColName": "Non-Profits Served",
       "ecCodes": [
-        "1.9"
+        "1.8"
       ]
     },
     "Does_Project_Include_Capital_Expenditure__c": {
@@ -677,20 +690,7 @@
       "columnName": "Z",
       "humanColName": "Does this project include a capital expenditure?",
       "ecCodes": [
-        "1.1",
-        "1.2",
-        "1.3",
-        "1.4",
-        "1.5",
-        "1.6",
-        "1.7",
-        "1.8",
-        "1.9",
-        "1.10",
-        "1.11",
-        "1.12",
-        "1.13",
-        "1.14"
+        "1.9"
       ]
     },
     "Total_Cost_Capital_Expenditure__c": {
@@ -1226,7 +1226,20 @@
       "columnName": "AS",
       "humanColName": "Number of workers enrolled in sectoral job training programs",
       "ecCodes": [
-        "1.11"
+        "1.1",
+        "1.2",
+        "1.3",
+        "1.4",
+        "1.5",
+        "1.6",
+        "1.7",
+        "1.8",
+        "1.9",
+        "1.10",
+        "1.11",
+        "1.12",
+        "1.13",
+        "1.14"
       ]
     },
     "Number_Workers_Competing_Sectoral__c": {
@@ -1265,20 +1278,7 @@
       "columnName": "AV",
       "humanColName": "Cancelled Status of Completion Explanation",
       "ecCodes": [
-        "1.1",
-        "1.2",
-        "1.3",
-        "1.4",
-        "1.5",
-        "1.6",
-        "1.7",
-        "1.8",
-        "1.9",
-        "1.10",
-        "1.11",
-        "1.12",
-        "1.13",
-        "1.14"
+        "1.11"
       ]
     },
     "Project_Start_Date__c": {
@@ -1713,8 +1713,8 @@
         "2.37"
       ]
     },
-    "Current_Period_Obligations__c": {
-      "key": "Current_Period_Obligations__c",
+    "Q2_2025_Obligations__c": {
+      "key": "Q2_2025_Obligations__c",
       "index": 8,
       "required": true,
       "dataType": "Currency",
@@ -1762,8 +1762,8 @@
         "2.37"
       ]
     },
-    "Current_Period_Expenditures__c": {
-      "key": "Current_Period_Expenditures__c",
+    "Q2_2025_Expenditures__c": {
+      "key": "Q2_2025_Expenditures__c",
       "index": 9,
       "required": true,
       "dataType": "Currency",
@@ -1860,107 +1860,9 @@
         "2.37"
       ]
     },
-    "Program_Income_Earned__c": {
-      "key": "Program_Income_Earned__c",
-      "index": 11,
-      "required": false,
-      "dataType": "Currency",
-      "maxLength": null,
-      "listVals": [],
-      "columnName": "L",
-      "humanColName": "Program Income Earned",
-      "ecCodes": [
-        "2.1",
-        "2.2",
-        "2.3",
-        "2.4",
-        "2.5",
-        "2.6",
-        "2.7",
-        "2.8",
-        "2.9",
-        "2.10",
-        "2.11",
-        "2.12",
-        "2.13",
-        "2.14",
-        "2.15",
-        "2.16",
-        "2.17",
-        "2.18",
-        "2.19",
-        "2.20",
-        "2.21",
-        "2.22",
-        "2.23",
-        "2.24",
-        "2.25",
-        "2.26",
-        "2.27",
-        "2.28",
-        "2.29",
-        "2.30",
-        "2.31",
-        "2.32",
-        "2.33",
-        "2.34",
-        "2.35",
-        "2.36",
-        "2.37"
-      ]
-    },
-    "Program_Income_Expended__c": {
-      "key": "Program_Income_Expended__c",
-      "index": 12,
-      "required": false,
-      "dataType": "Currency",
-      "maxLength": null,
-      "listVals": [],
-      "columnName": "M",
-      "humanColName": "Program Income Expended",
-      "ecCodes": [
-        "2.1",
-        "2.2",
-        "2.3",
-        "2.4",
-        "2.5",
-        "2.6",
-        "2.7",
-        "2.8",
-        "2.9",
-        "2.10",
-        "2.11",
-        "2.12",
-        "2.13",
-        "2.14",
-        "2.15",
-        "2.16",
-        "2.17",
-        "2.18",
-        "2.19",
-        "2.20",
-        "2.21",
-        "2.22",
-        "2.23",
-        "2.24",
-        "2.25",
-        "2.26",
-        "2.27",
-        "2.28",
-        "2.29",
-        "2.30",
-        "2.31",
-        "2.32",
-        "2.33",
-        "2.34",
-        "2.35",
-        "2.36",
-        "2.37"
-      ]
-    },
     "Primary_Project_Demographics__c": {
       "key": "Primary_Project_Demographics__c",
-      "index": 13,
+      "index": 11,
       "required": "Conditional",
       "dataType": "Pick List",
       "maxLength": null,
@@ -1994,7 +1896,7 @@
         "27 Dis Imp NPs operating in the U.S. territories",
         "28 Dis Imp Other NPs Dis Imp by the pandemic specify"
       ],
-      "columnName": "N",
+      "columnName": "L",
       "humanColName": "Project Demographic Distribution - Primary Populations Served",
       "ecCodes": [
         "2.1",
@@ -2038,12 +1940,12 @@
     },
     "Primary_Project_Demographics_Explanation__c": {
       "key": "Primary_Project_Demographics_Explanation__c",
-      "index": 14,
+      "index": 12,
       "required": "Conditional",
       "dataType": "String",
       "maxLength": 250,
       "listVals": [],
-      "columnName": "O",
+      "columnName": "M",
       "humanColName": "Primary Project Demographic Explanation",
       "ecCodes": [
         "2.1",
@@ -2087,7 +1989,7 @@
     },
     "Secondary_Project_Demographics__c": {
       "key": "Secondary_Project_Demographics__c",
-      "index": 15,
+      "index": 13,
       "required": false,
       "dataType": "Pick List",
       "maxLength": null,
@@ -2121,7 +2023,7 @@
         "27 Dis Imp NPs operating in the U.S. territories",
         "28 Dis Imp Other NPs Dis Imp by the pandemic specify"
       ],
-      "columnName": "P",
+      "columnName": "N",
       "humanColName": "Project Demographic Distribution - Secondary Populations Served",
       "ecCodes": [
         "2.1",
@@ -2165,12 +2067,12 @@
     },
     "Secondary_Proj_Demographics_Explanation__c": {
       "key": "Secondary_Proj_Demographics_Explanation__c",
-      "index": 16,
+      "index": 14,
       "required": "Conditional",
       "dataType": "String",
       "maxLength": 250,
       "listVals": [],
-      "columnName": "Q",
+      "columnName": "O",
       "humanColName": "Secondary Project Demographic Explanation",
       "ecCodes": [
         "2.1",
@@ -2214,7 +2116,7 @@
     },
     "Tertiary_Project_Demographics__c": {
       "key": "Tertiary_Project_Demographics__c",
-      "index": 17,
+      "index": 15,
       "required": false,
       "dataType": "Pick List",
       "maxLength": null,
@@ -2248,7 +2150,7 @@
         "27 Dis Imp NPs operating in the U.S. territories",
         "28 Dis Imp Other NPs Dis Imp by the pandemic specify"
       ],
-      "columnName": "R",
+      "columnName": "P",
       "humanColName": "Project Demographic Distribution - Tertiary Populations Served",
       "ecCodes": [
         "2.1",
@@ -2292,12 +2194,12 @@
     },
     "Tertiary_Proj_Demographics_Explanation__c": {
       "key": "Tertiary_Proj_Demographics_Explanation__c",
-      "index": 18,
+      "index": 16,
       "required": "Conditional",
       "dataType": "String",
       "maxLength": 250,
       "listVals": [],
-      "columnName": "S",
+      "columnName": "Q",
       "humanColName": "Tertiary Project Demographic Explanation",
       "ecCodes": [
         "2.1",
@@ -2341,12 +2243,12 @@
     },
     "Structure_Objectives_of_Asst_Programs__c": {
       "key": "Structure_Objectives_of_Asst_Programs__c",
-      "index": 19,
+      "index": 17,
       "required": "Conditional",
       "dataType": "String",
       "maxLength": 250,
       "listVals": [],
-      "columnName": "T",
+      "columnName": "R",
       "humanColName": "Brief description of structure and objectives of assistance program(s), including public health or negative economic impact experienced.",
       "ecCodes": [
         "2.1",
@@ -2390,12 +2292,12 @@
     },
     "Recipient_Approach_Description__c": {
       "key": "Recipient_Approach_Description__c",
-      "index": 20,
+      "index": 18,
       "required": "Conditional",
       "dataType": "String",
       "maxLength": 250,
       "listVals": [],
-      "columnName": "U",
+      "columnName": "S",
       "humanColName": "Brief description of how a recipient’s response is related and reasonably and proportional  to a public health or negative economic impact of COVID-19.",
       "ecCodes": [
         "2.1",
@@ -2439,13 +2341,164 @@
     },
     "Individuals_Served__c": {
       "key": "Individuals_Served__c",
-      "index": 21,
+      "index": 19,
       "required": "Conditional",
       "dataType": "Numeric",
       "maxLength": 9999999999,
       "listVals": [],
-      "columnName": "V",
+      "columnName": "T",
       "humanColName": "Number of households served",
+      "ecCodes": [
+        "2.1",
+        "2.2",
+        "2.3",
+        "2.4",
+        "2.5",
+        "2.6",
+        "2.7",
+        "2.8",
+        "2.9",
+        "2.10",
+        "2.11",
+        "2.12",
+        "2.13",
+        "2.14",
+        "2.15",
+        "2.16",
+        "2.17",
+        "2.18",
+        "2.19",
+        "2.20",
+        "2.21",
+        "2.22",
+        "2.23",
+        "2.24",
+        "2.25",
+        "2.26",
+        "2.27",
+        "2.28",
+        "2.29",
+        "2.30",
+        "2.31",
+        "2.32",
+        "2.33",
+        "2.34",
+        "2.35",
+        "2.36",
+        "2.37"
+      ]
+    },
+    "Spending_Allocated_Toward_Evidence_Based_Interventions": {
+      "key": "Spending_Allocated_Toward_Evidence_Based_Interventions",
+      "index": 20,
+      "required": "Conditional",
+      "dataType": "Currency",
+      "maxLength": null,
+      "listVals": [],
+      "columnName": "U",
+      "humanColName": "The dollar amount of the total project spending that is allocated towards evidence-based interventions",
+      "ecCodes": [
+        "2.1",
+        "2.2",
+        "2.3",
+        "2.4",
+        "2.5",
+        "2.6",
+        "2.7",
+        "2.8",
+        "2.9",
+        "2.10",
+        "2.11",
+        "2.12",
+        "2.13",
+        "2.14",
+        "2.15",
+        "2.16",
+        "2.17",
+        "2.18",
+        "2.19",
+        "2.20",
+        "2.21",
+        "2.22",
+        "2.23",
+        "2.24",
+        "2.25",
+        "2.26",
+        "2.27",
+        "2.28",
+        "2.29",
+        "2.30",
+        "2.31",
+        "2.32",
+        "2.33",
+        "2.34",
+        "2.35",
+        "2.36",
+        "2.37"
+      ]
+    },
+    "Whether_program_evaluation_is_being_conducted": {
+      "key": "Whether_program_evaluation_is_being_conducted",
+      "index": 21,
+      "required": "Conditional",
+      "dataType": "Pick List",
+      "maxLength": null,
+      "listVals": [
+        "Yes",
+        "No",
+        "N/A"
+      ],
+      "columnName": "V",
+      "humanColName": "Indicate if a program evaluation of the project is being conducted ",
+      "ecCodes": [
+        "2.1",
+        "2.2",
+        "2.3",
+        "2.4",
+        "2.5",
+        "2.6",
+        "2.7",
+        "2.8",
+        "2.9",
+        "2.10",
+        "2.11",
+        "2.12",
+        "2.13",
+        "2.14",
+        "2.15",
+        "2.16",
+        "2.17",
+        "2.18",
+        "2.19",
+        "2.20",
+        "2.21",
+        "2.22",
+        "2.23",
+        "2.24",
+        "2.25",
+        "2.26",
+        "2.27",
+        "2.28",
+        "2.29",
+        "2.30",
+        "2.31",
+        "2.32",
+        "2.33",
+        "2.34",
+        "2.35",
+        "2.36",
+        "2.37"
+      ]
+    },
+    "Small_Businesses_Served__c": {
+      "key": "Small_Businesses_Served__c",
+      "index": 22,
+      "required": "Conditional",
+      "dataType": "Numeric",
+      "maxLength": 9999999999,
+      "listVals": [],
+      "columnName": "W",
+      "humanColName": "Number of small businesses served (by program if recipient establishes multiple separate \r\nsmall businesses assistance programs) ",
       "ecCodes": [
         "2.1",
         "2.2",
@@ -2457,55 +2510,15 @@
         "2.8"
       ]
     },
-    "Spending_Allocated_Toward_Evidence_Based_Interventions": {
-      "key": "Spending_Allocated_Toward_Evidence_Based_Interventions",
-      "index": 22,
-      "required": "Conditional",
-      "dataType": "Currency",
-      "maxLength": null,
-      "listVals": [],
-      "columnName": "W",
-      "humanColName": "The dollar amount of the total project spending that is allocated towards evidence-based interventions",
-      "ecCodes": [
-        "2.1",
-        "2.2",
-        "2.3",
-        "2.4",
-        "2.6",
-        "2.7",
-        "2.9",
-        "2.10",
-        "2.11",
-        "2.12",
-        "2.13",
-        "2.14",
-        "2.15",
-        "2.16",
-        "2.17",
-        "2.18",
-        "2.19",
-        "2.20",
-        "2.25",
-        "2.26",
-        "2.30",
-        "2.32",
-        "2.33",
-        "2.37"
-      ]
-    },
-    "Whether_program_evaluation_is_being_conducted": {
-      "key": "Whether_program_evaluation_is_being_conducted",
+    "Number_Non_Profits_Served__c": {
+      "key": "Number_Non_Profits_Served__c",
       "index": 23,
       "required": "Conditional",
-      "dataType": "Pick List",
-      "maxLength": null,
-      "listVals": [
-        "Yes",
-        "No",
-        "N/A"
-      ],
+      "dataType": "String",
+      "maxLength": 10,
+      "listVals": [],
       "columnName": "X",
-      "humanColName": "Indicate if a program evaluation of the project is being conducted ",
+      "humanColName": "Number of Non-Profits served (by program if recipient establishes multiple separate non-\r\nprofit assistance programs) ",
       "ecCodes": [
         "2.1",
         "2.2",
@@ -2533,15 +2546,51 @@
         "2.37"
       ]
     },
-    "Small_Businesses_Served__c": {
-      "key": "Small_Businesses_Served__c",
+    "School_ID_or_District_ID__c": {
+      "key": "School_ID_or_District_ID__c",
       "index": 24,
       "required": "Conditional",
-      "dataType": "Numeric",
-      "maxLength": 9999999999,
+      "dataType": "String",
+      "maxLength": 750,
       "listVals": [],
       "columnName": "Y",
-      "humanColName": "Number of small businesses served (by program if recipient establishes multiple separate \r\nsmall businesses assistance programs) ",
+      "humanColName": "NCES School ID or NCES District ID",
+      "ecCodes": [
+        "2.1",
+        "2.2",
+        "2.3",
+        "2.4",
+        "2.6",
+        "2.7",
+        "2.9",
+        "2.10",
+        "2.11",
+        "2.12",
+        "2.13",
+        "2.14",
+        "2.15",
+        "2.16",
+        "2.17",
+        "2.18",
+        "2.19",
+        "2.20",
+        "2.25",
+        "2.26",
+        "2.30",
+        "2.32",
+        "2.33",
+        "2.37"
+      ]
+    },
+    "Industry_Experienced_8_Percent_Loss__c": {
+      "key": "Industry_Experienced_8_Percent_Loss__c",
+      "index": 25,
+      "required": "Conditional",
+      "dataType": "String",
+      "maxLength": 250,
+      "listVals": [],
+      "columnName": "Z",
+      "humanColName": "Industry other than tourism Narrative",
       "ecCodes": [
         "2.29",
         "2.30",
@@ -2550,28 +2599,32 @@
         "2.33"
       ]
     },
-    "Number_Non_Profits_Served__c": {
-      "key": "Number_Non_Profits_Served__c",
-      "index": 25,
-      "required": "Conditional",
-      "dataType": "String",
-      "maxLength": 10,
-      "listVals": [],
-      "columnName": "Z",
-      "humanColName": "Number of Non-Profits served (by program if recipient establishes multiple separate non-\r\nprofit assistance programs) ",
+    "Does_Project_Include_Capital_Expenditure__c": {
+      "key": "Does_Project_Include_Capital_Expenditure__c",
+      "index": 26,
+      "required": true,
+      "dataType": "Pick List",
+      "maxLength": null,
+      "listVals": [
+        "Yes",
+        "No",
+        "N/A"
+      ],
+      "columnName": "AA",
+      "humanColName": "Does this project include a capital expenditure?",
       "ecCodes": [
         "2.34"
       ]
     },
-    "School_ID_or_District_ID__c": {
-      "key": "School_ID_or_District_ID__c",
-      "index": 26,
+    "Total_Cost_Capital_Expenditure__c": {
+      "key": "Total_Cost_Capital_Expenditure__c",
+      "index": 27,
       "required": "Conditional",
-      "dataType": "String",
-      "maxLength": 750,
+      "dataType": "Currency",
+      "maxLength": null,
       "listVals": [],
-      "columnName": "AA",
-      "humanColName": "NCES School ID or NCES District ID",
+      "columnName": "AB",
+      "humanColName": "If yes, what is the total expected capital expenditure?",
       "ecCodes": [
         "2.11",
         "2.12",
@@ -2583,124 +2636,9 @@
         "2.27"
       ]
     },
-    "Industry_Experienced_8_Percent_Loss__c": {
-      "key": "Industry_Experienced_8_Percent_Loss__c",
-      "index": 27,
-      "required": "Conditional",
-      "dataType": "String",
-      "maxLength": 250,
-      "listVals": [],
-      "columnName": "AB",
-      "humanColName": "Industry other than tourism Narrative",
-      "ecCodes": [
-        "2.36"
-      ]
-    },
-    "Does_Project_Include_Capital_Expenditure__c": {
-      "key": "Does_Project_Include_Capital_Expenditure__c",
-      "index": 28,
-      "required": true,
-      "dataType": "Pick List",
-      "maxLength": null,
-      "listVals": [
-        "Yes",
-        "No",
-        "N/A"
-      ],
-      "columnName": "AC",
-      "humanColName": "Does this project include a capital expenditure?",
-      "ecCodes": [
-        "2.1",
-        "2.2",
-        "2.3",
-        "2.4",
-        "2.5",
-        "2.6",
-        "2.7",
-        "2.8",
-        "2.9",
-        "2.10",
-        "2.11",
-        "2.12",
-        "2.13",
-        "2.14",
-        "2.15",
-        "2.16",
-        "2.17",
-        "2.18",
-        "2.19",
-        "2.20",
-        "2.21",
-        "2.22",
-        "2.23",
-        "2.24",
-        "2.25",
-        "2.26",
-        "2.27",
-        "2.28",
-        "2.29",
-        "2.30",
-        "2.31",
-        "2.32",
-        "2.33",
-        "2.34",
-        "2.35",
-        "2.36",
-        "2.37"
-      ]
-    },
-    "Total_Cost_Capital_Expenditure__c": {
-      "key": "Total_Cost_Capital_Expenditure__c",
-      "index": 29,
-      "required": "Conditional",
-      "dataType": "Currency",
-      "maxLength": null,
-      "listVals": [],
-      "columnName": "AD",
-      "humanColName": "If yes, what is the total expected capital expenditure?",
-      "ecCodes": [
-        "2.1",
-        "2.2",
-        "2.3",
-        "2.4",
-        "2.5",
-        "2.6",
-        "2.7",
-        "2.8",
-        "2.9",
-        "2.10",
-        "2.11",
-        "2.12",
-        "2.13",
-        "2.14",
-        "2.15",
-        "2.16",
-        "2.17",
-        "2.18",
-        "2.19",
-        "2.20",
-        "2.21",
-        "2.22",
-        "2.23",
-        "2.24",
-        "2.25",
-        "2.26",
-        "2.27",
-        "2.28",
-        "2.29",
-        "2.30",
-        "2.31",
-        "2.32",
-        "2.33",
-        "2.34",
-        "2.35",
-        "2.36",
-        "2.37"
-      ]
-    },
     "Type_of_Capital_Expenditure__c": {
       "key": "Type_of_Capital_Expenditure__c",
-      "index": 30,
+      "index": 28,
       "required": "Conditional",
       "dataType": "Pick List",
       "maxLength": null,
@@ -2732,56 +2670,20 @@
         "Transitional shelters",
         "Other (please specify)"
       ],
-      "columnName": "AE",
+      "columnName": "AC",
       "humanColName": "Capital Expenditure Type",
       "ecCodes": [
-        "2.1",
-        "2.2",
-        "2.3",
-        "2.4",
-        "2.5",
-        "2.6",
-        "2.7",
-        "2.8",
-        "2.9",
-        "2.10",
-        "2.11",
-        "2.12",
-        "2.13",
-        "2.14",
-        "2.15",
-        "2.16",
-        "2.17",
-        "2.18",
-        "2.19",
-        "2.20",
-        "2.21",
-        "2.22",
-        "2.23",
-        "2.24",
-        "2.25",
-        "2.26",
-        "2.27",
-        "2.28",
-        "2.29",
-        "2.30",
-        "2.31",
-        "2.32",
-        "2.33",
-        "2.34",
-        "2.35",
-        "2.36",
-        "2.37"
+        "2.36"
       ]
     },
     "Type_of_Capital_Expenditure_Other__c": {
       "key": "Type_of_Capital_Expenditure_Other__c",
-      "index": 31,
+      "index": 29,
       "required": "Conditional",
       "dataType": "String",
       "maxLength": 255,
       "listVals": [],
-      "columnName": "AF",
+      "columnName": "AD",
       "humanColName": "Other Capital Expenditure Explanation",
       "ecCodes": [
         "2.1",
@@ -2825,12 +2727,12 @@
     },
     "Capital_Expenditure_Justification__c": {
       "key": "Capital_Expenditure_Justification__c",
-      "index": 32,
+      "index": 30,
       "required": "Conditional",
       "dataType": "String",
       "maxLength": 1500,
       "listVals": [],
-      "columnName": "AG",
+      "columnName": "AE",
       "humanColName": "Capital Expenditure Narrative",
       "ecCodes": [
         "2.1",
@@ -2874,7 +2776,7 @@
     },
     "(manual entry)1": {
       "key": "(manual entry)1",
-      "index": 33,
+      "index": 31,
       "required": "Required if Budget > $10M",
       "dataType": "Pick List",
       "maxLength": null,
@@ -2883,7 +2785,7 @@
         "No",
         "N/A"
       ],
-      "columnName": "AH",
+      "columnName": "AF",
       "humanColName": "If budget is over $10M, was a Davis Bacon Act Certification completed?",
       "ecCodes": [
         "2.1",
@@ -2927,12 +2829,12 @@
     },
     "(manual entry)2": {
       "key": "(manual entry)2",
-      "index": 34,
+      "index": 32,
       "required": "Required if DB is No",
       "dataType": "TBD",
       "maxLength": null,
       "listVals": [],
-      "columnName": "AI",
+      "columnName": "AG",
       "humanColName": "If budget is over $10M and Davis Bacon Act Certification NOT completed - enter the number of employees of contractors and sub-contractors working on the project.",
       "ecCodes": [
         "2.1",
@@ -2976,12 +2878,12 @@
     },
     "(manual entry)3": {
       "key": "(manual entry)3",
-      "index": 35,
+      "index": 33,
       "required": "Required if DB is No",
       "dataType": "TBD",
       "maxLength": null,
       "listVals": [],
-      "columnName": "AJ",
+      "columnName": "AH",
       "humanColName": "If budget is over $10M and Davis Bacon Act Certification NOT completed - enter the number of employees on the project hired directly and hired through a third party. ",
       "ecCodes": [
         "2.1",
@@ -3025,12 +2927,12 @@
     },
     "(manual entry)4": {
       "key": "(manual entry)4",
-      "index": 36,
+      "index": 34,
       "required": "Required if DB is No",
       "dataType": "TBD",
       "maxLength": null,
       "listVals": [],
-      "columnName": "AK",
+      "columnName": "AI",
       "humanColName": "If budget is over $10M and Davis Bacon Act Certification NOT completed - enter the wages and benefits of workers on the project by classification",
       "ecCodes": [
         "2.1",
@@ -3074,7 +2976,7 @@
     },
     "(manual entry)5": {
       "key": "(manual entry)5",
-      "index": 37,
+      "index": 35,
       "required": "Required if DB is No",
       "dataType": "TBD",
       "maxLength": null,
@@ -3083,7 +2985,7 @@
         "No",
         "N/A"
       ],
-      "columnName": "AL",
+      "columnName": "AJ",
       "humanColName": "If budget is over $10M and Davis Bacon Act Certification NOT completed - are those wages are at rates less than those prevailing?",
       "ecCodes": [
         "2.1",
@@ -3127,7 +3029,7 @@
     },
     "(manual entry)6": {
       "key": "(manual entry)6",
-      "index": 38,
+      "index": 36,
       "required": "Required if Budget > $10M",
       "dataType": "Pick List",
       "maxLength": null,
@@ -3136,7 +3038,7 @@
         "No",
         "N/A"
       ],
-      "columnName": "AM",
+      "columnName": "AK",
       "humanColName": "If budget is over $10M, was a Labor Agreement Certification completed?",
       "ecCodes": [
         "2.1",
@@ -3180,12 +3082,12 @@
     },
     "(manual entry)7": {
       "key": "(manual entry)7",
-      "index": 39,
+      "index": 37,
       "required": "Required if PLA is No",
       "dataType": "TBD",
       "maxLength": null,
       "listVals": [],
-      "columnName": "AN",
+      "columnName": "AL",
       "humanColName": "If budget is over $10M and Labor Agreement Certification NOT completed - enter how the recipient will ensure the project has ready access to a sufficient supply of appropriately skilled and unskilled labor to ensure high-quality construction throughout the life of the project, including a description of any required professional certifications and/or in-house training. ",
       "ecCodes": [
         "2.1",
@@ -3229,12 +3131,12 @@
     },
     "(manual entry)8": {
       "key": "(manual entry)8",
-      "index": 40,
+      "index": 38,
       "required": "Required if PLA is No",
       "dataType": "TBD",
       "maxLength": null,
       "listVals": [],
-      "columnName": "AO",
+      "columnName": "AM",
       "humanColName": "If budget is over $10M and Labor Agreement Certification NOT completed - enter how the recipient will minimize risks of labor disputes and disruptions that would jeopardize timeliness and cost-effectiveness of the project.",
       "ecCodes": [
         "2.1",
@@ -3278,12 +3180,12 @@
     },
     "(manual entry)9": {
       "key": "(manual entry)9",
-      "index": 41,
+      "index": 39,
       "required": "Required if PLA is No",
       "dataType": "TBD",
       "maxLength": null,
       "listVals": [],
-      "columnName": "AP",
+      "columnName": "AN",
       "humanColName": "If budget is over $10M and Labor Agreement Certification NOT completed - enter how the recipient will provide a safe and healthy workplace that avoids delays and costs associated with workplace illnesses, injuries, and fatalities, including descriptions of safety training, certification, and/or licensure requirements for all relevant workers (e.g., OSHA 10, OSHA 30).",
       "ecCodes": [
         "2.1",
@@ -3327,7 +3229,7 @@
     },
     "(manual entry)10": {
       "key": "(manual entry)10",
-      "index": 42,
+      "index": 40,
       "required": "Required if PLA is No",
       "dataType": "TBD",
       "maxLength": null,
@@ -3336,7 +3238,7 @@
         "No",
         "N/A"
       ],
-      "columnName": "AQ",
+      "columnName": "AO",
       "humanColName": "If budget is over $10M and Labor Agreement Certification NOT completed - enter whether workers on the project will receive wages and benefits that will secure an appropriately skilled workforce in the context of the local or regional labor market.",
       "ecCodes": [
         "2.1",
@@ -3380,7 +3282,7 @@
     },
     "(manual entry)11": {
       "key": "(manual entry)11",
-      "index": 43,
+      "index": 41,
       "required": "Required if PLA is No",
       "dataType": "TBD",
       "maxLength": null,
@@ -3389,7 +3291,7 @@
         "No",
         "N/A"
       ],
-      "columnName": "AR",
+      "columnName": "AP",
       "humanColName": "If budget is over $10M and Labor Agreement Certification NOT completed - enter whether the project has completed a project labor agreement. ",
       "ecCodes": [
         "2.1",
@@ -3433,7 +3335,7 @@
     },
     "(manual entry)12": {
       "key": "(manual entry)12",
-      "index": 44,
+      "index": 42,
       "required": "Required if Budget > $10M",
       "dataType": "Pick List",
       "maxLength": null,
@@ -3442,7 +3344,7 @@
         "No",
         "N/A"
       ],
-      "columnName": "AS",
+      "columnName": "AQ",
       "humanColName": "If budget is over $10M, does the project prioritize local hires? ",
       "ecCodes": [
         "2.1",
@@ -3486,7 +3388,7 @@
     },
     "(manual entry)13": {
       "key": "(manual entry)13",
-      "index": 45,
+      "index": 43,
       "required": "Required if Budget > $10M",
       "dataType": "Pick List",
       "maxLength": null,
@@ -3495,7 +3397,7 @@
         "No",
         "N/A"
       ],
-      "columnName": "AT",
+      "columnName": "AR",
       "humanColName": "If budget is over $10M, does the project have a Community Benefit Agreement?",
       "ecCodes": [
         "2.1",
@@ -3539,12 +3441,12 @@
     },
     "(manual entry)14": {
       "key": "(manual entry)14",
-      "index": 46,
+      "index": 44,
       "required": "Required if Budget > $10M",
       "dataType": "TBD",
       "maxLength": null,
       "listVals": [],
-      "columnName": "AU",
+      "columnName": "AS",
       "humanColName": "If budget is over $10M and has a Community Benefit Agreement, provide a description. ",
       "ecCodes": [
         "2.1",
@@ -3588,72 +3490,200 @@
     },
     "Number_Workers_Enrolled_Sectoral__c": {
       "key": "Number_Workers_Enrolled_Sectoral__c",
+      "index": 45,
+      "required": "Conditional",
+      "dataType": "Numeric",
+      "maxLength": 9999999999,
+      "listVals": [],
+      "columnName": "AT",
+      "humanColName": "Number of workers enrolled in sectoral job training programs",
+      "ecCodes": [
+        "2.1",
+        "2.2",
+        "2.3",
+        "2.4",
+        "2.5",
+        "2.6",
+        "2.7",
+        "2.8",
+        "2.9",
+        "2.10",
+        "2.11",
+        "2.12",
+        "2.13",
+        "2.14",
+        "2.15",
+        "2.16",
+        "2.17",
+        "2.18",
+        "2.19",
+        "2.20",
+        "2.21",
+        "2.22",
+        "2.23",
+        "2.24",
+        "2.25",
+        "2.26",
+        "2.27",
+        "2.28",
+        "2.29",
+        "2.30",
+        "2.31",
+        "2.32",
+        "2.33",
+        "2.34",
+        "2.35",
+        "2.36",
+        "2.37"
+      ]
+    },
+    "Number_Workers_Competing_Sectoral__c": {
+      "key": "Number_Workers_Competing_Sectoral__c",
+      "index": 46,
+      "required": "Conditional",
+      "dataType": "Numeric",
+      "maxLength": 9999999999,
+      "listVals": [],
+      "columnName": "AU",
+      "humanColName": "Number of workers completing sectoral job training programs ",
+      "ecCodes": [
+        "2.1",
+        "2.2",
+        "2.3",
+        "2.4",
+        "2.5",
+        "2.6",
+        "2.7",
+        "2.8",
+        "2.9",
+        "2.10",
+        "2.11",
+        "2.12",
+        "2.13",
+        "2.14",
+        "2.15",
+        "2.16",
+        "2.17",
+        "2.18",
+        "2.19",
+        "2.20",
+        "2.21",
+        "2.22",
+        "2.23",
+        "2.24",
+        "2.25",
+        "2.26",
+        "2.27",
+        "2.28",
+        "2.29",
+        "2.30",
+        "2.31",
+        "2.32",
+        "2.33",
+        "2.34",
+        "2.35",
+        "2.36",
+        "2.37"
+      ]
+    },
+    "Number_People_Summer_Youth__c": {
+      "key": "Number_People_Summer_Youth__c",
       "index": 47,
       "required": "Conditional",
       "dataType": "Numeric",
       "maxLength": 9999999999,
       "listVals": [],
       "columnName": "AV",
-      "humanColName": "Number of workers enrolled in sectoral job training programs",
+      "humanColName": "Number of people participating in summer youth employment programs",
       "ecCodes": [
-        "2.10"
+        "2.1",
+        "2.2",
+        "2.3",
+        "2.4",
+        "2.5",
+        "2.6",
+        "2.7",
+        "2.8",
+        "2.9",
+        "2.10",
+        "2.11",
+        "2.12",
+        "2.13",
+        "2.14",
+        "2.15",
+        "2.16",
+        "2.17",
+        "2.18",
+        "2.19",
+        "2.20",
+        "2.21",
+        "2.22",
+        "2.23",
+        "2.24",
+        "2.25",
+        "2.26",
+        "2.27",
+        "2.28",
+        "2.29",
+        "2.30",
+        "2.31",
+        "2.32",
+        "2.33",
+        "2.34",
+        "2.35",
+        "2.36",
+        "2.37"
       ]
     },
-    "Number_Workers_Competing_Sectoral__c": {
-      "key": "Number_Workers_Competing_Sectoral__c",
+    "Number_Households_Eviction_Prevention__c": {
+      "key": "Number_Households_Eviction_Prevention__c",
       "index": 48,
       "required": "Conditional",
       "dataType": "Numeric",
       "maxLength": 9999999999,
       "listVals": [],
       "columnName": "AW",
-      "humanColName": "Number of workers completing sectoral job training programs ",
+      "humanColName": "Number of Households receiving eviction prevention services (including legal representation)",
       "ecCodes": [
         "2.10"
       ]
     },
-    "Number_People_Summer_Youth__c": {
-      "key": "Number_People_Summer_Youth__c",
+    "Number_Affordable_Housing_Units__c": {
+      "key": "Number_Affordable_Housing_Units__c",
       "index": 49,
       "required": "Conditional",
       "dataType": "Numeric",
       "maxLength": 9999999999,
       "listVals": [],
       "columnName": "AX",
-      "humanColName": "Number of people participating in summer youth employment programs",
+      "humanColName": "Number of affordable housing units preserved or developed",
       "ecCodes": [
         "2.10"
       ]
     },
-    "Number_Households_Eviction_Prevention__c": {
-      "key": "Number_Households_Eviction_Prevention__c",
+    "Number_Students_Tutoring_Programs__c": {
+      "key": "Number_Students_Tutoring_Programs__c",
       "index": 50,
       "required": "Conditional",
       "dataType": "Numeric",
       "maxLength": 9999999999,
       "listVals": [],
       "columnName": "AY",
-      "humanColName": "Number of Households receiving eviction prevention services (including legal representation)",
+      "humanColName": "Number of students participating in evidence-based tutoring programs",
       "ecCodes": [
-        "2.1",
-        "2.2",
-        "2.15",
-        "2.16",
-        "2.17",
-        "2.18"
+        "2.10"
       ]
     },
-    "Number_Affordable_Housing_Units__c": {
-      "key": "Number_Affordable_Housing_Units__c",
+    "Number_Children_Served_Childcare__c": {
+      "key": "Number_Children_Served_Childcare__c",
       "index": 51,
       "required": "Conditional",
       "dataType": "Numeric",
       "maxLength": 9999999999,
       "listVals": [],
       "columnName": "AZ",
-      "humanColName": "Number of affordable housing units preserved or developed",
+      "humanColName": "Number of children served by childcare and early learning services (pre-school/pre-K/ages 3-5)",
       "ecCodes": [
-        "2.1",
         "2.2",
         "2.15",
         "2.16",
@@ -3661,210 +3691,79 @@
         "2.18"
       ]
     },
-    "Number_Students_Tutoring_Programs__c": {
-      "key": "Number_Students_Tutoring_Programs__c",
+    "Number_Families_Served_Home_Visiting__c": {
+      "key": "Number_Families_Served_Home_Visiting__c",
       "index": 52,
       "required": "Conditional",
       "dataType": "Numeric",
       "maxLength": 9999999999,
       "listVals": [],
       "columnName": "BA",
-      "humanColName": "Number of students participating in evidence-based tutoring programs",
+      "humanColName": "Number of families served by home visiting",
       "ecCodes": [
-        "2.1",
+        "2.2",
+        "2.15",
+        "2.16",
+        "2.17",
+        "2.18"
+      ]
+    },
+    "Cancellation_Reason__c": {
+      "key": "Cancellation_Reason__c",
+      "index": 53,
+      "required": "Conditional",
+      "dataType": "String",
+      "maxLength": 255,
+      "listVals": [],
+      "columnName": "BB",
+      "humanColName": "Cancelled Status of Completion Explanation",
+      "ecCodes": [
         "2.24",
         "2.25",
         "2.26",
         "2.27"
       ]
     },
-    "Number_Children_Served_Childcare__c": {
-      "key": "Number_Children_Served_Childcare__c",
-      "index": 53,
-      "required": "Conditional",
-      "dataType": "Numeric",
-      "maxLength": 9999999999,
-      "listVals": [],
-      "columnName": "BB",
-      "humanColName": "Number of children served by childcare and early learning services (pre-school/pre-K/ages 3-5)",
-      "ecCodes": [
-        "2.11",
-        "2.12",
-        "2.13",
-        "2.14"
-      ]
-    },
-    "Number_Families_Served_Home_Visiting__c": {
-      "key": "Number_Families_Served_Home_Visiting__c",
-      "index": 54,
-      "required": "Conditional",
-      "dataType": "Numeric",
-      "maxLength": 9999999999,
-      "listVals": [],
-      "columnName": "BC",
-      "humanColName": "Number of families served by home visiting",
-      "ecCodes": [
-        "2.11",
-        "2.12",
-        "2.13",
-        "2.14"
-      ]
-    },
-    "Cancellation_Reason__c": {
-      "key": "Cancellation_Reason__c",
-      "index": 55,
-      "required": "Conditional",
-      "dataType": "String",
-      "maxLength": 255,
-      "listVals": [],
-      "columnName": "BD",
-      "humanColName": "Cancelled Status of Completion Explanation",
-      "ecCodes": [
-        "2.1",
-        "2.2",
-        "2.3",
-        "2.4",
-        "2.5",
-        "2.6",
-        "2.7",
-        "2.8",
-        "2.9",
-        "2.10",
-        "2.11",
-        "2.12",
-        "2.13",
-        "2.14",
-        "2.15",
-        "2.16",
-        "2.17",
-        "2.18",
-        "2.19",
-        "2.20",
-        "2.21",
-        "2.22",
-        "2.23",
-        "2.24",
-        "2.25",
-        "2.26",
-        "2.27",
-        "2.28",
-        "2.29",
-        "2.30",
-        "2.31",
-        "2.32",
-        "2.33",
-        "2.34",
-        "2.35",
-        "2.36",
-        "2.37"
-      ]
-    },
     "Project_Start_Date__c": {
       "key": "Project_Start_Date__c",
-      "index": 56,
+      "index": 54,
       "required": "Conditional",
       "dataType": "Date",
       "maxLength": null,
       "listVals": [],
-      "columnName": "BE",
+      "columnName": "BC",
       "humanColName": "Project Start Date",
       "ecCodes": [
-        "2.1",
-        "2.2",
-        "2.3",
-        "2.4",
-        "2.5",
-        "2.6",
-        "2.7",
-        "2.8",
-        "2.9",
-        "2.10",
         "2.11",
         "2.12",
         "2.13",
-        "2.14",
-        "2.15",
-        "2.16",
-        "2.17",
-        "2.18",
-        "2.19",
-        "2.20",
-        "2.21",
-        "2.22",
-        "2.23",
-        "2.24",
-        "2.25",
-        "2.26",
-        "2.27",
-        "2.28",
-        "2.29",
-        "2.30",
-        "2.31",
-        "2.32",
-        "2.33",
-        "2.34",
-        "2.35",
-        "2.36",
-        "2.37"
+        "2.14"
       ]
     },
     "Project_End_Date__c": {
       "key": "Project_End_Date__c",
-      "index": 57,
+      "index": 55,
       "required": "Conditional",
       "dataType": "Date",
       "maxLength": null,
       "listVals": [],
-      "columnName": "BF",
+      "columnName": "BD",
       "humanColName": "Project End Date",
       "ecCodes": [
-        "2.1",
-        "2.2",
-        "2.3",
-        "2.4",
-        "2.5",
-        "2.6",
-        "2.7",
-        "2.8",
-        "2.9",
-        "2.10",
         "2.11",
         "2.12",
         "2.13",
-        "2.14",
-        "2.15",
-        "2.16",
-        "2.17",
-        "2.18",
-        "2.19",
-        "2.20",
-        "2.21",
-        "2.22",
-        "2.23",
-        "2.24",
-        "2.25",
-        "2.26",
-        "2.27",
-        "2.28",
-        "2.29",
-        "2.30",
-        "2.31",
-        "2.32",
-        "2.33",
-        "2.34",
-        "2.35",
-        "2.36",
-        "2.37"
+        "2.14"
       ]
     },
     "Prog_Income_Earned_After_12_31_24__c": {
       "key": "Prog_Income_Earned_After_12_31_24__c",
-      "index": 58,
+      "index": 56,
       "required": "Conditional",
       "dataType": "Currency",
       "maxLength": null,
       "listVals": [],
-      "columnName": "BG",
+      "columnName": "BE",
       "humanColName": "Program Income earned on project after December 31, 2024",
       "ecCodes": [
         "2.1",
@@ -3908,12 +3807,12 @@
     },
     "Total_Prog_Income_Obl_Post_Q4_2024__c": {
       "key": "Total_Prog_Income_Obl_Post_Q4_2024__c",
-      "index": 59,
+      "index": 57,
       "required": "Conditional",
       "dataType": "Currency",
       "maxLength": null,
       "listVals": [],
-      "columnName": "BH",
+      "columnName": "BF",
       "humanColName": "Program Income obligated by deadline and reported after December 31, 2024",
       "ecCodes": [
         "2.1",
@@ -3957,12 +3856,12 @@
     },
     "Total_Prog_Income_Exp_Post_Q4_2024__c": {
       "key": "Total_Prog_Income_Exp_Post_Q4_2024__c",
-      "index": 60,
+      "index": 58,
       "required": "Conditional",
       "dataType": "Currency",
       "maxLength": null,
       "listVals": [],
-      "columnName": "BI",
+      "columnName": "BG",
       "humanColName": "Program Income reported after Q4 2024 expended",
       "ecCodes": [
         "2.1",
@@ -4114,8 +4013,8 @@
         "3.5"
       ]
     },
-    "Current_Period_Obligations__c": {
-      "key": "Current_Period_Obligations__c",
+    "Q2_2025_Obligations__c": {
+      "key": "Q2_2025_Obligations__c",
       "index": 8,
       "required": true,
       "dataType": "Currency",
@@ -4131,8 +4030,8 @@
         "3.5"
       ]
     },
-    "Current_Period_Expenditures__c": {
-      "key": "Current_Period_Expenditures__c",
+    "Q2_2025_Expenditures__c": {
+      "key": "Q2_2025_Expenditures__c",
       "index": 9,
       "required": true,
       "dataType": "Currency",
@@ -4182,14 +4081,31 @@
         "3.5"
       ]
     },
+    "Prog_Income_Earned_After_12_31_24__c": {
+      "key": "Prog_Income_Earned_After_12_31_24__c",
+      "index": 40,
+      "required": "Conditional",
+      "dataType": "Currency",
+      "maxLength": null,
+      "listVals": [],
+      "columnName": "AO",
+      "humanColName": "Program Income earned on project after December 31, 2024",
+      "ecCodes": [
+        "3.1",
+        "3.2",
+        "3.3",
+        "3.4",
+        "3.5"
+      ]
+    },
     "Program_Income_Expended__c": {
       "key": "Program_Income_Expended__c",
-      "index": 12,
+      "index": 13,
       "required": false,
       "dataType": "Currency",
       "maxLength": null,
       "listVals": [],
-      "columnName": "M",
+      "columnName": "N",
       "humanColName": "Program Income Expended",
       "ecCodes": [
         "3.1",
@@ -4201,12 +4117,12 @@
     },
     "Structure_Objectives_of_Asst_Programs__c": {
       "key": "Structure_Objectives_of_Asst_Programs__c",
-      "index": 13,
+      "index": 14,
       "required": "Conditional",
       "dataType": "String",
       "maxLength": 250,
       "listVals": [],
-      "columnName": "N",
+      "columnName": "O",
       "humanColName": "Brief description of structure and objectives of assistance program(s), including public health or negative economic impact experienced.",
       "ecCodes": [
         "3.1",
@@ -4218,12 +4134,12 @@
     },
     "Recipient_Approach_Description__c": {
       "key": "Recipient_Approach_Description__c",
-      "index": 14,
+      "index": 15,
       "required": "Conditional",
       "dataType": "String",
       "maxLength": 250,
       "listVals": [],
-      "columnName": "O",
+      "columnName": "P",
       "humanColName": "Brief description of how a recipient’s response is related and reasonably and proportional  to a public health or negative economic impact of COVID-19.",
       "ecCodes": [
         "3.1",
@@ -4235,12 +4151,12 @@
     },
     "Payroll_Public_Health_Safety__c": {
       "key": "Payroll_Public_Health_Safety__c",
-      "index": 15,
+      "index": 16,
       "required": "Conditional",
       "dataType": "Numeric",
       "maxLength": 9999999999,
       "listVals": [],
-      "columnName": "P",
+      "columnName": "Q",
       "humanColName": "Number of government FTEs responding to COVID-19 supported under this authority",
       "ecCodes": [
         "3.1"
@@ -4248,12 +4164,12 @@
     },
     "Number_of_FTEs_Rehired__c": {
       "key": "Number_of_FTEs_Rehired__c",
-      "index": 16,
+      "index": 17,
       "required": "Conditional",
       "dataType": "Numeric",
       "maxLength": 9999999999,
       "listVals": [],
-      "columnName": "Q",
+      "columnName": "R",
       "humanColName": "Number of FTEs rehired by governments under this authority",
       "ecCodes": [
         "3.2"
@@ -4261,7 +4177,7 @@
     },
     "Does_Project_Include_Capital_Expenditure__c": {
       "key": "Does_Project_Include_Capital_Expenditure__c",
-      "index": 17,
+      "index": 18,
       "required": true,
       "dataType": "Pick List",
       "maxLength": null,
@@ -4270,7 +4186,7 @@
         "No",
         "N/A"
       ],
-      "columnName": "R",
+      "columnName": "S",
       "humanColName": "Does this project include a capital expenditure?",
       "ecCodes": [
         "3.1",
@@ -4282,12 +4198,12 @@
     },
     "Total_Cost_Capital_Expenditure__c": {
       "key": "Total_Cost_Capital_Expenditure__c",
-      "index": 18,
+      "index": 19,
       "required": "Conditional",
       "dataType": "Currency",
       "maxLength": null,
       "listVals": [],
-      "columnName": "S",
+      "columnName": "T",
       "humanColName": "If yes, what is the total expected capital expenditure?",
       "ecCodes": [
         "3.1",
@@ -4299,7 +4215,7 @@
     },
     "Type_of_Capital_Expenditure__c": {
       "key": "Type_of_Capital_Expenditure__c",
-      "index": 19,
+      "index": 20,
       "required": "Conditional",
       "dataType": "Pick List",
       "maxLength": null,
@@ -4331,7 +4247,7 @@
         "Transitional shelters",
         "Other (please specify)"
       ],
-      "columnName": "T",
+      "columnName": "U",
       "humanColName": "Capital Expenditure Type",
       "ecCodes": [
         "3.1",
@@ -4343,12 +4259,12 @@
     },
     "Type_of_Capital_Expenditure_Other__c": {
       "key": "Type_of_Capital_Expenditure_Other__c",
-      "index": 20,
+      "index": 21,
       "required": "Conditional",
       "dataType": "String",
       "maxLength": 255,
       "listVals": [],
-      "columnName": "U",
+      "columnName": "V",
       "humanColName": "Other Capital Expenditure Explanation",
       "ecCodes": [
         "3.1",
@@ -4360,12 +4276,12 @@
     },
     "Capital_Expenditure_Justification__c": {
       "key": "Capital_Expenditure_Justification__c",
-      "index": 21,
+      "index": 22,
       "required": "Conditional",
       "dataType": "String",
       "maxLength": 1500,
       "listVals": [],
-      "columnName": "V",
+      "columnName": "W",
       "humanColName": "Capital Expenditure Narrative",
       "ecCodes": [
         "3.1",
@@ -4377,7 +4293,7 @@
     },
     "(manual entry)1": {
       "key": "(manual entry)1",
-      "index": 22,
+      "index": 23,
       "required": "Required if Budget > $10M",
       "dataType": "Pick List",
       "maxLength": null,
@@ -4386,7 +4302,7 @@
         "No",
         "N/A"
       ],
-      "columnName": "W",
+      "columnName": "X",
       "humanColName": "If budget is over $10M, was a Davis Bacon Act Certification completed?",
       "ecCodes": [
         "3.1",
@@ -4398,12 +4314,12 @@
     },
     "(manual entry)2": {
       "key": "(manual entry)2",
-      "index": 23,
+      "index": 24,
       "required": "Required if DB is No",
       "dataType": "TBD",
       "maxLength": null,
       "listVals": [],
-      "columnName": "X",
+      "columnName": "Y",
       "humanColName": "If budget is over $10M and Davis Bacon Act Certification NOT completed - enter the number of employees of contractors and sub-contractors working on the project.",
       "ecCodes": [
         "3.1",
@@ -4415,12 +4331,12 @@
     },
     "(manual entry)3": {
       "key": "(manual entry)3",
-      "index": 24,
+      "index": 25,
       "required": "Required if DB is No",
       "dataType": "TBD",
       "maxLength": null,
       "listVals": [],
-      "columnName": "Y",
+      "columnName": "Z",
       "humanColName": "If budget is over $10M and Davis Bacon Act Certification NOT completed - enter the number of employees on the project hired directly and hired through a third party. ",
       "ecCodes": [
         "3.1",
@@ -4432,12 +4348,12 @@
     },
     "(manual entry)4": {
       "key": "(manual entry)4",
-      "index": 25,
+      "index": 26,
       "required": "Required if DB is No",
       "dataType": "TBD",
       "maxLength": null,
       "listVals": [],
-      "columnName": "Z",
+      "columnName": "AA",
       "humanColName": "If budget is over $10M and Davis Bacon Act Certification NOT completed - enter the wages and benefits of workers on the project by classification",
       "ecCodes": [
         "3.1",
@@ -4449,7 +4365,7 @@
     },
     "(manual entry)5": {
       "key": "(manual entry)5",
-      "index": 26,
+      "index": 27,
       "required": "Required if DB is No",
       "dataType": "TBD",
       "maxLength": null,
@@ -4458,7 +4374,7 @@
         "No",
         "N/A"
       ],
-      "columnName": "AA",
+      "columnName": "AB",
       "humanColName": "If budget is over $10M and Davis Bacon Act Certification NOT completed - are those wages are at rates less than those prevailing?",
       "ecCodes": [
         "3.1",
@@ -4470,7 +4386,7 @@
     },
     "(manual entry)6": {
       "key": "(manual entry)6",
-      "index": 27,
+      "index": 28,
       "required": "Required if Budget > $10M",
       "dataType": "Pick List",
       "maxLength": null,
@@ -4479,7 +4395,7 @@
         "No",
         "N/A"
       ],
-      "columnName": "AB",
+      "columnName": "AC",
       "humanColName": "If budget is over $10M, was a Labor Agreement Certification completed?",
       "ecCodes": [
         "3.1",
@@ -4491,12 +4407,12 @@
     },
     "(manual entry)7": {
       "key": "(manual entry)7",
-      "index": 28,
+      "index": 29,
       "required": "Required if PLA is No",
       "dataType": "TBD",
       "maxLength": null,
       "listVals": [],
-      "columnName": "AC",
+      "columnName": "AD",
       "humanColName": "If budget is over $10M and Labor Agreement Certification NOT completed - enter how the recipient will ensure the project has ready access to a sufficient supply of appropriately skilled and unskilled labor to ensure high-quality construction throughout the life of the project, including a description of any required professional certifications and/or in-house training. ",
       "ecCodes": [
         "3.1",
@@ -4508,12 +4424,12 @@
     },
     "(manual entry)8": {
       "key": "(manual entry)8",
-      "index": 29,
+      "index": 30,
       "required": "Required if PLA is No",
       "dataType": "TBD",
       "maxLength": null,
       "listVals": [],
-      "columnName": "AD",
+      "columnName": "AE",
       "humanColName": "If budget is over $10M and Labor Agreement Certification NOT completed - enter how the recipient will minimize risks of labor disputes and disruptions that would jeopardize timeliness and cost-effectiveness of the project.",
       "ecCodes": [
         "3.1",
@@ -4525,12 +4441,12 @@
     },
     "(manual entry)9": {
       "key": "(manual entry)9",
-      "index": 30,
+      "index": 31,
       "required": "Required if PLA is No",
       "dataType": "TBD",
       "maxLength": null,
       "listVals": [],
-      "columnName": "AE",
+      "columnName": "AF",
       "humanColName": "If budget is over $10M and Labor Agreement Certification NOT completed - enter how the recipient will provide a safe and healthy workplace that avoids delays and costs associated with workplace illnesses, injuries, and fatalities, including descriptions of safety training, certification, and/or licensure requirements for all relevant workers (e.g., OSHA 10, OSHA 30).",
       "ecCodes": [
         "3.1",
@@ -4542,7 +4458,7 @@
     },
     "(manual entry)10": {
       "key": "(manual entry)10",
-      "index": 31,
+      "index": 32,
       "required": "Required if PLA is No",
       "dataType": "TBD",
       "maxLength": null,
@@ -4551,7 +4467,7 @@
         "No",
         "N/A"
       ],
-      "columnName": "AF",
+      "columnName": "AG",
       "humanColName": "If budget is over $10M and Labor Agreement Certification NOT completed - enter whether workers on the project will receive wages and benefits that will secure an appropriately skilled workforce in the context of the local or regional labor market.",
       "ecCodes": [
         "3.1",
@@ -4563,7 +4479,7 @@
     },
     "(manual entry)11": {
       "key": "(manual entry)11",
-      "index": 32,
+      "index": 33,
       "required": "Required if PLA is No",
       "dataType": "TBD",
       "maxLength": null,
@@ -4572,7 +4488,7 @@
         "No",
         "N/A"
       ],
-      "columnName": "AG",
+      "columnName": "AH",
       "humanColName": "If budget is over $10M and Labor Agreement Certification NOT completed - enter whether the project has completed a project labor agreement. ",
       "ecCodes": [
         "3.1",
@@ -4584,7 +4500,7 @@
     },
     "(manual entry)12": {
       "key": "(manual entry)12",
-      "index": 33,
+      "index": 34,
       "required": "Required if Budget > $10M",
       "dataType": "Pick List",
       "maxLength": null,
@@ -4593,7 +4509,7 @@
         "No",
         "N/A"
       ],
-      "columnName": "AH",
+      "columnName": "AI",
       "humanColName": "If budget is over $10M, does the project prioritize local hires? ",
       "ecCodes": [
         "3.1",
@@ -4605,7 +4521,7 @@
     },
     "(manual entry)13": {
       "key": "(manual entry)13",
-      "index": 34,
+      "index": 35,
       "required": "Required if Budget > $10M",
       "dataType": "Pick List",
       "maxLength": null,
@@ -4614,7 +4530,7 @@
         "No",
         "N/A"
       ],
-      "columnName": "AI",
+      "columnName": "AJ",
       "humanColName": "If budget is over $10M, does the project have a Community Benefit Agreement?",
       "ecCodes": [
         "3.1",
@@ -4626,12 +4542,12 @@
     },
     "(manual entry)14": {
       "key": "(manual entry)14",
-      "index": 35,
+      "index": 36,
       "required": "Required if Budget > $10M",
       "dataType": "TBD",
       "maxLength": null,
       "listVals": [],
-      "columnName": "AJ",
+      "columnName": "AK",
       "humanColName": "If budget is over $10M and has a Community Benefit Agreement, provide a description. ",
       "ecCodes": [
         "3.1",
@@ -4643,12 +4559,12 @@
     },
     "Cancellation_Reason__c": {
       "key": "Cancellation_Reason__c",
-      "index": 36,
+      "index": 37,
       "required": "Conditional",
       "dataType": "String",
       "maxLength": 255,
       "listVals": [],
-      "columnName": "AK",
+      "columnName": "AL",
       "humanColName": "Cancelled Status of Completion Explanation",
       "ecCodes": [
         "3.1",
@@ -4660,12 +4576,12 @@
     },
     "Project_Start_Date__c": {
       "key": "Project_Start_Date__c",
-      "index": 37,
+      "index": 38,
       "required": "Conditional",
       "dataType": "Date",
       "maxLength": null,
       "listVals": [],
-      "columnName": "AL",
+      "columnName": "AM",
       "humanColName": "Project Start Date",
       "ecCodes": [
         "3.1",
@@ -4677,30 +4593,13 @@
     },
     "Project_End_Date__c": {
       "key": "Project_End_Date__c",
-      "index": 38,
+      "index": 39,
       "required": "Conditional",
       "dataType": "Date",
       "maxLength": null,
       "listVals": [],
-      "columnName": "AM",
-      "humanColName": "Project End Date",
-      "ecCodes": [
-        "3.1",
-        "3.2",
-        "3.3",
-        "3.4",
-        "3.5"
-      ]
-    },
-    "Prog_Income_Earned_After_12_31_24__c": {
-      "key": "Prog_Income_Earned_After_12_31_24__c",
-      "index": 39,
-      "required": "Conditional",
-      "dataType": "Currency",
-      "maxLength": null,
-      "listVals": [],
       "columnName": "AN",
-      "humanColName": "Program Income earned on project after December 31, 2024",
+      "humanColName": "Project End Date",
       "ecCodes": [
         "3.1",
         "3.2",
@@ -4711,12 +4610,12 @@
     },
     "Total_Prog_Income_Obl_Post_Q4_2024__c": {
       "key": "Total_Prog_Income_Obl_Post_Q4_2024__c",
-      "index": 40,
+      "index": 41,
       "required": "Conditional",
       "dataType": "Currency",
       "maxLength": null,
       "listVals": [],
-      "columnName": "AO",
+      "columnName": "AP",
       "humanColName": "Program Income obligated by deadline and reported after December 31, 2024",
       "ecCodes": [
         "3.1",
@@ -4728,12 +4627,12 @@
     },
     "Total_Prog_Income_Exp_Post_Q4_2024__c": {
       "key": "Total_Prog_Income_Exp_Post_Q4_2024__c",
-      "index": 41,
+      "index": 42,
       "required": "Conditional",
       "dataType": "Currency",
       "maxLength": null,
       "listVals": [],
-      "columnName": "AP",
+      "columnName": "AQ",
       "humanColName": "Program Income reported after Q4 2024 expended",
       "ecCodes": [
         "3.1",
@@ -4835,8 +4734,8 @@
         "4.2"
       ]
     },
-    "Current_Period_Obligations__c": {
-      "key": "Current_Period_Obligations__c",
+    "Q2_2025_Obligations__c": {
+      "key": "Q2_2025_Obligations__c",
       "index": 8,
       "required": true,
       "dataType": "Currency",
@@ -4849,8 +4748,8 @@
         "4.2"
       ]
     },
-    "Current_Period_Expenditures__c": {
-      "key": "Current_Period_Expenditures__c",
+    "Q2_2025_Expenditures__c": {
+      "key": "Q2_2025_Expenditures__c",
       "index": 9,
       "required": true,
       "dataType": "Currency",
@@ -4891,23 +4790,9 @@
         "4.2"
       ]
     },
-    "Program_Income_Expended__c": {
-      "key": "Program_Income_Expended__c",
-      "index": 12,
-      "required": false,
-      "dataType": "Currency",
-      "maxLength": null,
-      "listVals": [],
-      "columnName": "M",
-      "humanColName": "Program Income Expended",
-      "ecCodes": [
-        "4.1",
-        "4.2"
-      ]
-    },
     "Sectors_Critical_to_Health_Well_Being__c": {
       "key": "Sectors_Critical_to_Health_Well_Being__c",
-      "index": 13,
+      "index": 12,
       "required": "Conditional",
       "dataType": "Multi-Select",
       "maxLength": 1500,
@@ -4939,7 +4824,7 @@
         "Work requiring physical interaction with patients",
         "Other"
       ],
-      "columnName": "N",
+      "columnName": "M",
       "humanColName": "Sectors Designated as Essential Critical Infrastructure",
       "ecCodes": [
         "4.1",
@@ -4948,12 +4833,12 @@
     },
     "Workers_Served__c": {
       "key": "Workers_Served__c",
-      "index": 14,
+      "index": 13,
       "required": "Conditional",
       "dataType": "Numeric",
       "maxLength": 9999999,
       "listVals": [],
-      "columnName": "O",
+      "columnName": "N",
       "humanColName": "Number of workers to be served",
       "ecCodes": [
         "4.1",
@@ -4962,12 +4847,12 @@
     },
     "Premium_Pay_Narrative__c": {
       "key": "Premium_Pay_Narrative__c",
-      "index": 15,
+      "index": 14,
       "required": "Conditional",
       "dataType": "String",
       "maxLength": 3000,
       "listVals": [],
-      "columnName": "P",
+      "columnName": "O",
       "humanColName": "Premium Pay Narrative",
       "ecCodes": [
         "4.1",
@@ -4976,12 +4861,12 @@
     },
     "Number_of_Workers_K_12__c": {
       "key": "Number_of_Workers_K_12__c",
-      "index": 16,
+      "index": 15,
       "required": "Conditional",
       "dataType": "Numeric",
       "maxLength": 9999999999,
       "listVals": [],
-      "columnName": "Q",
+      "columnName": "P",
       "humanColName": "Number of workers to be served with premium pay in K-12 schools ",
       "ecCodes": [
         "4.1",
@@ -4990,12 +4875,12 @@
     },
     "Cancellation_Reason__c": {
       "key": "Cancellation_Reason__c",
-      "index": 17,
+      "index": 16,
       "required": "Conditional",
       "dataType": "String",
       "maxLength": 255,
       "listVals": [],
-      "columnName": "R",
+      "columnName": "Q",
       "humanColName": "Cancelled Status of Completion Explanation",
       "ecCodes": [
         "4.1",
@@ -5004,12 +4889,12 @@
     },
     "Project_Start_Date__c": {
       "key": "Project_Start_Date__c",
-      "index": 18,
+      "index": 17,
       "required": "Conditional",
       "dataType": "Date",
       "maxLength": null,
       "listVals": [],
-      "columnName": "S",
+      "columnName": "R",
       "humanColName": "Project Start Date",
       "ecCodes": [
         "4.1",
@@ -5018,12 +4903,12 @@
     },
     "Project_End_Date__c": {
       "key": "Project_End_Date__c",
-      "index": 19,
+      "index": 18,
       "required": "Conditional",
       "dataType": "Date",
       "maxLength": null,
       "listVals": [],
-      "columnName": "T",
+      "columnName": "S",
       "humanColName": "Project End Date",
       "ecCodes": [
         "4.1",
@@ -5032,12 +4917,12 @@
     },
     "Prog_Income_Earned_After_12_31_24__c": {
       "key": "Prog_Income_Earned_After_12_31_24__c",
-      "index": 20,
+      "index": 19,
       "required": "Conditional",
       "dataType": "Currency",
       "maxLength": null,
       "listVals": [],
-      "columnName": "U",
+      "columnName": "T",
       "humanColName": "Program Income earned on project after December 31, 2024",
       "ecCodes": [
         "4.1",
@@ -5046,27 +4931,13 @@
     },
     "Total_Prog_Income_Obl_Post_Q4_2024__c": {
       "key": "Total_Prog_Income_Obl_Post_Q4_2024__c",
-      "index": 21,
+      "index": 20,
       "required": "Conditional",
       "dataType": "Currency",
       "maxLength": null,
       "listVals": [],
-      "columnName": "V",
+      "columnName": "U",
       "humanColName": "Program Income obligated by deadline and reported after December 31, 2024",
-      "ecCodes": [
-        "4.1",
-        "4.2"
-      ]
-    },
-    "Total_Prog_Income_Exp_Post_Q4_2024__c": {
-      "key": "Total_Prog_Income_Exp_Post_Q4_2024__c",
-      "index": 22,
-      "required": "Conditional",
-      "dataType": "Currency",
-      "maxLength": null,
-      "listVals": [],
-      "columnName": "W",
-      "humanColName": "Program Income reported after Q4 2024 expended",
       "ecCodes": [
         "4.1",
         "4.2"
@@ -5278,8 +5149,8 @@
         "5.21"
       ]
     },
-    "Current_Period_Obligations__c": {
-      "key": "Current_Period_Obligations__c",
+    "Q2_2025_Obligations__c": {
+      "key": "Q2_2025_Obligations__c",
       "index": 8,
       "required": true,
       "dataType": "Currency",
@@ -5311,8 +5182,8 @@
         "5.21"
       ]
     },
-    "Current_Period_Expenditures__c": {
-      "key": "Current_Period_Expenditures__c",
+    "Q2_2025_Expenditures__c": {
+      "key": "Q2_2025_Expenditures__c",
       "index": 9,
       "required": true,
       "dataType": "Currency",
@@ -5541,7 +5412,10 @@
         "5.15",
         "5.16",
         "5.17",
-        "5.18"
+        "5.18",
+        "5.19",
+        "5.20",
+        "5.21"
       ]
     },
     "Location_Detail__c": {
@@ -5605,10 +5479,7 @@
         "5.15",
         "5.16",
         "5.17",
-        "5.18",
-        "5.19",
-        "5.20",
-        "5.21"
+        "5.18"
       ]
     },
     "(manual entry)2": {
@@ -6091,7 +5962,10 @@
         "5.15",
         "5.16",
         "5.17",
-        "5.18"
+        "5.18",
+        "5.19",
+        "5.20",
+        "5.21"
       ]
     },
     "Public_Water_System_PWS_ID_number__c": {
@@ -6138,9 +6012,24 @@
       "columnName": "AH",
       "humanColName": "Confirm that the project is designed to, upon completion, reliably meet or exceed symmetrical 100 Mbps download and upload speeds",
       "ecCodes": [
-        "5.19",
-        "5.20",
-        "5.21"
+        "5.1",
+        "5.2",
+        "5.3",
+        "5.4",
+        "5.5",
+        "5.6",
+        "5.7",
+        "5.8",
+        "5.9",
+        "5.10",
+        "5.11",
+        "5.12",
+        "5.13",
+        "5.14",
+        "5.15",
+        "5.16",
+        "5.17",
+        "5.18"
       ]
     },
     "Project_not_met_100_mbps_explanation__c": {
@@ -6187,24 +6076,9 @@
       "columnName": "AK",
       "humanColName": "Median Household Income of service area ",
       "ecCodes": [
-        "5.1",
-        "5.2",
-        "5.3",
-        "5.4",
-        "5.5",
-        "5.6",
-        "5.7",
-        "5.8",
-        "5.9",
-        "5.10",
-        "5.11",
-        "5.12",
-        "5.13",
-        "5.14",
-        "5.15",
-        "5.16",
-        "5.17",
-        "5.18"
+        "5.19",
+        "5.20",
+        "5.21"
       ]
     },
     "Lowest_Quintile_Income__c": {
@@ -6247,9 +6121,24 @@
       "columnName": "AM",
       "humanColName": "Is project designed to provide service to households?",
       "ecCodes": [
-        "5.19",
-        "5.20",
-        "5.21"
+        "5.1",
+        "5.2",
+        "5.3",
+        "5.4",
+        "5.5",
+        "5.6",
+        "5.7",
+        "5.8",
+        "5.9",
+        "5.10",
+        "5.11",
+        "5.12",
+        "5.13",
+        "5.14",
+        "5.15",
+        "5.16",
+        "5.17",
+        "5.18"
       ]
     },
     "Technology_Type_Planned__c": {
@@ -6421,7 +6310,11 @@
       "listVals": [],
       "columnName": "AX",
       "humanColName": "Planned Total Number of Funded Locations Served, broken out by speeds (Post-SLFRF investment, Number receiving minimum 1 Gbps)",
-      "ecCodes": []
+      "ecCodes": [
+        "5.19",
+        "5.20",
+        "5.21"
+      ]
     },
     "Actual_Funded_Locations_Minimum_1_Gbps__c": {
       "key": "Actual_Funded_Locations_Minimum_1_Gbps__c",
@@ -6443,11 +6336,7 @@
       "listVals": [],
       "columnName": "AZ",
       "humanColName": "Planned Total Number of Funded Locations Served, broken out by speeds (Post-SLFRF investment, Number receiving minimum 100/100 Mbps)",
-      "ecCodes": [
-        "5.19",
-        "5.20",
-        "5.21"
-      ]
+      "ecCodes": []
     },
     "Actual_Funded_Locations_Minimum_100_100__c": {
       "key": "Actual_Funded_Locations_Minimum_100_100__c",
@@ -6669,6 +6558,21 @@
       "columnName": "BO",
       "humanColName": "Cancelled Status of Completion Explanation",
       "ecCodes": [
+        "5.19",
+        "5.20",
+        "5.21"
+      ]
+    },
+    "Planned_Sum_Speed_Types_Explanation__c": {
+      "key": "Planned_Sum_Speed_Types_Explanation__c",
+      "index": 67,
+      "required": "Conditional",
+      "dataType": "String",
+      "maxLength": 1500,
+      "listVals": [],
+      "columnName": "BP",
+      "humanColName": "Explanation if the sum of broadband speed types does not equal total number of funded locations served\r\nPlanned",
+      "ecCodes": [
         "5.1",
         "5.2",
         "5.3",
@@ -6687,21 +6591,6 @@
         "5.16",
         "5.17",
         "5.18",
-        "5.19",
-        "5.20",
-        "5.21"
-      ]
-    },
-    "Planned_Sum_Speed_Types_Explanation__c": {
-      "key": "Planned_Sum_Speed_Types_Explanation__c",
-      "index": 67,
-      "required": "Conditional",
-      "dataType": "String",
-      "maxLength": 1500,
-      "listVals": [],
-      "columnName": "BP",
-      "humanColName": "Explanation if the sum of broadband speed types does not equal total number of funded locations served\r\nPlanned",
-      "ecCodes": [
         "5.19",
         "5.20",
         "5.21"
@@ -6762,24 +6651,6 @@
       "columnName": "BT",
       "humanColName": "Project Start Date",
       "ecCodes": [
-        "5.1",
-        "5.2",
-        "5.3",
-        "5.4",
-        "5.5",
-        "5.6",
-        "5.7",
-        "5.8",
-        "5.9",
-        "5.10",
-        "5.11",
-        "5.12",
-        "5.13",
-        "5.14",
-        "5.15",
-        "5.16",
-        "5.17",
-        "5.18",
         "5.19",
         "5.20",
         "5.21"
@@ -6860,39 +6731,6 @@
       "listVals": [],
       "columnName": "BW",
       "humanColName": "Program Income obligated by deadline and reported after December 31, 2024",
-      "ecCodes": [
-        "5.1",
-        "5.2",
-        "5.3",
-        "5.4",
-        "5.5",
-        "5.6",
-        "5.7",
-        "5.8",
-        "5.9",
-        "5.10",
-        "5.11",
-        "5.12",
-        "5.13",
-        "5.14",
-        "5.15",
-        "5.16",
-        "5.17",
-        "5.18",
-        "5.19",
-        "5.20",
-        "5.21"
-      ]
-    },
-    "Total_Prog_Income_Exp_Post_Q4_2024__c": {
-      "key": "Total_Prog_Income_Exp_Post_Q4_2024__c",
-      "index": 75,
-      "required": "Conditional",
-      "dataType": "Currency",
-      "maxLength": null,
-      "listVals": [],
-      "columnName": "BX",
-      "humanColName": "Program Income reported after Q4 2024 expended",
       "ecCodes": [
         "5.1",
         "5.2",
@@ -7015,8 +6853,8 @@
         "7.3"
       ]
     },
-    "Current_Period_Obligations__c": {
-      "key": "Current_Period_Obligations__c",
+    "Q2_2025_Obligations__c": {
+      "key": "Q2_2025_Obligations__c",
       "index": 8,
       "required": true,
       "dataType": "Currency",
@@ -7030,8 +6868,8 @@
         "7.3"
       ]
     },
-    "Current_Period_Expenditures__c": {
-      "key": "Current_Period_Expenditures__c",
+    "Q2_2025_Expenditures__c": {
+      "key": "Q2_2025_Expenditures__c",
       "index": 9,
       "required": true,
       "dataType": "Currency",
@@ -7161,24 +6999,35 @@
         "7.3"
       ]
     },
-    "Program_Income_Expended__c": {
-      "key": "Program_Income_Expended__c",
-      "index": 17,
-      "required": false,
+    "Prog_Income_Earned_After_12_31_24__c": {
+      "key": "Prog_Income_Earned_After_12_31_24__c",
+      "index": 34,
+      "required": "Conditional",
       "dataType": "Currency",
       "maxLength": null,
       "listVals": [],
-      "columnName": "R",
-      "humanColName": "Program Income Expended",
+      "columnName": "AI",
+      "humanColName": "Program Income earned on project after December 31, 2024",
       "ecCodes": [
         "7.1",
         "7.2",
         "7.3"
       ]
     },
+    "Program_Income_Expended__c": {
+      "key": "Program_Income_Expended__c",
+      "index": 18,
+      "required": false,
+      "dataType": "Currency",
+      "maxLength": null,
+      "listVals": [],
+      "columnName": "S",
+      "humanColName": "Program Income Expended",
+      "ecCodes": []
+    },
     "Primary_Project_Demographics__c": {
       "key": "Primary_Project_Demographics__c",
-      "index": 18,
+      "index": 19,
       "required": "Conditional",
       "dataType": "Pick List",
       "maxLength": null,
@@ -7212,24 +7061,24 @@
         "27 Dis Imp NPs operating in the U.S. territories",
         "28 Dis Imp Other NPs Dis Imp by the pandemic specify"
       ],
-      "columnName": "S",
+      "columnName": "T",
       "humanColName": "Project Demographic Distribution - Primary Populations Served",
       "ecCodes": []
     },
     "Primary_Project_Demographics_Explanation__c": {
       "key": "Primary_Project_Demographics_Explanation__c",
-      "index": 19,
+      "index": 20,
       "required": "Conditional",
       "dataType": "String",
       "maxLength": 250,
       "listVals": [],
-      "columnName": "T",
+      "columnName": "U",
       "humanColName": "Primary Project Demographic Explanation",
       "ecCodes": []
     },
     "Secondary_Project_Demographics__c": {
       "key": "Secondary_Project_Demographics__c",
-      "index": 20,
+      "index": 21,
       "required": false,
       "dataType": "Pick List",
       "maxLength": null,
@@ -7263,24 +7112,24 @@
         "27 Dis Imp NPs operating in the U.S. territories",
         "28 Dis Imp Other NPs Dis Imp by the pandemic specify"
       ],
-      "columnName": "U",
+      "columnName": "V",
       "humanColName": "Project Demographic Distribution - Secondary Populations Served",
       "ecCodes": []
     },
     "Secondary_Proj_Demographics_Explanation__c": {
       "key": "Secondary_Proj_Demographics_Explanation__c",
-      "index": 21,
+      "index": 22,
       "required": "Conditional",
       "dataType": "String",
       "maxLength": 250,
       "listVals": [],
-      "columnName": "V",
+      "columnName": "W",
       "humanColName": "Secondary Project Demographic Explanation",
       "ecCodes": []
     },
     "Tertiary_Project_Demographics__c": {
       "key": "Tertiary_Project_Demographics__c",
-      "index": 22,
+      "index": 23,
       "required": false,
       "dataType": "Pick List",
       "maxLength": null,
@@ -7314,51 +7163,55 @@
         "27 Dis Imp NPs operating in the U.S. territories",
         "28 Dis Imp Other NPs Dis Imp by the pandemic specify"
       ],
-      "columnName": "W",
+      "columnName": "X",
       "humanColName": "Project Demographic Distribution - Tertiary Populations Served",
       "ecCodes": []
     },
     "Tertiary_Proj_Demographics_Explanation__c": {
       "key": "Tertiary_Proj_Demographics_Explanation__c",
-      "index": 23,
-      "required": "Conditional",
-      "dataType": "String",
-      "maxLength": 250,
-      "listVals": [],
-      "columnName": "X",
-      "humanColName": "Tertiary Project Demographic Explanation",
-      "ecCodes": []
-    },
-    "Structure_Objectives_of_Asst_Programs__c": {
-      "key": "Structure_Objectives_of_Asst_Programs__c",
       "index": 24,
       "required": "Conditional",
       "dataType": "String",
       "maxLength": 250,
       "listVals": [],
       "columnName": "Y",
-      "humanColName": "Structure and objectives of assistance program",
+      "humanColName": "Tertiary Project Demographic Explanation",
       "ecCodes": []
     },
-    "Recipient_Approach_Description__c": {
-      "key": "Recipient_Approach_Description__c",
+    "Structure_Objectives_of_Asst_Programs__c": {
+      "key": "Structure_Objectives_of_Asst_Programs__c",
       "index": 25,
       "required": "Conditional",
       "dataType": "String",
       "maxLength": 250,
       "listVals": [],
       "columnName": "Z",
-      "humanColName": "Recipients approach",
+      "humanColName": "Structure and objectives of assistance program",
       "ecCodes": []
+    },
+    "Recipient_Approach_Description__c": {
+      "key": "Recipient_Approach_Description__c",
+      "index": 26,
+      "required": "Conditional",
+      "dataType": "String",
+      "maxLength": 250,
+      "listVals": [],
+      "columnName": "AA",
+      "humanColName": "Recipients approach",
+      "ecCodes": [
+        "7.1",
+        "7.2",
+        "7.3"
+      ]
     },
     "Cancellation_Reason__c": {
       "key": "Cancellation_Reason__c",
-      "index": 26,
+      "index": 27,
       "required": "Conditional",
       "dataType": "String",
       "maxLength": 255,
       "listVals": [],
-      "columnName": "AA",
+      "columnName": "AB",
       "humanColName": "Cancelled Status of Completion Explanation",
       "ecCodes": [
         "7.1",
@@ -7368,12 +7221,12 @@
     },
     "Project_Start_Date__c": {
       "key": "Project_Start_Date__c",
-      "index": 27,
+      "index": 28,
       "required": "Conditional",
       "dataType": "Date",
       "maxLength": null,
       "listVals": [],
-      "columnName": "AB",
+      "columnName": "AC",
       "humanColName": "Project Start Date",
       "ecCodes": [
         "7.1",
@@ -7383,27 +7236,25 @@
     },
     "Project_End_Date__c": {
       "key": "Project_End_Date__c",
-      "index": 28,
+      "index": 29,
       "required": "Conditional",
       "dataType": "Date",
       "maxLength": null,
       "listVals": [],
-      "columnName": "AC",
+      "columnName": "AD",
       "humanColName": "Project End Date",
       "ecCodes": [
-        "7.1",
-        "7.2",
         "7.3"
       ]
     },
     "Admin_Estimated_Expended__c": {
       "key": "Admin_Estimated_Expended__c",
-      "index": 29,
+      "index": 30,
       "required": "Conditional",
       "dataType": "Currency",
       "maxLength": null,
       "listVals": [],
-      "columnName": "AD",
+      "columnName": "AE",
       "humanColName": "Estimated funds for administrative and legal expenses",
       "ecCodes": [
         "7.3"
@@ -7411,12 +7262,12 @@
     },
     "Admin_Actual_Expended__c": {
       "key": "Admin_Actual_Expended__c",
-      "index": 30,
+      "index": 31,
       "required": "Conditional",
       "dataType": "Currency",
       "maxLength": null,
       "listVals": [],
-      "columnName": "AE",
+      "columnName": "AF",
       "humanColName": "Actual funds for administrative and legal expenses",
       "ecCodes": [
         "7.3"
@@ -7424,12 +7275,12 @@
     },
     "Admin_Expended_Description__c": {
       "key": "Admin_Expended_Description__c",
-      "index": 31,
+      "index": 32,
       "required": "Conditional",
       "dataType": "String",
       "maxLength": 750,
       "listVals": [],
-      "columnName": "AF",
+      "columnName": "AG",
       "humanColName": "Administrative and legal expenses description",
       "ecCodes": [
         "7.3"
@@ -7437,56 +7288,24 @@
     },
     "Admin_Expended_Justification__c": {
       "key": "Admin_Expended_Justification__c",
-      "index": 32,
+      "index": 33,
       "required": "Conditional",
       "dataType": "String",
       "maxLength": 750,
       "listVals": [],
-      "columnName": "AG",
-      "humanColName": "Administrative and legal expenses explanation",
-      "ecCodes": [
-        "7.3"
-      ]
-    },
-    "Prog_Income_Earned_After_12_31_24__c": {
-      "key": "Prog_Income_Earned_After_12_31_24__c",
-      "index": 33,
-      "required": "Conditional",
-      "dataType": "Currency",
-      "maxLength": null,
-      "listVals": [],
       "columnName": "AH",
-      "humanColName": "Program Income earned on project after December 31, 2024",
-      "ecCodes": [
-        "7.1",
-        "7.2",
-        "7.3"
-      ]
+      "humanColName": "Administrative and legal expenses explanation",
+      "ecCodes": []
     },
     "Total_Prog_Income_Obl_Post_Q4_2024__c": {
       "key": "Total_Prog_Income_Obl_Post_Q4_2024__c",
-      "index": 34,
-      "required": "Conditional",
-      "dataType": "Currency",
-      "maxLength": null,
-      "listVals": [],
-      "columnName": "AI",
-      "humanColName": "Program Income obligated by deadline and reported after December 31, 2024",
-      "ecCodes": [
-        "7.1",
-        "7.2",
-        "7.3"
-      ]
-    },
-    "Total_Prog_Income_Exp_Post_Q4_2024__c": {
-      "key": "Total_Prog_Income_Exp_Post_Q4_2024__c",
       "index": 35,
       "required": "Conditional",
       "dataType": "Currency",
       "maxLength": null,
       "listVals": [],
       "columnName": "AJ",
-      "humanColName": "Program Income reported after Q4 2024 expended",
+      "humanColName": "Program Income obligated by deadline and reported after December 31, 2024",
       "ecCodes": [
         "7.1",
         "7.2",
@@ -8289,8 +8108,8 @@
       "key": "Personnel_Exp_Exceeding_Estimate__c",
       "index": 30,
       "required": "Conditional",
-      "dataType": "String",
-      "maxLength": 750,
+      "dataType": "Currency",
+      "maxLength": null,
       "listVals": [],
       "columnName": "AE",
       "humanColName": "Personnel Expenditures Exceeding Estimate",
@@ -8300,8 +8119,8 @@
       "key": "Personnel_Obligations_Pursuant_Estimate__c",
       "index": 31,
       "required": "Conditional",
-      "dataType": "String",
-      "maxLength": 750,
+      "dataType": "Currency",
+      "maxLength": null,
       "listVals": [],
       "columnName": "AF",
       "humanColName": "Personnel Obligations Pursuant to Estimate",
@@ -8322,8 +8141,8 @@
       "key": "Contract_Obligations_Pursuant_Estimate__c",
       "index": 33,
       "required": "Conditional",
-      "dataType": "String",
-      "maxLength": 750,
+      "dataType": "Currency",
+      "maxLength": null,
       "listVals": [],
       "columnName": "AH",
       "humanColName": "Contract Obligations Pursuant to Estimate",
@@ -8383,7 +8202,7 @@
       "maxLength": null,
       "listVals": [],
       "columnName": "H",
-      "humanColName": "Current Quarter Expenditures Amounts",
+      "humanColName": "Current Quarter Expenditure Amount",
       "ecCodes": false
     }
   },
