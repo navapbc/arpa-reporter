@@ -248,13 +248,13 @@
         "helpText": "The total dollar value of expenditures for this project.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
       },
       {
-        "fieldId": "Q2_2025_Obligations__c",
+        "fieldId": "Q3_2025_Obligations__c",
         "fieldName": "Current Period Obligations",
         "required": "Required",
         "helpText": "The dollar value of obligations for this project for the current period.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
       },
       {
-        "fieldId": "Q2_2025_Expenditures__c",
+        "fieldId": "Q3_2025_Expenditures__c",
         "fieldName": "Current Period Expenditures",
         "required": "Required",
         "helpText": "The dollar value of expenditures for this project for the current period.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
@@ -297,13 +297,13 @@
       },
       {
         "fieldId": "Program_Income_Earned__c",
-        "fieldName": "Program Income Earned",
+        "fieldName": "Program income earned prior to December 31, 2024",
         "required": "Optional",
         "helpText": "Enter the amount of program income earned.\r\n\r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts.\r\n\r\nCannot be a negative value. "
       },
       {
         "fieldId": "Program_Income_Expended__c",
-        "fieldName": "Program Income Expended",
+        "fieldName": "Program income expended of the amount earned prior to December 31, 2024",
         "required": "Optional",
         "helpText": "Enter the amount of program income that was used to cover eligible project costs.\r\n\r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts.\r\n\r\nCannot be a negative value. "
       },
@@ -374,22 +374,34 @@
         "helpText": "Number of people participating in summer youth employment programs\r\n\r\n\r\nRequired for Tier 1 recipients only\r\n\r\nNumeric field."
       },
       {
-        "fieldId": "Prog_Income_Earned_After_12_31_24__c",
-        "fieldName": "Program Income earned on project after December 31, 2024",
+        "fieldId": "Program_Income_Attestation__c",
+        "fieldName": "This project earned program income",
         "required": "Conditional",
-        "helpText": "Program Income earned on project after December 31, 2024"
+        "helpText": "Select if this project earned program income, select one of the valid predefined responses from the picklist:\r\n\"Yes\"\r\n\"No\""
+      },
+      {
+        "fieldId": "Prog_Income_Earned_After_12_31_24__c",
+        "fieldName": "Program income earned on project after December 31, 2024",
+        "required": "Conditional",
+        "helpText": "Enter the cumulative program income earned after the obligation deadline of December 31, 2024. Please see “Program Income” 2 CFR 200.1 for the definition of program income."
       },
       {
         "fieldId": "Total_Prog_Income_Obl_Post_Q4_2024__c",
-        "fieldName": "Program Income obligated by deadline and reported after December 31, 2024",
+        "fieldName": "Program income obligated by December 31, 2024 of the amount earned prior to December 31, 2024",
         "required": "Conditional",
-        "helpText": "Program Income obligated by deadline and reported after December 31, 2024"
+        "helpText": "Enter the cumulative program income obligated of the amount earned prior to December 31, 2024.  This field displays what was previously entered in the field previously titled: Program Income obligated by deadline and reported after December 31, 2024. "
       },
       {
         "fieldId": "Total_Prog_Income_Exp_Post_Q4_2024__c",
-        "fieldName": "Program Income reported after Q4 2024 expended",
+        "fieldName": "Program income expended of the amount earned after December 31, 2024",
         "required": "Conditional",
-        "helpText": "Program Income reported after Q4 2024 expended"
+        "helpText": "Enter the cumulative program income expended of the amount earned after December 31, 2024."
+      },
+      {
+        "fieldId": "Prog_Income_Obligated_After_Dec_31__c",
+        "fieldName": "Program income obligated on project of the amount earned after December 31, 2024",
+        "required": "Conditional",
+        "helpText": "Enter the cumulative program income obligated of the amount earned after December 31, 2024 for an obligation that was incurred by December 31, 2024.  Please see FAQ 17.21 for guidance about how recipients may use program income earned after December 31, 2024 for an obligation that was incurred by December 31, 2024."
       }
     ]
   },
@@ -472,13 +484,13 @@
         "helpText": "The total dollar value of expenditures for this project.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
       },
       {
-        "fieldId": "Q2_2025_Obligations__c",
+        "fieldId": "Q3_2025_Obligations__c",
         "fieldName": "Current Period Obligations",
         "required": "Required",
         "helpText": "The dollar value of obligations for this project for the current period.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
       },
       {
-        "fieldId": "Q2_2025_Expenditures__c",
+        "fieldId": "Q3_2025_Expenditures__c",
         "fieldName": "Current Period Expenditures",
         "required": "Required",
         "helpText": "The dollar value of expenditures for this project for the current period.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
@@ -521,13 +533,13 @@
       },
       {
         "fieldId": "Program_Income_Earned__c",
-        "fieldName": "Program Income Earned",
+        "fieldName": "Program income earned prior to December 31, 2024",
         "required": "Optional",
         "helpText": "Enter the amount of program income earned.\r\n\r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts.\r\n\r\nCannot be a negative value. "
       },
       {
         "fieldId": "Program_Income_Expended__c",
-        "fieldName": "Program Income Expended",
+        "fieldName": "Program income expended of the amount earned prior to December 31, 2024",
         "required": "Optional",
         "helpText": "Enter the amount of program income that was used to cover eligible project costs.\r\n\r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts.\r\n\r\nCannot be a negative value. "
       },
@@ -586,22 +598,34 @@
         "helpText": "Number of small businesses served (by program if recipient establishes multiple separate small businesses assistance programs)\r\n\r\nNumeric value"
       },
       {
-        "fieldId": "Prog_Income_Earned_After_12_31_24__c",
-        "fieldName": "Program Income earned on project after December 31, 2024",
+        "fieldId": "Program_Income_Attestation__c",
+        "fieldName": "This project earned program income",
         "required": "Conditional",
-        "helpText": "Program Income earned on project after December 31, 2024"
+        "helpText": "Select if this project earned program income, select one of the valid predefined responses from the picklist:\r\n\"Yes\"\r\n\"No\""
+      },
+      {
+        "fieldId": "Prog_Income_Earned_After_12_31_24__c",
+        "fieldName": "Program income earned on project after December 31, 2024",
+        "required": "Conditional",
+        "helpText": "Enter the cumulative program income earned after the obligation deadline of December 31, 2024. Please see “Program Income” 2 CFR 200.1 for the definition of program income."
       },
       {
         "fieldId": "Total_Prog_Income_Obl_Post_Q4_2024__c",
-        "fieldName": "Program Income obligated by deadline and reported after December 31, 2024",
+        "fieldName": "Program income obligated by December 31, 2024 of the amount earned prior to December 31, 2024",
         "required": "Conditional",
-        "helpText": "Program Income obligated by deadline and reported after December 31, 2024"
+        "helpText": "Enter the cumulative program income obligated of the amount earned prior to December 31, 2024.  This field displays what was previously entered in the field previously titled: Program Income obligated by deadline and reported after December 31, 2024. "
       },
       {
         "fieldId": "Total_Prog_Income_Exp_Post_Q4_2024__c",
-        "fieldName": "Program Income reported after Q4 2024 expended",
+        "fieldName": "Program income expended of the amount earned after December 31, 2024",
         "required": "Conditional",
-        "helpText": "Program Income reported after Q4 2024 expended"
+        "helpText": "Enter the cumulative program income expended of the amount earned after December 31, 2024."
+      },
+      {
+        "fieldId": "Prog_Income_Obligated_After_Dec_31__c",
+        "fieldName": "Program income obligated on project of the amount earned after December 31, 2024",
+        "required": "Conditional",
+        "helpText": "Enter the cumulative program income obligated of the amount earned after December 31, 2024 for an obligation that was incurred by December 31, 2024.  Please see FAQ 17.21 for guidance about how recipients may use program income earned after December 31, 2024 for an obligation that was incurred by December 31, 2024."
       }
     ]
   },
@@ -680,13 +704,13 @@
         "helpText": "The total dollar value of expenditures for this project.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
       },
       {
-        "fieldId": "Q2_2025_Obligations__c",
+        "fieldId": "Q3_2025_Obligations__c",
         "fieldName": "Current Period Obligations",
         "required": "Required",
         "helpText": "The dollar value of obligations for this project for the current period.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
       },
       {
-        "fieldId": "Q2_2025_Expenditures__c",
+        "fieldId": "Q3_2025_Expenditures__c",
         "fieldName": "Current Period Expenditures",
         "required": "Required",
         "helpText": "The dollar value of expenditures for this project for the current period.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
@@ -729,13 +753,13 @@
       },
       {
         "fieldId": "Program_Income_Earned__c",
-        "fieldName": "Program Income Earned",
+        "fieldName": "Program income earned prior to December 31, 2024",
         "required": "Optional",
         "helpText": "Enter the amount of program income earned.\r\n\r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts.\r\n\r\nCannot be a negative value. "
       },
       {
         "fieldId": "Program_Income_Expended__c",
-        "fieldName": "Program Income Expended",
+        "fieldName": "Program income expended of the amount earned prior to December 31, 2024",
         "required": "Optional",
         "helpText": "Enter the amount of program income that was used to cover eligible project costs.\r\n\r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts.\r\n\r\nCannot be a negative value. "
       },
@@ -794,22 +818,34 @@
         "helpText": "Number of Non-Profits served (by program if recipient establishes multiple separate non-profit assistance programs)\r\n\r\nNumeric value."
       },
       {
-        "fieldId": "Prog_Income_Earned_After_12_31_24__c",
-        "fieldName": "Program Income earned on project after December 31, 2024",
+        "fieldId": "Program_Income_Attestation__c",
+        "fieldName": "This project earned program income",
         "required": "Conditional",
-        "helpText": "Program Income earned on project after December 31, 2024"
+        "helpText": "Select if this project earned program income, select one of the valid predefined responses from the picklist:\r\n\"Yes\"\r\n\"No\""
+      },
+      {
+        "fieldId": "Prog_Income_Earned_After_12_31_24__c",
+        "fieldName": "Program income earned on project after December 31, 2024",
+        "required": "Conditional",
+        "helpText": "Enter the cumulative program income earned after the obligation deadline of December 31, 2024. Please see “Program Income” 2 CFR 200.1 for the definition of program income."
       },
       {
         "fieldId": "Total_Prog_Income_Obl_Post_Q4_2024__c",
-        "fieldName": "Program Income obligated by deadline and reported after December 31, 2024",
+        "fieldName": "Program income obligated by December 31, 2024 of the amount earned prior to December 31, 2024",
         "required": "Conditional",
-        "helpText": "Program Income obligated by deadline and reported after December 31, 2024"
+        "helpText": "Enter the cumulative program income obligated of the amount earned prior to December 31, 2024.  This field displays what was previously entered in the field previously titled: Program Income obligated by deadline and reported after December 31, 2024. "
       },
       {
         "fieldId": "Total_Prog_Income_Exp_Post_Q4_2024__c",
-        "fieldName": "Program Income reported after Q4 2024 expended",
+        "fieldName": "Program income expended of the amount earned after December 31, 2024",
         "required": "Conditional",
-        "helpText": "Program Income reported after Q4 2024 expended"
+        "helpText": "Enter the cumulative program income expended of the amount earned after December 31, 2024."
+      },
+      {
+        "fieldId": "Prog_Income_Obligated_After_Dec_31__c",
+        "fieldName": "Program income obligated on project of the amount earned after December 31, 2024",
+        "required": "Conditional",
+        "helpText": "Enter the cumulative program income obligated of the amount earned after December 31, 2024 for an obligation that was incurred by December 31, 2024.  Please see FAQ 17.21 for guidance about how recipients may use program income earned after December 31, 2024 for an obligation that was incurred by December 31, 2024."
       }
     ]
   },
@@ -890,13 +926,13 @@
         "helpText": "The total dollar value of expenditures for this project.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
       },
       {
-        "fieldId": "Q2_2025_Obligations__c",
+        "fieldId": "Q3_2025_Obligations__c",
         "fieldName": "Current Period Obligations",
         "required": "Required",
         "helpText": "The dollar value of obligations for this project for the current period.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
       },
       {
-        "fieldId": "Q2_2025_Expenditures__c",
+        "fieldId": "Q3_2025_Expenditures__c",
         "fieldName": "Current Period Expenditures",
         "required": "Required",
         "helpText": "The dollar value of expenditures for this project for the current period.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
@@ -939,13 +975,13 @@
       },
       {
         "fieldId": "Program_Income_Earned__c",
-        "fieldName": "Program Income Earned",
+        "fieldName": "Program income earned prior to December 31, 2024",
         "required": "Optional",
         "helpText": "Enter the amount of program income earned.\r\n\r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts. \r\n\r\nCannot be a negative value. "
       },
       {
         "fieldId": "Program_Income_Expended__c",
-        "fieldName": "Program Income Expended",
+        "fieldName": "Program income expended of the amount earned prior to December 31, 2024",
         "required": "Optional",
         "helpText": "Enter the amount of program income that was used to cover eligible project costs.\r\n\r\nCurrency field.\r\n \r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts. \r\n\r\nCannot be a negative value. "
       },
@@ -1016,22 +1052,34 @@
         "helpText": "Number of families served by home visiting\r\n\r\n\r\nRequired for Tier 1 recipients only\r\n\r\nNumeric field. "
       },
       {
-        "fieldId": "Prog_Income_Earned_After_12_31_24__c",
-        "fieldName": "Program Income earned on project after December 31, 2024",
+        "fieldId": "Program_Income_Attestation__c",
+        "fieldName": "This project earned program income",
         "required": "Conditional",
-        "helpText": "Program Income earned on project after December 31, 2024"
+        "helpText": "Select if this project earned program income, select one of the valid predefined responses from the picklist:\r\n\"Yes\"\r\n\"No\""
+      },
+      {
+        "fieldId": "Prog_Income_Earned_After_12_31_24__c",
+        "fieldName": "Program income earned on project after December 31, 2024",
+        "required": "Conditional",
+        "helpText": "Enter the cumulative program income earned after the obligation deadline of December 31, 2024. Please see “Program Income” 2 CFR 200.1 for the definition of program income."
       },
       {
         "fieldId": "Total_Prog_Income_Obl_Post_Q4_2024__c",
-        "fieldName": "Program Income obligated by deadline and reported after December 31, 2024",
+        "fieldName": "Program income obligated by December 31, 2024 of the amount earned prior to December 31, 2024",
         "required": "Conditional",
-        "helpText": "Program Income obligated by deadline and reported after December 31, 2024"
+        "helpText": "Enter the cumulative program income obligated of the amount earned prior to December 31, 2024.  This field displays what was previously entered in the field previously titled: Program Income obligated by deadline and reported after December 31, 2024. "
       },
       {
         "fieldId": "Total_Prog_Income_Exp_Post_Q4_2024__c",
-        "fieldName": "Program Income reported after Q4 2024 expended",
+        "fieldName": "Program income expended of the amount earned after December 31, 2024",
         "required": "Conditional",
-        "helpText": "Program Income reported after Q4 2024 expended"
+        "helpText": "Enter the cumulative program income expended of the amount earned after December 31, 2024."
+      },
+      {
+        "fieldId": "Prog_Income_Obligated_After_Dec_31__c",
+        "fieldName": "Program income obligated on project of the amount earned after December 31, 2024",
+        "required": "Conditional",
+        "helpText": "Enter the cumulative program income obligated of the amount earned after December 31, 2024 for an obligation that was incurred by December 31, 2024.  Please see FAQ 17.21 for guidance about how recipients may use program income earned after December 31, 2024 for an obligation that was incurred by December 31, 2024."
       }
     ]
   },
@@ -1116,13 +1164,13 @@
         "helpText": "The total dollar value of expenditures for this project.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
       },
       {
-        "fieldId": "Q2_2025_Obligations__c",
+        "fieldId": "Q3_2025_Obligations__c",
         "fieldName": "Current Period Obligations",
         "required": "Required",
         "helpText": "The dollar value of obligations for this project for the current period.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
       },
       {
-        "fieldId": "Q2_2025_Expenditures__c",
+        "fieldId": "Q3_2025_Expenditures__c",
         "fieldName": "Current Period Expenditures",
         "required": "Required",
         "helpText": "The dollar value of expenditures for this project for the current period.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
@@ -1165,13 +1213,13 @@
       },
       {
         "fieldId": "Program_Income_Earned__c",
-        "fieldName": "Program Income Earned",
+        "fieldName": "Program income earned prior to December 31, 2024",
         "required": "Optional",
         "helpText": "Enter the amount of program income earned.\r\n\r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts.\r\n\r\nCannot be a negative value. "
       },
       {
         "fieldId": "Program_Income_Expended__c",
-        "fieldName": "Program Income Expended",
+        "fieldName": "Program income expended of the amount earned prior to December 31, 2024",
         "required": "Optional",
         "helpText": "Enter the amount of program income that was used to cover eligible project costs.\r\n\r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts.\r\n\r\nCannot be a negative value. "
       },
@@ -1242,22 +1290,34 @@
         "helpText": "Number of households served (by program if recipient establishes multiple separate household assistance programs)\r\n\r\nNumeric value."
       },
       {
-        "fieldId": "Prog_Income_Earned_After_12_31_24__c",
-        "fieldName": "Program Income earned on project after December 31, 2024",
+        "fieldId": "Program_Income_Attestation__c",
+        "fieldName": "This project earned program income",
         "required": "Conditional",
-        "helpText": "Program Income earned on project after December 31, 2024"
+        "helpText": "Select if this project earned program income, select one of the valid predefined responses from the picklist:\r\n\"Yes\"\r\n\"No\""
+      },
+      {
+        "fieldId": "Prog_Income_Earned_After_12_31_24__c",
+        "fieldName": "Program income earned on project after December 31, 2024",
+        "required": "Conditional",
+        "helpText": "Enter the cumulative program income earned after the obligation deadline of December 31, 2024. Please see “Program Income” 2 CFR 200.1 for the definition of program income."
       },
       {
         "fieldId": "Total_Prog_Income_Obl_Post_Q4_2024__c",
-        "fieldName": "Program Income obligated by deadline and reported after December 31, 2024",
+        "fieldName": "Program income obligated by December 31, 2024 of the amount earned prior to December 31, 2024",
         "required": "Conditional",
-        "helpText": "Program Income obligated by deadline and reported after December 31, 2024"
+        "helpText": "Enter the cumulative program income obligated of the amount earned prior to December 31, 2024.  This field displays what was previously entered in the field previously titled: Program Income obligated by deadline and reported after December 31, 2024. "
       },
       {
         "fieldId": "Total_Prog_Income_Exp_Post_Q4_2024__c",
-        "fieldName": "Program Income reported after Q4 2024 expended",
+        "fieldName": "Program income expended of the amount earned after December 31, 2024",
         "required": "Conditional",
-        "helpText": "Program Income reported after Q4 2024 expended"
+        "helpText": "Enter the cumulative program income expended of the amount earned after December 31, 2024."
+      },
+      {
+        "fieldId": "Prog_Income_Obligated_After_Dec_31__c",
+        "fieldName": "Program income obligated on project of the amount earned after December 31, 2024",
+        "required": "Conditional",
+        "helpText": "Enter the cumulative program income obligated of the amount earned after December 31, 2024 for an obligation that was incurred by December 31, 2024.  Please see FAQ 17.21 for guidance about how recipients may use program income earned after December 31, 2024 for an obligation that was incurred by December 31, 2024."
       }
     ]
   },
@@ -1338,13 +1398,13 @@
         "helpText": "The total dollar value of expenditures for this project.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
       },
       {
-        "fieldId": "Q2_2025_Obligations__c",
+        "fieldId": "Q3_2025_Obligations__c",
         "fieldName": "Current Period Obligations",
         "required": "Required",
         "helpText": "The dollar value of obligations for this project for the current period.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
       },
       {
-        "fieldId": "Q2_2025_Expenditures__c",
+        "fieldId": "Q3_2025_Expenditures__c",
         "fieldName": "Current Period Expenditures",
         "required": "Required",
         "helpText": "The dollar value of expenditures for this project for the current period.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
@@ -1387,13 +1447,13 @@
       },
       {
         "fieldId": "Program_Income_Earned__c",
-        "fieldName": "Program Income Earned",
+        "fieldName": "Program income earned prior to December 31, 2024",
         "required": "Optional",
         "helpText": "Enter the amount of program income earned.\r\n\r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts.\r\n\r\nCannot be a negative value. "
       },
       {
         "fieldId": "Program_Income_Expended__c",
-        "fieldName": "Program Income Expended",
+        "fieldName": "Program income expended of the amount earned prior to December 31, 2024",
         "required": "Optional",
         "helpText": "Enter the amount of program income that was used to cover eligible project costs.\r\n\r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts.\r\n\r\nCannot be a negative value. "
       },
@@ -1458,22 +1518,34 @@
         "helpText": "Number of affordable housing units preserved or developed\r\n\r\n\r\nRequired for Tier 1 recipients only\r\n\r\nNumeric field. "
       },
       {
-        "fieldId": "Prog_Income_Earned_After_12_31_24__c",
-        "fieldName": "Program Income earned on project after December 31, 2024",
+        "fieldId": "Program_Income_Attestation__c",
+        "fieldName": "This project earned program income",
         "required": "Conditional",
-        "helpText": "Program Income earned on project after December 31, 2024"
+        "helpText": "Select if this project earned program income, select one of the valid predefined responses from the picklist:\r\n\"Yes\"\r\n\"No\""
+      },
+      {
+        "fieldId": "Prog_Income_Earned_After_12_31_24__c",
+        "fieldName": "Program income earned on project after December 31, 2024",
+        "required": "Conditional",
+        "helpText": "Enter the cumulative program income earned after the obligation deadline of December 31, 2024. Please see “Program Income” 2 CFR 200.1 for the definition of program income."
       },
       {
         "fieldId": "Total_Prog_Income_Obl_Post_Q4_2024__c",
-        "fieldName": "Program Income obligated by deadline and reported after December 31, 2024",
+        "fieldName": "Program income obligated by December 31, 2024 of the amount earned prior to December 31, 2024",
         "required": "Conditional",
-        "helpText": "Program Income obligated by deadline and reported after December 31, 2024"
+        "helpText": "Enter the cumulative program income obligated of the amount earned prior to December 31, 2024.  This field displays what was previously entered in the field previously titled: Program Income obligated by deadline and reported after December 31, 2024. "
       },
       {
         "fieldId": "Total_Prog_Income_Exp_Post_Q4_2024__c",
-        "fieldName": "Program Income reported after Q4 2024 expended",
+        "fieldName": "Program income expended of the amount earned after December 31, 2024",
         "required": "Conditional",
-        "helpText": "Program Income reported after Q4 2024 expended"
+        "helpText": "Enter the cumulative program income expended of the amount earned after December 31, 2024."
+      },
+      {
+        "fieldId": "Prog_Income_Obligated_After_Dec_31__c",
+        "fieldName": "Program income obligated on project of the amount earned after December 31, 2024",
+        "required": "Conditional",
+        "helpText": "Enter the cumulative program income obligated of the amount earned after December 31, 2024 for an obligation that was incurred by December 31, 2024.  Please see FAQ 17.21 for guidance about how recipients may use program income earned after December 31, 2024 for an obligation that was incurred by December 31, 2024."
       }
     ]
   },
@@ -1554,13 +1626,13 @@
         "helpText": "The total dollar value of expenditures for this project.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
       },
       {
-        "fieldId": "Q2_2025_Obligations__c",
+        "fieldId": "Q3_2025_Obligations__c",
         "fieldName": "Current Period Obligations",
         "required": "Required",
         "helpText": "The dollar value of obligations for this project for the current period.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
       },
       {
-        "fieldId": "Q2_2025_Expenditures__c",
+        "fieldId": "Q3_2025_Expenditures__c",
         "fieldName": "Current Period Expenditures",
         "required": "Required",
         "helpText": "The dollar value of expenditures for this project for the current period.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
@@ -1603,13 +1675,13 @@
       },
       {
         "fieldId": "Program_Income_Earned__c",
-        "fieldName": "Program Income Earned",
+        "fieldName": "Program income earned prior to December 31, 2024",
         "required": "Optional",
         "helpText": "Enter the amount of program income earned.\r\n\r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts.\r\n\r\nCannot be a negative value. "
       },
       {
         "fieldId": "Program_Income_Expended__c",
-        "fieldName": "Program Income Expended",
+        "fieldName": "Program income expended of the amount earned prior to December 31, 2024",
         "required": "Optional",
         "helpText": "Enter the amount of program income that was used to cover eligible project costs.\r\n\r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts.\r\n\r\nCannot be a negative value. "
       },
@@ -1674,22 +1746,34 @@
         "helpText": "Number of students participating in evidence-based tutoring programs\r\n\r\n\r\nRequired for Tier 1 recipients only\r\n\r\nNumeric field."
       },
       {
-        "fieldId": "Prog_Income_Earned_After_12_31_24__c",
-        "fieldName": "Program Income earned on project after December 31, 2024",
+        "fieldId": "Program_Income_Attestation__c",
+        "fieldName": "This project earned program income",
         "required": "Conditional",
-        "helpText": "Program Income earned on project after December 31, 2024"
+        "helpText": "Select if this project earned program income, select one of the valid predefined responses from the picklist:\r\n\"Yes\"\r\n\"No\""
+      },
+      {
+        "fieldId": "Prog_Income_Earned_After_12_31_24__c",
+        "fieldName": "Program income earned on project after December 31, 2024",
+        "required": "Conditional",
+        "helpText": "Enter the cumulative program income earned after the obligation deadline of December 31, 2024. Please see “Program Income” 2 CFR 200.1 for the definition of program income."
       },
       {
         "fieldId": "Total_Prog_Income_Obl_Post_Q4_2024__c",
-        "fieldName": "Program Income obligated by deadline and reported after December 31, 2024",
+        "fieldName": "Program income obligated by December 31, 2024 of the amount earned prior to December 31, 2024",
         "required": "Conditional",
-        "helpText": "Program Income obligated by deadline and reported after December 31, 2024"
+        "helpText": "Enter the cumulative program income obligated of the amount earned prior to December 31, 2024.  This field displays what was previously entered in the field previously titled: Program Income obligated by deadline and reported after December 31, 2024. "
       },
       {
         "fieldId": "Total_Prog_Income_Exp_Post_Q4_2024__c",
-        "fieldName": "Program Income reported after Q4 2024 expended",
+        "fieldName": "Program income expended of the amount earned after December 31, 2024",
         "required": "Conditional",
-        "helpText": "Program Income reported after Q4 2024 expended"
+        "helpText": "Enter the cumulative program income expended of the amount earned after December 31, 2024."
+      },
+      {
+        "fieldId": "Prog_Income_Obligated_After_Dec_31__c",
+        "fieldName": "Program income obligated on project of the amount earned after December 31, 2024",
+        "required": "Conditional",
+        "helpText": "Enter the cumulative program income obligated of the amount earned after December 31, 2024 for an obligation that was incurred by December 31, 2024.  Please see FAQ 17.21 for guidance about how recipients may use program income earned after December 31, 2024 for an obligation that was incurred by December 31, 2024."
       }
     ]
   },
@@ -1767,13 +1851,13 @@
         "helpText": "The total dollar value of expenditures for this project.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
       },
       {
-        "fieldId": "Q2_2025_Obligations__c",
+        "fieldId": "Q3_2025_Obligations__c",
         "fieldName": "Current Period Obligations",
         "required": "Required",
         "helpText": "The dollar value of obligations for this project for the current period.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
       },
       {
-        "fieldId": "Q2_2025_Expenditures__c",
+        "fieldId": "Q3_2025_Expenditures__c",
         "fieldName": "Current Period Expenditures",
         "required": "Required",
         "helpText": "The dollar value of expenditures for this project for the current period.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
@@ -1816,13 +1900,13 @@
       },
       {
         "fieldId": "Program_Income_Earned__c",
-        "fieldName": "Program Income Earned",
+        "fieldName": "Program income earned prior to December 31, 2024",
         "required": "Optional",
         "helpText": "Enter the amount of program income earned.\r\n\r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts.\r\n\r\nCannot be a negative value. "
       },
       {
         "fieldId": "Program_Income_Expended__c",
-        "fieldName": "Program Income Expended",
+        "fieldName": "Program income expended of the amount earned prior to December 31, 2024",
         "required": "Optional",
         "helpText": "Enter the amount of program income that was used to cover eligible project costs.\r\n\r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts.\r\n\r\nCannot be a negative value. "
       },
@@ -1881,22 +1965,34 @@
         "helpText": "If aid is provided to industries other than travel, tourism, and hospitality (EC 2.36), please describe if the industry experienced at least 8 percent employment loss from pre-pandemic levels, or the industry is experiencing comparable or worse economic impacts as the national tourism, travel, and hospitality industries as of the date of the Final Rule, and rationale for providing aide to the industry\r\n\r\n(Text - max 250 characters)"
       },
       {
-        "fieldId": "Prog_Income_Earned_After_12_31_24__c",
-        "fieldName": "Program Income earned on project after December 31, 2024",
+        "fieldId": "Program_Income_Attestation__c",
+        "fieldName": "This project earned program income",
         "required": "Conditional",
-        "helpText": "Program Income earned on project after December 31, 2024"
+        "helpText": "Select if this project earned program income, select one of the valid predefined responses from the picklist:\r\n\"Yes\"\r\n\"No\""
+      },
+      {
+        "fieldId": "Prog_Income_Earned_After_12_31_24__c",
+        "fieldName": "Program income earned on project after December 31, 2024",
+        "required": "Conditional",
+        "helpText": "Enter the cumulative program income earned after the obligation deadline of December 31, 2024. Please see “Program Income” 2 CFR 200.1 for the definition of program income."
       },
       {
         "fieldId": "Total_Prog_Income_Obl_Post_Q4_2024__c",
-        "fieldName": "Program Income obligated by deadline and reported after December 31, 2024",
+        "fieldName": "Program income obligated by December 31, 2024 of the amount earned prior to December 31, 2024",
         "required": "Conditional",
-        "helpText": "Program Income obligated by deadline and reported after December 31, 2024"
+        "helpText": "Enter the cumulative program income obligated of the amount earned prior to December 31, 2024.  This field displays what was previously entered in the field previously titled: Program Income obligated by deadline and reported after December 31, 2024. "
       },
       {
         "fieldId": "Total_Prog_Income_Exp_Post_Q4_2024__c",
-        "fieldName": "Program Income reported after Q4 2024 expended",
+        "fieldName": "Program income expended of the amount earned after December 31, 2024",
         "required": "Conditional",
-        "helpText": "Program Income reported after Q4 2024 expended"
+        "helpText": "Enter the cumulative program income expended of the amount earned after December 31, 2024."
+      },
+      {
+        "fieldId": "Prog_Income_Obligated_After_Dec_31__c",
+        "fieldName": "Program income obligated on project of the amount earned after December 31, 2024",
+        "required": "Conditional",
+        "helpText": "Enter the cumulative program income obligated of the amount earned after December 31, 2024 for an obligation that was incurred by December 31, 2024.  Please see FAQ 17.21 for guidance about how recipients may use program income earned after December 31, 2024 for an obligation that was incurred by December 31, 2024."
       }
     ]
   },
@@ -1974,13 +2070,13 @@
         "helpText": "The total dollar value of expenditures for this project.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
       },
       {
-        "fieldId": "Q2_2025_Obligations__c",
+        "fieldId": "Q3_2025_Obligations__c",
         "fieldName": "Current Period Obligations",
         "required": "Required",
         "helpText": "The dollar value of obligations for this project for the current period.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
       },
       {
-        "fieldId": "Q2_2025_Expenditures__c",
+        "fieldId": "Q3_2025_Expenditures__c",
         "fieldName": "Current Period Expenditures",
         "required": "Required",
         "helpText": "The dollar value of expenditures for this project for the current period.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
@@ -2023,13 +2119,13 @@
       },
       {
         "fieldId": "Program_Income_Earned__c",
-        "fieldName": "Program Income Earned",
+        "fieldName": "Program income earned prior to December 31, 2024",
         "required": "Optional",
         "helpText": "Enter the amount of program income earned.\r\n\r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts.\r\n\r\nCannot be a negative value. "
       },
       {
         "fieldId": "Program_Income_Expended__c",
-        "fieldName": "Program Income Expended",
+        "fieldName": "Program income expended of the amount earned prior to December 31, 2024",
         "required": "Optional",
         "helpText": "Enter the amount of program income that was used to cover eligible project costs.\r\n\r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts.\r\n\r\nCannot be a negative value. "
       },
@@ -2052,22 +2148,34 @@
         "helpText": "Number of government FTEs responding to COVID-19 supported under this authority\r\n\r\n(Numeric value - No character limitation)"
       },
       {
-        "fieldId": "Prog_Income_Earned_After_12_31_24__c",
-        "fieldName": "Program Income earned on project after December 31, 2024",
+        "fieldId": "Program_Income_Attestation__c",
+        "fieldName": "This project earned program income",
         "required": "Conditional",
-        "helpText": "Program Income earned on project after December 31, 2024"
+        "helpText": "Select if this project earned program income, select one of the valid predefined responses from the picklist:\r\n\"Yes\"\r\n\"No\""
+      },
+      {
+        "fieldId": "Prog_Income_Earned_After_12_31_24__c",
+        "fieldName": "Program income earned on project after December 31, 2024",
+        "required": "Conditional",
+        "helpText": "Enter the cumulative program income earned after the obligation deadline of December 31, 2024. Please see “Program Income” 2 CFR 200.1 for the definition of program income."
       },
       {
         "fieldId": "Total_Prog_Income_Obl_Post_Q4_2024__c",
-        "fieldName": "Program Income obligated by deadline and reported after December 31, 2024",
+        "fieldName": "Program income obligated by December 31, 2024 of the amount earned prior to December 31, 2024",
         "required": "Conditional",
-        "helpText": "Program Income obligated by deadline and reported after December 31, 2024"
+        "helpText": "Enter the cumulative program income obligated of the amount earned prior to December 31, 2024.  This field displays what was previously entered in the field previously titled: Program Income obligated by deadline and reported after December 31, 2024. "
       },
       {
         "fieldId": "Total_Prog_Income_Exp_Post_Q4_2024__c",
-        "fieldName": "Program Income reported after Q4 2024 expended",
+        "fieldName": "Program income expended of the amount earned after December 31, 2024",
         "required": "Conditional",
-        "helpText": "Program Income reported after Q4 2024 expended"
+        "helpText": "Enter the cumulative program income expended of the amount earned after December 31, 2024."
+      },
+      {
+        "fieldId": "Prog_Income_Obligated_After_Dec_31__c",
+        "fieldName": "Program income obligated on project of the amount earned after December 31, 2024",
+        "required": "Conditional",
+        "helpText": "Enter the cumulative program income obligated of the amount earned after December 31, 2024 for an obligation that was incurred by December 31, 2024.  Please see FAQ 17.21 for guidance about how recipients may use program income earned after December 31, 2024 for an obligation that was incurred by December 31, 2024."
       }
     ]
   },
@@ -2145,13 +2253,13 @@
         "helpText": "The total dollar value of expenditures for this project.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
       },
       {
-        "fieldId": "Q2_2025_Obligations__c",
+        "fieldId": "Q3_2025_Obligations__c",
         "fieldName": "Current Period Obligations",
         "required": "Required",
         "helpText": "The dollar value of obligations for this project for the current period.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
       },
       {
-        "fieldId": "Q2_2025_Expenditures__c",
+        "fieldId": "Q3_2025_Expenditures__c",
         "fieldName": "Current Period Expenditures",
         "required": "Required",
         "helpText": "The dollar value of expenditures for this project for the current period.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
@@ -2194,13 +2302,13 @@
       },
       {
         "fieldId": "Program_Income_Earned__c",
-        "fieldName": "Program Income Earned",
+        "fieldName": "Program income earned prior to December 31, 2024",
         "required": "Optional",
         "helpText": "Enter the amount of program income earned.\r\n\r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts.\r\n\r\nCannot be a negative value. "
       },
       {
         "fieldId": "Program_Income_Expended__c",
-        "fieldName": "Program Income Expended",
+        "fieldName": "Program income expended of the amount earned prior to December 31, 2024",
         "required": "Optional",
         "helpText": "Enter the amount of program income that was used to cover eligible project costs.\r\n\r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts.\r\n\r\nCannot be a negative value. "
       },
@@ -2223,22 +2331,34 @@
         "helpText": "Number of FTEs rehired by governments under this authority.\r\n\r\nNumeric Max Characters (6).  DO NOT include commas \",\" when entering Amounts.\r\n\r\nNumeric value."
       },
       {
-        "fieldId": "Prog_Income_Earned_After_12_31_24__c",
-        "fieldName": "Program Income earned on project after December 31, 2024",
+        "fieldId": "Program_Income_Attestation__c",
+        "fieldName": "This project earned program income",
         "required": "Conditional",
-        "helpText": "Program Income earned on project after December 31, 2024"
+        "helpText": "Select if this project earned program income, select one of the valid predefined responses from the picklist:\r\n\"Yes\"\r\n\"No\""
+      },
+      {
+        "fieldId": "Prog_Income_Earned_After_12_31_24__c",
+        "fieldName": "Program income earned on project after December 31, 2024",
+        "required": "Conditional",
+        "helpText": "Enter the cumulative program income earned after the obligation deadline of December 31, 2024. Please see “Program Income” 2 CFR 200.1 for the definition of program income."
       },
       {
         "fieldId": "Total_Prog_Income_Obl_Post_Q4_2024__c",
-        "fieldName": "Program Income obligated by deadline and reported after December 31, 2024",
+        "fieldName": "Program income obligated by December 31, 2024 of the amount earned prior to December 31, 2024",
         "required": "Conditional",
-        "helpText": "Program Income obligated by deadline and reported after December 31, 2024"
+        "helpText": "Enter the cumulative program income obligated of the amount earned prior to December 31, 2024.  This field displays what was previously entered in the field previously titled: Program Income obligated by deadline and reported after December 31, 2024. "
       },
       {
         "fieldId": "Total_Prog_Income_Exp_Post_Q4_2024__c",
-        "fieldName": "Program Income reported after Q4 2024 expended",
+        "fieldName": "Program income expended of the amount earned after December 31, 2024",
         "required": "Conditional",
-        "helpText": "Program Income reported after Q4 2024 expended"
+        "helpText": "Enter the cumulative program income expended of the amount earned after December 31, 2024."
+      },
+      {
+        "fieldId": "Prog_Income_Obligated_After_Dec_31__c",
+        "fieldName": "Program income obligated on project of the amount earned after December 31, 2024",
+        "required": "Conditional",
+        "helpText": "Enter the cumulative program income obligated of the amount earned after December 31, 2024 for an obligation that was incurred by December 31, 2024.  Please see FAQ 17.21 for guidance about how recipients may use program income earned after December 31, 2024 for an obligation that was incurred by December 31, 2024."
       }
     ]
   },
@@ -2317,13 +2437,13 @@
         "helpText": "The total dollar value of expenditures for this project.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
       },
       {
-        "fieldId": "Q2_2025_Obligations__c",
+        "fieldId": "Q3_2025_Obligations__c",
         "fieldName": "Current Period Obligations",
         "required": "Required",
         "helpText": "The dollar value of obligations for this project for the current period.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
       },
       {
-        "fieldId": "Q2_2025_Expenditures__c",
+        "fieldId": "Q3_2025_Expenditures__c",
         "fieldName": "Current Period Expenditures",
         "required": "Required",
         "helpText": "The dollar value of expenditures for this project for the current period.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
@@ -2336,13 +2456,13 @@
       },
       {
         "fieldId": "Program_Income_Earned__c",
-        "fieldName": "Program Income Earned",
+        "fieldName": "Program income earned prior to December 31, 2024",
         "required": "Optional",
         "helpText": "Enter the amount of program income earned.\r\n\r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts.\r\n\r\nCannot be a negative value. "
       },
       {
         "fieldId": "Program_Income_Expended__c",
-        "fieldName": "Program Income Expended",
+        "fieldName": "Program income expended of the amount earned prior to December 31, 2024",
         "required": "Optional",
         "helpText": "Enter the amount of program income that was used to cover eligible project costs.\r\n\r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts.\r\n\r\nCannot be a negative value. "
       },
@@ -2371,22 +2491,34 @@
         "helpText": "Number of workers to be served with premium pay in K-12 schools\r\n\r\n(Numeric value), DO NOT include commas \",\" when entering Amounts"
       },
       {
-        "fieldId": "Prog_Income_Earned_After_12_31_24__c",
-        "fieldName": "Program Income earned on project after December 31, 2024",
+        "fieldId": "Program_Income_Attestation__c",
+        "fieldName": "This project earned program income",
         "required": "Conditional",
-        "helpText": "Program Income earned on project after December 31, 2024"
+        "helpText": "Select if this project earned program income, select one of the valid predefined responses from the picklist:\r\n\"Yes\"\r\n\"No\""
+      },
+      {
+        "fieldId": "Prog_Income_Earned_After_12_31_24__c",
+        "fieldName": "Program income earned on project after December 31, 2024",
+        "required": "Conditional",
+        "helpText": "Enter the cumulative program income earned after the obligation deadline of December 31, 2024. Please see “Program Income” 2 CFR 200.1 for the definition of program income."
       },
       {
         "fieldId": "Total_Prog_Income_Obl_Post_Q4_2024__c",
-        "fieldName": "Program Income obligated by deadline and reported after December 31, 2024",
+        "fieldName": "Program income obligated by December 31, 2024 of the amount earned prior to December 31, 2024",
         "required": "Conditional",
-        "helpText": "Program Income obligated by deadline and reported after December 31, 2024"
+        "helpText": "Enter the cumulative program income obligated of the amount earned prior to December 31, 2024.  This field displays what was previously entered in the field previously titled: Program Income obligated by deadline and reported after December 31, 2024. "
       },
       {
         "fieldId": "Total_Prog_Income_Exp_Post_Q4_2024__c",
-        "fieldName": "Program Income reported after Q4 2024 expended",
+        "fieldName": "Program income expended of the amount earned after December 31, 2024",
         "required": "Conditional",
-        "helpText": "Program Income reported after Q4 2024 expended"
+        "helpText": "Enter the cumulative program income expended of the amount earned after December 31, 2024."
+      },
+      {
+        "fieldId": "Prog_Income_Obligated_After_Dec_31__c",
+        "fieldName": "Program income obligated on project of the amount earned after December 31, 2024",
+        "required": "Conditional",
+        "helpText": "Enter the cumulative program income obligated of the amount earned after December 31, 2024 for an obligation that was incurred by December 31, 2024.  Please see FAQ 17.21 for guidance about how recipients may use program income earned after December 31, 2024 for an obligation that was incurred by December 31, 2024."
       }
     ]
   },
@@ -2481,13 +2613,13 @@
         "helpText": "The total dollar value of expenditures for this project.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
       },
       {
-        "fieldId": "Q2_2025_Obligations__c",
+        "fieldId": "Q3_2025_Obligations__c",
         "fieldName": "Current Period Obligations",
         "required": "Required",
         "helpText": "The dollar value of obligations for this project for the current period.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
       },
       {
-        "fieldId": "Q2_2025_Expenditures__c",
+        "fieldId": "Q3_2025_Expenditures__c",
         "fieldName": "Current Period Expenditures",
         "required": "Required",
         "helpText": "The dollar value of expenditures for this project for the current period.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
@@ -2500,13 +2632,13 @@
       },
       {
         "fieldId": "Program_Income_Earned__c",
-        "fieldName": "Program Income Earned",
+        "fieldName": "Program income earned prior to December 31, 2024",
         "required": "Optional",
         "helpText": "Enter the amount of program income earned.\r\n\r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts.\r\n\r\nCannot be a negative value. "
       },
       {
         "fieldId": "Program_Income_Expended__c",
-        "fieldName": "Program Income Expended",
+        "fieldName": "Program income expended of the amount earned prior to December 31, 2024",
         "required": "Optional",
         "helpText": "Enter the amount of program income that was used to cover eligible project costs.\r\n\r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts.\r\n\r\nCannot be a negative value. "
       },
@@ -2559,22 +2691,34 @@
         "helpText": "REQUIRED if the project has started. \r\n\r\nNOT REQUIRED if you selected \"Not Started\" for the \"Status to Completion\" question.\r\n\r\nThe final rule defines a household as low income if it has (i) income at or below 185 percent of the Federal Poverty Guidelines (FPG) for the size of its household based on the most recently published poverty guidelines by the Department of Health and Human Services (HHS) or (ii) income at or below 40 percent of the Area Median Income (AMI) for its county and size of household based on the most recently published data by the Department of Housing and Urban Development (HUD).\r\n\r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
       },
       {
-        "fieldId": "Prog_Income_Earned_After_12_31_24__c",
-        "fieldName": "Program Income earned on project after December 31, 2024",
+        "fieldId": "Program_Income_Attestation__c",
+        "fieldName": "This project earned program income",
         "required": "Conditional",
-        "helpText": "Program Income earned on project after December 31, 2024"
+        "helpText": "Select if this project earned program income, select one of the valid predefined responses from the picklist:\r\n\"Yes\"\r\n\"No\""
+      },
+      {
+        "fieldId": "Prog_Income_Earned_After_12_31_24__c",
+        "fieldName": "Program income earned on project after December 31, 2024",
+        "required": "Conditional",
+        "helpText": "Enter the cumulative program income earned after the obligation deadline of December 31, 2024. Please see “Program Income” 2 CFR 200.1 for the definition of program income."
       },
       {
         "fieldId": "Total_Prog_Income_Obl_Post_Q4_2024__c",
-        "fieldName": "Program Income obligated by deadline and reported after December 31, 2024",
+        "fieldName": "Program income obligated by December 31, 2024 of the amount earned prior to December 31, 2024",
         "required": "Conditional",
-        "helpText": "Program Income obligated by deadline and reported after December 31, 2024"
+        "helpText": "Enter the cumulative program income obligated of the amount earned prior to December 31, 2024.  This field displays what was previously entered in the field previously titled: Program Income obligated by deadline and reported after December 31, 2024. "
       },
       {
         "fieldId": "Total_Prog_Income_Exp_Post_Q4_2024__c",
-        "fieldName": "Program Income reported after Q4 2024 expended",
+        "fieldName": "Program income expended of the amount earned after December 31, 2024",
         "required": "Conditional",
-        "helpText": "Program Income reported after Q4 2024 expended"
+        "helpText": "Enter the cumulative program income expended of the amount earned after December 31, 2024."
+      },
+      {
+        "fieldId": "Prog_Income_Obligated_After_Dec_31__c",
+        "fieldName": "Program income obligated on project of the amount earned after December 31, 2024",
+        "required": "Conditional",
+        "helpText": "Enter the cumulative program income obligated of the amount earned after December 31, 2024 for an obligation that was incurred by December 31, 2024.  Please see FAQ 17.21 for guidance about how recipients may use program income earned after December 31, 2024 for an obligation that was incurred by December 31, 2024."
       }
     ]
   },
@@ -2654,13 +2798,13 @@
         "helpText": "The total dollar value of expenditures for this project.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
       },
       {
-        "fieldId": "Q2_2025_Obligations__c",
+        "fieldId": "Q3_2025_Obligations__c",
         "fieldName": "Current Period Obligations",
         "required": "Required",
         "helpText": "The dollar value of obligations for this project for the current period.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
       },
       {
-        "fieldId": "Q2_2025_Expenditures__c",
+        "fieldId": "Q3_2025_Expenditures__c",
         "fieldName": "Current Period Expenditures",
         "required": "Required",
         "helpText": "The dollar value of expenditures for this project for the current period.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
@@ -2673,13 +2817,13 @@
       },
       {
         "fieldId": "Program_Income_Earned__c",
-        "fieldName": "Program Income Earned",
+        "fieldName": "Program income earned prior to December 31, 2024",
         "required": "Optional",
         "helpText": "Enter the amount of program income earned.\r\n\r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts.\r\n\r\nCannot be a negative value. "
       },
       {
         "fieldId": "Program_Income_Expended__c",
-        "fieldName": "Program Income Expended",
+        "fieldName": "Program income expended of the amount earned prior to December 31, 2024",
         "required": "Optional",
         "helpText": "Enter the amount of program income that was used to cover eligible project costs.\r\n\r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts.\r\n\r\nCannot be a negative value. "
       },
@@ -2894,22 +3038,34 @@
         "helpText": "REQUIRED if answer to previous question was 'No'.\r\n\r\n(Text - max characters 255)"
       },
       {
-        "fieldId": "Prog_Income_Earned_After_12_31_24__c",
-        "fieldName": "Program Income earned on project after December 31, 2024",
+        "fieldId": "Program_Income_Attestation__c",
+        "fieldName": "This project earned program income",
         "required": "Conditional",
-        "helpText": "Program Income earned on project after December 31, 2024"
+        "helpText": "Select if this project earned program income, select one of the valid predefined responses from the picklist:\r\n\"Yes\"\r\n\"No\""
+      },
+      {
+        "fieldId": "Prog_Income_Earned_After_12_31_24__c",
+        "fieldName": "Program income earned on project after December 31, 2024",
+        "required": "Conditional",
+        "helpText": "Enter the cumulative program income earned after the obligation deadline of December 31, 2024. Please see “Program Income” 2 CFR 200.1 for the definition of program income."
       },
       {
         "fieldId": "Total_Prog_Income_Obl_Post_Q4_2024__c",
-        "fieldName": "Program Income obligated by deadline and reported after December 31, 2024",
+        "fieldName": "Program income obligated by December 31, 2024 of the amount earned prior to December 31, 2024",
         "required": "Conditional",
-        "helpText": "Program Income obligated by deadline and reported after December 31, 2024"
+        "helpText": "Enter the cumulative program income obligated of the amount earned prior to December 31, 2024.  This field displays what was previously entered in the field previously titled: Program Income obligated by deadline and reported after December 31, 2024. "
       },
       {
         "fieldId": "Total_Prog_Income_Exp_Post_Q4_2024__c",
-        "fieldName": "Program Income reported after Q4 2024 expended",
+        "fieldName": "Program income expended of the amount earned after December 31, 2024",
         "required": "Conditional",
-        "helpText": "Program Income reported after Q4 2024 expended"
+        "helpText": "Enter the cumulative program income expended of the amount earned after December 31, 2024."
+      },
+      {
+        "fieldId": "Prog_Income_Obligated_After_Dec_31__c",
+        "fieldName": "Program income obligated on project of the amount earned after December 31, 2024",
+        "required": "Conditional",
+        "helpText": "Enter the cumulative program income obligated of the amount earned after December 31, 2024 for an obligation that was incurred by December 31, 2024.  Please see FAQ 17.21 for guidance about how recipients may use program income earned after December 31, 2024 for an obligation that was incurred by December 31, 2024."
       }
     ]
   },
@@ -3011,13 +3167,13 @@
         "helpText": "The total dollar value of expenditures for this project.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
       },
       {
-        "fieldId": "Q2_2025_Obligations__c",
+        "fieldId": "Q3_2025_Obligations__c",
         "fieldName": "Current Period Obligations",
         "required": "Required",
         "helpText": "The dollar value of obligations for this project for the current period.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
       },
       {
-        "fieldId": "Q2_2025_Expenditures__c",
+        "fieldId": "Q3_2025_Expenditures__c",
         "fieldName": "Current Period Expenditures",
         "required": "Required",
         "helpText": "The dollar value of expenditures for this project for the current period.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
@@ -3060,13 +3216,13 @@
       },
       {
         "fieldId": "Program_Income_Earned__c",
-        "fieldName": "Program Income Earned",
+        "fieldName": "Program income earned prior to December 31, 2024",
         "required": "Optional",
         "helpText": "Enter the amount of program income earned.\r\n\r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts.\r\n\r\nCannot be a negative value. "
       },
       {
         "fieldId": "Program_Income_Expended__c",
-        "fieldName": "Program Income Expended",
+        "fieldName": "Program income expended of the amount earned prior to December 31, 2024",
         "required": "Optional",
         "helpText": "Enter the amount of program income that was used to cover eligible project costs.\r\n\r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts.\r\n\r\nCannot be a negative value. "
       },
@@ -3143,22 +3299,34 @@
         "helpText": "Only Applicable if EC 7.3 is selected\r\n\r\nExplanation of how the figure for the estimated fund required to cover eligible administrative and legal expenses was determined\r\n\r\n(Text )"
       },
       {
-        "fieldId": "Prog_Income_Earned_After_12_31_24__c",
-        "fieldName": "Program Income earned on project after December 31, 2024",
+        "fieldId": "Program_Income_Attestation__c",
+        "fieldName": "This project earned program income",
         "required": "Conditional",
-        "helpText": "Program Income earned on project after December 31, 2024"
+        "helpText": "Select if this project earned program income, select one of the valid predefined responses from the picklist:\r\n\"Yes\"\r\n\"No\""
+      },
+      {
+        "fieldId": "Prog_Income_Earned_After_12_31_24__c",
+        "fieldName": "Program income earned on project after December 31, 2024",
+        "required": "Conditional",
+        "helpText": "Enter the cumulative program income earned after the obligation deadline of December 31, 2024. Please see “Program Income” 2 CFR 200.1 for the definition of program income."
       },
       {
         "fieldId": "Total_Prog_Income_Obl_Post_Q4_2024__c",
-        "fieldName": "Program Income obligated by deadline and reported after December 31, 2024",
+        "fieldName": "Program income obligated by December 31, 2024 of the amount earned prior to December 31, 2024",
         "required": "Conditional",
-        "helpText": "Program Income obligated by deadline and reported after December 31, 2024"
+        "helpText": "Enter the cumulative program income obligated of the amount earned prior to December 31, 2024.  This field displays what was previously entered in the field previously titled: Program Income obligated by deadline and reported after December 31, 2024. "
       },
       {
         "fieldId": "Total_Prog_Income_Exp_Post_Q4_2024__c",
-        "fieldName": "Program Income reported after Q4 2024 expended",
+        "fieldName": "Program income expended of the amount earned after December 31, 2024",
         "required": "Conditional",
-        "helpText": "Program Income reported after Q4 2024 expended"
+        "helpText": "Enter the cumulative program income expended of the amount earned after December 31, 2024."
+      },
+      {
+        "fieldId": "Prog_Income_Obligated_After_Dec_31__c",
+        "fieldName": "Program income obligated on project of the amount earned after December 31, 2024",
+        "required": "Conditional",
+        "helpText": "Enter the cumulative program income obligated of the amount earned after December 31, 2024 for an obligation that was incurred by December 31, 2024.  Please see FAQ 17.21 for guidance about how recipients may use program income earned after December 31, 2024 for an obligation that was incurred by December 31, 2024."
       }
     ]
   },
@@ -3169,8 +3337,14 @@
       {
         "fieldId": "Fabric_ID_Number__c",
         "fieldName": "Fabric ID Number",
-        "required": "Required",
-        "helpText": "Enter the site specific fabric identification number (Fabric ID) from the FCC broadband funded locations map that corresponds with the location in the field provided. This is the Broadband Serviceable Fabric Location (Max length - 20 characters)"
+        "required": "Conditional",
+        "helpText": "[DO NOT ENTER FOR EXISTING ENTRIES]\r\nEnter the site specific fabric identification number (Fabric ID) from the FCC broadband funded locations map that corresponds with the location in the field provided. This is the Broadband Serviceable Fabric Location (Max length - 20 characters)"
+      },
+      {
+        "fieldId": "Name",
+        "fieldName": "Name",
+        "required": "Optional",
+        "helpText": "[DO NOT ENTER FOR NEW ENTRIES] This is a Treasury Portal auto-generated unique ID only for used when updating existing locations in bulk upload. The IDs can be found in the “My Broadband Locations” table as well as through the “Download as CSV” feature. "
       },
       {
         "fieldId": "Latitude__c",
@@ -3229,7 +3403,7 @@
       {
         "fieldId": "Max_Download_Speed_Delivered__c",
         "fieldName": "Maximum Download Speed Delivered at Location Post-Investment",
-        "required": "Required",
+        "required": "Conditional",
         "helpText": "Provide the maximum download speed delivered at this location as confirmed by speed tests at the location, conducted upon completion of the construction and initiation of operations. Speed tests should be conducted in a manner consistent with industry best practices to account for the actual speeds delivered during peak use times in the given area.\r\n\r\nMore details regarding the required approach for gathering maximum download speed delivered can be found in the Connect America Fund, WC Docket No. 10-90, Order, 33 FCC Rcd 6509 (WCB/WTB/OET 2018) (Performance Measures Order); Connect America Fund, Order on Reconsideration, WC Docket No. 10-90, 34 FCC Rcd 10109 (2019) (Performance Measures Reconsideration Order)."
       },
       {
@@ -3241,14 +3415,20 @@
       {
         "fieldId": "Max_Upload_Speed_Delivered__c",
         "fieldName": "Maximum Upload Speed Delivered at Location Post-Investment",
-        "required": "Required",
+        "required": "Conditional",
         "helpText": "Provide the maximum upload speed delivered at this location as confirmed by speed tests at the location, conducted upon completion of the construction and initiation of operations. Speed tests should be conducted in a manner consistent with industry best practices to account for the actual speeds delivered during peak use times in the given area.\r\n\r\nMore details regarding the required approach for gathering maximum upload speed delivered can be found in the Connect America Fund, WC Docket No. 10-90, Order, 33 FCC Rcd 6509 (WCB/WTB/OET 2018) (Performance Measures Order); Connect America Fund, Order on Reconsideration, WC Docket No. 10-90, 34 FCC Rcd 10109 (2019) (Performance Measures Reconsideration Order). "
       },
       {
         "fieldId": "Latency_Delivered_at_Location__c",
         "fieldName": "Latency Delivered at Location Post-Investment",
-        "required": "Required",
+        "required": "Conditional",
         "helpText": "Provide data describing latency at this location as confirmed by latency tests at the location, conducted upon completion of the construction and initiation of operations.\r\n\r\nMore details regarding the required approach for gathering latency data can be found in the Connect America Fund, WC Docket No. 10-90, Order, 33 FCC Rcd 6509 (WCB/WTB/OET 2018) (Performance Measures Order); Connect America Fund, Order on Reconsideration, WC Docket No. 10-90, 34 FCC Rcd 10109 (2019) (Performance Measures Reconsideration Order). "
+      },
+      {
+        "fieldId": "Void_Location__c",
+        "fieldName": "Void Location",
+        "required": "Optional",
+        "helpText": "Not required. If the location is no longer relevant, set this column to 'Void' to remove it from the displayed locations. Locations will default to 'Display'.\r\n\r\nOptions: \r\n'Void'\r\n'Display'"
       }
     ]
   },
