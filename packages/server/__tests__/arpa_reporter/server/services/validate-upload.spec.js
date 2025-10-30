@@ -65,8 +65,8 @@ describe('validate record', () => {
         Adopted_Budget__c: 500,
         Total_Obligations__c: 500,
         Total_Expenditures__c: 100,
-        Current_Period_Obligations__c: 0,
-        Current_Period_Expenditures__c: 0,
+        Q3_2025_Obligations__c: 0,
+        Q3_2025_Expenditures__c: 0,
         Project_Description__c: 'lorem ipsum',
         Recipient_Approach_Description__c: 'lorem ipsum',
         Spending_Allocated_Toward_Evidence_Based_Interventions: 0,
@@ -78,6 +78,7 @@ describe('validate record', () => {
         Does_Project_Include_Capital_Expenditure__c: 'No',
         Number_Households_Eviction_Prevention__c: 0,
         Number_Affordable_Housing_Units__c: 0,
+        Program_Income_Attestation__c: 'No',
     };
 
     const VALID_AWARDS_50K = {

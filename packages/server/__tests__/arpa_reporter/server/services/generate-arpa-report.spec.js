@@ -181,6 +181,8 @@ describe('arpa report generation', () => {
                     Current_Period_Expenditures__c: 0,
                     Project_Description__c: 'State audit costs for the administration of ARPA funds for Trails projects.',
                     Project_Start_Date__c: '2023-01-01T00:00:00.000Z',
+                    Program_Income_Attestation__c: 'No',
+                    Prog_Income_Obligated_After_Dec_31__c: 100,
                 },
             },
             {
@@ -219,6 +221,8 @@ describe('arpa report generation', () => {
                     Admin_Actual_Expended__c: 77,
                     Admin_Expended_Description__c: 'Test admin expended description',
                     Admin_Expended_Justification__c: 'Test admin expended justification',
+                    Program_Income_Attestation__c: 'No',
+                    Prog_Income_Obligated_After_Dec_31__c: 100,
                 },
             },
         ];
@@ -261,6 +265,8 @@ describe('arpa report generation', () => {
                 null,
                 null,
                 null,
+                'No',
+                '100',
             ],
             [
                 null,
@@ -300,6 +306,8 @@ describe('arpa report generation', () => {
                 null,
                 null,
                 null,
+                'No',
+                '100',
             ],
         ];
         const result = await generateProjectBaseline(records);
