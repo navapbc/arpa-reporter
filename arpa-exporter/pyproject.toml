@@ -6,7 +6,7 @@ readme = "../README.md"
 package-mode = false
 
 [tool.poetry.dependencies]
-python = "^3.13"
+python = "^3.12"
 boto3 = "^1.37.13"
 ddtrace = "^2.21.3"
 structlog = "^25.2.0"
