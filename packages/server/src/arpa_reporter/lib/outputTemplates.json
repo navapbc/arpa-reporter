@@ -176,10 +176,7 @@
   "project111210BulkUpload.xlsx": {
     "version": "2023.5.17",
     "templateName": "SLFRF Bulk File Upload Template For EC 1.11, 2.10",
-    "ecCodes": [
-      "1.11",
-      "2.10"
-    ],
+    "ecCodes": ["1.11", "2.10"],
     "fields": [
       {
         "fieldId": "Project_Expenditure_Category__c",
@@ -248,13 +245,13 @@
         "helpText": "The total dollar value of expenditures for this project.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
       },
       {
-        "fieldId": "Q3_2025_Obligations__c",
+        "fieldId": "Q4_2025_Obligations__c",
         "fieldName": "Current Period Obligations",
         "required": "Required",
         "helpText": "The dollar value of obligations for this project for the current period.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
       },
       {
-        "fieldId": "Q3_2025_Expenditures__c",
+        "fieldId": "Q4_2025_Expenditures__c",
         "fieldName": "Current Period Expenditures",
         "required": "Required",
         "helpText": "The dollar value of expenditures for this project for the current period.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
@@ -408,14 +405,7 @@
   "project18_229233BulkUpload.xlsx": {
     "version": "2022.5.17",
     "templateName": "SLFRF Bulk File Upload Template For EC 1.8, 2.29 - 2.33",
-    "ecCodes": [
-      "1.8",
-      "2.29",
-      "2.30",
-      "2.31",
-      "2.32",
-      "2.33"
-    ],
+    "ecCodes": ["1.8", "2.29", "2.30", "2.31", "2.32", "2.33"],
     "fields": [
       {
         "fieldId": "Project_Expenditure_Category__c",
@@ -484,13 +474,13 @@
         "helpText": "The total dollar value of expenditures for this project.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
       },
       {
-        "fieldId": "Q3_2025_Obligations__c",
+        "fieldId": "Q4_2025_Obligations__c",
         "fieldName": "Current Period Obligations",
         "required": "Required",
         "helpText": "The dollar value of obligations for this project for the current period.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
       },
       {
-        "fieldId": "Q3_2025_Expenditures__c",
+        "fieldId": "Q4_2025_Expenditures__c",
         "fieldName": "Current Period Expenditures",
         "required": "Required",
         "helpText": "The dollar value of expenditures for this project for the current period.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
@@ -632,10 +622,7 @@
   "project19_234BulkUpload.xlsx": {
     "version": "2023.5.17",
     "templateName": "SLFRF Bulk File Upload Template For EC 1.9, 2.34",
-    "ecCodes": [
-      "1.9",
-      "2.34"
-    ],
+    "ecCodes": ["1.9", "2.34"],
     "fields": [
       {
         "fieldId": "Project_Expenditure_Category__c",
@@ -704,13 +691,13 @@
         "helpText": "The total dollar value of expenditures for this project.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
       },
       {
-        "fieldId": "Q3_2025_Obligations__c",
+        "fieldId": "Q4_2025_Obligations__c",
         "fieldName": "Current Period Obligations",
         "required": "Required",
         "helpText": "The dollar value of obligations for this project for the current period.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
       },
       {
-        "fieldId": "Q3_2025_Expenditures__c",
+        "fieldId": "Q4_2025_Expenditures__c",
         "fieldName": "Current Period Expenditures",
         "required": "Required",
         "helpText": "The dollar value of expenditures for this project for the current period.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
@@ -852,12 +839,7 @@
   "project211214BulkUpload.xlsx": {
     "version": "2023.5.17",
     "templateName": "SLFRF Bulk File Upload Template For EC 2.11-2.14",
-    "ecCodes": [
-      "2.11",
-      "2.12",
-      "2.13",
-      "2.14"
-    ],
+    "ecCodes": ["2.11", "2.12", "2.13", "2.14"],
     "fields": [
       {
         "fieldId": "Project_Expenditure_Category__c",
@@ -926,13 +908,13 @@
         "helpText": "The total dollar value of expenditures for this project.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
       },
       {
-        "fieldId": "Q3_2025_Obligations__c",
+        "fieldId": "Q4_2025_Obligations__c",
         "fieldName": "Current Period Obligations",
         "required": "Required",
         "helpText": "The dollar value of obligations for this project for the current period.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
       },
       {
-        "fieldId": "Q3_2025_Expenditures__c",
+        "fieldId": "Q4_2025_Expenditures__c",
         "fieldName": "Current Period Expenditures",
         "required": "Required",
         "helpText": "The dollar value of expenditures for this project for the current period.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
@@ -1086,16 +1068,7 @@
   "project2128BulkUpload.xlsx": {
     "version": "2023.5.17",
     "templateName": "Bulk File Upload Template for EC 2.1 - 2.8",
-    "ecCodes": [
-      "2.1",
-      "2.2",
-      "2.3",
-      "2.4",
-      "2.5",
-      "2.6",
-      "2.7",
-      "2.8"
-    ],
+    "ecCodes": ["2.1", "2.2", "2.3", "2.4", "2.5", "2.6", "2.7", "2.8"],
     "fields": [
       {
         "fieldId": "Project_Expenditure_Category__c",
@@ -1164,13 +1137,13 @@
         "helpText": "The total dollar value of expenditures for this project.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
       },
       {
-        "fieldId": "Q3_2025_Obligations__c",
+        "fieldId": "Q4_2025_Obligations__c",
         "fieldName": "Current Period Obligations",
         "required": "Required",
         "helpText": "The dollar value of obligations for this project for the current period.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
       },
       {
-        "fieldId": "Q3_2025_Expenditures__c",
+        "fieldId": "Q4_2025_Expenditures__c",
         "fieldName": "Current Period Expenditures",
         "required": "Required",
         "helpText": "The dollar value of expenditures for this project for the current period.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
@@ -1324,12 +1297,7 @@
   "project215218BulkUpload.xlsx": {
     "version": "2023.5.17",
     "templateName": "SLFRF Bulk File Upload Template For EC 2.15-2.16, 2.17-2.18",
-    "ecCodes": [
-      "2.15",
-      "2.16",
-      "2.17",
-      "2.18"
-    ],
+    "ecCodes": ["2.15", "2.16", "2.17", "2.18"],
     "fields": [
       {
         "fieldId": "Project_Expenditure_Category__c",
@@ -1398,13 +1366,13 @@
         "helpText": "The total dollar value of expenditures for this project.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
       },
       {
-        "fieldId": "Q3_2025_Obligations__c",
+        "fieldId": "Q4_2025_Obligations__c",
         "fieldName": "Current Period Obligations",
         "required": "Required",
         "helpText": "The dollar value of obligations for this project for the current period.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
       },
       {
-        "fieldId": "Q3_2025_Expenditures__c",
+        "fieldId": "Q4_2025_Expenditures__c",
         "fieldName": "Current Period Expenditures",
         "required": "Required",
         "helpText": "The dollar value of expenditures for this project for the current period.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
@@ -1552,12 +1520,7 @@
   "project224227BulkUpload.xlsx": {
     "version": "2023.5.17",
     "templateName": "SLFRF Bulk File Upload Template For EC 2.24 - 2.27",
-    "ecCodes": [
-      "2.24",
-      "2.25",
-      "2.26",
-      "2.27"
-    ],
+    "ecCodes": ["2.24", "2.25", "2.26", "2.27"],
     "fields": [
       {
         "fieldId": "Project_Expenditure_Category__c",
@@ -1626,13 +1589,13 @@
         "helpText": "The total dollar value of expenditures for this project.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
       },
       {
-        "fieldId": "Q3_2025_Obligations__c",
+        "fieldId": "Q4_2025_Obligations__c",
         "fieldName": "Current Period Obligations",
         "required": "Required",
         "helpText": "The dollar value of obligations for this project for the current period.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
       },
       {
-        "fieldId": "Q3_2025_Expenditures__c",
+        "fieldId": "Q4_2025_Expenditures__c",
         "fieldName": "Current Period Expenditures",
         "required": "Required",
         "helpText": "The dollar value of expenditures for this project for the current period.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
@@ -1780,9 +1743,7 @@
   "project236BulkUpload.xlsx": {
     "version": "2023.5.17",
     "templateName": "SLFRF Bulk File Upload Template for EC 2.36",
-    "ecCodes": [
-      "2.36"
-    ],
+    "ecCodes": ["2.36"],
     "fields": [
       {
         "fieldId": "Project_Expenditure_Category__c",
@@ -1851,13 +1812,13 @@
         "helpText": "The total dollar value of expenditures for this project.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
       },
       {
-        "fieldId": "Q3_2025_Obligations__c",
+        "fieldId": "Q4_2025_Obligations__c",
         "fieldName": "Current Period Obligations",
         "required": "Required",
         "helpText": "The dollar value of obligations for this project for the current period.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
       },
       {
-        "fieldId": "Q3_2025_Expenditures__c",
+        "fieldId": "Q4_2025_Expenditures__c",
         "fieldName": "Current Period Expenditures",
         "required": "Required",
         "helpText": "The dollar value of expenditures for this project for the current period.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
@@ -1999,9 +1960,7 @@
   "project31BulkUpload.xlsx": {
     "version": "2023.5.17",
     "templateName": "SLFRF Bulk Upload Template for EC 3.1",
-    "ecCodes": [
-      "3.1"
-    ],
+    "ecCodes": ["3.1"],
     "fields": [
       {
         "fieldId": "Project_Expenditure_Category__c",
@@ -2070,13 +2029,13 @@
         "helpText": "The total dollar value of expenditures for this project.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
       },
       {
-        "fieldId": "Q3_2025_Obligations__c",
+        "fieldId": "Q4_2025_Obligations__c",
         "fieldName": "Current Period Obligations",
         "required": "Required",
         "helpText": "The dollar value of obligations for this project for the current period.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
       },
       {
-        "fieldId": "Q3_2025_Expenditures__c",
+        "fieldId": "Q4_2025_Expenditures__c",
         "fieldName": "Current Period Expenditures",
         "required": "Required",
         "helpText": "The dollar value of expenditures for this project for the current period.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
@@ -2182,9 +2141,7 @@
   "project32BulkUpload.xlsx": {
     "version": "2023.5.17",
     "templateName": "SLFRF Bulk File Upload Template for EC 3.2",
-    "ecCodes": [
-      "3.2"
-    ],
+    "ecCodes": ["3.2"],
     "fields": [
       {
         "fieldId": "Project_Expenditure_Category__c",
@@ -2253,13 +2210,13 @@
         "helpText": "The total dollar value of expenditures for this project.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
       },
       {
-        "fieldId": "Q3_2025_Obligations__c",
+        "fieldId": "Q4_2025_Obligations__c",
         "fieldName": "Current Period Obligations",
         "required": "Required",
         "helpText": "The dollar value of obligations for this project for the current period.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
       },
       {
-        "fieldId": "Q3_2025_Expenditures__c",
+        "fieldId": "Q4_2025_Expenditures__c",
         "fieldName": "Current Period Expenditures",
         "required": "Required",
         "helpText": "The dollar value of expenditures for this project for the current period.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
@@ -2365,10 +2322,7 @@
   "project4142BulkUpload.xlsx": {
     "version": "2023.5.17",
     "templateName": "SLFRF Bulk Upload Template for EC 4.1 - 4.2",
-    "ecCodes": [
-      "4.1",
-      "4.2"
-    ],
+    "ecCodes": ["4.1", "4.2"],
     "fields": [
       {
         "fieldId": "Project_Expenditure_Category__c",
@@ -2437,13 +2391,13 @@
         "helpText": "The total dollar value of expenditures for this project.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
       },
       {
-        "fieldId": "Q3_2025_Obligations__c",
+        "fieldId": "Q4_2025_Obligations__c",
         "fieldName": "Current Period Obligations",
         "required": "Required",
         "helpText": "The dollar value of obligations for this project for the current period.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
       },
       {
-        "fieldId": "Q3_2025_Expenditures__c",
+        "fieldId": "Q4_2025_Expenditures__c",
         "fieldName": "Current Period Expenditures",
         "required": "Required",
         "helpText": "The dollar value of expenditures for this project for the current period.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
@@ -2613,13 +2567,13 @@
         "helpText": "The total dollar value of expenditures for this project.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
       },
       {
-        "fieldId": "Q3_2025_Obligations__c",
+        "fieldId": "Q4_2025_Obligations__c",
         "fieldName": "Current Period Obligations",
         "required": "Required",
         "helpText": "The dollar value of obligations for this project for the current period.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
       },
       {
-        "fieldId": "Q3_2025_Expenditures__c",
+        "fieldId": "Q4_2025_Expenditures__c",
         "fieldName": "Current Period Expenditures",
         "required": "Required",
         "helpText": "The dollar value of expenditures for this project for the current period.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
@@ -2725,11 +2679,7 @@
   "project519521BulkUpload.xlsx": {
     "version": "2023.5.17",
     "templateName": "SLFRF Bulk Upload Template For EC 5.19 - 5.21",
-    "ecCodes": [
-      "5.19",
-      "5.20",
-      "5.21"
-    ],
+    "ecCodes": ["5.19", "5.20", "5.21"],
     "fields": [
       {
         "fieldId": "Project_Expenditure_Category__c",
@@ -2798,13 +2748,13 @@
         "helpText": "The total dollar value of expenditures for this project.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
       },
       {
-        "fieldId": "Q3_2025_Obligations__c",
+        "fieldId": "Q4_2025_Obligations__c",
         "fieldName": "Current Period Obligations",
         "required": "Required",
         "helpText": "The dollar value of obligations for this project for the current period.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
       },
       {
-        "fieldId": "Q3_2025_Expenditures__c",
+        "fieldId": "Q4_2025_Expenditures__c",
         "fieldName": "Current Period Expenditures",
         "required": "Required",
         "helpText": "The dollar value of expenditures for this project for the current period.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
@@ -3167,13 +3117,13 @@
         "helpText": "The total dollar value of expenditures for this project.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
       },
       {
-        "fieldId": "Q3_2025_Obligations__c",
+        "fieldId": "Q4_2025_Obligations__c",
         "fieldName": "Current Period Obligations",
         "required": "Required",
         "helpText": "The dollar value of obligations for this project for the current period.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
       },
       {
-        "fieldId": "Q3_2025_Expenditures__c",
+        "fieldId": "Q4_2025_Expenditures__c",
         "fieldName": "Current Period Expenditures",
         "required": "Required",
         "helpText": "The dollar value of expenditures for this project for the current period.  \r\nCurrency field. \r\n\r\nDO NOT include a \"$\" sign or commas \",\" when entering Amounts."
