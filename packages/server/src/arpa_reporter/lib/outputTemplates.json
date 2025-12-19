@@ -176,7 +176,10 @@
   "project111210BulkUpload.xlsx": {
     "version": "2023.5.17",
     "templateName": "SLFRF Bulk File Upload Template For EC 1.11, 2.10",
-    "ecCodes": ["1.11", "2.10"],
+    "ecCodes": [
+      "1.11",
+      "2.10"
+    ],
     "fields": [
       {
         "fieldId": "Project_Expenditure_Category__c",
@@ -405,7 +408,14 @@
   "project18_229233BulkUpload.xlsx": {
     "version": "2022.5.17",
     "templateName": "SLFRF Bulk File Upload Template For EC 1.8, 2.29 - 2.33",
-    "ecCodes": ["1.8", "2.29", "2.30", "2.31", "2.32", "2.33"],
+    "ecCodes": [
+      "1.8",
+      "2.29",
+      "2.30",
+      "2.31",
+      "2.32",
+      "2.33"
+    ],
     "fields": [
       {
         "fieldId": "Project_Expenditure_Category__c",
@@ -622,7 +632,10 @@
   "project19_234BulkUpload.xlsx": {
     "version": "2023.5.17",
     "templateName": "SLFRF Bulk File Upload Template For EC 1.9, 2.34",
-    "ecCodes": ["1.9", "2.34"],
+    "ecCodes": [
+      "1.9",
+      "2.34"
+    ],
     "fields": [
       {
         "fieldId": "Project_Expenditure_Category__c",
@@ -839,7 +852,12 @@
   "project211214BulkUpload.xlsx": {
     "version": "2023.5.17",
     "templateName": "SLFRF Bulk File Upload Template For EC 2.11-2.14",
-    "ecCodes": ["2.11", "2.12", "2.13", "2.14"],
+    "ecCodes": [
+      "2.11",
+      "2.12",
+      "2.13",
+      "2.14"
+    ],
     "fields": [
       {
         "fieldId": "Project_Expenditure_Category__c",
@@ -1068,7 +1086,16 @@
   "project2128BulkUpload.xlsx": {
     "version": "2023.5.17",
     "templateName": "Bulk File Upload Template for EC 2.1 - 2.8",
-    "ecCodes": ["2.1", "2.2", "2.3", "2.4", "2.5", "2.6", "2.7", "2.8"],
+    "ecCodes": [
+      "2.1",
+      "2.2",
+      "2.3",
+      "2.4",
+      "2.5",
+      "2.6",
+      "2.7",
+      "2.8"
+    ],
     "fields": [
       {
         "fieldId": "Project_Expenditure_Category__c",
@@ -1297,7 +1324,12 @@
   "project215218BulkUpload.xlsx": {
     "version": "2023.5.17",
     "templateName": "SLFRF Bulk File Upload Template For EC 2.15-2.16, 2.17-2.18",
-    "ecCodes": ["2.15", "2.16", "2.17", "2.18"],
+    "ecCodes": [
+      "2.15",
+      "2.16",
+      "2.17",
+      "2.18"
+    ],
     "fields": [
       {
         "fieldId": "Project_Expenditure_Category__c",
@@ -1520,7 +1552,12 @@
   "project224227BulkUpload.xlsx": {
     "version": "2023.5.17",
     "templateName": "SLFRF Bulk File Upload Template For EC 2.24 - 2.27",
-    "ecCodes": ["2.24", "2.25", "2.26", "2.27"],
+    "ecCodes": [
+      "2.24",
+      "2.25",
+      "2.26",
+      "2.27"
+    ],
     "fields": [
       {
         "fieldId": "Project_Expenditure_Category__c",
@@ -1743,7 +1780,9 @@
   "project236BulkUpload.xlsx": {
     "version": "2023.5.17",
     "templateName": "SLFRF Bulk File Upload Template for EC 2.36",
-    "ecCodes": ["2.36"],
+    "ecCodes": [
+      "2.36"
+    ],
     "fields": [
       {
         "fieldId": "Project_Expenditure_Category__c",
@@ -1960,7 +1999,9 @@
   "project31BulkUpload.xlsx": {
     "version": "2023.5.17",
     "templateName": "SLFRF Bulk Upload Template for EC 3.1",
-    "ecCodes": ["3.1"],
+    "ecCodes": [
+      "3.1"
+    ],
     "fields": [
       {
         "fieldId": "Project_Expenditure_Category__c",
@@ -2141,7 +2182,9 @@
   "project32BulkUpload.xlsx": {
     "version": "2023.5.17",
     "templateName": "SLFRF Bulk File Upload Template for EC 3.2",
-    "ecCodes": ["3.2"],
+    "ecCodes": [
+      "3.2"
+    ],
     "fields": [
       {
         "fieldId": "Project_Expenditure_Category__c",
@@ -2322,7 +2365,10 @@
   "project4142BulkUpload.xlsx": {
     "version": "2023.5.17",
     "templateName": "SLFRF Bulk Upload Template for EC 4.1 - 4.2",
-    "ecCodes": ["4.1", "4.2"],
+    "ecCodes": [
+      "4.1",
+      "4.2"
+    ],
     "fields": [
       {
         "fieldId": "Project_Expenditure_Category__c",
@@ -2679,7 +2725,11 @@
   "project519521BulkUpload.xlsx": {
     "version": "2023.5.17",
     "templateName": "SLFRF Bulk Upload Template For EC 5.19 - 5.21",
-    "ecCodes": ["5.19", "5.20", "5.21"],
+    "ecCodes": [
+      "5.19",
+      "5.20",
+      "5.21"
+    ],
     "fields": [
       {
         "fieldId": "Project_Expenditure_Category__c",
