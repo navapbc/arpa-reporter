@@ -1,4 +1,82 @@
 {
+  "SLFRFSpeedTierTemplate.xlsx": {
+    "version": "2025.11.18",
+    "templateName": "Speed Tiers and Pricing",
+    "fields": [
+      {
+        "fieldId": "Project_Identifier__c",
+        "fieldName": "Project Identifier",
+        "required": "Required",
+        "helpText": "Recipient Project Id associated with Project. This is your Project Identification Number.  "
+      },
+      {
+        "fieldId": "Name",
+        "fieldName": "Name",
+        "required": "Optional",
+        "helpText": "This is used as the unique identifier to update existing records. ONLY populate this field if you are updating existing records"
+      },
+      {
+        "fieldId": "Download_Speed__c",
+        "fieldName": "Download Speed",
+        "required": "Required",
+        "helpText": "Provide Download Speed "
+      },
+      {
+        "fieldId": "Upload_Speed__c",
+        "fieldName": "Upload Speed",
+        "required": "Required",
+        "helpText": "Provide Upload Speed"
+      },
+      {
+        "fieldId": "Type_of_Service__c",
+        "fieldName": "Type of Service",
+        "required": "Required",
+        "helpText": "Select one of the following options from a picklist:\r\n\"Residential\"\r\n\"Business\"\r\n\"Other\""
+      },
+      {
+        "fieldId": "Service_Type_Explanation__c",
+        "fieldName": "If \"Other\", please specify",
+        "required": "Conditional",
+        "helpText": "If Other is selected from the picklist, please explain in the textbox provided. "
+      },
+      {
+        "fieldId": "Base_Monthly_Price__c",
+        "fieldName": "Base monthly price",
+        "required": "Required",
+        "helpText": "Currency field. DO NOT INCLUDE $ sign when entering amount. "
+      },
+      {
+        "fieldId": "One_Time_Fees__c",
+        "fieldName": "one-time fees",
+        "required": "Conditional",
+        "helpText": "Currency field. DO NOT INCLUDE $ sign when entering amount. "
+      },
+      {
+        "fieldId": "Type_of_one_time_fee__c",
+        "fieldName": "Type of one-time fee",
+        "required": "Required",
+        "helpText": "Select one of the following options from a picklist:\r\n\"Installation Fee\"\r\n\"Early Termination Fee\"\r\n\"Other\"\r\n\"N/A\""
+      },
+      {
+        "fieldId": "Monthly_Fees__c",
+        "fieldName": "Monthly fees",
+        "required": "Conditional",
+        "helpText": "Currency field. DO NOT INCLUDE $ sign when entering amount. "
+      },
+      {
+        "fieldId": "Type_of_monthly_fee__c",
+        "fieldName": "Type of Monthly Fee",
+        "required": "Required",
+        "helpText": "Select one of the following options from a picklist:\r\n\"Modem/Router rental\"\r\n\"Gateway Access\"\r\n\"Managed WiFi\"\r\n\"Autopay discount\"\r\n\"Other\"\r\n\"N/A\""
+      },
+      {
+        "fieldId": "Additional_Fees__c",
+        "fieldName": "Additional Fees",
+        "required": "Optional",
+        "helpText": "Information about any additional one time or monthly fees."
+      }
+    ]
+  },
   "TaxOffsetRevIncCoveredChanges.xlsx": {
     "version": "2022.06.01",
     "templateName": "Revenue Increasing Covered Changes Template",
