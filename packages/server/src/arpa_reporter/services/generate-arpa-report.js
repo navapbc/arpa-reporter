@@ -862,10 +862,10 @@ async function generateProjectBaseline(records) {
                         record.content.Admin_Actual_Expended__c,
                         record.content.Admin_Expended_Description__c,
                         record.content.Admin_Expended_Justification__c,
+                        record.content.Program_Income_Attestation__c,
                         currency(record.content.Prog_Income_Earned_After_12_31_24__c),
                         currency(record.content.Total_Prog_Income_Obl_Post_Q4_2024__c),
                         currency(record.content.Total_Prog_Income_Exp_Post_Q4_2024__c),
-                        record.content.Program_Income_Attestation__c,
                         currency(record.content.Prog_Income_Obligated_After_Dec_31__c),
                     ];
                 }
