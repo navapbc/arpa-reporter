@@ -33,7 +33,7 @@ function configureApiRoutes(app) {
 
 function configureApp(app, options = {}) {
     app.use(createLoggerMiddleware(log, options));
-    app.use(bodyParser.json());
+    app.use(bodyParser.json({ limit: '10mb' }));
     app.use(cookieParser(environment.COOKIE_SECRET));
 
     configureApiRoutes(app);
