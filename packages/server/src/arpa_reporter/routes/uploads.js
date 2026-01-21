@@ -6,7 +6,12 @@ const router = express.Router();
 const multer = require('multer');
 const { requireUser, requireAdminUser } = require('../../lib/access-helpers');
 
-const multerUpload = multer({ storage: multer.memoryStorage() });
+const multerUpload = multer({
+    storage: multer.memoryStorage(),
+    limits: {
+        fileSize: 10 * 1024 * 1024, // 10 MB
+    },
+});
 
 const { getReportingPeriodID } = require('../db/reporting-periods');
 const {
@@ -179,6 +184,19 @@ router.post('/:id/invalidate', requireAdminUser, async (req, res) => {
 
         res.status(500).json({ error: msg });
     }
+});
+
+// Multer error handler for file size limit
+router.use((err, req, res, next) => {
+    if (err instanceof multer.MulterError) {
+        if (err.code === 'LIMIT_FILE_SIZE') {
+            return res.status(413).json({
+                error: 'File size exceeds the maximum limit of 10 MB',
+                upload: null,
+            });
+        }
+    }
+    next(err);
 });
 
 module.exports = router;
