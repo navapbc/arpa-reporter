@@ -96,7 +96,7 @@ module "db" {
 
   serverlessv2_scaling_configuration = {
     min_capacity = 2
-    max_capacity = 4
+    max_capacity = 8
   }
 
   instance_class = "db.serverless"
