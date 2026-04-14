@@ -7,6 +7,7 @@
         <DownloadTemplateBtn />
 
         <router-link
+          v-if="viewingOpenPeriod"
           to="/new_upload"
           class="btn usdr-btn-primary ml-2"
         >
@@ -259,6 +260,9 @@ export default {
     },
     periodId() {
       return this.$store.state.viewPeriodID;
+    },
+    viewingOpenPeriod() {
+      return this.$store.getters.viewPeriodIsCurrent;
     },
   },
   watch: {
