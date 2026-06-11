@@ -1,7 +1,7 @@
 {
   "logic": {
     "version": {
-      "version": "v:20260318",
+      "version": "v:20260603",
       "key": "version",
       "index": 0,
       "required": false,
@@ -8630,8 +8630,8 @@
       "key": "Contract_Obligations_Pursuant_Estimate__c",
       "index": 33,
       "required": "Conditional",
-      "dataType": "String",
-      "maxLength": 750,
+      "dataType": "Currency",
+      "maxLength": null,
       "listVals": [],
       "columnName": "AH",
       "humanColName": "Contract Obligations Pursuant to Estimate",
