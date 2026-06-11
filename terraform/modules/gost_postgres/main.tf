@@ -4,7 +4,7 @@ data "aws_caller_identity" "current" {}
 
 data "aws_rds_engine_version" "postgres17" {
   engine  = "aurora-postgresql"
-  version = "17.5"
+  version = "17.7"
 }
 
 terraform {
