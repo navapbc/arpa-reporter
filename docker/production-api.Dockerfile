@@ -1,4 +1,4 @@
-FROM node:20.11.1-alpine AS app_base
+FROM node:22.21.0-alpine AS app_base
 
 # Define build argument defaults
 ARG GIT_COMMIT=""

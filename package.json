@@ -8,7 +8,7 @@
     "packages/*"
   ],
   "engines": {
-    "node": "20.11.1",
+    "node": "22.21.0",
     "yarn": ">=1.22.4",
     "npm": "please-use-yarn"
   },
