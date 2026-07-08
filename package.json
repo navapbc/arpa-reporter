@@ -42,7 +42,8 @@
   },
   "dependencies": {},
   "resolutions": {
-    "serialize-javascript": "^7.0.0"
+    "serialize-javascript": "^7.0.0",
+    "diff": "^9.0.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^21.2.1",
