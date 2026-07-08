@@ -16,7 +16,7 @@
         </ul>
         <RecordUploader
           :upload-record-type="'users'"
-          @importStatus="setStatus"
+          @import-status="setStatus"
         />
       </div>
       <hr>
