@@ -1,4 +1,6 @@
 /* eslint-disable import/no-commonjs */
+const path = require('path');
+
 module.exports = {
   root: true,
   env: {
@@ -23,7 +25,7 @@ module.exports = {
     'import/resolver': {
       'custom-alias': {
         alias: {
-          '@': './src',
+          '@': path.resolve(__dirname, 'src'),
         },
         extensions: ['.js', '.vue'],
       },
