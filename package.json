@@ -41,6 +41,9 @@
     "debug:arpa-audit-worker": "yarn workspace server debug:arpa-audit-worker"
   },
   "dependencies": {},
+  "resolutions": {
+    "serialize-javascript": "^7.0.0"
+  },
   "devDependencies": {
     "@commitlint/cli": "^21.2.1",
     "@commitlint/config-conventional": "^21.2.0",
