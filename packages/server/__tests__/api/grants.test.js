@@ -94,7 +94,7 @@ describe('`/api/grants` endpoint', () => {
             });
         });
         context('by a user with staff role', () => {
-            const viewEndpoint = `/333333/view`;
+            const viewEndpoint = `333333/view`;
             it('marks the grant viewed for this user\'s own agency', async () => {
                 const response = await fetchApi(`/grants/${viewEndpoint}/${agencies.own}`, agencies.own, {
                     ...fetchOptions.staff,
