@@ -136,7 +136,12 @@ export default {
           throw new Error(`Upload failed: ${err}`);
         }
       } catch (e) {
-        this.formErrors = [e.message];
+        // Handle network errors (when fetch itself fails)
+        if (e.message === 'Failed to fetch') {
+          this.formErrors = ['Upload failed. This may be due to network issues or the file being too large (max 10 MB).'];
+        } else {
+          this.formErrors = [e.message];
+        }
       }
     },
     onReset() {

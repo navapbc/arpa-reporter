@@ -15,7 +15,7 @@
       </ul>
       <RecordUploader
         :upload-record-type="'agencies'"
-        @importStatus="setStatus"
+        @import-status="setStatus"
       />
     </div>
     <hr>

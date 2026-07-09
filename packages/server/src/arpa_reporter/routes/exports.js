@@ -123,9 +123,15 @@ router.get('/fullFileExport', requireAdminUser, async (req, res) => {
     }
 });
 
-router.get('/getFullFileExport/:downloadType(archive|metadata)', requireUser, async (req, res) => {
+// Express 5 (path-to-regexp v8) dropped inline route regexes, so the
+// `:downloadType(archive|metadata)` constraint is enforced in the handler
+// instead: any other value 404s, matching the previous no-route-match behavior.
+router.get('/getFullFileExport/:downloadType', requireUser, async (req, res) => {
     const { user } = req.session;
     const { downloadType } = req.params;
+    if (downloadType !== 'archive' && downloadType !== 'metadata') {
+        return res.sendStatus(404);
+    }
     let logger = req.log.child({ S3Bucket: process.env.AUDIT_REPORT_BUCKET, downloadType });
 
     const archiveS3Key = fullFileExport.zipFileKey(user.tenant_id);

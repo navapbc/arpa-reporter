@@ -18,11 +18,17 @@ locals {
 
 module "waf" {
   source         = "cloudposse/waf/aws"
-  version        = "0.3.0"
+  version        = "1.11.0"
   scope          = "CLOUDFRONT"
   default_action = "allow"
 
   managed_rule_group_statement_rules = local.expanded_rules
+
+  visibility_config = {
+    cloudwatch_metrics_enabled = true
+    metric_name                = "${module.this.id}-waf-metric"
+    sampled_requests_enabled   = true
+  }
 
   # WAFv2 must be managed in us-east-1 if globally scoped
   providers = {
