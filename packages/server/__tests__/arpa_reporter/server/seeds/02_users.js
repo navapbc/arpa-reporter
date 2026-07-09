@@ -21,14 +21,14 @@ const agencies = {
 
 const unitTestUsers = [
     {
-        email: 'mbroussard+unit-test-admin@usdigitalresponse.org',
+        email: 'mbroussard+unit-test-admin@navapbc.com',
         name: 'Unit Test Admin 1',
         role: 'admin',
         tenant_id: 0,
         agency_id: 0,
     },
     {
-        email: 'mbroussard+unit-test-user2@usdigitalresponse.org',
+        email: 'mbroussard+unit-test-user2@navapbc.com',
         name: 'Unit Test User 2',
         role: 'reporter',
         tenant_id: 1,

@@ -62,11 +62,11 @@ describe('audit report generation', () => {
         sandbox.replace(aws, 'getS3Client', s3Fake);
 
         const tenantId = 0;
-        await withTenantId(tenantId, () => audit_report.generateAndSendEmail('usdigitalresponse.org', 'foo@example.com'));
+        await withTenantId(tenantId, () => audit_report.generateAndSendEmail('navapbc.com', 'foo@example.com'));
 
         console.log('Asserting generate function');
         expect(generateFake.calledOnce).to.equal(true);
-        expect(generateFake.firstCall.firstArg).to.equal('usdigitalresponse.org');
+        expect(generateFake.firstCall.firstArg).to.equal('navapbc.com');
 
         console.log('Asserting s3 upload function');
         expect(uploadFake.send.calledOnce).to.equal(true);
@@ -103,12 +103,12 @@ describe('audit report generation', () => {
         const tenantId = 0;
         await expect(withTenantId(
             tenantId,
-            () => audit_report.generateAndSendEmail('usdigitalresponse.org', 'foo@example.com'),
+            () => audit_report.generateAndSendEmail('navapbc.com', 'foo@example.com'),
         )).to.be.rejected;
 
         console.log('Asserting generate function');
         expect(generateFake.calledOnce).to.equal(true);
-        expect(generateFake.firstCall.firstArg).to.equal('usdigitalresponse.org');
+        expect(generateFake.firstCall.firstArg).to.equal('navapbc.com');
 
         console.log('Asserting s3 upload function');
         expect(uploadFake.send.calledOnce).to.equal(true);
@@ -212,8 +212,8 @@ describe('audit report generation', () => {
                     notes: null,
                     invalidated_at: null,
                     invalidated_by: null,
-                    created_by: 'test@usdigitalresponse.org',
-                    agency_code: 'USDR',
+                    created_by: 'test@navapbc.com',
+                    agency_code: 'Nava',
                 },
                 content: {
                     Recipient_UEI__c: 'TEST-UEI',
@@ -254,8 +254,8 @@ describe('audit report generation', () => {
                     notes: null,
                     invalidated_at: null,
                     invalidated_by: null,
-                    created_by: 'test@usdigitalresponse.org',
-                    agency_code: 'USDR',
+                    created_by: 'test@navapbc.com',
+                    agency_code: 'Nava',
                 },
                 content: {
                     Recipient_UEI__c: 'TEST-UEI2',
@@ -296,8 +296,8 @@ describe('audit report generation', () => {
                     notes: null,
                     invalidated_at: null,
                     invalidated_by: null,
-                    created_by: 'test@usdigitalresponse.org',
-                    agency_code: 'USDR',
+                    created_by: 'test@navapbc.com',
+                    agency_code: 'Nava',
                 },
                 content: {
                     Sub_Award_Lookup__c: 'AWARD 1',
@@ -323,8 +323,8 @@ describe('audit report generation', () => {
                     notes: null,
                     invalidated_at: null,
                     invalidated_by: null,
-                    created_by: 'test@usdigitalresponse.org',
-                    agency_code: 'USDR',
+                    created_by: 'test@navapbc.com',
+                    agency_code: 'Nava',
                 },
                 content: {
                     Sub_Award_Lookup__c: 'AWARD 2',
@@ -351,8 +351,8 @@ describe('audit report generation', () => {
                     notes: null,
                     invalidated_at: null,
                     invalidated_by: null,
-                    created_by: 'test@usdigitalresponse.org',
-                    agency_code: 'USDR',
+                    created_by: 'test@navapbc.com',
+                    agency_code: 'Nava',
                 },
                 content: {
                     Sub_Award_Lookup__c: 'AWARD 2',
@@ -389,7 +389,7 @@ describe('audit report generation', () => {
                     invalidated_at: null,
                     invalidated_by: null,
                     created_by: 'test@usdr.dev',
-                    agency_code: 'USDR',
+                    agency_code: 'Nava',
                 },
             },
             // filtering should ignore this record type
@@ -410,8 +410,8 @@ describe('audit report generation', () => {
                     notes: null,
                     invalidated_at: null,
                     invalidated_by: null,
-                    created_by: 'test@usdigitalresponse.org',
-                    agency_code: 'USDR',
+                    created_by: 'test@navapbc.com',
+                    agency_code: 'Nava',
                 },
                 content: {
                     Sub_Award_Lookup__c: 'AWARD 1',
@@ -437,8 +437,8 @@ describe('audit report generation', () => {
                     notes: null,
                     invalidated_at: null,
                     invalidated_by: null,
-                    created_by: 'asridhar@usdigitalresponse.org',
-                    agency_code: 'USDR',
+                    created_by: 'asridhar@navapbc.com',
+                    agency_code: 'Nava',
                 },
                 content: {
                     Name: 'Test Claire 10.15',
@@ -477,8 +477,8 @@ describe('audit report generation', () => {
                     notes: null,
                     invalidated_at: null,
                     invalidated_by: null,
-                    created_by: 'asridhar@usdigitalresponse.org',
-                    agency_code: 'USDR',
+                    created_by: 'asridhar@navapbc.com',
+                    agency_code: 'Nava',
                 },
                 content: {
                     Name: 'Test Claire 10.15',

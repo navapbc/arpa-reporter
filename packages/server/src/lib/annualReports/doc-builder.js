@@ -142,7 +142,7 @@ class ArpaDocumentBuilder {
                     size,
                 }),
                 new docx.TextRun({
-                    text: 'USDR has pre-populated the Table of Expenses and Project Inventory '
+                    text: 'Nava has pre-populated the Table of Expenses and Project Inventory '
                         + 'sections based on your uploaded workbooks.',
                     break: 2,
                     size,

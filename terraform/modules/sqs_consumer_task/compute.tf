@@ -41,6 +41,10 @@ module "consumer_container_definition" {
   container_memory             = var.consumer_container_resources.hard_memory_limit
   container_memory_reservation = var.consumer_container_resources.memory_reservation
 
+  repository_credentials = {
+    credentialsParameter = "${var.ssm_path_prefix}/github/docker_credentials"
+  }
+
   container_depends_on = [{
     containerName = "datadog"
     condition     = "START"
@@ -61,10 +65,12 @@ module "consumer_container_definition" {
 
   map_environment = merge(
     {
-      NODE_OPTIONS  = "--max_old_space_size=200"
-      PGSSLROOTCERT = "rds-global-bundle.pem"
-      POSTGRES_URL  = local.postgres_connection_string
+      NODE_OPTIONS = "--max_old_space_size=200"
     },
+    var.postgres_enabled ? {
+      POSTGRES_URL  = local.postgres_connection_string
+      PGSSLROOTCERT = "rds-global-bundle.pem"
+    } : {},
     local.datadog_env_vars,
     var.consumer_container_environment,
     { (var.queue_url_environment_variable_name) = module.sqs_queue.queue_url },
@@ -99,6 +105,14 @@ module "datadog_container_definition" {
   essential                = false
   readonly_root_filesystem = "false"
   stop_timeout             = var.stop_timeout_seconds
+
+  healthcheck = {
+    command     = ["CMD-SHELL", "agent health"]
+    startPeriod = 15
+    interval    = 30
+    timeout     = 5
+    retries     = 3
+  }
 
   container_cpu                = var.datadog_container_resources.cpu
   container_memory             = var.datadog_container_resources.hard_memory_limit
@@ -177,10 +191,35 @@ resource "aws_iam_role" "execution" {
   })
 }
 
+data "aws_secretsmanager_secret" "github_docker_credentials" {
+  name = "${var.ssm_path_prefix}/github/docker_credentials"
+}
+
+module "decrypt_github_credentials_policy" {
+  source  = "cloudposse/iam-policy/aws"
+  version = "1.0.1"
+  context = module.this.context
+
+  name = "decrypt-github-credentials"
+
+  iam_policy_statements = {
+    GetSecretValue = {
+      effect = "Allow"
+      actions = [
+        "secretsmanager:GetSecretValue",
+      ]
+      resources = [
+        data.aws_secretsmanager_secret.github_docker_credentials.arn,
+      ]
+    }
+  }
+}
+
 resource "aws_iam_role_policy" "execution" {
   for_each = {
     decrypt-datadog-api-key = module.decrypt_datadog_api_key_policy.json
     write-logs              = module.write_logs_policy.json
+    decrypt-github-creds    = module.decrypt_github_credentials_policy.json
   }
 
   name   = each.key
@@ -240,8 +279,8 @@ module "ecs_exec_policy" {
 
 resource "aws_iam_role_policy" "task" {
   for_each = merge(
+    var.postgres_enabled ? { connect-to-postgres = module.connect_to_postgres_policy.json } : {},
     {
-      connect-to-postgres  = module.connect_to_postgres_policy.json
       ecs-exec             = module.ecs_exec_policy.json
       write-logs           = module.write_logs_policy.json
       consume-sqs-messages = module.consume_sqs_messages_policy.json

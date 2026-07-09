@@ -23,7 +23,7 @@ const CURRENCY_REGEX_PATTERN = /^\d+(?: \.\d{ 1, 2 })?$/g;
 // Copied from www.emailregex.com
 const EMAIL_REGEX_PATTERN = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-const BETA_VALIDATION_MESSAGE = '[BETA] This is a new validation that is running in beta mode (as a warning instead of a blocking error). If you see anything incorrect about this validation, please report it at grants-helpdesk@usdigitalresponse.org';
+const BETA_VALIDATION_MESSAGE = '[BETA] This is a new validation that is running in beta mode (as a warning instead of a blocking error). If you see anything incorrect about this validation, please report it at grantsreporting.helpdesk@navapbc.com';
 
 const SHOULD_NOT_CONTAIN_PERIOD_REGEX_PATTERN = /^[^.]*$/;
 

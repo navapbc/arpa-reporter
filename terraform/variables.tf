@@ -48,6 +48,12 @@ variable "datadog_draft" {
   default     = true
 }
 
+variable "datadog_api_url" {
+  description = "Which Datadog API endpoint to use"
+  type        = string
+  default     = "https://api.datadoghq.com"
+}
+
 variable "ses_datadog_events_enabled" {
   description = "Whether to send email events to Datadog in order to collect email metrics."
   type        = bool
@@ -271,4 +277,39 @@ variable "consume_grants_datadog_environment_variables" {
 variable "email_enable_tracking" {
   description = "Feature flag for email tracking. When false, disables link rewriting for click tracking in emails."
   type        = bool
+}
+
+# ARPA Exporter
+variable "arpa_exporter_docker_repository" {
+  description = "Docker repository that provides arpa-exporter container images."
+  type        = string
+  default     = "ghcr.io/navapbc/arpa-reporter-arpa-exporter"
+}
+
+variable "arpa_exporter_image_tag" {
+  description = "Docker image tag to pull for ARPA Exporter task consumer. If null/empty, disables task consumer provisioning."
+  type        = string
+  nullable    = true
+  default     = null
+}
+
+variable "limit_emails_for_migration" {
+  type    = bool
+  default = false
+}
+
+variable "allowed_email_user_ids" {
+  type    = list(string)
+  default = []
+}
+variable "allowed_email_tenant_ids" {
+  type    = list(string)
+  default = []
+}
+
+# Data migration
+variable "data_migration_destination_bucket_names" {
+  description = "List of S3 bucket names used for data storage during a data migration."
+  type        = list(string)
+  default     = []
 }

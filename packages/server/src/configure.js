@@ -1,6 +1,7 @@
 /* eslint-disable global-require */
 require('dotenv').config();
-require('express-async-errors');
+// Express 5 natively forwards rejected promises from async handlers to error
+// middleware, so the old `express-async-errors` shim is no longer needed.
 const express = require('express');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
@@ -27,6 +28,12 @@ function configureApiRoutes(app) {
 }
 
 function configureApp(app, options = {}) {
+    // Express 5 changed the default query parser to 'simple', which does not
+    // parse bracket notation (e.g. `pagination[currentPage]=1`) into nested
+    // objects. Routes here rely on that nested parsing, so restore Express 4's
+    // 'extended' (qs-based) parser.
+    app.set('query parser', 'extended');
+
     app.use(createLoggerMiddleware(log, options));
     app.use(cookieParser(process.env.COOKIE_SECRET));
     app.use(bodyParser.json());

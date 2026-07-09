@@ -28,7 +28,7 @@ describe('`/api/organizations/:organizationId/agencies` endpoint', () => {
                 cookie: undefined,
             },
         },
-        nonUSDRAdmin: {
+        nonNavaAdmin: {
             headers: {
                 'Content-Type': 'application/json',
                 cookie: undefined,
@@ -56,8 +56,8 @@ describe('`/api/organizations/:organizationId/agencies` endpoint', () => {
     let fetchApi;
     before(async function beforeHook() {
         this.timeout(9000); // Getting session cookies can exceed default timeout.
-        fetchOptions.admin.headers.cookie = await getSessionCookie('mindy@usdigitalresponse.org');
-        fetchOptions.nonUSDRAdmin.headers.cookie = await getSessionCookie('joecomeau01@gmail.com');
+        fetchOptions.admin.headers.cookie = await getSessionCookie('mindy@navapbc.com');
+        fetchOptions.nonNavaAdmin.headers.cookie = await getSessionCookie('joecomeau01@gmail.com');
         fetchOptions.staff.headers.cookie = await getSessionCookie('user2@nv.example.com');
 
         testServer = await makeTestServer();

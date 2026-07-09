@@ -112,7 +112,7 @@ variable "ecs_cluster_name" {
 variable "docker_repository" {
   description = "Docker repository that provides API container images."
   type        = string
-  default     = "ghcr.io/usdigitalresponse/usdr-gost-api"
+  default     = "ghcr.io/navapbc/arpa-reporter-api"
 }
 
 variable "docker_tag" {
@@ -202,4 +202,10 @@ variable "autoscaling_desired_count_minimum" {
 variable "autoscaling_desired_count_maximum" {
   description = "Maximum desired auto-scaling group capacity"
   type        = number
+}
+
+variable "data_migration_bucket_names" {
+  description = "List of S3 bucket names for which API tasks will be granted grant read/write access."
+  type        = list(string)
+  default     = []
 }

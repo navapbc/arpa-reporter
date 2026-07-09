@@ -1,7 +1,7 @@
 const agencies = require('./agencies');
 const interestedCodes = require('./interestedCodes');
 
-const usdr = agencies.find((a) => a.abbreviation === 'USDR').id;
+const nava = agencies.find((a) => a.abbreviation === 'Nava').id;
 const nevada = agencies.find((a) => a.abbreviation === 'NV').id;
 const asd = agencies.find((a) => a.abbreviation === 'ASD').id;
 
@@ -1334,7 +1334,7 @@ const grants = [
 const assignedGrantsAgency = [
     {
         grant_id: grants[0].grant_id,
-        agency_id: usdr,
+        agency_id: nava,
         assigned_by: 1,
     },
     {
@@ -1357,7 +1357,7 @@ const assignedGrantsAgency = [
 const grantsInterested = [
     {
         grant_id: grants[0].grant_id,
-        agency_id: usdr,
+        agency_id: nava,
         user_id: 1,
     },
     {
@@ -1376,7 +1376,7 @@ const grantsInterested = [
     },
     {
         grant_id: grants[2].grant_id,
-        agency_id: usdr,
+        agency_id: nava,
         user_id: 1,
         created_at: daysAhead(2),
         updated_at: daysAhead(2),
@@ -1384,7 +1384,7 @@ const grantsInterested = [
     },
     {
         grant_id: grants[4].grant_id,
-        agency_id: usdr,
+        agency_id: nava,
         user_id: 1,
         created_at: daysAhead(4),
         updated_at: daysAhead(4),
@@ -1392,7 +1392,7 @@ const grantsInterested = [
     },
     {
         grant_id: grants[5].grant_id,
-        agency_id: usdr,
+        agency_id: nava,
         user_id: 1,
         created_at: daysAhead(5),
         updated_at: daysAhead(5),
@@ -1400,7 +1400,7 @@ const grantsInterested = [
     },
     {
         grant_id: grants[6].grant_id,
-        agency_id: usdr,
+        agency_id: nava,
         user_id: 1,
         created_at: daysAhead(6),
         updated_at: daysAhead(6),

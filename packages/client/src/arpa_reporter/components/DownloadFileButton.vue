@@ -1,7 +1,7 @@
 <template>
   <a
     :href="href"
-    class="btn-primary ml-2"
+    class="usdr-btn-primary ml-2"
     :class="small ? 'btn-sm' : 'btn'"
   >
     Download file

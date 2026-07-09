@@ -318,7 +318,7 @@ function getDefaultEmailReassignment(user) {
     const hint = `tenant${user.tenant_id}`;
 
     // These domains support plus-addressing, so suggest an email with a plus address
-    const domains = ["gmail\\.com", "usdigitalresponse\\.org"];
+    const domains = ["gmail\\.com", "navapbc\\.com"];
     const c = "[a-z0-9_.-]";
     const regex = new RegExp(`^${c}+(\\+${c}+)?@(${domains.join("|")})$`, "i");
     const matches = user.email.match(regex);

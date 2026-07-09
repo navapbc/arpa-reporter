@@ -1,10 +1,10 @@
 module.exports = [
     {
-        // Note: USDR must always be id=0; super-admin access checks use this
+        // Note: Nava must always be id=0; super-admin access checks use this
         id: 0,
-        abbreviation: 'USDR',
-        code: 'USDR',
-        name: 'USDR',
+        abbreviation: 'Nava',
+        code: 'Nava',
+        name: 'Nava',
         parent: null,
         tenant_id: 1,
     },
@@ -12,7 +12,7 @@ module.exports = [
         id: 400,
         abbreviation: 'TSDR',
         code: 'TSDR',
-        name: 'Test sub USDR',
+        name: 'Test sub Nava',
         parent: 0,
         tenant_id: 1,
     },
@@ -20,7 +20,7 @@ module.exports = [
         id: 401,
         abbreviation: 'ASDR',
         code: 'ASDR',
-        name: 'A Test sub USDR',
+        name: 'A Test sub Nava',
         parent: 400,
         tenant_id: 1,
     },
@@ -28,7 +28,7 @@ module.exports = [
         id: 402,
         abbreviation: 'BSDR',
         code: 'BSDR',
-        name: 'B Test sub USDR',
+        name: 'B Test sub Nava',
         parent: 400,
         tenant_id: 1,
     },

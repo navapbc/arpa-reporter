@@ -41,7 +41,7 @@ describe('MyProfileView.vue', () => {
       const text = wrapper.text();
       expect(text).toContain('Grants Assignment');
       expect(text).toContain(
-        'Send me notifications if a grant has been assigned to my USDR Grants team.',
+        'Send me notifications if a grant has been assigned to my Nava Grants team.',
       );
     });
   });

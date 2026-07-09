@@ -24,7 +24,7 @@ describe('/api/invalidate', () => {
 
     it('Success on invalidate for admin user', async () => {
         const { upload1 } = fixtures.uploads;
-        const tenantACookie = await getSessionCookie('mbroussard+unit-test-admin@usdigitalresponse.org');
+        const tenantACookie = await getSessionCookie('mbroussard+unit-test-admin@navapbc.com');
 
         await server
             .post(`/api/uploads/${upload1.id}/invalidate`)
@@ -45,7 +45,7 @@ describe('/api/invalidate', () => {
     it('403 on invalidate for non-admin user', async () => {
         const { upload1 } = fixtures.uploads;
 
-        const tenantACookie = await getSessionCookie('mbroussard+unit-test-user2@usdigitalresponse.org');
+        const tenantACookie = await getSessionCookie('mbroussard+unit-test-user2@navapbc.com');
         await server
             .post(`/api/uploads/${upload1.id}/invalidate`)
             .set('Cookie', tenantACookie)

@@ -306,8 +306,8 @@ module.exports = [
     },
     {
         id: 383,
-        abbreviation: 'USDR',
-        name: 'USDR',
+        abbreviation: 'Nava',
+        name: 'Nava',
         parent: null,
     },
 ];

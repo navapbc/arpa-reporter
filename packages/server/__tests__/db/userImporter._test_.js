@@ -43,7 +43,7 @@ describe('userImporter class test', () => {
         });
         it('verifies that no users added when all should return errors', async () => {
             const userImporter = new UserImporter();
-            const workbook = XLSX.readFile(path.join(__dirname, 'testUSDRUserUploadErrors.xlsx'));
+            const workbook = XLSX.readFile(path.join(__dirname, 'testNavaUserUploadErrors.xlsx'));
             const rowsList = usersFromWorkbook(workbook);
             const ret = await userImporter.import(fixtures.users.adminUser, rowsList);
             expect(ret.status.users.added).to.equal(0);
@@ -54,7 +54,7 @@ describe('userImporter class test', () => {
         });
         it('verifies that correct number of users are added, updated or unchanged', async () => {
             const userImporter = new UserImporter();
-            const workbook = XLSX.readFile(path.join(__dirname, 'testUSDRUserUploadSuccess.xlsx'));
+            const workbook = XLSX.readFile(path.join(__dirname, 'testNavaUserUploadSuccess.xlsx'));
             const rowsList = usersFromWorkbook(workbook);
             const ret = await userImporter.import(fixtures.users.adminUser, rowsList);
             expect(ret.status.users.added).to.equal(2);

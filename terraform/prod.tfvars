@@ -1,4 +1,4 @@
-namespace = "gost-prod"
+namespace = "nava-gost-prod"
 env       = "production"
 
 // Common
@@ -6,13 +6,14 @@ ssm_service_parameters_path_prefix    = "/gost/prod"
 ssm_deployment_parameters_path_prefix = "/gost/prod/deploy-config"
 
 // Datadog provider
+datadog_api_url          = "https://api.us5.datadoghq.com/"
 datadog_draft            = false
-datadog_monitors_enabled = true
+datadog_monitors_enabled = false
 datadog_monitor_notification_handles = [
-  "thendrickson@usdigitalresponse.org",
-  "asridhar@usdigitalresponse.org",
+  # "thendrickson@usdigitalresponse.org",
+  # "asridhar@usdigitalresponse.org",
 ]
-ses_datadog_events_enabled = true
+ses_datadog_events_enabled = false
 default_datadog_environment_variables = {
   DD_LOGS_INJECTION          = true
   DD_PROFILING_ENABLED       = true
@@ -21,7 +22,7 @@ default_datadog_environment_variables = {
 
 // Website
 website_enabled     = true
-website_domain_name = "grants.usdigitalresponse.org"
+website_domain_name = "grants.navapbc.com"
 website_managed_waf_rules = {
   "AnonymousIpList" = {
     managed_rule      = "AWSManagedRulesAnonymousIpList",
@@ -57,6 +58,7 @@ website_feature_flags = {
   newGrantsDetailPageEnabled = true,
   shareTerminologyEnabled    = true,
   followNotesEnabled         = false,
+  enableFullFileExport       = true,
 }
 
 // Google Analytics Account ID: 233192355, Property ID: 321194851, Stream ID: 3802896350
@@ -91,3 +93,42 @@ consume_grants_source_event_bus_name = "default"
 
 // Email
 email_enable_tracking = true
+
+// Migration Email Flags
+limit_emails_for_migration = false
+
+allowed_email_user_ids = [
+  "56",   # gf-admin+nv@navapbc.com
+  "300",  #gf-admin+ct@navapbc.com
+  "548",  # gf-admin@navapbc.com
+  "610",  #gf-admin+ra@navapbc.com
+  "708",  #gf-admin+qc@navapbc.com
+  "854",  #gf-admin+bloomington@navapbc.com
+  "1091", #gf-admin+newjersey@navapbc.com
+  "1095", #gf-admin+puertorico@navapbc.com
+  "1167", #gf-admin+statehawaii@navapbc.com
+  "1535", #gf-admin+rockville@navapbc.com
+  "2164", #gf-admin+ruralpartners@navapbc.com
+  "2569", #gf-admin+longmont@navapbc.com
+  "5714", #gf-admin+acaa@navapbc.com
+  "3299", #gf-admin+pittsburgh@navapbc.com
+  "3895", #gf-admin+sccog@navapbc.com
+  "6607", #gf-admin+ldchealth@navapbc.com
+  "7303", #gf-admin+cbha@navapbc.com
+  "7601", #gf-admin+sarasota@navapbc.com
+
+  "789",  # s.rhinehart@ofa.nv.gov
+  "1168", # isabel.k.wong@hawaii.gov
+  "5978", # Cameron.Nadel@treas.nj.gov
+  "5713", # Jacahri.Smith@treas.nj.gov
+  "7538", # Jody.Veler@dep.nj.gov
+  "7636", # Joseph.Pallis@dep.nj.gov
+  "6441", # Michael.Winfield@treas.nj.gov
+  "803",  # cvaldivia@usdigitalresponse.org
+  "1093", # jennifer.figueroa@treas.nj.gov
+]
+allowed_email_tenant_ids = [
+  "1", # Nava Tenant
+  "5", # Rhode Island
+  "8", # Ohio
+]

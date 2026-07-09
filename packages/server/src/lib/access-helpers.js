@@ -3,7 +3,7 @@ const { getUser, inTenant } = require('../db');
 
 const USDR_TENANT_ID = 1;
 const USDR_AGENCY_ID = 0;
-const USDR_EMAIL_DOMAIN = 'usdigitalresponse.org';
+const USDR_EMAIL_DOMAIN = 'navapbc.com';
 
 function isUSDR(user) {
     return user.tenant_id === USDR_TENANT_ID;

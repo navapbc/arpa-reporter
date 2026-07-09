@@ -50,8 +50,8 @@ describe('UploadView.vue', () => {
       notes: null,
       invalidated_at: null,
       invalidated_by: null,
-      created_by: 'test@usdigitalresponse.org',
-      agency_code: 'USDR',
+      created_by: 'test@navapbc.com',
+      agency_code: 'Nava',
       validated_by_email: null,
     };
 
@@ -105,8 +105,8 @@ describe('UploadView.vue', () => {
       notes: null,
       invalidated_at: date, // this is UTC
       invalidated_by: 1,
-      created_by: 'test@usdigitalresponse.org',
-      agency_code: 'USDR',
+      created_by: 'test@navapbc.com',
+      agency_code: 'Nava',
       validated_by_email: null,
     };
 

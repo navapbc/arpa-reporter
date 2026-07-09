@@ -37,6 +37,10 @@ module "consumer_container_definition" {
   stop_timeout             = local.stop_timeout_seconds
   command                  = ["node", "./src/scripts/consumeGrantModifications.js"]
 
+  repository_credentials = {
+    credentialsParameter = "${var.ssm_path_prefix}/github/docker_credentials"
+  }
+
   container_depends_on = [{
     containerName = "datadog"
     condition     = "START"
@@ -87,6 +91,14 @@ module "datadog_container_definition" {
   essential                = false
   readonly_root_filesystem = "false"
   stop_timeout             = local.stop_timeout_seconds
+
+  healthcheck = {
+    command     = ["CMD-SHELL", "agent health"]
+    startPeriod = 15
+    interval    = 30
+    timeout     = 5
+    retries     = 3
+  }
 
   map_environment = merge(
     {
@@ -145,10 +157,35 @@ resource "aws_iam_role" "execution" {
   })
 }
 
+data "aws_secretsmanager_secret" "github_docker_credentials" {
+  name = "${var.ssm_path_prefix}/github/docker_credentials"
+}
+
+module "decrypt_github_credentials_policy" {
+  source  = "cloudposse/iam-policy/aws"
+  version = "1.0.1"
+  context = module.this.context
+
+  name = "decrypt-github-credentials"
+
+  iam_policy_statements = {
+    GetSecretValue = {
+      effect = "Allow"
+      actions = [
+        "secretsmanager:GetSecretValue",
+      ]
+      resources = [
+        data.aws_secretsmanager_secret.github_docker_credentials.arn,
+      ]
+    }
+  }
+}
+
 resource "aws_iam_role_policy" "execution" {
   for_each = {
     decrypt-datadog-api-key = module.decrypt_datadog_api_key_policy.json
     write-logs              = module.write_logs_policy.json
+    decrypt-github-creds    = module.decrypt_github_credentials_policy.json
   }
 
   name   = each.key
