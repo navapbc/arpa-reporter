@@ -116,6 +116,6 @@
     "rewire": "^6.0.0",
     "sinon": "^22.0.0",
     "supertest": "^6.2.3",
-    "typescript": "^6.0.3"
+    "typescript": "^7.0.2"
   }
 }
