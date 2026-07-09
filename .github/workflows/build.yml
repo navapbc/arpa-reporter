@@ -130,22 +130,22 @@ jobs:
         id: commit-sha
         run: echo "long=$(git rev-parse HEAD)" >> $GITHUB_OUTPUT
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@29109295f81e9208d7d86ff1c6c12d2833863392 # v3.6.0
+        uses: docker/setup-qemu-action@96fe6ef7f33517b61c61be40b68a1882f3264fb8 # v4.2.0
         with:
           platforms: linux/amd64,linux/arm64
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@b5ca514318bd6ebac0fb2aedd5d36ec1b5c232a2 # v3.10.0
+        uses: docker/setup-buildx-action@bb05f3f5519dd87d3ba754cc423b652a5edd6d2c # v4.2.0
         with:
           platforms: linux/amd64,linux/arm64
       - name: Authenticate docker
-        uses: docker/login-action@9780b0c442fbb1117ed29e0efdff1e18412f7567 # v3.3.0
+        uses: docker/login-action@af1e73f918a031802d376d3c8bbc3fe56130a9b0 # v4.4.0
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Extract metadata for Docker
         id: meta
-        uses: docker/metadata-action@902fa8ec7d6ecbf8d84d538b9b233a880e428804 # v5.7.0
+        uses: docker/metadata-action@dc802804100637a589fabce1cb79ff13a1411302 # v6.2.0
         with:
           images: ${{ inputs.server-image-registry }}/${{ inputs.server-image-name }}
           tags: |
@@ -170,7 +170,7 @@ jobs:
           BAKEFILE_PATH: ${{ steps.meta.outputs.bake-file }}
       - name: Build and push Docker image
         id: build-push
-        uses: docker/build-push-action@471d1dc4e07e5cdedd4c2171150001c434f0b7a4 # v6.15.0
+        uses: docker/build-push-action@53b7df96c91f9c12dcc8a07bcb9ccacbed38856a # v7.3.0
         with:
           context: .
           github-token: ${{ secrets.GITHUB_TOKEN }}
@@ -179,8 +179,11 @@ jobs:
           platforms: linux/amd64,linux/arm64
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
+          # Registry cache (ghcr) instead of type=gha: the GitHub Actions Cache
+          # service's reserveCache call fails in CI ("failed to reserve cache").
+          # This uses the same registry we already push images to.
+          cache-from: type=registry,ref=${{ inputs.server-image-registry }}/${{ inputs.server-image-name }}:buildcache
+          cache-to: type=registry,ref=${{ inputs.server-image-registry }}/${{ inputs.server-image-name }}:buildcache,mode=max,image-manifest=true,oci-mediatypes=true
           provenance: true
           sbom: true
           build-args: |
@@ -264,22 +267,22 @@ jobs:
         id: commit-sha
         run: echo "long=$(git rev-parse HEAD)" >> $GITHUB_OUTPUT
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@29109295f81e9208d7d86ff1c6c12d2833863392 # v3.6.0
+        uses: docker/setup-qemu-action@96fe6ef7f33517b61c61be40b68a1882f3264fb8 # v4.2.0
         with:
           platforms: linux/amd64,linux/arm64
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@b5ca514318bd6ebac0fb2aedd5d36ec1b5c232a2 # v3.10.0
+        uses: docker/setup-buildx-action@bb05f3f5519dd87d3ba754cc423b652a5edd6d2c # v4.2.0
         with:
           platforms: linux/amd64,linux/arm64
       - name: Authenticate docker
-        uses: docker/login-action@9780b0c442fbb1117ed29e0efdff1e18412f7567 # v3.3.0
+        uses: docker/login-action@af1e73f918a031802d376d3c8bbc3fe56130a9b0 # v4.4.0
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Extract metadata for Docker
         id: meta
-        uses: docker/metadata-action@902fa8ec7d6ecbf8d84d538b9b233a880e428804 # v5.7.0
+        uses: docker/metadata-action@dc802804100637a589fabce1cb79ff13a1411302 # v6.2.0
         with:
           images: ${{ inputs.server-image-registry }}/${{ inputs.arpa-exporter-image-name }}
           tags: |
@@ -304,7 +307,7 @@ jobs:
           BAKEFILE_PATH: ${{ steps.meta.outputs.bake-file }}
       - name: Build and push Docker image
         id: build-push
-        uses: docker/build-push-action@471d1dc4e07e5cdedd4c2171150001c434f0b7a4 # v6.15.0
+        uses: docker/build-push-action@53b7df96c91f9c12dcc8a07bcb9ccacbed38856a # v7.3.0
         with:
           context: .
           target: app_runtime
@@ -314,8 +317,11 @@ jobs:
           platforms: linux/amd64,linux/arm64
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
+          # Registry cache (ghcr) instead of type=gha: the GitHub Actions Cache
+          # service's reserveCache call fails in CI ("failed to reserve cache").
+          # This uses the same registry we already push images to.
+          cache-from: type=registry,ref=${{ inputs.server-image-registry }}/${{ inputs.arpa-exporter-image-name }}:buildcache
+          cache-to: type=registry,ref=${{ inputs.server-image-registry }}/${{ inputs.arpa-exporter-image-name }}:buildcache,mode=max,image-manifest=true,oci-mediatypes=true
           provenance: true
           sbom: true
       - name: Publish build results

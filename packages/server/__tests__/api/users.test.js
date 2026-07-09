@@ -369,8 +369,11 @@ describe('`/api/users` endpoint', () => {
 
     context('GET /users/:userId/sendDigestEmail (admin send digest email for a specific user)', () => {
         beforeEach(async () => {
-            // Set clock to given date in local time zone
-            this.clockFn = (date) => sinon.useFakeTimers(moment(date).toDate());
+            // Set clock to given date in local time zone. Only fake `Date` (not
+            // timers/immediates): this test issues a real HTTP request whose async
+            // I/O needs setTimeout/setImmediate to run. sinon 15+ fakes those by
+            // default, which would stall the request.
+            this.clockFn = (date) => sinon.useFakeTimers({ now: moment(date).toDate(), toFake: ['Date'] });
             this.clock = this.clockFn('2021-08-06');
         });
         afterEach(async () => {

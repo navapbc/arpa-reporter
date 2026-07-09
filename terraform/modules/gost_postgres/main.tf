@@ -2,9 +2,9 @@ data "aws_region" "current" {}
 data "aws_partition" "current" {}
 data "aws_caller_identity" "current" {}
 
-data "aws_rds_engine_version" "postgres13_18" {
+data "aws_rds_engine_version" "postgres17" {
   engine  = "aurora-postgresql"
-  version = "13.20"
+  version = "17.7"
 }
 
 terraform {
@@ -13,7 +13,7 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "~> 4.67.0"
+      version = "~> 5.90.0"
     }
     random = {
       source  = "hashicorp/random"
@@ -22,15 +22,15 @@ terraform {
   }
 }
 
-resource "aws_db_parameter_group" "postgres13" {
-  name        = "${var.namespace}-aurora-postgres13-db"
-  family      = "aurora-postgresql13"
+resource "aws_db_parameter_group" "postgres17" {
+  name        = "${var.namespace}-aurora-postgres17-db"
+  family      = "aurora-postgresql17"
   description = "RDS Aurora database instance parameter group for ${var.namespace} cluster members."
 }
 
-resource "aws_rds_cluster_parameter_group" "postgres13" {
-  name        = "${var.namespace}-aurora-postgres13-cluster"
-  family      = "aurora-postgresql13"
+resource "aws_rds_cluster_parameter_group" "postgres17" {
+  name        = "${var.namespace}-aurora-postgres17-cluster"
+  family      = "aurora-postgresql17"
   description = "RDS Aurora cluster parameter group for ${var.namespace}."
 
   parameter {
@@ -56,8 +56,8 @@ module "db" {
 
   name                       = "${var.namespace}-postgres"
   cluster_use_name_prefix    = true
-  engine                     = data.aws_rds_engine_version.postgres13_18.engine
-  engine_version             = data.aws_rds_engine_version.postgres13_18.version
+  engine                     = data.aws_rds_engine_version.postgres17.engine
+  engine_version             = data.aws_rds_engine_version.postgres17.version
   auto_minor_version_upgrade = true
   engine_mode                = "provisioned"
   storage_encrypted          = true
@@ -75,8 +75,8 @@ module "db" {
     }
   }
 
-  db_parameter_group_name         = aws_db_parameter_group.postgres13.id
-  db_cluster_parameter_group_name = aws_rds_cluster_parameter_group.postgres13.id
+  db_parameter_group_name         = aws_db_parameter_group.postgres17.id
+  db_cluster_parameter_group_name = aws_rds_cluster_parameter_group.postgres17.id
 
   database_name                       = var.default_db_name
   master_username                     = "postgres"
@@ -96,7 +96,7 @@ module "db" {
 
   serverlessv2_scaling_configuration = {
     min_capacity = 2
-    max_capacity = 4
+    max_capacity = 8
   }
 
   instance_class = "db.serverless"

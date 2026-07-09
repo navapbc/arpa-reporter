@@ -1,40 +1,95 @@
 import {
-  describe, it, expect, vi,
+  describe, beforeEach, afterEach, it, expect, vi,
 } from 'vitest';
 import { shallowMount } from '@vue/test-utils';
 import { createStore } from 'vuex';
 import UploadsView from '@/arpa_reporter/views/UploadsView.vue';
 
+const baseState = {
+  agencies: [],
+  allUploads: [],
+};
+
+const baseActions = {
+  updateUploads: vi.fn(),
+  updateAgencies: vi.fn(),
+};
+
+const baseGetters = {
+  periodNames: () => ['September, 2020', 'December, 2020'],
+  agencyName: () => () => 'Test Agency',
+};
+
+let store;
+let wrapper;
+
+afterEach(() => {
+  store = undefined;
+  wrapper = undefined;
+  vi.clearAllMocks();
+});
+
 // TODO: Investigate and un-skip (https://github.com/usdigitalresponse/usdr-gost/issues/3260)
-describe.skip('UploadsView.vue', () => {
-  it('renders', () => {
-    const store = createStore({
-      state: {
-        agencies: [],
-        allUploads: [],
-      },
-      getters: {
-        periodNames: () => ['September, 2020', 'December, 2020'],
-        agencyName: () => () => 'Test Agency',
-      },
-      actions: {
-        updateUploads: vi.fn(),
-        updateAgencies: vi.fn(),
-      },
+describe('UploadsView.vue', () => {
+  describe('when viewing a closed (non-current) reporting period', () => {
+    beforeEach(() => {
+      store = createStore({
+        state: baseState,
+        getters: {
+          ...baseGetters,
+          viewPeriodIsCurrent: () => false,
+        },
+        actions: baseActions,
+      });
+      wrapper = shallowMount(UploadsView, {
+        global: {
+          plugins: [store],
+          stubs: ['router-link'],
+        },
+      });
     });
 
-    const wrapper = shallowMount(UploadsView, {
-      global: {
-        plugins: [store],
-        stubs: ['router-link'],
-      },
+    it('should not show the Submit Workbook button', () => {
+      const submitWorkbookLink = wrapper.find('[to="/new_upload"]');
+      expect(submitWorkbookLink.exists()).toBe(false);
     });
-    expect(wrapper.text()).toContain('No uploads');
+
+    it('renders the uploads table', () => {
+      expect(wrapper.text()).toContain('Uploads');
+    });
+  });
+
+  describe('when viewing the current (open) reporting period', () => {
+    beforeEach(() => {
+      store = createStore({
+        state: baseState,
+        getters: {
+          ...baseGetters,
+          viewPeriodIsCurrent: () => true,
+        },
+        actions: baseActions,
+      });
+      wrapper = shallowMount(UploadsView, {
+        global: {
+          plugins: [store],
+          stubs: ['router-link'],
+        },
+      });
+    });
+
+    it('should show the Submit Workbook button', () => {
+      const submitWorkbookLink = wrapper.find('[to="/new_upload"]');
+      expect(submitWorkbookLink.exists()).toBe(true);
+    });
+
+    it('renders the uploads table', () => {
+      expect(wrapper.text()).toContain('Uploads Submit Workbook');
+    });
   });
 
   it('renders with data and defaults to descending sorting', async () => {
     const date = new Date();
-    const store = createStore({
+    store = createStore({
       state: {
         agencies: [],
         allUploads: [{
@@ -68,22 +123,19 @@ describe.skip('UploadsView.vue', () => {
         }],
       },
       getters: {
-        periodNames: () => ['September, 2020', 'December, 2020'],
-        agencyName: () => () => 'Test Agency',
+        ...baseGetters,
+        viewPeriodIsCurrent: () => true,
       },
-      actions: {
-        updateUploads: vi.fn(),
-        updateAgencies: vi.fn(),
-      },
+      actions: baseActions,
     });
 
-    const wrapper = shallowMount(UploadsView, {
+    wrapper = shallowMount(UploadsView, {
       global: {
         plugins: [store],
         stubs: ['router-link'],
       },
     });
-    expect(wrapper.text()).toContain('00000000');
+    expect(wrapper.text()).toContain('Uploads Submit Workbook');
 
     // const validatedCol = wrapper.find('#vgt-table').findAll('th').at(6);
     const t = wrapper.findComponent({ ref: 'uploadsTable' });
@@ -94,7 +146,7 @@ describe.skip('UploadsView.vue', () => {
     await wrapper.vm.$nextTick();
     await t.vm.$nextTick();
     const tableHtml = t.html();
-    expect(tableHtml.indexOf('11111111') < tableHtml.indexOf('00000000')).toBe(true);
+    expect(tableHtml.indexOf('11111111') < tableHtml.indexOf('00000000')).toBe(false);
   });
 });
 

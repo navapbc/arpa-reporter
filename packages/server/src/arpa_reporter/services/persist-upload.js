@@ -5,7 +5,6 @@ const path = require('path');
 const fs = require('fs/promises');
 const _ = require('lodash');
 
-const Cryo = require('cryo');
 const XLSX = require('xlsx');
 
 const { getReportingPeriod } = require('../db/reporting-periods');
@@ -16,6 +15,46 @@ const { createUpload } = require('../db/uploads');
 const { TEMP_DIR, UPLOAD_DIR } = require('../environment');
 const { log } = require('../lib/log');
 const ValidationError = require('../lib/validation-error');
+
+// Sentinel wrapper used to round-trip Date values through JSON. See serializeWorkbook.
+const DATE_KEY = '$__date';
+
+/**
+ * Serialize a parsed workbook to a JSON string for the on-disk cache.
+ *
+ * Replaces the previously-used `cryo` package, which is unmaintained and carries a
+ * critical code-injection advisory (it rehydrates data via eval). The only value in a
+ * parsed workbook that plain JSON cannot round-trip is Date (records.js reads with
+ * `cellDates: true`), so we tag Date values and revive them in deserializeWorkbook.
+ *
+ * @param {object} workbook
+ * @returns {string}
+ */
+function serializeWorkbook(workbook) {
+    return JSON.stringify(workbook, function replacer(key, value) {
+        // `value` has already been coerced by Date.prototype.toJSON; read the raw
+        // property off the holder (`this`) to detect the original Date instance.
+        const raw = this[key];
+        if (raw instanceof Date) {
+            return { [DATE_KEY]: raw.toISOString() };
+        }
+        return value;
+    });
+}
+
+/**
+ * Deserialize a workbook produced by serializeWorkbook, reviving tagged Date values.
+ * @param {string} serialized
+ * @returns {object}
+ */
+function deserializeWorkbook(serialized) {
+    return JSON.parse(serialized, (key, value) => {
+        if (value && typeof value === 'object' && typeof value[DATE_KEY] === 'string') {
+            return new Date(value[DATE_KEY]);
+        }
+        return value;
+    });
+}
 
 /**
  * Get the path to the upload file for the given upload
@@ -222,7 +261,7 @@ async function persistJson(upload, workbook) {
             try {
                 const filename = jsonFSName(upload);
                 await fs.mkdir(path.dirname(filename), { recursive: true });
-                await fs.writeFile(filename, Cryo.stringify(workbook), { flag: 'w' });
+                await fs.writeFile(filename, serializeWorkbook(workbook), { flag: 'w' });
             } catch (e) {
                 throw new ValidationError(`Cannot persist ${upload.filename} to filesystem: ${e}`);
             }
@@ -259,7 +298,7 @@ async function jsonForUpload(upload) {
                 span.setTag('reporting-period-id', upload.reporting_period_id);
                 return f;
             });
-            return tracer.trace('Cryo.parse', () => Cryo.parse(file));
+            return tracer.trace('deserializeWorkbook', () => deserializeWorkbook(file));
         },
     );
 }

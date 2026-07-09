@@ -60,7 +60,7 @@
 
       <template #footer>
         <!-- Feed -->
-        <GrantNotes @noteSaved="fetchFollowAndNotes" />
+        <GrantNotes @note-saved="fetchFollowAndNotes" />
       </template>
     </b-card>
 
