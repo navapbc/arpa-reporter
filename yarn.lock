@@ -208,10 +208,10 @@
     "@smithy/types" "^4.16.0"
     tslib "^2.6.2"
 
-"@aws-sdk/credential-providers@3.1083.0":
-  version "3.1083.0"
-  resolved "https://registry.yarnpkg.com/@aws-sdk/credential-providers/-/credential-providers-3.1083.0.tgz#f618e3f45c87b14542c14682984b102ff6ab0e34"
-  integrity sha512-i2q3Jgt365lZp7BSDqDSf283WvISrXob1zsql093LK3G2svYRHRvcNv995SsKtAzRENwHem2TC2vWeghrgBkxg==
+"@aws-sdk/credential-providers@3.1084.0":
+  version "3.1084.0"
+  resolved "https://registry.yarnpkg.com/@aws-sdk/credential-providers/-/credential-providers-3.1084.0.tgz#05305a2e709e2b7f607a96e42939c1f5e7ea60e1"
+  integrity sha512-6MT9xigrduBftpOEq2HKzGqp2Up0Jwe8dK5W3GyBpePywzgMK6029XEYXkCC5wRYwXwhSPzpjnjRlWUA7K/KNQ==
   dependencies:
     "@aws-sdk/core" "^3.975.1"
     "@aws-sdk/credential-provider-cognito-identity" "^3.972.56"
@@ -267,12 +267,12 @@
     tslib "^2.6.2"
 
 "@aws-sdk/rds-signer@^3.315.0":
-  version "3.1083.0"
-  resolved "https://registry.yarnpkg.com/@aws-sdk/rds-signer/-/rds-signer-3.1083.0.tgz#b64caa38523b01ddc2fafd5ff0aa7cc366936e10"
-  integrity sha512-GsZiHRZ0bEdxhBV/2QZ9FcIQoPBo8kYwfyy19grvESs2OTxGPs3YN4gX6cw0vVP6zU1+wxZgRrvu7bfHVYrTnA==
+  version "3.1084.0"
+  resolved "https://registry.yarnpkg.com/@aws-sdk/rds-signer/-/rds-signer-3.1084.0.tgz#00e511604083c3f19286f85dc5871ffa899b757f"
+  integrity sha512-lxYGccRwsuMZZKv7xbb+ltnEYvyBCbtU/ekNEgsz+TA/sFovibr9rvYNW72tIMNVTIyJpo5A2dA1wd05i6PmZw==
   dependencies:
     "@aws-sdk/core" "^3.975.1"
-    "@aws-sdk/credential-providers" "3.1083.0"
+    "@aws-sdk/credential-providers" "3.1084.0"
     "@smithy/core" "^3.29.2"
     "@smithy/signature-v4" "^5.6.3"
     "@smithy/types" "^4.16.0"
