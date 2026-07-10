@@ -9,7 +9,7 @@ package-mode = false
 python = ">=3.12,<3.14"
 boto3 = "^1.43.44"
 ddtrace = ">=2.21.3,<5.0.0"
-structlog = "^25.2.0"
+structlog = ">=25.2,<27.0"
 pydantic = "^2.13.4"
 chevron="^0.14.0"
 
