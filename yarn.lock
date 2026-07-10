@@ -61,9 +61,9 @@
     tslib "^2.6.2"
 
 "@aws-sdk/client-sqs@^3.345.0":
-  version "3.1083.0"
-  resolved "https://registry.yarnpkg.com/@aws-sdk/client-sqs/-/client-sqs-3.1083.0.tgz#2d9daf6d506bad41166ec6773044350bc710bc77"
-  integrity sha512-onW6oteUiZbVpGn2oMsPVk9bNKLLoYkIjzbmnNvIjPGvOTt5EWCW3huPWDfuKUiM69NkExWGqn0obmxfh52yqw==
+  version "3.1084.0"
+  resolved "https://registry.yarnpkg.com/@aws-sdk/client-sqs/-/client-sqs-3.1084.0.tgz#cd9300d0f41e0a81fd034acc33d145c261b3dce5"
+  integrity sha512-leaY5TahPPqtEnxEYVSa2t1eIl4+AQ6uBtolMn1J0kstOKGWaWPv6YugBQKLi0RizQbgZedB+o8e58QOHEZndg==
   dependencies:
     "@aws-sdk/core" "^3.975.1"
     "@aws-sdk/credential-provider-node" "^3.972.66"
