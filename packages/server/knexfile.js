@@ -90,13 +90,18 @@ module.exports = {
                 expirationChecker: () => tokenExpiration <= new Date(),
             };
 
+            // Test IAM authentication
+            // eslint-disable-next-line global-require
+            const testKnex = require('knex')({ client: 'pg', connection: iamAuthConfig });
             try {
-                // Test IAM authentication
-                // eslint-disable-next-line global-require
-                await require('knex')({ client: 'pg', connection: iamAuthConfig }).raw('select 1');
+                await testKnex.raw('select 1');
             } catch (e) {
-                console.warn('Postgres connectivity test with IAM auth failed, will use basic auth');
+                console.warn('Postgres connectivity test with IAM auth failed, will use basic auth:', e);
                 return basicAuthConfig;
+            } finally {
+                // This runs each time the IAM token is refreshed, so the test connection must be
+                // closed or it stays open for the life of the process.
+                await testKnex.destroy();
             }
             return iamAuthConfig;
         },

@@ -48,7 +48,7 @@
       "maxLength": 20,
       "listVals": [],
       "columnName": "D",
-      "humanColName": "Project Identification Number\r\n(Assigned by recipient)",
+      "humanColName": "Project Identification Number\n(Assigned by recipient)",
       "ecCodes": [
         "1.1",
         "1.2",
@@ -132,7 +132,7 @@
       "maxLength": null,
       "listVals": [],
       "columnName": "G",
-      "humanColName": "Total Cumulative \r\nObligations",
+      "humanColName": "Total Cumulative \nObligations",
       "ecCodes": [
         "1.1",
         "1.2",
@@ -158,7 +158,7 @@
       "maxLength": null,
       "listVals": [],
       "columnName": "H",
-      "humanColName": "Total Cumulative \r\nExpenditures",
+      "humanColName": "Total Cumulative \nExpenditures",
       "ecCodes": [
         "1.1",
         "1.2",
@@ -1522,7 +1522,7 @@
       "maxLength": 20,
       "listVals": [],
       "columnName": "D",
-      "humanColName": "Project Identification Number\r\n(Assigned by recipient)",
+      "humanColName": "Project Identification Number\n(Assigned by recipient)",
       "ecCodes": [
         "2.1",
         "2.2",
@@ -1675,7 +1675,7 @@
       "maxLength": null,
       "listVals": [],
       "columnName": "G",
-      "humanColName": "Total Cumulative\r\nObligations",
+      "humanColName": "Total Cumulative\nObligations",
       "ecCodes": [
         "2.1",
         "2.2",
@@ -1724,7 +1724,7 @@
       "maxLength": null,
       "listVals": [],
       "columnName": "H",
-      "humanColName": "Total Cumulative\r\nExpenditures",
+      "humanColName": "Total Cumulative\nExpenditures",
       "ecCodes": [
         "2.1",
         "2.2",
@@ -2593,7 +2593,7 @@
       "maxLength": 9999999999,
       "listVals": [],
       "columnName": "Y",
-      "humanColName": "Number of small businesses served (by program if recipient establishes multiple separate \r\nsmall businesses assistance programs) ",
+      "humanColName": "Number of small businesses served (by program if recipient establishes multiple separate \nsmall businesses assistance programs) ",
       "ecCodes": [
         "2.29",
         "2.30",
@@ -2610,7 +2610,7 @@
       "maxLength": 10,
       "listVals": [],
       "columnName": "Z",
-      "humanColName": "Number of Non-Profits served (by program if recipient establishes multiple separate non-\r\nprofit assistance programs) ",
+      "humanColName": "Number of Non-Profits served (by program if recipient establishes multiple separate non-\nprofit assistance programs) ",
       "ecCodes": [
         "2.34"
       ]
@@ -4181,7 +4181,7 @@
       "maxLength": 20,
       "listVals": [],
       "columnName": "D",
-      "humanColName": "Project Identification Number\r\n(Assigned by recipient)",
+      "humanColName": "Project Identification Number\n(Assigned by recipient)",
       "ecCodes": [
         "3.1",
         "3.2",
@@ -4238,7 +4238,7 @@
       "maxLength": null,
       "listVals": [],
       "columnName": "G",
-      "humanColName": "Total Cumulative\r\nObligations",
+      "humanColName": "Total Cumulative\nObligations",
       "ecCodes": [
         "3.1",
         "3.2",
@@ -4255,7 +4255,7 @@
       "maxLength": null,
       "listVals": [],
       "columnName": "H",
-      "humanColName": "Total Cumulative\r\nExpenditures",
+      "humanColName": "Total Cumulative\nExpenditures",
       "ecCodes": [
         "3.1",
         "3.2",
@@ -4951,7 +4951,7 @@
       "maxLength": 20,
       "listVals": [],
       "columnName": "D",
-      "humanColName": "Project Identification Number\r\n(Assigned by recipient)",
+      "humanColName": "Project Identification Number\n(Assigned by recipient)",
       "ecCodes": [
         "4.1",
         "4.2"
@@ -4999,7 +4999,7 @@
       "maxLength": null,
       "listVals": [],
       "columnName": "G",
-      "humanColName": "Total Cumulative \r\nObligations",
+      "humanColName": "Total Cumulative \nObligations",
       "ecCodes": [
         "4.1",
         "4.2"
@@ -5013,7 +5013,7 @@
       "maxLength": null,
       "listVals": [],
       "columnName": "H",
-      "humanColName": "Total Cumulative \r\nExpenditures",
+      "humanColName": "Total Cumulative \nExpenditures",
       "ecCodes": [
         "4.1",
         "4.2"
@@ -5327,7 +5327,7 @@
       "maxLength": 20,
       "listVals": [],
       "columnName": "D",
-      "humanColName": "Project Identification Number\r\n(Assigned by recipient)",
+      "humanColName": "Project Identification Number\n(Assigned by recipient)",
       "ecCodes": [
         "5.1",
         "5.2",
@@ -5432,7 +5432,7 @@
       "maxLength": null,
       "listVals": [],
       "columnName": "G",
-      "humanColName": "Total Cumulative \r\nObligations",
+      "humanColName": "Total Cumulative \nObligations",
       "ecCodes": [
         "5.1",
         "5.2",
@@ -5465,7 +5465,7 @@
       "maxLength": null,
       "listVals": [],
       "columnName": "H",
-      "humanColName": "Total Cumulative \r\nExpenditures",
+      "humanColName": "Total Cumulative \nExpenditures",
       "ecCodes": [
         "5.1",
         "5.2",
@@ -6912,7 +6912,7 @@
       "maxLength": 1500,
       "listVals": [],
       "columnName": "BP",
-      "humanColName": "Explanation if the sum of broadband speed types does not equal total number of funded locations served\r\nPlanned",
+      "humanColName": "Explanation if the sum of broadband speed types does not equal total number of funded locations served\nPlanned",
       "ecCodes": [
         "5.19",
         "5.20",
@@ -6927,7 +6927,7 @@
       "maxLength": 1500,
       "listVals": [],
       "columnName": "BQ",
-      "humanColName": "Explanation if the sum of broadband speed types does not equal total number of funded locations served\r\nActual",
+      "humanColName": "Explanation if the sum of broadband speed types does not equal total number of funded locations served\nActual",
       "ecCodes": [
         "5.19",
         "5.20",
@@ -7220,7 +7220,7 @@
       "maxLength": 20,
       "listVals": [],
       "columnName": "D",
-      "humanColName": "Project Identification Number\r\n(Assigned by recipient)",
+      "humanColName": "Project Identification Number\n(Assigned by recipient)",
       "ecCodes": [
         "7.1",
         "7.2",
@@ -7271,7 +7271,7 @@
       "maxLength": null,
       "listVals": [],
       "columnName": "G",
-      "humanColName": "Total Cumulative \r\nObligations",
+      "humanColName": "Total Cumulative \nObligations",
       "ecCodes": [
         "7.1",
         "7.2",
@@ -7286,7 +7286,7 @@
       "maxLength": null,
       "listVals": [],
       "columnName": "H",
-      "humanColName": "Total Cumulative \r\nExpenditures",
+      "humanColName": "Total Cumulative \nExpenditures",
       "ecCodes": [
         "7.1",
         "7.2",
@@ -8241,7 +8241,7 @@
       "maxLength": 20,
       "listVals": [],
       "columnName": "G",
-      "humanColName": "Project Identification Number\r\n(Assigned by recipient)",
+      "humanColName": "Project Identification Number\n(Assigned by recipient)",
       "ecCodes": false
     },
     "Award_No__c": {
@@ -8704,7 +8704,7 @@
       "maxLength": 20,
       "listVals": [],
       "columnName": "C",
-      "humanColName": "Project Identification Number\r\n(Assigned by recipient)",
+      "humanColName": "Project Identification Number\n(Assigned by recipient)",
       "ecCodes": false
     },
     "Sub_Award_Type_Aggregates_SLFRF__c": {

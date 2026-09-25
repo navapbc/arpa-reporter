@@ -14,6 +14,7 @@ const { user: getUser } = require('../../db/arpa_reporter_db_shims/users');
 const { createUpload } = require('../db/uploads');
 const { TEMP_DIR, UPLOAD_DIR } = require('../environment');
 const { log } = require('../lib/log');
+const { bunyanLogger } = require('../../lib/logging');
 const ValidationError = require('../lib/validation-error');
 
 // Sentinel wrapper used to round-trip Date values through JSON. See serializeWorkbook.
@@ -298,7 +299,15 @@ async function jsonForUpload(upload) {
                 span.setTag('reporting-period-id', upload.reporting_period_id);
                 return f;
             });
-            return tracer.trace('deserializeWorkbook', () => deserializeWorkbook(file));
+            const workbook = tracer.trace('deserializeWorkbook', () => deserializeWorkbook(file));
+            // Cache files written with `cryo` (before the switch to serializeWorkbook) are valid
+            // JSON but parse to { root, references } rather than a workbook. Reject them so that
+            // workbookForUpload re-parses the original upload and rewrites the cache.
+            if (typeof workbook?.Sheets !== 'object' || workbook.Sheets === null) {
+                throw new Error(`Cached JSON for upload ${upload.id} is not a parsed workbook `
+                    + '(likely legacy cryo format)');
+            }
+            return workbook;
         },
     );
 }
@@ -319,22 +328,33 @@ async function workbookForUpload(upload, options) {
         'workbookForUpload',
         async () => {
             log(`workbookForUpload(${upload.id})`);
+            const uploadLogger = bunyanLogger.child({ upload: { id: upload.id, tenantId: upload.tenant_id } });
+            const startedAt = Date.now();
 
             let workbook;
             try {
             // attempt to read pre-parsed JSON, if it exists
                 log(`attempting cache lookup for parsed workbook`);
                 workbook = await jsonForUpload(upload);
+                uploadLogger.debug({ durationMs: Date.now() - startedAt }, 'read parsed workbook from JSON cache');
             } catch (e) {
             // fall back to reading the originally-uploaded .xlsm file and parsing it
                 log(`cache lookup failed, parsing originally uploaded .xlsm file`);
+                uploadLogger.info({ cacheError: { code: e.code, message: e.message } },
+                    'JSON cache lookup failed; parsing originally uploaded file');
                 const buffer = await bufferForUpload(upload);
 
                 // NOTE: This is the slow line!
                 log(`XLSX.read(${upload.id})`);
                 workbook = tracer.trace('XLSX.read()', () => XLSX.read(buffer, options));
+                uploadLogger.info({ durationMs: Date.now() - startedAt, bufferSizeInBytes: buffer.length },
+                    'parsed originally uploaded file');
 
-                persistJson(upload, workbook);
+                // Not awaited, but a failed cache write must not become an unhandled rejection
+                // (which crashes the process); the next read will simply re-parse again.
+                persistJson(upload, workbook).catch((err) => {
+                    uploadLogger.warn({ err }, 'failed to write JSON cache for upload');
+                });
             }
 
             return workbook;

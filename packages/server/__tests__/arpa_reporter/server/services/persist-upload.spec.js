@@ -17,6 +17,9 @@ const uploadFSName = persistUploadModule.__get__('uploadFSName');
 const MOCK_WORKBOOK = XLSX.utils.book_new();
 XLSX.utils.book_append_sheet(MOCK_WORKBOOK, XLSX.utils.aoa_to_sheet([[0, 1, 2]]), 'sheet_1');
 
+// MOCK_WORKBOOK as serialized by `Cryo.stringify`, which wrote cache files before serializeWorkbook
+const LEGACY_CRYO_MOCK_WORKBOOK = '{"root":"_CRYO_REF_6","references":[{"contents":{"0":"sheet_1"},"value":"_CRYO_ARRAY_"},{"contents":{"v":0,"t":"n"},"value":"_CRYO_OBJECT_"},{"contents":{"v":1,"t":"n"},"value":"_CRYO_OBJECT_"},{"contents":{"v":2,"t":"n"},"value":"_CRYO_OBJECT_"},{"contents":{"A1":"_CRYO_REF_1","B1":"_CRYO_REF_2","C1":"_CRYO_REF_3","!ref":"A1:C1"},"value":"_CRYO_OBJECT_"},{"contents":{"sheet_1":"_CRYO_REF_4"},"value":"_CRYO_OBJECT_"},{"contents":{"SheetNames":"_CRYO_REF_0","Sheets":"_CRYO_REF_5"},"value":"_CRYO_OBJECT_"}]}';
+
 describe('persist-upload', () => {
     describe('uploadFSName', () => {
         it('generates a filesystem name based on upload ID', () => {
@@ -299,6 +302,34 @@ describe('persistJson', () => {
             const workbook = await jsonForUpload(upload);
             expect(workbook).deep.equal(mockWorkbook);
             expect(workbook.date instanceof Date).is.true;
+        });
+
+        it('rejects cache files written in the legacy cryo format', async () => {
+            const upload = { id: 'lgcy', filename: 'upload03.xlsm' };
+            await fs.mkdir(path.dirname(jsonFSName(upload)), { recursive: true });
+            await fs.writeFile(jsonFSName(upload), LEGACY_CRYO_MOCK_WORKBOOK);
+            try {
+                await jsonForUpload(upload);
+                expect.fail('Expected function to throw an error');
+            } catch (error) {
+                expect(error.message).to.include('not a parsed workbook');
+            }
+        });
+    });
+
+    describe('workbookForUpload', () => {
+        const workbookForUpload = persistUploadModule.__get__('workbookForUpload');
+
+        it('re-parses the original upload when the cache file is in the legacy cryo format', async () => {
+            const upload = { id: 'lgcz', filename: 'upload04.xlsx' };
+            await fs.mkdir(UPLOAD_DIR, { recursive: true });
+            await fs.writeFile(uploadFSName(upload), XLSX.write(MOCK_WORKBOOK, { type: 'buffer', bookType: 'xlsx' }));
+            await fs.mkdir(path.dirname(jsonFSName(upload)), { recursive: true });
+            await fs.writeFile(jsonFSName(upload), LEGACY_CRYO_MOCK_WORKBOOK);
+
+            const workbook = await workbookForUpload(upload, { type: 'buffer' });
+            expect(workbook.SheetNames).to.deep.equal(['sheet_1']);
+            expect(workbook.Sheets.sheet_1.A1.v).to.equal(0);
         });
     });
 });
