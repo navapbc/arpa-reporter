@@ -129,7 +129,7 @@ jobs:
           show-progress: 'false'
           persist-credentials: 'false'
       - name: Set up tf-summarize
-        uses: kishaningithub/setup-tf-summarize@b752490b135f74e59d82e656a1dab7f11a937f84 # v2.0.0
+        uses: kishaningithub/setup-tf-summarize@1596bb06f9509eb36b71bc1b304407cc111059c0 # v3.0.0
       - name: Validate workflow configuration
         if: inputs.upload-artifacts && (env.GPG_PASSPHRASE == '')
         run: |
