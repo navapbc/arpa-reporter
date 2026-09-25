@@ -353,6 +353,8 @@ jobs:
       - uses: chartboost/ruff-action@e18ae971ccee1b2d7bbef113930f00c670b78da4 # v1
         with:
           src: arpa-exporter
+          # Keep in sync with the ruff version in arpa-exporter/poetry.lock.
+          version: 0.15.21
 
   mypy:
     name: Type-check arpa-exporter python
