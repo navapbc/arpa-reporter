@@ -26,7 +26,7 @@ const ASYNC_REPORT_TYPES = {
         errorEmailType: tags.emailTypes.treasuryReportError,
     },
 };
-const HELPDESK_EMAIL = 'grantfinder.helpdesk@navapbc.com';
+const HELPDESK_EMAIL = 'grantsreporting.helpdesk@navapbc.com';
 const GENERIC_FROM_NAME = 'Nava Grants';
 const GRANT_FINDER_EMAIL_FROM_NAME = 'Nava Federal Grant Finder';
 const ARPA_EMAIL_FROM_NAME = 'Nava ARPA Reporter';

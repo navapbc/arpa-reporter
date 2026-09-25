@@ -473,7 +473,7 @@ describe('Email sender', () => {
             expect(sendFake.firstCall.firstArg.text).to.equal(body);
             expect(sendFake.firstCall.firstArg.toAddress).to.equal(user.email);
             expect(sendFake.firstCall.firstArg.fromName).to.equal('Nava ARPA Reporter');
-            expect(sendFake.firstCall.firstArg.ccAddress).to.equal('grantfinder.helpdesk@navapbc.com');
+            expect(sendFake.firstCall.firstArg.ccAddress).to.equal('grantsreporting.helpdesk@navapbc.com');
             expect(sendFake.firstCall.firstArg.body).contains(body);
             // Not an actual user so no user tags
             expect(sendFake.firstCall.firstArg.tags).to.deep.equal([
