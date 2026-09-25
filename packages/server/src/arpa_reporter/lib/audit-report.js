@@ -42,6 +42,47 @@ const processStatsLogger = (logger = log.child(), options = {}) => {
     return logger.child({ processStats: true, ...options });
 };
 
+/**
+ * Extracts fields from AWS SDK, Postgres, and filesystem (EFS) errors that bunyan's standard
+ * error serializer omits, to help identify which dependency caused a failure.
+ */
+function errorDetails(err) {
+    if (!err || typeof err !== 'object') {
+        return undefined;
+    }
+    return {
+        // e.g. { fault: 'server', httpStatusCode: 503, requestId, attempts, totalRetryDelay }
+        aws: err.$metadata && { fault: err.$fault, ...err.$metadata },
+        // Postgres errors also carry a SQLSTATE in err.code (e.g. 53300 = too many connections)
+        pg: err.routine && { severity: err.severity, routine: err.routine },
+        fs: err.syscall && { syscall: err.syscall, errno: err.errno, path: err.path },
+    };
+}
+
+/**
+ * Runs one stage of audit report generation in a Datadog span and logs its duration.
+ * The first (innermost) stage to fail logs the error and tags it with its name, so that
+ * callers can report which stage failed via err.auditReportStage.
+ */
+async function traceStage(stage, logger, fn) {
+    const stageLogger = logger.child({ stage });
+    const startedAt = Date.now();
+    return tracer.trace(stage, async () => {
+        try {
+            const result = await fn();
+            stageLogger.info({ durationMs: Date.now() - startedAt }, 'finished audit report stage');
+            return result;
+        } catch (err) {
+            if (err && typeof err === 'object' && !err.auditReportStage) {
+                err.auditReportStage = stage;
+                stageLogger.error({ err, errorDetails: errorDetails(err), durationMs: Date.now() - startedAt },
+                    'audit report stage failed');
+            }
+            throw err;
+        }
+    });
+}
+
 const COLUMN = {
     EC_BUDGET: 'Adopted Budget (EC tabs)',
     EC_TCO: 'Total Cumulative Obligations (EC tabs)',
@@ -575,48 +616,48 @@ function sortHeadersWithDates(data, expectedOrderWithoutDate, expectedOrderWithD
     return headers;
 }
 
-async function generate(requestHost, tenantId, periodId) {
+async function generate(requestHost, tenantId, periodId, parentLogger = log) {
     const domain = ARPA_REPORTER_BASE_URL ?? requestHost;
     const isCustomPeriod = periodId != null;
     return tracer.trace('generate()', async () => {
         if (periodId == null) {
             periodId = await getCurrentReportingPeriodID(undefined, tenantId);
         }
-        const logger = processStatsLogger(log, {
+        const logger = processStatsLogger(parentLogger, {
             workbook: { period: { id: periodId }, tenant: { id: tenantId } },
         });
         logger.info('determined current reporting period ID for workbook');
 
         // generate sheets data
-        const obligations = await tracer.trace('createObligationSheet',
+        const obligations = await traceStage('createObligationSheet', logger,
             async () => createObligationSheet(
                 periodId,
                 domain,
                 tenantId,
                 logger.child({ sheet: { name: 'Obligations & Expenditures' } }),
             ));
-        const projectSummaries = await tracer.trace('createProjectSummaries',
+        const projectSummaries = await traceStage('createProjectSummaries', logger,
             async () => createProjectSummaries(
                 periodId,
                 domain,
                 tenantId,
                 logger.child({ sheet: { name: 'Project Summaries' } }),
             ));
-        const projectSummaryGroupedByProject = await tracer.trace('createReportsGroupedByProject',
+        const projectSummaryGroupedByProject = await traceStage('createReportsGroupedByProject', logger,
             async () => createReportsGroupedByProject(
                 periodId,
                 tenantId,
                 REPORTING_DATE_FORMAT,
                 logger.child({ sheet: { name: 'Project Summaries V2' } }),
             ));
-        const projectSummaryGroupedBySubAward = await tracer.trace('createReportsGroupedBySubAward',
+        const projectSummaryGroupedBySubAward = await traceStage('createReportsGroupedBySubAward', logger,
             async () => createReportsGroupedBySubAward(
                 periodId,
                 tenantId,
                 REPORTING_DATE_FORMAT,
                 logger.child({ sheet: { name: 'SubAward Summaries' } }),
             ));
-        const KPIDataGroupedByProject = await tracer.trace('createKpiDataGroupedByProject',
+        const KPIDataGroupedByProject = await traceStage('createKpiDataGroupedByProject', logger,
             async () => createKpiDataGroupedByProject(
                 periodId,
                 tenantId,
@@ -724,11 +765,12 @@ async function generateAndSendEmail(requestHost, recipientEmail, tenantId = useT
     logger = logger.child({ tenant: { id: tenantId } });
     // Generate the report
     logger.info('generating ARPA audit report');
-    const report = await module.exports.generate(requestHost, tenantId, periodId);
+    const report = await traceStage('generateReport', logger,
+        () => module.exports.generate(requestHost, tenantId, periodId, logger));
     logger.info('finished generating ARPA audit report');
     // Upload to S3 and send email link
     const reportKey = `${tenantId}/${report.periodId}/${report.filename}`;
-    log.info({ reportKey }, 'created report key');
+    logger.info({ reportKey }, 'created report key');
 
     const s3 = aws.getS3Client();
     const uploadParams = {
@@ -738,48 +780,67 @@ async function generateAndSendEmail(requestHost, recipientEmail, tenantId = useT
         ServerSideEncryption: 'AES256',
     };
 
-    try {
-        logger.info({ uploadParams: { Bucket: uploadParams.Bucket, Key: uploadParams.Key } },
-            'uploading ARPA audit report to S3');
-        await s3.send(new PutObjectCommand(uploadParams));
-        await module.exports.sendEmailWithLink(reportKey, recipientEmail, logger);
-    } catch (err) {
-        logger.error({ err }, 'failed to upload/email audit report');
-        throw err;
-    }
+    logger.info({ uploadParams: { Bucket: uploadParams.Bucket, Key: uploadParams.Key } },
+        'uploading ARPA audit report to S3');
+    await traceStage('uploadToS3', logger, () => s3.send(new PutObjectCommand(uploadParams)));
+    await traceStage('sendEmailWithLink', logger,
+        () => module.exports.sendEmailWithLink(reportKey, recipientEmail, logger));
     logger.info('finished generating and sending ARPA audit report');
 }
 
 async function processSQSMessageRequest(message) {
+    let logger = log.child({
+        sqs: {
+            message: {
+                MessageId: message.MessageId,
+                receiveCount: Number(message.Attributes?.ApproximateReceiveCount) || undefined,
+            },
+        },
+    });
     let requestData;
     let user;
 
     try {
         requestData = JSON.parse(message.Body);
     } catch (err) {
-        log.error({ err }, 'error parsing request data from SQS message');
+        logger.error({ err }, 'error parsing request data from SQS message');
         return false;
     }
+    logger = logger.child({ request: { userId: requestData.userId, periodId: requestData.periodId } });
 
     try {
         user = await getUser(requestData.userId);
-        if (!user) {
-            throw new Error(`user not found: ${requestData.userId}`);
-        }
     } catch (err) {
-        log.error({ err }, 'Audit report generated by an invalid user');
+        logger.error({ err, errorDetails: errorDetails(err) },
+            'failed to look up requesting user for audit report (database error)');
+        return false;
+    }
+    if (!user) {
+        logger.error('Audit report generated by an invalid user: user not found');
         return false;
     }
 
+    const startedAt = Date.now();
     try {
-        await generateAndSendEmail(ARPA_REPORTER_BASE_URL, user.email, user.tenant_id, requestData.periodId);
+        await generateAndSendEmail(ARPA_REPORTER_BASE_URL, user.email, user.tenant_id, requestData.periodId, logger);
     } catch (err) {
-        log.error({ err }, 'failed to generate and send audit report');
-        await email.sendReportErrorEmail(user, email.ASYNC_REPORT_TYPES.audit);
+        logger.error({
+            err,
+            failedStage: err?.auditReportStage ?? 'unknown',
+            errorDetails: errorDetails(err),
+            durationMs: Date.now() - startedAt,
+        }, 'failed to generate and send audit report');
+        try {
+            await email.sendReportErrorEmail(user, email.ASYNC_REPORT_TYPES.audit);
+            logger.info('sent audit report error email to requesting user and helpdesk');
+        } catch (emailErr) {
+            logger.error({ err: emailErr, errorDetails: errorDetails(emailErr) },
+                'failed to send audit report error email');
+        }
         return false;
     }
 
-    log.info('successfully completed SQS message request');
+    logger.info({ durationMs: Date.now() - startedAt }, 'successfully completed SQS message request');
     return true;
 }
 
