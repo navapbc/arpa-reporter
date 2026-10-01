@@ -4,10 +4,25 @@ const v8 = require('node:v8');
 const { ReceiveMessageCommand, DeleteMessageCommand } = require('@aws-sdk/client-sqs');
 const { log } = require('../lib/logging');
 const { getSQSClient } = require('../lib/gost-aws');
+const {
+    protectTask, unprotectTask, MIN_EXPIRES_IN_MINUTES, MAX_EXPIRES_IN_MINUTES,
+} = require('../lib/ecs-task-protection');
 const { processSQSMessageRequest } = require('../arpa_reporter/lib/audit-report');
 
 const HEARTBEAT_INTERVAL_MS = 30 * 1000;
 const BYTES_PER_MB = 1024 * 1024;
+
+// How long the ECS task stays protected from scale-in after picking up a message. This is an upper
+// bound on report generation time; protection is removed as soon as the message is handled.
+// Overridable via $ECS_TASK_PROTECTION_EXPIRES_IN_MINUTES (clamped to the range ECS accepts).
+const DEFAULT_TASK_PROTECTION_MINUTES = 60;
+function taskProtectionMinutes() {
+    const configured = Number.parseInt(process.env.ECS_TASK_PROTECTION_EXPIRES_IN_MINUTES, 10);
+    if (!Number.isInteger(configured)) {
+        return DEFAULT_TASK_PROTECTION_MINUTES;
+    }
+    return Math.min(Math.max(configured, MIN_EXPIRES_IN_MINUTES), MAX_EXPIRES_IN_MINUTES);
+}
 
 function memoryStatsMB() {
     const { rss, heapUsed, heapTotal } = process.memoryUsage();
@@ -21,8 +36,10 @@ function memoryStatsMB() {
 
 async function main() {
     // Tracks the message currently being processed so that shutdown signals and crashes can
-    // report what was lost. If ECS stops this task (e.g. autoscaling scale-in or a deployment)
-    // while a report is being generated, the container is SIGKILLed after its stop timeout.
+    // report what was lost. If ECS stops this task while a report is being generated, the
+    // container is SIGKILLed after its stop timeout. Two things guard against that: the service's
+    // scale-down alarm counts in-flight SQS messages, and the task is marked as protected from
+    // scale-in (see protectTask below) for as long as a message is being processed.
     const state = { inFlight: undefined };
     const inFlightDetails = () => (state.inFlight
         ? { ...state.inFlight.details, elapsedMs: Date.now() - state.inFlight.startedAt }
@@ -60,6 +77,10 @@ async function main() {
         nodeVersion: process.version,
         nodeOptions: process.env.NODE_OPTIONS,
         logLevel: process.env.LOG_LEVEL,
+        taskProtection: {
+            available: Boolean(process.env.ECS_AGENT_URI),
+            expiresInMinutes: taskProtectionMinutes(),
+        },
         memory: memoryStatsMB(),
     }, 'ARPA audit report worker started');
 
@@ -92,39 +113,56 @@ async function main() {
                 });
                 msgLog.info({ memory: memoryStatsMB() }, 'Received SQS message for ARPA audit report');
                 state.inFlight = { details: messageDetails, startedAt: receivedAt };
+
+                // Keep ECS from stopping this task for scale-in (or a deployment) until the message
+                // has been handled. A failure here is logged but does not block processing.
+                const protection = await protectTask({
+                    expiresInMinutes: taskProtectionMinutes(), log: msgLog,
+                });
+                messageDetails.taskProtection = protection.status;
+
                 const heartbeat = setInterval(() => {
                     msgLog.info({ elapsedMs: Date.now() - receivedAt, memory: memoryStatsMB() },
                         'Still processing ARPA audit report');
                 }, HEARTBEAT_INTERVAL_MS);
 
                 tracer.scope().active().setTag('message_received', 'true');
-                let processingSuccessful;
+                tracer.scope().active().setTag('task_protection', protection.status);
                 try {
-                    processingSuccessful = await tracer.trace('processSQSMessageRequest',
-                        async (span) => {
-                            try {
-                                return await processSQSMessageRequest(message);
-                            } catch (e) {
-                                msgLog.error(e, 'Error processing SQS message request for ARPA audit report');
-                                span.setTag('error', e);
-                            }
-                            return false;
-                        });
+                    let processingSuccessful;
+                    try {
+                        processingSuccessful = await tracer.trace('processSQSMessageRequest',
+                            async (span) => {
+                                try {
+                                    return await processSQSMessageRequest(message);
+                                } catch (e) {
+                                    msgLog.error(e, 'Error processing SQS message request for ARPA audit report');
+                                    span.setTag('error', e);
+                                }
+                                return false;
+                            });
+                    } finally {
+                        clearInterval(heartbeat);
+                    }
+                    const durationMs = Date.now() - receivedAt;
+                    if (processingSuccessful === true) {
+                        msgLog.info({ durationMs }, 'Deleting successfully-processed SQS message');
+                        tracer.scope().active().setTag('processing_successful', 'true');
+                        await sqs.send(new DeleteMessageCommand({
+                            QueueUrl: queueUrl,
+                            ReceiptHandle: message.ReceiptHandle,
+                        }));
+                    } else {
+                        msgLog.warn({ durationMs }, 'SQS message was not processed successfully; will not delete');
+                        tracer.scope().active().setTag('processing_successful', 'false');
+                    }
                 } finally {
-                    clearInterval(heartbeat);
                     state.inFlight = undefined;
-                }
-                const durationMs = Date.now() - receivedAt;
-                if (processingSuccessful === true) {
-                    msgLog.info({ durationMs }, 'Deleting successfully-processed SQS message');
-                    tracer.scope().active().setTag('processing_successful', 'true');
-                    await sqs.send(new DeleteMessageCommand({
-                        QueueUrl: queueUrl,
-                        ReceiptHandle: message.ReceiptHandle,
-                    }));
-                } else {
-                    msgLog.warn({ durationMs }, 'SQS message was not processed successfully; will not delete');
-                    tracer.scope().active().setTag('processing_successful', 'false');
+                    // Release protection whether or not processing succeeded so the service can
+                    // scale back down. Skipped if protection was never enabled.
+                    if (protection.status === 'enabled') {
+                        await unprotectTask({ log: msgLog });
+                    }
                 }
             } else {
                 tracer.scope().active().setTag('message_received', 'false');

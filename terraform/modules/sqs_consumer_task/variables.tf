@@ -280,7 +280,7 @@ variable "autoscaling_scale_up_evaluation_period_seconds" {
 }
 
 variable "autoscaling_scale_down_evaluation_period_seconds" {
-  description = "The period over which the sum of available SQS messages is evaluated for scale-down activities."
+  description = "The period over which the sum of visible and in-flight SQS messages is evaluated for scale-down activities."
   type        = number
   default     = 60
 }
@@ -292,7 +292,7 @@ variable "scale_up_evaluation_periods" {
 }
 
 variable "scale_down_evaluation_periods" {
-  description = "The number of periods over which the sum of available SQS messages is compared to the scale-down threshold."
+  description = "The number of periods over which the sum of visible and in-flight SQS messages is compared to the scale-down threshold."
   type        = number
   default     = 1
 }
