@@ -277,13 +277,39 @@ module "ecs_exec_policy" {
   }
 }
 
+# Lets the consumer process mark its own task as protected from scale-in while it is processing a
+# message, via the ECS agent's task protection endpoint ($ECS_AGENT_URI/task-protection/v1/state).
+# The agent makes the UpdateTaskProtection call with the task role's credentials.
+# See: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-scale-in-protection.html
+module "manage_task_protection_policy" {
+  source  = "cloudposse/iam-policy/aws"
+  version = "1.0.1"
+  context = module.this.context
+
+  name = "manage-task-protection"
+
+  iam_policy_statements = {
+    ManageOwnTaskProtection = {
+      effect = "Allow"
+      actions = [
+        "ecs:GetTaskProtection",
+        "ecs:UpdateTaskProtection",
+      ]
+      resources = [
+        "arn:aws:ecs:${data.aws_region.current.region}:${data.aws_caller_identity.current.account_id}:task/${data.aws_ecs_cluster.default.cluster_name}/*",
+      ]
+    }
+  }
+}
+
 resource "aws_iam_role_policy" "task" {
   for_each = merge(
     var.postgres_enabled ? { connect-to-postgres = module.connect_to_postgres_policy.json } : {},
     {
-      ecs-exec             = module.ecs_exec_policy.json
-      write-logs           = module.write_logs_policy.json
-      consume-sqs-messages = module.consume_sqs_messages_policy.json
+      ecs-exec               = module.ecs_exec_policy.json
+      write-logs             = module.write_logs_policy.json
+      consume-sqs-messages   = module.consume_sqs_messages_policy.json
+      manage-task-protection = module.manage_task_protection_policy.json
     },
     var.additional_task_role_json_policies
   )
@@ -375,18 +401,49 @@ resource "aws_appautoscaling_policy" "sqs_scale_down_ecs_tasks" {
   }
 }
 
+# Scales down to zero tasks only when the primary queue has neither visible nor in-flight messages.
+#
+# ApproximateNumberOfMessagesVisible drops to zero the moment a consumer receives the last message,
+# before that message has actually been processed. An alarm on that metric alone therefore fires
+# while work is still in progress, and the resulting scale-in activity sends SIGTERM to the task
+# doing the work (followed by SIGKILL once stop_timeout_seconds elapses). Adding
+# ApproximateNumberOfMessagesNotVisible, which counts messages that have been received but not yet
+# deleted (or whose visibility timeout has not yet expired), keeps tasks running until processing
+# completes.
 resource "aws_cloudwatch_metric_alarm" "sqs-scale_down_tasks" {
-  alarm_name        = "${var.namespace}-SQS-ScaleDown-Tasks"
-  alarm_description = "Decreases tasks based on source queue size."
-  alarm_actions     = [aws_appautoscaling_policy.sqs_scale_down_ecs_tasks.arn]
-
-  period             = var.autoscaling_scale_down_evaluation_period_seconds
-  evaluation_periods = var.scale_down_evaluation_periods
-
-  namespace           = "AWS/SQS"
-  dimensions          = { QueueName = module.sqs_queue.queue_name }
-  metric_name         = "ApproximateNumberOfMessagesVisible"
+  alarm_name          = "${var.namespace}-SQS-ScaleDown-Tasks"
+  alarm_description   = "Decreases tasks when the source queue has no visible or in-flight messages."
+  alarm_actions       = [aws_appautoscaling_policy.sqs_scale_down_ecs_tasks.arn]
+  evaluation_periods  = var.scale_down_evaluation_periods
   comparison_operator = "LessThanThreshold"
   threshold           = 1
-  statistic           = "Sum"
+
+  metric_query {
+    id          = "total_messages"
+    expression  = "visible_messages + in_flight_messages"
+    label       = "Visible + in-flight messages"
+    return_data = true
+  }
+
+  metric_query {
+    id = "visible_messages"
+    metric {
+      namespace   = "AWS/SQS"
+      metric_name = "ApproximateNumberOfMessagesVisible"
+      dimensions  = { QueueName = module.sqs_queue.queue_name }
+      period      = var.autoscaling_scale_down_evaluation_period_seconds
+      stat        = "Sum"
+    }
+  }
+
+  metric_query {
+    id = "in_flight_messages"
+    metric {
+      namespace   = "AWS/SQS"
+      metric_name = "ApproximateNumberOfMessagesNotVisible"
+      dimensions  = { QueueName = module.sqs_queue.queue_name }
+      period      = var.autoscaling_scale_down_evaluation_period_seconds
+      stat        = "Sum"
+    }
+  }
 }

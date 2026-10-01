@@ -294,6 +294,35 @@ if (require.main === module) {
 }
 ```
 
+Note that a `SIGTERM` handler like the one above only takes effect between messages: if the
+process is busy (especially with synchronous, CPU-bound work that blocks the event loop) when the
+signal arrives, the handler may not run at all before the grace period elapses and the process is
+killed. Work that takes longer than `stop_timeout_seconds` (at most 120 seconds) therefore cannot
+rely on graceful shutdown alone; see the next section.
+
+##### Protecting In-Progress Work from Scale-In
+
+Two mechanisms keep ECS from stopping a task while it is processing a message:
+
+1. **The scale-down alarm counts in-flight messages.** The module's scale-down alarm sums
+   `ApproximateNumberOfMessagesVisible` and `ApproximateNumberOfMessagesNotVisible` for the
+   primary queue, so the service is only scaled to zero once every message has been deleted
+   (or has had its visibility timeout expire). A message that has been received but not yet
+   deleted is "not visible" and keeps the service scaled up.
+2. **Task scale-in protection.** The task role is allowed to call `ecs:UpdateTaskProtection`
+   on tasks in the cluster, so the consumer process can mark its own task as protected while it
+   works. ECS then defers scale-in activities and deployments for that task until protection is
+   removed or expires. The ECS agent exposes this as an HTTP endpoint inside the container at
+   `$ECS_AGENT_URI/task-protection/v1/state`; `PUT` `{"ProtectionEnabled": true, "ExpiresInMinutes": N}`
+   after receiving a message and `{"ProtectionEnabled": false}` once it has been handled.
+   `packages/server/src/lib/ecs-task-protection.js` wraps this endpoint and is used by
+   `packages/server/src/scripts/arpaAuditReport.js`. The endpoint is unavailable (and the wrapper
+   is a no-op) outside of ECS.
+
+The first mechanism is the primary safeguard and requires no consumer changes; the second is
+defense in depth against delayed or missing CloudWatch metrics and against deployments that
+would otherwise replace a busy task.
+
 #### Autoscaling
 
 This module provides the ability to automatically scale worker tasks in ECS based on the number
@@ -305,7 +334,10 @@ must be provided via the `autoscaling_message_thresholds` input variable in orde
 the module on how many worker tasks should be provisioned according to the primary queue size.
 
 Please note the following aspects of this autoscaling behavior:
-- Autoscaling always drops to zero tasks when the primary queue is empty.
+- Autoscaling always drops to zero tasks when the primary queue is empty. "Empty" means the queue
+  has no visible messages *and* no in-flight messages (messages that a consumer has received but
+  not yet deleted), so tasks are not scaled in while they are still processing work.
+- Scale-up decisions are based on visible messages only.
 - Autoscaling is not unbounded; the maximum number of worker tasks is always 1 greater than
   the number of list items defined in the `autoscaling_message_thresholds` input variable.
 - Providing an empty list for `autoscaling_message_thresholds` will therefore autoscale
