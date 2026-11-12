@@ -68,30 +68,15 @@
       </b-card-text>
       <div>
         <div class="font-weight-bold">
-          Don't have an account?
+          New features, simpler experience
         </div>
         <div>
-          <span>If you are within the state of New Jersey </span>
+          <span>Search real Grants.gov data with our redesigned search on Simpler.Grants.gov. </span>
           <a
-            href="https://forms.office.com/pages/responsepage.aspx?id=0cN2UAI4n0uzauCkG9ZCp7ITdp07WUhBmfHGHVfxwctUNVFJNFNPUllWSTBQNFZCQlMyMjlWWU5NUiQlQCN0PWcu&route=shorturl"
+            href="https://simpler.grants.gov/search"
             target="_blank"
-            aria-label="link to New Jersey registration form"
-          >register here.</a>
-        </div>
-        <div>
-          <span>If you are within the state of Nevada </span>
-          <a
-            href="https://forms.office.com/pages/responsepage.aspx?id=5kCj5J64aE6OqhVE0nA5gBT1YIeXbrtMjy6yqM5ILm1UQVQwT0xOT1QxU0dNU1BDN05WWDdaVFRBRS4u&route=shorturl"
-            target="_blank"
-            aria-label="link to Nevada registration form"
-          >register here.</a>
-        </div>
-        <div>
-          <span>If you are located elsewhere </span>
-          <a
-            href="https://form.jotform.com/240083950102041"
-            target="_blank"
-          >connect with Nava here.</a>
+            aria-label="link to Simpler Grants.gov search"
+          >Use the new simpler search</a>
         </div>
         <div class="mt-3">
           <span class="font-weight-bold">Need help? </span><a href="mailto:grantfinder.helpdesk@navapbc.com?subject=Federal Grant Finder Login Issue">Contact Nava for support.</a>

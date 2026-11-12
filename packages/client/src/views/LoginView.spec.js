@@ -73,19 +73,11 @@ describe('LoginView', () => {
   it('should have expected hrefs and text for registration links', () => {
     const links = wrapper.findAll('a');
 
-    const newJerseyLink = links[0];
-    const nevadaLink = links[1];
-    const navaLink = links[2];
-    const contactNavaEmail = links[3];
+    const simplerSearchLink = links[0];
+    const contactNavaEmail = links[1];
 
-    expect(newJerseyLink.attributes('aria-label')).toEqual('link to New Jersey registration form');
-    expect(newJerseyLink.attributes('href')).toEqual('https://forms.office.com/pages/responsepage.aspx?id=0cN2UAI4n0uzauCkG9ZCp7ITdp07WUhBmfHGHVfxwctUNVFJNFNPUllWSTBQNFZCQlMyMjlWWU5NUiQlQCN0PWcu&route=shorturl');
-
-    expect(nevadaLink.attributes('aria-label')).toEqual('link to Nevada registration form');
-    expect(nevadaLink.attributes('href')).toEqual('https://forms.office.com/pages/responsepage.aspx?id=5kCj5J64aE6OqhVE0nA5gBT1YIeXbrtMjy6yqM5ILm1UQVQwT0xOT1QxU0dNU1BDN05WWDdaVFRBRS4u&route=shorturl');
-
-    expect(navaLink.text()).toBe('connect with Nava here.');
-    expect(navaLink.attributes('href')).toEqual('https://form.jotform.com/240083950102041');
+    expect(simplerSearchLink.attributes('aria-label')).toEqual('link to Simpler Grants.gov search');
+    expect(simplerSearchLink.attributes('href')).toEqual('https://simpler.grants.gov/search');
 
     expect(contactNavaEmail.text()).toBe('Contact Nava for support.');
     expect(contactNavaEmail.attributes('href')).toEqual('mailto:grantfinder.helpdesk@navapbc.com?subject=Federal Grant Finder Login Issue');
