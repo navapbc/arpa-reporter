@@ -71,12 +71,12 @@
           New features, simpler experience
         </div>
         <div>
-          <span>Search real Grants.gov data with our redesigned search on Simpler.Grants.gov. </span>
+          <span>Search real Grants.gov data with our redesigned search on Simpler.Grants.gov. Opportunities and your custom searches can be saved and shared. We're also developing new features to support managing your organization in the Simpler Workspace. </span>
           <a
             href="https://simpler.grants.gov/search"
             target="_blank"
             aria-label="link to Simpler Grants.gov search"
-          >Use the new simpler search</a>
+          >Check it out at Simpler Grants.gov.</a>
         </div>
         <div class="mt-3">
           <span class="font-weight-bold">Need help? </span><a href="mailto:grantfinder.helpdesk@navapbc.com?subject=Federal Grant Finder Login Issue">Contact Nava for support.</a>
